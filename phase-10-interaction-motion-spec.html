@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interaction, Motion, and Edge-Case Specification — Provisional Decision Log — Phase 10 · Design Handoff</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 10 · Design Handoff</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./interaction-motion-spec.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Interaction, Motion, and Edge-Case Specification — Provisional Decision Log</h1>
+<h2>Purpose, scope, and readiness</h2>
+<p>This artifact separates observable sample interactions from proposed production behavior and unresolved system decisions. It is not an engineering-approved motion system or executable behavior contract.</p>
+<ul>
+<li><strong>Inputs:</strong> Phase 06 INT-01–11/ST-01–13/EC-01–14; Phase 07 coverage; Phase 09 A11Y/DQA issues; Phase 10 specifications/component candidates; frozen HTML sample.</li>
+<li><strong>Platform/motion guidance:</strong> no authoritative platform capabilities, product motion tokens, performance budget, API/state model, or engineering/accessibility review was supplied.</li>
+<li><strong>Readiness:</strong> screen switch and budget-sheet mechanics are observable in the sample; every production interaction involving data, permissions, persistence, errors, export, recurring items, insights, or notifications remains Inferred/LOW or blocked.</li>
+<li><strong>Guardrail:</strong> exact sample timings document current code only and are not production recommendations.</li>
+</ul>
+<h2>1. Interaction decision log</h2>
+<h3>IA-01: Overview ↔ category detail navigation</h3>
+<ul>
+<li><strong>Trigger:</strong> Activate Food &amp; Dining row or Back.</li>
+<li><strong>Purpose:</strong> Orientation between summary and scoped category details.</li>
+<li><strong>Transition/state change:</strong> Sample toggles <code>.is-active</code>, updates query string, resets scroll, and focuses first button.</li>
+<li><strong>Duration/easing:</strong> Sample-only 420ms <code>cubic-bezier(.2,.8,.2,1)</code> screen entrance.</li>
+<li><strong>Interruption behavior:</strong> Not defined; repeated trigger/history semantics are not production-grade.</li>
+<li><strong>Error/retry/timeout:</strong> No data/navigation failure state exists.</li>
+<li><strong>Reduced-motion alternative:</strong> Sample reduces duration to near-zero; production should preserve instant state/context announcement.</li>
+<li><strong>Platform dependency:</strong> Parent-app routing/history/focus conventions Unknown.</li>
+<li><strong>Decision status:</strong> Observable sample behavior/HIGH; production behavior Proposed/LOW. Resolve focus-to-heading A11Y-04.</li>
+</ul>
+<h3>IA-02: Open/choose/close budget sheet</h3>
+<ul>
+<li><strong>Trigger:</strong> Set a budget; choose preset; scrim/Escape close.</li>
+<li><strong>Purpose:</strong> Sample interaction mechanics only.</li>
+<li><strong>Transition/state change:</strong> Adds modal class, moves initial focus, changes visual selection class, returns focus on close.</li>
+<li><strong>Duration/easing:</strong> Sample fade 200ms ease and rise 300ms <code>cubic-bezier(.2,.8,.2,1)</code>.</li>
+<li><strong>Interruption behavior:</strong> Scrim/Escape close; no visible cancel, focus trap, inert background, or pending-state rule.</li>
+<li><strong>Error/retry/timeout:</strong> Missing.</li>
+<li><strong>Reduced-motion alternative:</strong> Near-zero sample CSS; state change must remain explicit without motion.</li>
+<li><strong>Platform dependency:</strong> Approved dialog/sheet/choice component and keyboard/touch conventions missing.</li>
+<li><strong>Decision status:</strong> Sample mechanics observed/HIGH; production blocked by A11Y-02/03 and data/API rules.</li>
+</ul>
+<h3>IA-03: Submit a consequential financial change</h3>
+<ul>
+<li><strong>Trigger:</strong> Confirm category/budget/preference/export action after review.</li>
+<li><strong>Purpose:</strong> Safely request a mutation without duplicate, ambiguous, or false success.</li>
+<li><strong>Transition/state change:</strong> Candidate: validate → explicit review → pending → authoritative success/failure/unknown/cancel/conflict.</li>
+<li><strong>Duration/easing:</strong> No production animation specified; status responsiveness and API thresholds require engineering/product evidence.</li>
+<li><strong>Interruption behavior:</strong> Prevent duplicate submit; cancellation semantics depend on server state; preserve prior authoritative value until confirmation.</li>
+<li><strong>Error/retry/timeout:</strong> Show exact prior/effective state; retry/status check/cancel/help according to idempotency contract.</li>
+<li><strong>Reduced-motion alternative:</strong> Identical state sequence with no spatial animation; text/status/focus provide feedback.</li>
+<li><strong>Platform dependency:</strong> API idempotency/status/cancellation/concurrency, security, permissions.</li>
+<li><strong>Decision status:</strong> Inferred/LOW requirement candidate; blocked.</li>
+</ul>
+<h3>IA-04: Change period or refresh data</h3>
+<ul>
+<li><strong>Trigger:</strong> Select period/refresh.</li>
+<li><strong>Purpose:</strong> Maintain scope and orientation while loading a new financial dataset.</li>
+<li><strong>Transition/state change:</strong> Candidate: prior visible data becomes explicitly stale/pending or is replaced by safe loading state; all dependent values update consistently.</li>
+<li><strong>Duration/easing:</strong> No animation specified.</li>
+<li><strong>Interruption behavior:</strong> New selection cancels/supersedes safely only under approved request model.</li>
+<li><strong>Error/retry/timeout:</strong> Retain/identify prior period; no mixed-period data; retry/cancel.</li>
+<li><strong>Reduced-motion alternative:</strong> No animated count-up or chart growth required.</li>
+<li><strong>Platform dependency:</strong> Data API, caching, partial/stale policy, timezone.</li>
+<li><strong>Decision status:</strong> Inferred/LOW; blocked.</li>
+</ul>
+<h3>IA-05: Correct transaction category</h3>
+<ul>
+<li><strong>Trigger:</strong> Authorized Change category.</li>
+<li><strong>Purpose:</strong> Repair category with explicit current/new/future effect and recovery.</li>
+<li><strong>Transition/state change:</strong> Candidate WF-03 → selection → review → pending → result; missing in sample.</li>
+<li><strong>Duration/easing:</strong> None specified; motion is unnecessary to prove state.</li>
+<li><strong>Interruption behavior:</strong> Cancel does not save; closing during pending follows approved request/status contract.</li>
+<li><strong>Error/retry/timeout:</strong> Same/removed category, conflict, offline, timeout, unauthorized; original remains authoritative until success.</li>
+<li><strong>Reduced-motion alternative:</strong> Direct page/dialog state changes with focus/status.</li>
+<li><strong>Platform dependency:</strong> Taxonomy, permissions, correction-memory precedence, audit, undo, API.</li>
+<li><strong>Decision status:</strong> Critical/Blocked.</li>
+</ul>
+<h3>IA-06: Create/export monthly record</h3>
+<ul>
+<li><strong>Trigger:</strong> Authorized Create file, then optional Save/Share.</li>
+<li><strong>Purpose:</strong> Produce a scoped sensitive file without accidental disclosure.</li>
+<li><strong>Transition/state change:</strong> Candidate setup → scope warning/re-auth → generation pending → ready/failure/cancel; sharing is a separate explicit action.</li>
+<li><strong>Duration/easing:</strong> No decorative motion specified.</li>
+<li><strong>Interruption behavior:</strong> App close/cancel/background behavior requires secure generation/status policy.</li>
+<li><strong>Error/retry/timeout:</strong> No partial/ambiguous file; disclose/block stale data; safe retry/status check; share cancellation is not share success.</li>
+<li><strong>Reduced-motion alternative:</strong> Static progress/status text with accessible update.</li>
+<li><strong>Platform dependency:</strong> File format, accessible structure, storage/share sheet, retention/redaction/deletion, security.</li>
+<li><strong>Decision status:</strong> Critical/Blocked.</li>
+</ul>
+<h3>IA-07: Explain/dismiss unusual pattern or recurring classification</h3>
+<ul>
+<li><strong>Trigger:</strong> Open insight/item; inspect, dismiss, confirm/not recurring, or preferences if approved.</li>
+<li><strong>Purpose:</strong> Explain uncertainty and preserve control without judgment.</li>
+<li><strong>Transition/state change:</strong> Missing in sample; any state change requires effective status and recovery.</li>
+<li><strong>Duration/easing:</strong> No motion specified.</li>
+<li><strong>Interruption behavior:</strong> No forced action/auto-advance; stale deep links must fail safely.</li>
+<li><strong>Error/retry/timeout:</strong> False/stale/shared/sensitive item, permission, notification mismatch.</li>
+<li><strong>Reduced-motion alternative:</strong> Identical content/state without animation.</li>
+<li><strong>Platform dependency:</strong> Detection/baseline/confidence/correction/notification/privacy rules.</li>
+<li><strong>Decision status:</strong> High-risk/Blocked.</li>
+</ul>
+<h3>IA-08: Transient supplemental feedback</h3>
+<ul>
+<li><strong>Trigger:</strong> Sample preview controls and budget save.</li>
+<li><strong>Purpose:</strong> Acknowledge a non-consequential preview or supplement a durable result.</li>
+<li><strong>Transition/state change:</strong> Sample toast enters/exits and live region text changes.</li>
+<li><strong>Duration/easing:</strong> Sample 280ms ease; auto-removes after 2200ms.</li>
+<li><strong>Interruption behavior:</strong> Repeated message resets timer; no history/recall.</li>
+<li><strong>Error/retry/timeout:</strong> Not supported.</li>
+<li><strong>Reduced-motion alternative:</strong> Near-zero transition, same text announcement.</li>
+<li><strong>Platform dependency:</strong> Approved status/message component and timing/accessibility rules.</li>
+<li><strong>Decision status:</strong> Direct sample observation/HIGH; prohibited as sole production financial result (A11Y-07/CMP-05).</li>
+</ul>
+<h2>2. Motion specs</h2>
+<table>
+<thead>
+<tr>
+<th>Motion ID</th>
+<th>Sample behavior</th>
+<th>Current values</th>
+<th>Functional purpose</th>
+<th>Production disposition</th>
+<th>Owner/review</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOT-01</td>
+<td>Screen entrance</td>
+<td>420ms; translate/scale/opacity; custom easing</td>
+<td>Orientation</td>
+<td>Do not adopt until routing/performance/accessibility review; instant alternative required</td>
+<td>Platform/accessibility/engineering</td>
+</tr>
+<tr>
+<td>MOT-02</td>
+<td>Summary decorative pulse</td>
+<td>3.8s infinite scale/opacity</td>
+<td>Decorative only</td>
+<td>Remove if distracting/costly; never required for meaning</td>
+<td>Brand/accessibility</td>
+</tr>
+<tr>
+<td>MOT-03</td>
+<td>Icon/category hover</td>
+<td>200ms ease transform/background</td>
+<td>Pointer feedback</td>
+<td>Platform-specific; must have non-hover/focus/touch behavior</td>
+<td>Design-system/platform</td>
+</tr>
+<tr>
+<td>MOT-04</td>
+<td>Chart grow</td>
+<td>720ms custom easing with delays</td>
+<td>Progressive reveal</td>
+<td>Data must be immediately available semantically; no motion-only comparison</td>
+<td>Data-viz/accessibility</td>
+</tr>
+<tr>
+<td>MOT-05</td>
+<td>Modal fade/rise</td>
+<td>200/300ms custom easing</td>
+<td>Layer/orientation</td>
+<td>Use approved dialog component; interruptible; no delay to focus/content</td>
+<td>Design-system/accessibility/engineering</td>
+</tr>
+<tr>
+<td>MOT-06</td>
+<td>Toast enter/exit</td>
+<td>280ms ease; 2200ms visible</td>
+<td>Supplemental feedback</td>
+<td>Not sole consequential status; durable result required</td>
+<td>Product/accessibility</td>
+</tr>
+<tr>
+<td>MOT-07</td>
+<td>Reduced motion</td>
+<td>Global <code>.001ms</code>, one iteration</td>
+<td>Remove animation</td>
+<td>Source-level positive pattern; verify platform/performance and state clarity</td>
+<td>Accessibility/engineering</td>
+</tr>
+</tbody></table>
+<p>No product motion token, duration, easing, performance threshold, or animation is approved. Future specifications must justify each motion by orientation, hierarchy, continuity, feedback, or status—not decoration alone.</p>
+<h2>3. State transitions</h2>
+<table>
+<thead>
+<tr>
+<th>Transition ID</th>
+<th>From</th>
+<th>Trigger</th>
+<th>Pending/intermediate</th>
+<th>End states</th>
+<th>Recovery/authoritative rule</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TR-01</td>
+<td>Overview</td>
+<td>Open category</td>
+<td>Route/load status</td>
+<td>Detail / unavailable / error</td>
+<td>Return to source; no stale sensitive preview</td>
+<td>Sample only covers static success</td>
+</tr>
+<tr>
+<td>TR-02</td>
+<td>Detail</td>
+<td>Back</td>
+<td>None</td>
+<td>Overview</td>
+<td>Restore logical context/focus according to platform</td>
+<td>Sample partial</td>
+</tr>
+<tr>
+<td>TR-03</td>
+<td>Overview</td>
+<td>Open budget</td>
+<td>Dialog open</td>
+<td>Ready / unavailable / denied</td>
+<td>Visible cancel and focus return</td>
+<td>Sample incomplete</td>
+</tr>
+<tr>
+<td>TR-04</td>
+<td>Budget open</td>
+<td>Select amount</td>
+<td>Programmatic selected state</td>
+<td>Choice updated</td>
+<td>No save until explicit confirm</td>
+<td>Sample visual-only selection</td>
+</tr>
+<tr>
+<td>TR-05</td>
+<td>Reviewed action</td>
+<td>Confirm</td>
+<td>ST-09 pending</td>
+<td>ST-10 success / ST-11 failure / ST-06 unknown / ST-13 conflict</td>
+<td>Prior state authoritative; idempotent recovery</td>
+<td>Missing/Blocked</td>
+</tr>
+<tr>
+<td>TR-06</td>
+<td>Pending action</td>
+<td>Cancel/close/app exit</td>
+<td>Cancellation request/status</td>
+<td>Cancelled / completed / unknown</td>
+<td>Never imply cancellation without confirmation</td>
+<td>Missing/Blocked</td>
+</tr>
+<tr>
+<td>TR-07</td>
+<td>Data view</td>
+<td>Change period/refresh</td>
+<td>Loading/stale-qualified</td>
+<td>Data / empty / partial / stale / error</td>
+<td>No mixed scope; retain prior context safely</td>
+<td>Missing/Blocked</td>
+</tr>
+<tr>
+<td>TR-08</td>
+<td>Export setup</td>
+<td>Create</td>
+<td>Re-auth/generation</td>
+<td>Ready / failed / cancelled / unknown</td>
+<td>No partial file; Share is separate</td>
+<td>Missing/Blocked</td>
+</tr>
+<tr>
+<td>TR-09</td>
+<td>Pattern/recurring</td>
+<td>Dismiss/correct/preferences</td>
+<td>Pending if persisted</td>
+<td>Effective state / failed / conflict</td>
+<td>Explain actual state and control</td>
+<td>Missing/Blocked</td>
+</tr>
+<tr>
+<td>TR-10</td>
+<td>Any protected route</td>
+<td>Auth/permission fails</td>
+<td>No sensitive preview</td>
+<td>Re-auth / denied / safe exit</td>
+<td>Restore intended route only when safe</td>
+<td>Missing/Blocked</td>
+</tr>
+</tbody></table>
+<h2>4. Edge-case matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Edge ID</th>
+<th>Condition</th>
+<th>Affected interaction/component</th>
+<th>Required candidate handling</th>
+<th>Severity</th>
+<th>Owner/dependency/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>EDGE-01</td>
+<td>Partial month/no comparison history</td>
+<td>IA-04/CMP-01/04</td>
+<td>Omit or qualify comparison; disclose period comparability</td>
+<td>High</td>
+<td>Product/data / Blocked</td>
+</tr>
+<tr>
+<td>EDGE-02</td>
+<td>Refund/reversal/transfer/duplicate/pending</td>
+<td>CMP-02/IA-05</td>
+<td>Distinct status and edit rules; no forced purchase model</td>
+<td>Critical</td>
+<td>Product/data / Blocked</td>
+</tr>
+<tr>
+<td>EDGE-03</td>
+<td>Long/localized/RTL label</td>
+<td>All</td>
+<td>Wrap/reflow; preserve label/value/action; approved truncation only</td>
+<td>High</td>
+<td>Localization/accessibility</td>
+</tr>
+<tr>
+<td>EDGE-04</td>
+<td>Large/negative/zero/decimal/multi-currency</td>
+<td>CMP-01/02/03/04/06</td>
+<td>Locale-aware untruncated value and explicit semantics</td>
+<td>Critical</td>
+<td>Data/localization</td>
+</tr>
+<tr>
+<td>EDGE-05</td>
+<td>Category removed/renamed or rule conflict</td>
+<td>IA-05/CMP-03</td>
+<td>Revalidate; explain; never silently remap</td>
+<td>Critical</td>
+<td>Taxonomy/data/API</td>
+</tr>
+<tr>
+<td>EDGE-06</td>
+<td>Budget already exceeded/notification denied</td>
+<td>IA-02/03</td>
+<td>Explain effective alert behavior before confirmation</td>
+<td>High</td>
+<td>Product/platform/privacy</td>
+</tr>
+<tr>
+<td>EDGE-07</td>
+<td>Irregular/shared/sensitive recurring item</td>
+<td>IA-07/CMP-02</td>
+<td>Qualify detection; minimize exposure; recovery if approved</td>
+<td>Critical</td>
+<td>Data/privacy/security</td>
+</tr>
+<tr>
+<td>EDGE-08</td>
+<td>Export with stale/partial data</td>
+<td>IA-06/CMP-06</td>
+<td>Disclose or block under approved rule; no silent partial file</td>
+<td>Critical</td>
+<td>Product/privacy/data</td>
+</tr>
+<tr>
+<td>EDGE-09</td>
+<td>App closes/repeated trigger during pending action</td>
+<td>IA-03/06/CMP-05</td>
+<td>Idempotent status recovery; no duplicate or false result</td>
+<td>Critical</td>
+<td>Engineering architecture</td>
+</tr>
+<tr>
+<td>EDGE-10</td>
+<td>Insight deep link becomes stale</td>
+<td>IA-07</td>
+<td>Re-evaluate; safe explanation/fallback</td>
+<td>High</td>
+<td>Insight/API/notification</td>
+</tr>
+<tr>
+<td>EDGE-11</td>
+<td>Reflow, screen reader, magnification, reduced motion</td>
+<td>All</td>
+<td>Complete access without clipped controls or motion-only state</td>
+<td>Critical</td>
+<td>Accessibility/platform</td>
+</tr>
+<tr>
+<td>EDGE-12</td>
+<td>Shared device/screenshot/app switcher</td>
+<td>All</td>
+<td>Apply approved privacy-display policy</td>
+<td>Critical</td>
+<td>Security/privacy/platform</td>
+</tr>
+<tr>
+<td>EDGE-13</td>
+<td>Focused control obscured by keyboard/sticky UI/toast</td>
+<td>CMP-03/05/07</td>
+<td>Scroll/reposition without lost context; no overlay collision</td>
+<td>High</td>
+<td>Accessibility/platform</td>
+</tr>
+<tr>
+<td>EDGE-14</td>
+<td>Network returns after timeout/unknown result</td>
+<td>IA-03/06</td>
+<td>Reconcile authoritative status before retry</td>
+<td>Critical</td>
+<td>API/idempotency</td>
+</tr>
+</tbody></table>
+<h2>5. Reduced-motion behavior</h2>
+<ol>
+<li>Respect platform/user reduced-motion settings from first render; do not require a user to rediscover the preference inside the feature.</li>
+<li>Replace screen translate/scale, modal rise, chart growth, decorative pulse, and toast travel with immediate state changes or minimal non-spatial opacity only after review.</li>
+<li>Keep headings, focus, text, status roles, selected/current states, progress, and result content identical; reduced motion must not remove information.</li>
+<li>Do not auto-advance guided review steps, hide critical messages on animation completion, or delay interactive readiness for motion.</li>
+<li>Stop/reduce continuous decorative animation independently of task motion.</li>
+<li>Test reduced motion with keyboard, screen reader, zoom/reflow, slow device, and interrupted async states in supported platforms.</li>
+</ol>
+<p>The sample CSS near-zero duration is directly observable, but compatibility and complete functional equivalence are untested.</p>
+<h2>6. Implementation questions and decisions</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Question/decision</th>
+<th>Evidence</th>
+<th>Owner</th>
+<th>Status</th>
+<th>Required answer/validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IQ-01</td>
+<td>Which routing/history/focus model replaces sample screen toggling?</td>
+<td>IA-01/A11Y-04</td>
+<td>Platform/accessibility/engineering</td>
+<td>Open</td>
+<td>Approved platform behavior and test</td>
+</tr>
+<tr>
+<td>IQ-02</td>
+<td>Which dialog/choice/status components implement CMP-03/05?</td>
+<td>Component docs</td>
+<td>Design-system/engineering/accessibility</td>
+<td>Open</td>
+<td>Component architecture and regression</td>
+</tr>
+<tr>
+<td>IQ-03</td>
+<td>What API state/idempotency/cancellation/timeout model applies?</td>
+<td>TR-05/06/08/09</td>
+<td>Engineering/data</td>
+<td>Blocked</td>
+<td>Written contracts and spike evidence</td>
+</tr>
+<tr>
+<td>IQ-04</td>
+<td>What data/permission/privacy/security rules govern every flow?</td>
+<td>EDGE matrix</td>
+<td>Product/data/security/privacy/legal</td>
+<td>Blocked</td>
+<td>Approved rule/authorization matrix</td>
+</tr>
+<tr>
+<td>IQ-05</td>
+<td>What motion tokens and platform performance budgets apply?</td>
+<td>MOT-01–07</td>
+<td>Design-system/platform/engineering</td>
+<td>Open</td>
+<td>Measured/reviewed guidance</td>
+</tr>
+<tr>
+<td>IQ-06</td>
+<td>Which animations have a necessary functional purpose?</td>
+<td>Sample code only</td>
+<td>Product design/accessibility</td>
+<td>Open</td>
+<td>Remove unjustified motion; test alternatives</td>
+</tr>
+<tr>
+<td>IQ-07</td>
+<td>What responsive/localization/AT/device matrix is supported?</td>
+<td>Phase 09/10 gaps</td>
+<td>Product/accessibility/platform/localization</td>
+<td>Blocked</td>
+<td>Named matrix and evidence</td>
+</tr>
+<tr>
+<td>IQ-08</td>
+<td>Who approves the implementation commitment and high-risk decisions?</td>
+<td>G09 boundary</td>
+<td>Sponsor/product/risk owners</td>
+<td>Open</td>
+<td>Named decision rights; G10 cannot infer</td>
+</tr>
+</tbody></table>
+<p>Recorded artifact decisions:</p>
+<ul>
+<li><strong>IM-D01 Confirmed:</strong> document sample motion values without recommending them for production.</li>
+<li><strong>IM-D02 Confirmed:</strong> define asynchronous state completeness as a prerequisite; do not leave it to developer inference.</li>
+<li><strong>IM-D03 Confirmed:</strong> require reduced/no-motion functional equivalence.</li>
+<li><strong>IM-D04 Proposed:</strong> production motion and interactions remain blocked until engineering/accessibility/product/risk review.</li>
+</ul>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IM-E01</td>
+<td>HTML CSS/JS</td>
+<td>frozen hash in design specs</td>
+<td>Sample timings/interactions</td>
+<td>Direct</td>
+<td>HIGH for source</td>
+<td>Not production behavior</td>
+</tr>
+<tr>
+<td>IM-E02</td>
+<td>Phase 06 annotations</td>
+<td>G06-approved</td>
+<td>INT/ST/EC candidates</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>No system/owner validation</td>
+</tr>
+<tr>
+<td>IM-E03</td>
+<td>Phase 07 coverage</td>
+<td>G07-approved</td>
+<td>Missing flows/states/readiness</td>
+<td>Direct artifact comparison</td>
+<td>HIGH</td>
+<td>No implementation/user evidence</td>
+</tr>
+<tr>
+<td>IM-E04</td>
+<td>Phase 09 accessibility/QA</td>
+<td>G09-reviewed</td>
+<td>A11Y/DQA blockers</td>
+<td>Direct audit/synthesis</td>
+<td>HIGH/MEDIUM</td>
+<td>No remediation/retest</td>
+</tr>
+<tr>
+<td>IM-E05</td>
+<td>Phase 10 component docs</td>
+<td>current</td>
+<td>Candidate anatomy/states</td>
+<td>Synthesis</td>
+<td>LOW/MEDIUM</td>
+<td>No architecture/owners</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IM-D01</td>
+<td>Preserve sample timings as observations only</td>
+<td>Avoid unsupported platform prescription</td>
+<td>Phase 10 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>IM-D02</td>
+<td>Require full async/cancel/error/recovery state contracts</td>
+<td>Financial correctness/risk</td>
+<td>Product/engineering/data</td>
+<td>Not set</td>
+<td>Proposed/blocking</td>
+<td>API/rule decisions</td>
+</tr>
+<tr>
+<td>IM-D03</td>
+<td>Require reduced-motion functional equivalence</td>
+<td>Accessibility guardrail</td>
+<td>Accessibility/engineering/design</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Platform/motion system/test</td>
+</tr>
+<tr>
+<td>IM-D04</td>
+<td>Conduct engineering/accessibility interaction review before implementation</td>
+<td>Skill and G09 boundary</td>
+<td>Engineering/accessibility/product</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Handoff-ready baseline</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Purpose, scope, inputs, evidence boundary, platform gaps, and readiness are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Interaction decisions, motion specs, state transitions, edge cases, reduced motion, and implementation questions are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Triggers, purposes, state changes, timings where observed, interruptions, failures, retries, timeouts, cancellation, dependencies, confidence, and status are documented.</li>
+<li><input checked="" disabled="" type="checkbox"> Sample behavior, inferred candidates, proposed decisions, and missing engineering facts remain separate.</li>
+<li><input checked="" disabled="" type="checkbox"> No motion token, platform support, API behavior, feasibility, approved interaction, implementation result, accessibility compatibility, or user intent was invented.</li>
+<li><input disabled="" type="checkbox"> Product/engineering/accessibility/risk decisions and feasibility evidence exist — blocked.</li>
+<li><input disabled="" type="checkbox"> Source design/documentation updated after implementation decisions and regression — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from interaction-motion-spec.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

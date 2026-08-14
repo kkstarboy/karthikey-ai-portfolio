@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design Specifications — Provisional Asset Freeze and Handoff Blockers — Phase 10 · Design Handoff</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 10 · Design Handoff</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./design-specifications.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Design Specifications — Provisional Asset Freeze and Handoff Blockers</h1>
+<h2>Purpose, scope, and readiness</h2>
+<p>This artifact records the accessible design assets, observable sample values, missing implementation decisions, and validation actions for G10 review. It does not claim to provide an implementation-ready Figma, Zeplin, component-library, or production specification.</p>
+<ul>
+<li><strong>Scope:</strong> Smart Expense Tracker visual sample and the Phase 06–09 specification chain.</li>
+<li><strong>Decision supported:</strong> whether Phase 10 has truthfully documented what can and cannot be handed to development.</li>
+<li><strong>G09 authorization:</strong> limitation/specification handling only; the design remains <strong>NOT READY for production handoff</strong>.</li>
+<li><strong>Critical missing inputs:</strong> approved high-fidelity baseline, authoritative design tokens/library, complete states, platform/engineering context, final content/data rules, accessibility target, release scope, owner decisions, and developer readiness review.</li>
+<li><strong>Evidence boundary:</strong> no usability testing, implementation, feasibility approval, or production behavior exists.</li>
+</ul>
+<h2>Input and version inventory</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source</th>
+<th>Version/date</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SP-E01</td>
+<td><code>Output/reviews/gate-09-review.md</code></td>
+<td>SHA-256 <code>E675894ECEF32B652261CF98E98C96069A861B8C447B3A7D5B0FE753FCEB2703</code>; 2026-07-24</td>
+<td>Direct decision record</td>
+<td>HIGH</td>
+<td>Authorizes documentation only</td>
+</tr>
+<tr>
+<td>SP-E02</td>
+<td>Four <code>Output/phase-09/</code> artifacts</td>
+<td>G09-reviewed hashes</td>
+<td>Direct project artifacts</td>
+<td>HIGH for contents</td>
+<td>Provisional, not production-ready</td>
+</tr>
+<tr>
+<td>SP-E03</td>
+<td><code>Output/visual-design/smart-expense-tracker.html</code></td>
+<td>SHA-256 <code>D757FF49591F6EF55E76E461E0C96D151E493961B0688F7859ECABCE550F1C78</code></td>
+<td>Direct asset inspection</td>
+<td>HIGH for present code</td>
+<td>Two screens/one simulated sheet only</td>
+</tr>
+<tr>
+<td>SP-E04</td>
+<td>Two JPEG captures</td>
+<td>hashes in Phase 09</td>
+<td>Direct assets</td>
+<td>HIGH for captured default states</td>
+<td>780×1688 only; not responsive/state boards</td>
+</tr>
+<tr>
+<td>SP-E05</td>
+<td>Phase 06 wireframes/annotations</td>
+<td>G06-approved</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Rules and feasibility unresolved</td>
+</tr>
+<tr>
+<td>SP-E06</td>
+<td><code>DESIGN-airbnb.md</code></td>
+<td>alpha</td>
+<td>Reported reference</td>
+<td>HIGH for document</td>
+<td>Not authoritative product system</td>
+</tr>
+</tbody></table>
+<h2>1. Handoff-ready file</h2>
+<p><strong>No handoff-ready design file exists.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Candidate file/package</th>
+<th>Present</th>
+<th>Frozen version</th>
+<th>Handoff classification</th>
+<th>Reason/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Figma/Zeplin source</td>
+<td>No</td>
+<td>None</td>
+<td>Missing</td>
+<td>Provide authorized source with pages, frames, components, variables, prototypes, permissions, and version history</td>
+</tr>
+<tr>
+<td>Authoritative product component library</td>
+<td>No</td>
+<td>None</td>
+<td>Missing</td>
+<td>Identify current-app library/owner and reconcile NCR-01–05</td>
+</tr>
+<tr>
+<td><code>smart-expense-tracker.html</code></td>
+<td>Yes</td>
+<td>SP-E03 hash</td>
+<td>Provisional inspection asset only</td>
+<td>Do not implement as approved UI; partial simulation and accessibility/state blockers</td>
+</tr>
+<tr>
+<td><code>screen-01-overview.jpg</code></td>
+<td>Yes</td>
+<td><code>9AE094…0145</code></td>
+<td>Visual reference only</td>
+<td>One default mobile state; not a source of responsive or behavioral truth</td>
+</tr>
+<tr>
+<td><code>screen-02-food-detail.jpg</code></td>
+<td>Yes</td>
+<td><code>5812D0…ADCE</code></td>
+<td>Visual reference only</td>
+<td>Same limitation</td>
+</tr>
+<tr>
+<td><code>sample-design-notes.md</code></td>
+<td>Yes</td>
+<td>SHA-256 <code>AAA05D41D789508BA159B7CA9383DFF98523D2178025798F695A6AA6EAB744DD</code></td>
+<td>Limitation/provenance record</td>
+<td>Keep synchronized with asset/workflow changes</td>
+</tr>
+<tr>
+<td>Phase 09 Markdown artifacts</td>
+<td>Yes</td>
+<td>G09-reviewed hashes</td>
+<td>Provisional specification/audit inputs</td>
+<td>Preserve open issues and not-ready status</td>
+</tr>
+</tbody></table>
+<p>Baseline-freeze decision: the listed hashes identify the evidence reviewed for Phase 10. They do not turn the assets into approved implementation files. Any asset change makes affected specifications and captures stale and requires targeted revalidation.</p>
+<h2>2. Screen and component specs</h2>
+<h3>SPEC-01: Spending overview sample</h3>
+<ul>
+<li><strong>Approved version:</strong> Not approved; HTML SP-E03, overview capture SP-E04.</li>
+<li><strong>Dimensions/grid:</strong> Sample uses a 390px staged phone; product content padding 20px; fixed phone shell is presentation-only.</li>
+<li><strong>Spacing tokens:</strong> Observed 8/12/14/20/22px values; broad 4px-derived rhythm but not variable-bound.</li>
+<li><strong>Typography tokens:</strong> Local 34px amount, 22px screen title, 18px section heading, 11–14px supporting text; not linked to authoritative product tokens.</li>
+<li><strong>Color/elevation tokens:</strong> <code>--rausch</code>, ink/body/muted/hairlines/soft/canvas plus custom gradient/shadow; EX-01 contrast and EX-02 custom-surface issues remain open.</li>
+<li><strong>States/variants:</strong> Static default; preview toasts; partial budget entry. Loading/empty/partial/stale/error/permission and data extremes missing.</li>
+<li><strong>Responsive rules:</strong> Only sample’s ≤760px CSS; product matrix missing.</li>
+<li><strong>Assets:</strong> No exported bitmap/icon required for text/native controls; Unicode icons are not approved assets.</li>
+<li><strong>Accessibility notes:</strong> Primary text contrast, focus/current state, semantic rows, zoom/reflow, and AT testing open.</li>
+<li><strong>Open question:</strong> app shell, period/data source/freshness, component architecture, all state/content contracts.</li>
+</ul>
+<h3>SPEC-02: Food &amp; Dining detail sample</h3>
+<ul>
+<li><strong>Approved version:</strong> Not approved; HTML SP-E03, detail capture SP-E04.</li>
+<li><strong>Dimensions/grid:</strong> Same 390px sample; 20px horizontal gutters; chart height 150px in sample only.</li>
+<li><strong>Spacing tokens:</strong> Observed 10/12/13/16/18/20/22/24px values; token linkage absent.</li>
+<li><strong>Typography tokens:</strong> Local 32px amount, 22px title, 18px heading, 12–14px body/meta.</li>
+<li><strong>Color/elevation tokens:</strong> Ink/muted/soft/Rausch plus custom pink insight surface.</li>
+<li><strong>States/variants:</strong> Static default/back; correction and options are non-functional preview messages.</li>
+<li><strong>Responsive rules:</strong> Not specified beyond sample CSS.</li>
+<li><strong>Assets:</strong> Chart is CSS, not an image; retain structured-text alternative requirement.</li>
+<li><strong>Accessibility notes:</strong> semantic list, focus destination, data relationships, text/chart alternative, long/extreme values, and AT testing open.</li>
+<li><strong>Open question:</strong> transaction notation, edit permission, correction workflow, refunds/reversals/pending, comparison rules.</li>
+</ul>
+<h3>SPEC-03: Budget sheet sample</h3>
+<ul>
+<li><strong>Approved version:</strong> Not approved; local HTML state only.</li>
+<li><strong>Dimensions/grid:</strong> Bottom sheet fills sample width; 18/20/26px padding and 24px top radius are observed, not product tokens.</li>
+<li><strong>Spacing tokens:</strong> 8px choice gap; 14px save margin; local only.</li>
+<li><strong>Typography tokens:</strong> Inherited/local; no approved token mapping.</li>
+<li><strong>Color/elevation tokens:</strong> Scrim at 45% black, white sheet, ink selected choice, Rausch save.</li>
+<li><strong>States/variants:</strong> Open, visually selected, simulated save, scrim/Escape close. Validation, pending, failure, conflict, offline, effective notification state, and durable success missing.</li>
+<li><strong>Responsive rules:</strong> Mobile sample only.</li>
+<li><strong>Assets:</strong> None; use native/library controls rather than exporting text or controls.</li>
+<li><strong>Accessibility notes:</strong> A11Y-01–03 and A11Y-07 block implementation: contrast, selection semantics, focus trap/inert/visible cancel, persistent result.</li>
+<li><strong>Open question:</strong> amount/permission/alert/persistence/API rules and approved dialog component.</li>
+</ul>
+<h3>SPEC-04: Unstyled required screens/states</h3>
+<ul>
+<li><strong>Approved version:</strong> None.</li>
+<li><strong>Dimensions/grid:</strong> Unknown.</li>
+<li><strong>Spacing/typography/color/elevation:</strong> Do not infer from the sample without owner approval.</li>
+<li><strong>States/variants:</strong> WF-00, WF-03–06, WF-08–17, WF-20–22 and required ST-01–13 are missing as high-fidelity assets.</li>
+<li><strong>Responsive rules:</strong> Unknown.</li>
+<li><strong>Assets:</strong> None.</li>
+<li><strong>Accessibility notes:</strong> Cannot evaluate unrendered states.</li>
+<li><strong>Open question:</strong> resolve PRE-01–07, DQA-01–08, and product/technical/risk decisions before specification.</li>
+</ul>
+<h2>3. Token references</h2>
+<table>
+<thead>
+<tr>
+<th>Token ID</th>
+<th>Reference/current value</th>
+<th>Current use</th>
+<th>Implementation status</th>
+<th>Required decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TK-COLOR-PRIMARY</td>
+<td>alpha <code>#ff385c</code>; HTML <code>--rausch</code></td>
+<td>Primary/action/accent</td>
+<td>Blocked for white normal text at 3.52:1</td>
+<td>Approve accessible text-bearing primary; candidate active <code>#e00b41</code> measures 4.89:1</td>
+</tr>
+<tr>
+<td>TK-COLOR-INK</td>
+<td><code>#222222</code></td>
+<td>Primary text/dark choices</td>
+<td>Provisional</td>
+<td>Confirm current-app semantic token</td>
+</tr>
+<tr>
+<td>TK-COLOR-BODY</td>
+<td><code>#3f3f3f</code></td>
+<td>Running text</td>
+<td>Provisional</td>
+<td>Confirm content/theme behavior</td>
+</tr>
+<tr>
+<td>TK-COLOR-MUTED</td>
+<td><code>#6a6a6a</code></td>
+<td>Secondary text</td>
+<td>Provisional</td>
+<td>Confirm all surface/state contrast</td>
+</tr>
+<tr>
+<td>TK-SURFACE</td>
+<td>white/<code>#f7f7f7</code>/<code>#f2f2f2</code></td>
+<td>Canvas/soft grouping</td>
+<td>Provisional</td>
+<td>Confirm theme and platform tokens</td>
+</tr>
+<tr>
+<td>TK-HAIRLINE</td>
+<td><code>#dddddd</code>/<code>#ebebeb</code></td>
+<td>Borders/dividers</td>
+<td>Provisional</td>
+<td>Verify non-text visibility</td>
+</tr>
+<tr>
+<td>TK-RADIUS</td>
+<td>reference 8/14/20/32/full; sample adds 12/18/24/44</td>
+<td>Controls/cards/staging</td>
+<td>Drift/open</td>
+<td>Separate product from staging and normalize</td>
+</tr>
+<tr>
+<td>TK-SPACE</td>
+<td>reference 2/4/8/12/16/24/32/48/64; sample adds 14/18/20/22/26</td>
+<td>Layout</td>
+<td>Local magic numbers present</td>
+<td>Bind approved relationships to variables</td>
+</tr>
+<tr>
+<td>TK-TYPE</td>
+<td>Airbnb Cereal/Circular/system; sample includes Inter</td>
+<td>All text</td>
+<td>Font license/platform unknown</td>
+<td>Approve family/metrics/scale/localization</td>
+</tr>
+<tr>
+<td>TK-ELEVATION</td>
+<td>reference one tier; sample custom <code>--shadow</code> and phone shadow</td>
+<td>Summary/staging</td>
+<td>Unapproved exception</td>
+<td>Approve product elevation and exclude staging</td>
+</tr>
+<tr>
+<td>TK-MOTION</td>
+<td>No authoritative product tokens</td>
+<td>Screen/pulse/chart/sheet/toast sample animations</td>
+<td>Missing</td>
+<td>Platform/accessibility/engineering review</td>
+</tr>
+</tbody></table>
+<p>These are references and observed values, not a production token package. No unexplained sample number is promoted to a reusable token.</p>
+<h2>4. State matrix</h2>
+<table>
+<thead>
+<tr>
+<th>State ID</th>
+<th>Required behavior source</th>
+<th>Overview</th>
+<th>Detail</th>
+<th>Budget</th>
+<th>Handoff status/owner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ST-01 Loading</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Product/data/design/engineering blocked</td>
+</tr>
+<tr>
+<td>ST-02 Empty</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Entry/list missing</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>ST-03 Partial</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Critical data/content decision</td>
+</tr>
+<tr>
+<td>ST-04 Stale</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Critical data/content decision</td>
+</tr>
+<tr>
+<td>ST-05 Offline</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Architecture/product decision</td>
+</tr>
+<tr>
+<td>ST-06 Timeout</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Idempotency/status contract required</td>
+</tr>
+<tr>
+<td>ST-07 Unauthorized/re-auth</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Security/privacy owner required</td>
+</tr>
+<tr>
+<td>ST-08 Validation error</td>
+<td>Phase 06</td>
+<td>Not applicable</td>
+<td>Correction missing</td>
+<td>Missing</td>
+<td>Rules/content/accessibility required</td>
+</tr>
+<tr>
+<td>ST-09 Pending mutation</td>
+<td>Phase 06</td>
+<td>Toast preview only</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>API/state contract required</td>
+</tr>
+<tr>
+<td>ST-10 Success</td>
+<td>Phase 06</td>
+<td>Not authoritative</td>
+<td>Missing</td>
+<td>Simulated toast only</td>
+<td>Must show durable effective state</td>
+</tr>
+<tr>
+<td>ST-11 Failure</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Retry/cancel/help required</td>
+</tr>
+<tr>
+<td>ST-12 Cancelled</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Scrim/Escape close only</td>
+<td>Explicit outcome/cancel control required</td>
+</tr>
+<tr>
+<td>ST-13 Conflict</td>
+<td>Phase 06</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Refresh/review behavior required</td>
+</tr>
+<tr>
+<td>Focus/selected/current</td>
+<td>Phase 09 A11Y</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>Incomplete</td>
+<td>Accessibility/design-system/engineering</td>
+</tr>
+<tr>
+<td>Long/localized/extreme</td>
+<td>Phase 06 EC-03/04/13</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Missing</td>
+<td>Localization/accessibility/product</td>
+</tr>
+</tbody></table>
+<p>No state may be assumed from a default frame or delegated to developer inference.</p>
+<h2>5. Responsive rules</h2>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Observable rule</th>
+<th>Production status</th>
+<th>Required validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sample desktop stage</td>
+<td>390px phone within two-column max-1180px presentation</td>
+<td>Staging only; do not implement as product layout</td>
+<td>Exclude from product spec</td>
+</tr>
+<tr>
+<td>Sample ≤760px</td>
+<td>Phone expands to viewport; context hidden; height 100vh</td>
+<td>Source behavior only</td>
+<td>Test short viewports, safe areas, zoom, keyboard, orientation</td>
+</tr>
+<tr>
+<td>Reference mobile &lt;744px</td>
+<td>Generic Airbnb-derived guidance</td>
+<td>Not approved product rule</td>
+<td>Reconcile with current app/platform</td>
+</tr>
+<tr>
+<td>Tablet 744–1128px</td>
+<td>Reference only</td>
+<td>Missing product design</td>
+<td>Define grid/order/reflow and state visibility</td>
+</tr>
+<tr>
+<td>Desktop 1128–1440px</td>
+<td>Reference only</td>
+<td>Missing product design</td>
+<td>Confirm platform scope first</td>
+</tr>
+<tr>
+<td>Wide &gt;1440px</td>
+<td>Reference only</td>
+<td>Missing product design</td>
+<td>Confirm platform scope first</td>
+</tr>
+<tr>
+<td>Text zoom/reflow/localization</td>
+<td>No rendered evidence</td>
+<td>Critical gap</td>
+<td>200%/400%, text scaling, long scripts, RTL if applicable, multi-currency/extremes</td>
+</tr>
+</tbody></table>
+<p>No breakpoint, truncation, wrapping, orientation, or density behavior is implementation-ready.</p>
+<h2>6. Asset package</h2>
+<table>
+<thead>
+<tr>
+<th>Asset ID</th>
+<th>File</th>
+<th>Format/purpose</th>
+<th>Optimization/export status</th>
+<th>Usage guidance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ASSET-01</td>
+<td><code>smart-expense-tracker.html</code></td>
+<td>Local inspectable prototype</td>
+<td>Existing; no build pipeline/source map/package</td>
+<td>Inspection only; do not copy as approved implementation</td>
+</tr>
+<tr>
+<td>ASSET-02</td>
+<td><code>screen-01-overview.jpg</code></td>
+<td>780×1688 visual capture</td>
+<td>Existing</td>
+<td>Review/reference only; not a scalable UI asset</td>
+</tr>
+<tr>
+<td>ASSET-03</td>
+<td><code>screen-02-food-detail.jpg</code></td>
+<td>780×1688 visual capture</td>
+<td>Existing</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>ASSET-04</td>
+<td><code>sample-design-notes.md</code></td>
+<td>Provenance/limitations</td>
+<td>Current hash above</td>
+<td>Ship with any review package</td>
+</tr>
+<tr>
+<td>ASSET-05</td>
+<td>Icons</td>
+<td>Unicode symbols embedded in HTML</td>
+<td>No approved icon export</td>
+<td>Replace with authorized vector/native icon system; provide names/licensing</td>
+</tr>
+<tr>
+<td>ASSET-06</td>
+<td>Fonts</td>
+<td>Referenced only</td>
+<td>No font files exported</td>
+<td>Confirm license/platform loading/fallback; do not redistribute without authorization</td>
+</tr>
+<tr>
+<td>ASSET-07</td>
+<td>Component/vector/image assets</td>
+<td>None</td>
+<td>Missing</td>
+<td>Export only non-native assets after approved design/source exists</td>
+</tr>
+</tbody></table>
+<p>No confidential asset was copied or distributed. No text or native control should be exported as an image.</p>
+<h2>7. Open-question log</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Question/blocker</th>
+<th>Severity</th>
+<th>Source/confidence</th>
+<th>Owner</th>
+<th>Decision/validation needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OQ-01</td>
+<td>What is the approved handoff baseline and source-of-truth design file?</td>
+<td>Critical</td>
+<td>Phase 09/HIGH for absence</td>
+<td>Product design/design-system</td>
+<td>Versioned authorized Figma/equivalent and ownership</td>
+</tr>
+<tr>
+<td>OQ-02</td>
+<td>What platform/component architecture and current-app library apply?</td>
+<td>Critical</td>
+<td>DQA-03/HIGH</td>
+<td>Engineering/design-system</td>
+<td>Architecture/library audit</td>
+</tr>
+<tr>
+<td>OQ-03</td>
+<td>Which screens, states, flows, roles, and release scope are committed?</td>
+<td>Critical</td>
+<td>HF-O01–03/HIGH</td>
+<td>Product</td>
+<td>Approved stories/acceptance criteria/release scope</td>
+</tr>
+<tr>
+<td>OQ-04</td>
+<td>What are authoritative financial data, correction, insight, budget, recurring, notification, and export rules?</td>
+<td>Critical</td>
+<td>Phase 06/HIGH for absence</td>
+<td>Product/data/security/privacy</td>
+<td>Rule/API/policy contracts</td>
+</tr>
+<tr>
+<td>OQ-05</td>
+<td>What accessibility standard/platform/AT matrix applies, and who signs off?</td>
+<td>Critical</td>
+<td>A11Y review/HIGH</td>
+<td>Accessibility/product/legal</td>
+<td>Target and review/retest evidence</td>
+</tr>
+<tr>
+<td>OQ-06</td>
+<td>How will primary contrast and DQA/A11Y blockers be remediated?</td>
+<td>High</td>
+<td>Direct diagnostic/HIGH</td>
+<td>Design-system/accessibility/brand</td>
+<td>Token/component correction and rendered retest</td>
+</tr>
+<tr>
+<td>OQ-07</td>
+<td>What responsive/localization/device matrix applies?</td>
+<td>High</td>
+<td>Phase 09/HIGH for absence</td>
+<td>Product/platform/localization</td>
+<td>Supported matrix and state boards</td>
+</tr>
+<tr>
+<td>OQ-08</td>
+<td>What are engineering feasibility, performance, idempotency, cancellation, storage/share, and monitoring contracts?</td>
+<td>Critical</td>
+<td>Phase 06 feasibility review/HIGH for absence</td>
+<td>Engineering/data/platform</td>
+<td>Technical spikes/review</td>
+</tr>
+<tr>
+<td>OQ-09</td>
+<td>What usability/accessibility evidence will validate the implemented direction?</td>
+<td>High</td>
+<td>Phase 08/HIGH for absence</td>
+<td>Research/accessibility</td>
+<td>Safe flow-complete study and AT/user evidence</td>
+</tr>
+<tr>
+<td>OQ-10</td>
+<td>Who reviews G10 and what delivery deadline/channel/access rules apply?</td>
+<td>High</td>
+<td>Phase 10 readiness gap/HIGH</td>
+<td>Project sponsor/product</td>
+<td>Named decision owner/deadline/access</td>
+</tr>
+</tbody></table>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SP-E01</td>
+<td>G09 review</td>
+<td>2026-07-24/hash above</td>
+<td>Authorization boundary</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Does not approve implementation readiness</td>
+</tr>
+<tr>
+<td>SP-E02</td>
+<td>Phase 09 artifacts</td>
+<td>G09-reviewed hashes</td>
+<td>Visual/accessibility/QA state</td>
+<td>Direct/synthesis</td>
+<td>HIGH/MEDIUM by item</td>
+<td>Provisional</td>
+</tr>
+<tr>
+<td>SP-E03</td>
+<td>HTML/JPEG/notes assets</td>
+<td>hashes above</td>
+<td>Observable values/assets</td>
+<td>Direct</td>
+<td>HIGH for files</td>
+<td>Partial sample</td>
+</tr>
+<tr>
+<td>SP-E05</td>
+<td>Phase 06 wireframes/annotations</td>
+<td>2026-07-24</td>
+<td>Required screens/states</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Unapproved behavior/rules</td>
+</tr>
+<tr>
+<td>SP-E07</td>
+<td>Phase 08 outputs</td>
+<td>G08-reviewed</td>
+<td>No usability evidence</td>
+<td>Direct project record</td>
+<td>HIGH</td>
+<td>No validation</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SP-D01</td>
+<td>Freeze accessible file hashes as review evidence only</td>
+<td>Traceability without false readiness</td>
+<td>Phase 10 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>SP-D02</td>
+<td>Produce a provisional specification/limitation artifact, not an implementation-ready handoff</td>
+<td>Critical inputs absent</td>
+<td>Human G10/product/design/engineering</td>
+<td>Not set</td>
+<td>Confirmed for artifact</td>
+<td>G10 review and missing inputs</td>
+</tr>
+<tr>
+<td>SP-D03</td>
+<td>Do not export or promote sample-local values/components as production standards</td>
+<td>Guardrails and DQA gaps</td>
+<td>Design-system/product</td>
+<td>Not set</td>
+<td>Confirmed</td>
+<td>Authoritative library/owner</td>
+</tr>
+<tr>
+<td>SP-D04</td>
+<td>Mark every dependent file stale after any baseline change</td>
+<td>Version consistency</td>
+<td>Design/handoff owner</td>
+<td>Ongoing</td>
+<td>Proposed</td>
+<td>Change control</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Purpose, scope, users/context, decision boundary, sources, versions, and limitations are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Handoff file, screen/component specs, tokens, state matrix, responsive rules, asset package, and open questions are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Observable sample values are separated from proposed or missing production decisions.</li>
+<li><input checked="" disabled="" type="checkbox"> Accessibility, privacy, finance, security, localization, platform, content, and data constraints remain visible.</li>
+<li><input checked="" disabled="" type="checkbox"> No Figma/Zeplin source, approved frame, token package, component linkage, responsive behavior, state, asset, feasibility, implementation, or production readiness was invented.</li>
+<li><input disabled="" type="checkbox"> Approved baseline, complete states, platform context, owner decisions, and engineering readiness review exist — blocked.</li>
+<li><input disabled="" type="checkbox"> Handoff-ready source file/package exists — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from design-specifications.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

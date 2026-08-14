@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 12 — Iteration / Next-Phase Plan Based on Data — Phase 12 · Post-Launch</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 12 · Post-Launch</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./iteration-plan.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Phase 12 — Iteration / Next-Phase Plan Based on Data</h1>
+<p><strong>Status:</strong> Provisional evidence-insufficiency and readiness artifact — no data-driven iteration authorized<br><strong>Prepared:</strong> 2026-07-24 (Asia/Calcutta)<br><strong>Decision supported:</strong> Determine whether available post-launch evidence supports prioritizing a design iteration or new discovery phase.<br><strong>Scope:</strong> Smart Expense Tracker concepts described by the supplied BRD; no implemented or launched product, post-launch analytics, feedback, support evidence, business outcome, or technical learning is evidenced.<br><strong>Affected users:</strong> Candidate user groups described in the BRD; no validated segment, exposed user, respondent, or observed outcome exists.<br><strong>Decision owner/reviewer:</strong> Product, design, research, engineering, analytics, support, accessibility, privacy/legal, security, and business owners are not identified; G12 human review is required.<br><strong>Delivery deadline:</strong> Not supplied.</p>
+<h2>1. Evidence summary</h2>
+<h3>Readiness decision</h3>
+<p>Evidence-based iteration planning cannot begin. The two predecessor Phase 12 artifacts passed their provisional validations but establish that monitoring was not conducted, feedback was not collected, and no behavioral finding, anomaly, heatmap pattern, response, or theme exists. No launch baseline, target contract, analytics, support/operational data, business outcome, technical-debt record, delivery constraint, accountable product owner, review cadence, or production decision was supplied.</p>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IP-E01</td>
+<td><code>Output/phase-12/analytics-heatmap-monitoring.md</code></td>
+<td>2026-07-24; SHA-256 <code>4E59B7C8BF59E3641AB53AA691132EFE7050DA5A7F59865FD2FE5B68EC92F7C9</code></td>
+<td>Monitoring not started; zero behavior findings/anomalies; no dashboard or heatmap evidence</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Direct evidence of workspace status only, not a product outcome.</td>
+</tr>
+<tr>
+<td>IP-E02</td>
+<td><code>Output/phase-12/post-launch-feedback.md</code></td>
+<td>2026-07-24; SHA-256 <code>AFCE575D617A243A14E7CA44313B0EB3E90D3B5822939F41730B3BB019B1EA29</code></td>
+<td>Feedback not collected; zero responses and themes</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Direct evidence of workspace status only, not absence of external user concerns.</td>
+</tr>
+<tr>
+<td>IP-E03</td>
+<td><code>Output/reviews/gate-11-review.md</code></td>
+<td>2026-07-24; SHA-256 <code>2F53FF49F9DE338859C188DBFD0B1BEDA2E6B24D2E533AEA7D2823E1C60504E7</code></td>
+<td>No-build/no-release/no-launch authorization boundary</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Workflow authorization only; it does not approve production or outcomes.</td>
+</tr>
+<tr>
+<td>IP-E04</td>
+<td><code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code></td>
+<td>SHA-256 <code>34489BDDD9B556E0433A2CA113318AEB2AAFFB756EE1A856002A37C56FAE0036</code>; date not supplied</td>
+<td>Product concept, candidate groups, goals, features, and planned measures</td>
+<td>Reported</td>
+<td>LOW</td>
+<td>BRD statements are not post-launch evidence; provenance, approval, user support, baselines, and metric contracts are incomplete.</td>
+</tr>
+<tr>
+<td>IP-E05</td>
+<td>Post-launch analytics, feedback/research, support/operations, business outcomes, technical learnings/debt, and delivery constraints</td>
+<td>Not supplied as of 2026-07-24</td>
+<td>Required iteration evidence</td>
+<td>—</td>
+<td>—</td>
+<td>Missing; results, scale, severity, reach, causes, effort, and priorities must not be inferred.</td>
+</tr>
+</tbody></table>
+<p>Evidence state: <strong>Direct</strong> covers only recorded workflow and artifact status. <strong>Reported</strong> covers BRD statements. <strong>Inferred:</strong> none used as an outcome or priority. <strong>Assumed:</strong> readiness hypotheses and proposed evidence-gathering actions, all LOW. <strong>Contradictory:</strong> none in the supplied Phase 12 evidence. No source was corrupt, duplicate, unsupported, password-protected, or unreadable; required outcome sources are absent.</p>
+<h2>2. Outcome assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Outcome area</th>
+<th>Baseline</th>
+<th>Target/guardrail</th>
+<th>Post-launch result</th>
+<th>Assessment</th>
+<th>Confidence</th>
+<th>Required evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>User task outcome</td>
+<td>Not available</td>
+<td>Not approved/operationalized</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Approved task/metric contract, launch cohort, validated events/research</td>
+</tr>
+<tr>
+<td>Discovery/adoption</td>
+<td>Not available</td>
+<td>Not approved/operationalized</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Exposure and adoption definitions, release data, denominator</td>
+</tr>
+<tr>
+<td>Errors/recovery</td>
+<td>Not available</td>
+<td>Not approved/operationalized</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Error taxonomy, build telemetry, recovery events, QA context</td>
+</tr>
+<tr>
+<td>Accessibility/inclusion</td>
+<td>Not available</td>
+<td>No approved conformance or monitoring contract</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Approved requirements, audit/testing evidence, representative access needs</td>
+</tr>
+<tr>
+<td>Trust/privacy/safety</td>
+<td>Not available</td>
+<td>No approved guardrails</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Policies, incidents/feedback where authorized, research, risk decisions</td>
+</tr>
+<tr>
+<td>Support/operations</td>
+<td>Not available</td>
+<td>Not approved/operationalized</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Dated deduplicated support/operations data and taxonomy</td>
+</tr>
+<tr>
+<td>Business outcome</td>
+<td>Not available</td>
+<td>BRD statements are not an approved metric contract</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Approved definition, baseline, target, observation period, verified result</td>
+</tr>
+<tr>
+<td>Technical outcome/debt</td>
+<td>Not available</td>
+<td>Not supplied</td>
+<td>Not available</td>
+<td>Cannot assess</td>
+<td>—</td>
+<td>Build/release record, performance/reliability evidence, debt and constraint register</td>
+</tr>
+</tbody></table>
+<p>No outcome improved, worsened, stayed flat, met a target, missed a target, or contradicted another signal because no comparable result exists. Missing values are not zeros and do not support success or failure claims.</p>
+<h2>3. Opportunity backlog</h2>
+<p><strong>Evidence-derived product opportunity count: 0.</strong> No issue, defect, optimization opportunity, unmet need, strategic bet, or redesign requirement can be derived from post-launch data.</p>
+<p>The following are readiness prerequisites, not user problems, product opportunities, requirements, or roadmap commitments:</p>
+<h3>OP-R01: Establish an evidence-producing launch context</h3>
+<ul>
+<li><strong>Evidence sources:</strong> IP-E01–IP-E05</li>
+<li><strong>User problem/outcome:</strong> Unknown; no observed user outcome</li>
+<li><strong>Observed impact:</strong> Not observed</li>
+<li><strong>Confidence:</strong> LOW; readiness synthesis, not product evidence</li>
+<li><strong>Root-cause status:</strong> Unknown</li>
+<li><strong>Proposed next step:</strong> Obtain an approved build/release decision and define launch evidence contracts, or explicitly close the workflow without a launch.</li>
+<li><strong>Expected metric/learning:</strong> Whether a legitimate post-launch evidence cycle can begin; no outcome target asserted</li>
+<li><strong>Effort/dependencies:</strong> Unknown; product, release, engineering, analytics, privacy, accessibility, support, and business ownership required</li>
+<li><strong>Priority/decision:</strong> Unscored; proposed prerequisite only</li>
+<li><strong>Owner/review date:</strong> Not assigned / not set</li>
+</ul>
+<h3>OP-R02: Validate instrumentation and privacy-safe monitoring before interpretation</h3>
+<ul>
+<li><strong>Evidence sources:</strong> IP-E01</li>
+<li><strong>User problem/outcome:</strong> Unknown; no behavioral finding</li>
+<li><strong>Observed impact:</strong> Not observed</li>
+<li><strong>Confidence:</strong> LOW; readiness hypothesis</li>
+<li><strong>Root-cause status:</strong> Unknown</li>
+<li><strong>Proposed next step:</strong> Approve metric/event contracts and verify them on the actual release with privacy, security, accessibility, and data-quality controls.</li>
+<li><strong>Expected metric/learning:</strong> Whether exposure, task, error, recovery, and guardrail signals are interpretable</li>
+<li><strong>Effort/dependencies:</strong> Unknown; depends on OP-R01 and accountable owners</li>
+<li><strong>Priority/decision:</strong> Unscored; proposed prerequisite only</li>
+<li><strong>Owner/review date:</strong> Not assigned / not set</li>
+</ul>
+<h3>OP-R03: Collect contextual user evidence under an approved protocol</h3>
+<ul>
+<li><strong>Evidence sources:</strong> IP-E02</li>
+<li><strong>User problem/outcome:</strong> Unknown; no feedback theme or research finding</li>
+<li><strong>Observed impact:</strong> Not observed</li>
+<li><strong>Confidence:</strong> LOW; readiness hypothesis</li>
+<li><strong>Root-cause status:</strong> Unknown</li>
+<li><strong>Proposed next step:</strong> Approve and pilot neutral, accessible, privacy-aware feedback/research collection after a real launch.</li>
+<li><strong>Expected metric/learning:</strong> Whether reported context explains or challenges verified behavioral/support signals</li>
+<li><strong>Effort/dependencies:</strong> Unknown; depends on OP-R01, consent/contact authority, channels, and sample</li>
+<li><strong>Priority/decision:</strong> Unscored; proposed prerequisite only</li>
+<li><strong>Owner/review date:</strong> Not assigned / not set</li>
+</ul>
+<h2>4. Prioritization</h2>
+<p>No evidence-based ranking or score is produced. Impact, reach, confidence, effort, risk, dependency, and urgency cannot be assessed from absent outcome, population, technical, operational, or owner evidence. The readiness prerequisites in Section 3 are sequenced by dependency only: OP-R01 before OP-R02/OP-R03, then evidence review before any product iteration decision.</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Impact</th>
+<th>Reach</th>
+<th>Confidence</th>
+<th>Effort</th>
+<th>Risk/urgency</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Any product design change</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unsupported</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Do not prioritize</td>
+</tr>
+<tr>
+<td>OP-R01</td>
+<td>Not an outcome score</td>
+<td>Not applicable</td>
+<td>LOW</td>
+<td>Unknown</td>
+<td>Governance dependency</td>
+<td>Proposed prerequisite; owner approval required</td>
+</tr>
+<tr>
+<td>OP-R02</td>
+<td>Not an outcome score</td>
+<td>Not applicable</td>
+<td>LOW</td>
+<td>Unknown</td>
+<td>Data/privacy risk if omitted</td>
+<td>Deferred until OP-R01</td>
+</tr>
+<tr>
+<td>OP-R03</td>
+<td>Not an outcome score</td>
+<td>Not applicable</td>
+<td>LOW</td>
+<td>Unknown</td>
+<td>Research/privacy risk if omitted</td>
+<td>Deferred until OP-R01</td>
+</tr>
+</tbody></table>
+<p>The loudest feedback, click volume, BRD preference, prior design concept, or workflow approval must not be used as a proxy for impact or priority.</p>
+<h2>5. Iteration hypotheses</h2>
+<p>No product-optimization hypothesis is supported by a post-launch pattern. The following are process/evidence hypotheses only.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis ID</th>
+<th>Testable proposition</th>
+<th>Evidence type / confidence</th>
+<th>Smallest valid next step</th>
+<th>Expected learning</th>
+<th>Owner</th>
+<th>Decision status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IH-01</td>
+<td>If an approved release and versioned event contract exist, instrumentation QA may determine whether behavioral monitoring is interpretable.</td>
+<td>Assumed / LOW</td>
+<td>Validate a defined critical-task event chain, including error/cancel/recovery, against the real release before outcome analysis.</td>
+<td>Whether events are accurate, complete, ordered, deduplicated, and privacy-safe</td>
+<td>Analytics + engineering + QA, not assigned</td>
+<td>Proposed, not authorized</td>
+</tr>
+<tr>
+<td>IH-02</td>
+<td>If a neutral, consented feedback protocol is piloted after real task exposure, it may yield contextual evidence without treating respondents as representative of all users.</td>
+<td>Assumed / LOW</td>
+<td>Pilot approved questions and trigger with an authorized sample; document burden, comprehension, response, exclusions, and bias.</td>
+<td>Whether the protocol yields interpretable, safe, accessible context</td>
+<td>UX research + privacy + accessibility, not assigned</td>
+<td>Proposed, not authorized</td>
+</tr>
+<tr>
+<td>IH-03</td>
+<td>Triangulating validated behavior, contextual feedback, support, business, and technical evidence may permit a defensible iteration decision.</td>
+<td>Assumed / LOW</td>
+<td>Convene an owner review only after each source has provenance, date range, definitions, limitations, and adequate quality.</td>
+<td>Whether signals converge, conflict, or remain insufficient</td>
+<td>Product + cross-functional owners, not assigned</td>
+<td>Proposed, not authorized</td>
+</tr>
+</tbody></table>
+<p>These hypotheses do not predict improvement, validate a need, diagnose a cause, or require a redesign.</p>
+<h2>6. Research and experiment plan</h2>
+<table>
+<thead>
+<tr>
+<th>Plan ID</th>
+<th>Activity</th>
+<th>Entry criteria</th>
+<th>Method/control</th>
+<th>Success or stopping rule</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RE-01</td>
+<td>Launch/evidence contract review</td>
+<td>Named owners, approved scope, actual build/release decision</td>
+<td>Review release record, tasks, metrics, baselines, guardrails, privacy/accessibility/security rules</td>
+<td>Stop if authorization, definitions, ownership, or controls remain missing</td>
+<td>Proposed; human review required</td>
+</tr>
+<tr>
+<td>RE-02</td>
+<td>Instrumentation validation</td>
+<td>RE-01 passes; versioned build and event taxonomy exist</td>
+<td>Test exposure, start, progression, completion, cancel, error, timeout, recovery, duplication, order, device, timezone, consent, and definition changes</td>
+<td>Do not interpret outcomes until critical event paths and controls pass</td>
+<td>Deferred</td>
+</tr>
+<tr>
+<td>RE-03</td>
+<td>Feedback protocol pilot</td>
+<td>RE-01 passes; channel, sample, consent, communications, accommodations, and escalation approved</td>
+<td>Neutral post-task questions and/or interviews; track invitation/response/exclusion/non-response; avoid sensitive data</td>
+<td>Stop or revise if burdensome, leading, unsafe, inaccessible, or uninterpretable</td>
+<td>Deferred</td>
+</tr>
+<tr>
+<td>RE-04</td>
+<td>Triangulated evidence review</td>
+<td>Adequate validated analytics, feedback/research, support, business, and technical evidence</td>
+<td>Compare converging, null, negative, exception, and contradictory signals with source/version context</td>
+<td>Create opportunities only when evidence supports a user/outcome problem; preserve conflicts</td>
+<td>Deferred</td>
+</tr>
+<tr>
+<td>RE-05</td>
+<td>Smallest valid product experiment or iteration</td>
+<td>RE-04 identifies an evidence-linked problem and owner approves hypothesis, risk, effort, and success criteria</td>
+<td>Method chosen to fit the question; include guardrails and rollback where applicable</td>
+<td>No production commitment without accountable owners and required risk reviews</td>
+<td>Blocked</td>
+</tr>
+</tbody></table>
+<p>No participants, experiment, variant, exposure, result, success criterion value, or improvement is claimed. Sensitive, financial, privacy, security, legal, accessibility, or production-impacting work requires appropriate human review.</p>
+<h2>7. Roadmap recommendation</h2>
+<p><strong>Recommendation:</strong> Do not commit a product iteration or new discovery roadmap item from the available Phase 12 evidence. Hold product-change prioritization. First obtain an explicit human decision to either:</p>
+<ol>
+<li>close the current workflow while accepting that no launch/outcome evidence exists; or</li>
+<li>authorize a separately scoped evidence cycle after the prerequisites in Sections 3 and 6 are owned and satisfied.</li>
+</ol>
+<p>This is an evidence-governance recommendation, not a release decision, implementation plan, date, estimate, resource commitment, or automatic next phase. No additional numbered phase or iteration is created. A future roadmap must name accountable owners, dependencies, risks, trade-offs, measurable learning/outcome criteria, and review cadence.</p>
+<h2>8. Decision log</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IP-D01</td>
+<td>Record that post-launch outcome assessment and product prioritization are unsupported.</td>
+<td>IP-E01–IP-E05; no launch or outcome evidence exists.</td>
+<td>Phase 12 agent record; human reviewer at G12</td>
+<td>2026-07-24 / G12 date not set</td>
+<td>Confirmed as artifact status; workflow decision pending</td>
+<td>G12 review</td>
+</tr>
+<tr>
+<td>IP-D02</td>
+<td>Do not create a product-change backlog, score, redesign requirement, improvement claim, or roadmap commitment.</td>
+<td>Impact, reach, confidence, effort, and root cause are unknown.</td>
+<td>Product owner, not assigned</td>
+<td>Not set</td>
+<td>Proposed for human acceptance</td>
+<td>G12 review</td>
+</tr>
+<tr>
+<td>IP-D03</td>
+<td>Require an explicit owner decision between workflow closure and a separately authorized evidence cycle.</td>
+<td>Phase runbook prohibits an automatic loop after G12.</td>
+<td>Human reviewer/product owner</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Explicit G12 decision and ownership</td>
+</tr>
+<tr>
+<td>IP-D04</td>
+<td>If an evidence cycle is authorized, complete RE-01 before RE-02/RE-03 and RE-04 before RE-05.</td>
+<td>Required evidence and dependency order.</td>
+<td>Product + cross-functional owners, not assigned</td>
+<td>Not set</td>
+<td>Deferred</td>
+<td>IP-D03 approval</td>
+</tr>
+<tr>
+<td>IP-D05</td>
+<td>Preserve limitations and revalidate downstream artifacts if any upstream source changes.</td>
+<td>Workflow freshness and traceability rule.</td>
+<td>Orchestrator/authorized owners</td>
+<td>Ongoing</td>
+<td>Proposed</td>
+<td>Source version control</td>
+</tr>
+</tbody></table>
+<h3>Validation result</h3>
+<ul>
+<li>Purpose, scope, candidate user status, sources, recency, evidence quality, ownership gaps, dependencies, and limitations are explicit.</li>
+<li>Facts about workspace status, reported BRD content, synthesis, assumptions, hypotheses, and recommendations remain distinct.</li>
+<li>No launch, user behavior, metric, baseline, result, support trend, feedback theme, business outcome, technical learning, defect, opportunity impact, priority, effort, owner commitment, experiment result, improvement, or roadmap promise is invented.</li>
+<li>Null, negative, conflicting, and exception evidence rules are retained; no contradiction exists in the supplied Phase 12 evidence, and future conflicts must remain visible.</li>
+<li>Accessibility, privacy, ethics, inclusion, risk, human-review triggers, owners, and decision status are recorded.</li>
+<li><strong>Skill outcome:</strong> Complete provisional/limitation output. No evidence-driven product iteration is usable or authorized; only a human-reviewed readiness/closure decision can follow at G12.</li>
+</ul>
+</article>
+    <footer>Generated from iteration-plan.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

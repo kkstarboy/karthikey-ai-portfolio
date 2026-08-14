@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internal Design Review and Crazy 8s — Session Plan and Limitation Report — Phase 05 · Ideation &amp; Sketching</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 05 · Ideation &amp; Sketching</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./ideation-review.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Internal Design Review and Crazy 8s — Session Plan and Limitation Report</h1>
+<h2>Status</h2>
+<p><strong>Collaborative session not conducted.</strong> No participant list, role map, invitation, timebox, sketches, recordings, notes, votes, critique, or authorized facilitator/session evidence was supplied. The generated concepts referenced here were created in <code>concepts.md</code>, not by a workshop. This file contains a runnable agenda and provisional disposition, not participant feedback.</p>
+<h2>1. Session objective and agenda</h2>
+<h3>Objective</h3>
+<p>Broaden and critique structures for helping people understand a spending period and recover from category error, while preserving privacy, accessibility, control, error recovery, and evidence limitations.</p>
+<h3>Proposed participants</h3>
+<p>Product, design, research, engineering/data, content, accessibility, security/privacy/legal, analytics, and support/operations representatives. Job level must not control survival of an idea. Internal participants are not substitutes for users.</p>
+<h3>Proposed agenda</h3>
+<table>
+<thead>
+<tr>
+<th align="right">Order</th>
+<th>Activity</th>
+<th>Purpose</th>
+<th>Safeguard</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td>Consent/working agreement and decision boundary</td>
+<td>Clarify internal ideation only</td>
+<td>No user-validation claim</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Evidence and constraints briefing</td>
+<td>Share N-01–N-06, flows, gaps, risks</td>
+<td>Separate BRD facts from LOW hypotheses</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Silent Crazy 8s</td>
+<td>Reduce anchoring and produce variety</td>
+<td>Individual work before discussion</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Neutral concept playback</td>
+<td>Understand without immediate critique</td>
+<td>Equal time; no job-level privilege</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Cluster genuinely different patterns</td>
+<td>Identify interaction models</td>
+<td>Do not merge minority concepts silently</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Structured critique</td>
+<td>Apply explicit criteria</td>
+<td>Critique concept, not contributor</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Disposition and test planning</td>
+<td>Retain multiple directions</td>
+<td>Votes indicate internal preference only</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Risk/owner/action review</td>
+<td>Capture unresolved work</td>
+<td>Authorized owners review high-risk items</td>
+</tr>
+</tbody></table>
+<h2>2. Generated concepts</h2>
+<table>
+<thead>
+<tr>
+<th>Review ID</th>
+<th>Source concept</th>
+<th>Summary</th>
+<th>Source</th>
+<th>Evidence status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DR-01</td>
+<td>C-01 Overview First</td>
+<td>Period dashboard with contextual drill-down/recovery</td>
+<td><code>concepts.md</code></td>
+<td>Inferred/LOW</td>
+</tr>
+<tr>
+<td>DR-02</td>
+<td>C-02 Guided Review</td>
+<td>Optional sequential review with skip/full-view control</td>
+<td><code>concepts.md</code></td>
+<td>Inferred/LOW</td>
+</tr>
+<tr>
+<td>DR-03</td>
+<td>C-03 Transaction Context</td>
+<td>Spending/category context attached to existing activity</td>
+<td><code>concepts.md</code></td>
+<td>Inferred/LOW</td>
+</tr>
+<tr>
+<td>DR-04</td>
+<td>C-04 Commitment Calendar</td>
+<td>Time/commitment-centered recurring view</td>
+<td><code>concepts.md</code></td>
+<td>Inferred/LOW</td>
+</tr>
+</tbody></table>
+<p>No workshop-generated concept or contributor is claimed.</p>
+<h2>3. Feedback themes</h2>
+<table>
+<thead>
+<tr>
+<th>Theme ID</th>
+<th>Feedback theme</th>
+<th>Evidence</th>
+<th>Confidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FT-00</td>
+<td>No internal critique evidence exists</td>
+<td>Missing session artifacts</td>
+<td>HIGH for absence</td>
+<td>Not conducted</td>
+</tr>
+</tbody></table>
+<p>Candidate critique prompts, not findings:</p>
+<ul>
+<li>Does the concept help comprehension without false certainty?</li>
+<li>Can a user inspect source data, correct errors, cancel, recover, and understand consequences?</li>
+<li>Are privacy/data-use explanations and controls visible at the right time?</li>
+<li>Does it work with text scaling, screen readers, non-color cues, reduced motion, plain language, and list alternatives?</li>
+<li>What system, rule, content, and data dependencies make the concept infeasible or unsafe?</li>
+<li>Which failure, partial, stale, permission, or shared-account state breaks it?</li>
+</ul>
+<h2>4. Decision criteria</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion ID</th>
+<th>Criterion</th>
+<th>Evidence/definition</th>
+<th>How to use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DC-01</td>
+<td>User-outcome alignment</td>
+<td>N-01–N-06 / LOW</td>
+<td>Does structure plausibly support comprehension/control?</td>
+</tr>
+<tr>
+<td>DC-02</td>
+<td>Error/recovery coverage</td>
+<td>Phase 04 F-01–F-06</td>
+<td>Are alternate, cancel, partial, stale, and failure states supported?</td>
+</tr>
+<tr>
+<td>DC-03</td>
+<td>Accessibility/inclusion</td>
+<td>CI-016, SD-08</td>
+<td>Identify barriers; no compliance claim</td>
+</tr>
+<tr>
+<td>DC-04</td>
+<td>Privacy/trust/ethics</td>
+<td>N-05, BRD risks</td>
+<td>Check exposure, judgment, explainability, control</td>
+</tr>
+<tr>
+<td>DC-05</td>
+<td>Business alignment</td>
+<td>BO-01/02, FR1–10</td>
+<td>Trace value without treating requirement as user proof</td>
+</tr>
+<tr>
+<td>DC-06</td>
+<td>Feasibility/dependency</td>
+<td>Phase 04 dependencies</td>
+<td>Engineering/data estimate required; Unknown is valid</td>
+</tr>
+<tr>
+<td>DC-07</td>
+<td>Testability/reversibility</td>
+<td>Concept questions</td>
+<td>Prefer cheap learning before commitment</td>
+</tr>
+<tr>
+<td>DC-08</td>
+<td>Evidence confidence</td>
+<td>Direct/Reported/Inferred/Assumed</td>
+<td>Do not score LOW hypothesis as fact</td>
+</tr>
+</tbody></table>
+<p>No numeric vote or score is generated without real reviewers and defined scales.</p>
+<h2>5. Concept disposition</h2>
+<table>
+<thead>
+<tr>
+<th>Review item</th>
+<th>Review outcome</th>
+<th>Rationale</th>
+<th>Owner/action</th>
+<th>Decision status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DR-01 C-01</td>
+<td>Test</td>
+<td>Central broad-summary hypothesis; density/accuracy risks</td>
+<td>UX/research owner missing</td>
+<td>Proposed, not workshop decision</td>
+</tr>
+<tr>
+<td>DR-02 C-02</td>
+<td>Test</td>
+<td>Contrasts disclosure/control model with C-01</td>
+<td>UX/research owner missing</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>DR-03 C-03</td>
+<td>Revise/Test conditionally</td>
+<td>Requires existing-app audit; useful for correction</td>
+<td>Product/architecture owner missing</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>DR-04 C-04</td>
+<td>Defer, preserve</td>
+<td>Narrow household/time-centered hypothesis with detection risk</td>
+<td>Research/data owner missing</td>
+<td>Proposed</td>
+</tr>
+</tbody></table>
+<p>No concept was retained, combined, revised, or deferred by participant vote. This disposition repeats the evidence-aware recommendation from the concept skill for downstream sketching.</p>
+<h2>6. Risks and questions</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risk/question</th>
+<th>Concepts</th>
+<th>Severity</th>
+<th>Evidence/confidence</th>
+<th>Required resolution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RQ-01</td>
+<td>Data can be partial/stale/wrong; how is certainty communicated?</td>
+<td>All</td>
+<td>Critical</td>
+<td>BRD/Phase 04 / LOW rules</td>
+<td>Data/product/content decision + test</td>
+</tr>
+<tr>
+<td>RQ-02</td>
+<td>Which account roles can view/edit/export?</td>
+<td>All; C-03/C-04</td>
+<td>Critical</td>
+<td>Permission gap/HIGH</td>
+<td>Security/privacy/legal model</td>
+</tr>
+<tr>
+<td>RQ-03</td>
+<td>Does overview density exclude or overwhelm?</td>
+<td>C-01</td>
+<td>High</td>
+<td>Assumed/LOW</td>
+<td>Accessibility/comprehension test</td>
+</tr>
+<tr>
+<td>RQ-04</td>
+<td>Does guidance reduce control or feel judgmental?</td>
+<td>C-02</td>
+<td>High</td>
+<td>Assumed/LOW</td>
+<td>Inclusive user/harm test</td>
+</tr>
+<tr>
+<td>RQ-05</td>
+<td>Does parent app already own transaction detail/navigation?</td>
+<td>C-03</td>
+<td>High</td>
+<td>Unknown</td>
+<td>Product/architecture audit</td>
+</tr>
+<tr>
+<td>RQ-06</td>
+<td>Can recurrence be explained/corrected safely?</td>
+<td>C-04/C-01</td>
+<td>High</td>
+<td>BRD risk/LOW</td>
+<td>Data rules + user research</td>
+</tr>
+</tbody></table>
+<h2>7. Actions and owners</h2>
+<table>
+<thead>
+<tr>
+<th>Action ID</th>
+<th>Action</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency/completion signal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-01</td>
+<td>Assign facilitator, decision owner, participants, timebox, and working agreement</td>
+<td>Product/design lead missing</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Approved session plan</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>Run silent divergent activity and preserve all concepts</td>
+<td>Facilitator missing</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Session artifacts with contributor consent</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>Critique using DC-01–DC-08</td>
+<td>Cross-functional reviewers</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Atomic feedback linked to concept/criterion</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>Record disposition, dissent, and no-vote rationale</td>
+<td>Facilitator/decision owner</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Signed decision/action register</td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>Test retained low-fidelity concepts with representative users</td>
+<td>Research owner missing</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Consent-based findings; internal votes not used as validation</td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>Obtain feasibility/privacy/accessibility review before commitment</td>
+<td>Authorized owners missing</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Recorded constraints/decisions</td>
+</tr>
+</tbody></table>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td><code>Output/phase-05/concepts.md</code></td>
+<td>Inferred concepts</td>
+<td>LOW</td>
+<td>No workshop/user test</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 03/04 needs, IA, flows, risks</td>
+<td>Inferred/business documented</td>
+<td>LOW overall</td>
+<td>No direct research/approved rules</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Use concept recommendations to seed low-fidelity sketches without calling them workshop outcomes</td>
+<td>Artifact decision</td>
+<td>HIGH</td>
+<td>G05/user review pending</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Objective/agenda, seed concepts, feedback status, criteria, disposition, risks/questions, and actions/owners are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Internal feedback and user validation are explicitly separated.</li>
+<li><input checked="" disabled="" type="checkbox"> No participant, contributor, sketch, vote, feedback theme, preference, or workshop result was invented.</li>
+<li><input disabled="" type="checkbox"> Collaborative session completed and evidence captured — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from ideation-review.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

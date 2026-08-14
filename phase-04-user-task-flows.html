@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Flows and Task Flows — Provisional — Phase 04 · Information Architecture</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 04 · Information Architecture</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./user-task-flows.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>User Flows and Task Flows — Provisional</h1>
+<h2>Scope, evidence, and confidence</h2>
+<p>These flows translate BRD requirements and the provisional sitemap into testable interaction logic. They are not observed user behavior, approved screen designs, implemented system behavior, or production rules.</p>
+<ul>
+<li><strong>Sources:</strong> Starter BRD; approved Phase 03 artifacts; Phase 04 content inventory, study plan, and sitemap.</li>
+<li><strong>Missing inputs:</strong> Validated scenarios/stories, business/category/data rules, authentication/session model, permissions, architecture, technical constraints, notification/export policies, owners, research/usability evidence.</li>
+<li><strong>Confidence:</strong> BRD requirement presence is documented; flow sequencing, decisions, labels, states, and outcomes are Inferred/LOW.</li>
+<li><strong>State rule:</strong> Authentication, permission, empty, loading, partial, stale, offline, error, timeout, cancellation, recovery, and confirmation are considered wherever applicable.</li>
+</ul>
+<h2>1. Scenario inventory</h2>
+<table>
+<thead>
+<tr>
+<th>Flow ID</th>
+<th>Scenario</th>
+<th>Provisional user</th>
+<th>Trigger</th>
+<th>Goal/success</th>
+<th>Requirement</th>
+<th>Priority/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F-01</td>
+<td>Review a recent spending period</td>
+<td>Frequent spend reviewer/all candidates</td>
+<td>User chooses to review spending; actual trigger Unknown</td>
+<td>Understand total/categories/comparison accurately</td>
+<td>FR1, FR5–6</td>
+<td>Candidate core/Proposed</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>Correct a transaction category</td>
+<td>All candidates</td>
+<td>User identifies a potentially wrong category</td>
+<td>Correction confirmed with future behavior understood</td>
+<td>FR2–4</td>
+<td>Candidate core/Proposed</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>Set/change a category budget and alert</td>
+<td>All candidates/new starter</td>
+<td>User chooses optional planning action</td>
+<td>Valid budget saved or safely cancelled</td>
+<td>FR7–8</td>
+<td>Candidate should/Proposed</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>Review recurring commitments</td>
+<td>Household context/all</td>
+<td>User chooses recurring review</td>
+<td>Understand/verify candidate recurring items</td>
+<td>FR9</td>
+<td>Candidate should/Proposed</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>Export/share a monthly summary</td>
+<td>Household/record context</td>
+<td>User chooses to create a record</td>
+<td>Authorized, accurate export completed or safely cancelled</td>
+<td>FR10</td>
+<td>Candidate could/Proposed</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>Respond to an unusual-spending alert</td>
+<td>All candidates</td>
+<td>Eligible pattern/notification — rules Unknown</td>
+<td>Understand, dismiss, control, or inspect without harm</td>
+<td>BRD §7.7</td>
+<td>Decision needed/Proposed</td>
+</tr>
+</tbody></table>
+<h2>2. User flows</h2>
+<h3>Flow F-01 — Review spending</h3>
+<ul>
+<li><strong>User:</strong> Provisional candidate user.</li>
+<li><strong>Trigger:</strong> Opens tracker from an existing app entry point (entry location Unknown).</li>
+<li><strong>Start:</strong> Authenticated/authorized access is assumed, not specified.</li>
+<li><strong>Success end:</strong> Person reaches a comprehensible, current summary or relevant detail; comprehension is not yet validated.</li>
+<li><strong>Alternate ends:</strong> Exit without action; switch period/category; seek help; data unavailable; permission denied.</li>
+<li><strong>Main route:</strong> Entry → authorization/data-status check → load current period → overview total/categories/comparison → optional category or insight detail → return/exit.</li>
+<li><strong>Decision points:</strong> Authorized? Data available/current? Categories/period present? Insight eligible? User chooses detail/action?</li>
+<li><strong>Errors/recovery:</strong> Loading/timeout/offline/stale/partial data; retry, explain status, preserve context, contact/help where defined.</li>
+<li><strong>Data/permissions:</strong> Account/transaction scope, period/timezone, amount/currency, category, comparison rules, insight basis, freshness.</li>
+<li><strong>Links:</strong> N-10/N-11/N-112/N-113/N-114; CI-003–006/008/013/016–017; FR1/5/6.</li>
+<li><strong>Evidence/confidence:</strong> BRD documented; route LOW.</li>
+</ul>
+<h3>Flow F-02 — Correct category</h3>
+<ul>
+<li><strong>User:</strong> Authorized transaction viewer/editor — role is an assumption.</li>
+<li><strong>Trigger:</strong> Person notices a possibly incorrect category from overview/category/transaction context.</li>
+<li><strong>Start:</strong> Transaction detail with current category.</li>
+<li><strong>Success end:</strong> Change is confirmed and effect on future matching is explained.</li>
+<li><strong>Alternate ends:</strong> Cancel/no change; choose same category; future-use declined; correction rejected; permission denied.</li>
+<li><strong>Main route:</strong> Select transaction → load detail → choose change category → show available taxonomy → select category → decide whether future matching applies if supported → review/confirm → system validates/saves → confirmation and updated totals.</li>
+<li><strong>Decision points:</strong> Editable? Category available? Same as current? Apply to future? Save succeeds? Does summary recalculate?</li>
+<li><strong>Errors/recovery:</strong> Unknown merchant/category, duplicate/reversed/refunded/transfer transaction, concurrency, offline/timeout/save failure; retain prior state and provide retry/cancel/undo only if rules approve.</li>
+<li><strong>Data/permissions:</strong> Transaction ID/status, merchant identity, original/new category, source/confidence, user rule precedence, audit, propagation, undo, recalculation.</li>
+<li><strong>Links:</strong> N-1121/N-1122; CI-006–007/013/015–017; FR2–4.</li>
+<li><strong>Evidence/confidence:</strong> BRD §8.3/FR2–4; LOW sequencing and rules.</li>
+</ul>
+<h3>Flow F-03 — Set/change budget</h3>
+<ul>
+<li><strong>User:</strong> Authorized user; account/role model Unknown.</li>
+<li><strong>Trigger:</strong> User chooses a category budget from Budgets, category detail, or optional insight cross-link.</li>
+<li><strong>Start:</strong> Budget list/detail or contextual action.</li>
+<li><strong>Success end:</strong> Valid budget saved with threshold/notification behavior understood and controlled.</li>
+<li><strong>Alternate ends:</strong> Cancel; edit/delete existing budget if approved; decline notifications; permission denied.</li>
+<li><strong>Main route:</strong> Select category → enter amount/period → explain currency/rollover/threshold rules → validate → review notification preference → confirm → save → show progress/confirmation.</li>
+<li><strong>Decision points:</strong> Existing budget? Valid amount/currency? Period rule? Notification permission/channel? 80%/100% threshold event already passed?</li>
+<li><strong>Errors/recovery:</strong> Invalid amount, duplicate budget, stale spend, notification denied, save failure, offline/timeout; preserve input where safe and allow retry/cancel.</li>
+<li><strong>Data/permissions:</strong> Category, currency, amount, period, current spend, thresholds, notification preference/consent, timestamps.</li>
+<li><strong>Links:</strong> N-12/N-121/N-122/N-153; CI-009/013–014/016–017; FR7–8.</li>
+<li><strong>Evidence/confidence:</strong> BRD requirements; LOW flow/rules.</li>
+</ul>
+<h3>Flow F-04 — Review recurring commitments</h3>
+<ul>
+<li><strong>User:</strong> Provisional household/all candidate; permissions Unknown.</li>
+<li><strong>Trigger:</strong> Opens recurring payments from tracker.</li>
+<li><strong>Start:</strong> Recurring summary.</li>
+<li><strong>Success end:</strong> Understands candidate commitments and their status; correctness not assumed.</li>
+<li><strong>Alternate ends:</strong> No detected items/empty state; inspect item; seek correction/help; export if authorized; exit.</li>
+<li><strong>Main route:</strong> Open recurring → load detection results → show items/amounts/frequency/confidence where approved → select item → review basis/history → confirm/correct/dismiss only if supported → return.</li>
+<li><strong>Decision points:</strong> Data available? Item confidently recurring? Shared/sensitive item? Correction capability approved? Export chosen?</li>
+<li><strong>Errors/recovery:</strong> False positive/negative, irregular amount, duplicate merchant, cancelled subscription, missing history, data timeout; explain uncertainty and route correction/help without claiming detection accuracy.</li>
+<li><strong>Data/permissions:</strong> Merchant, amounts/dates, frequency, recurrence status/confidence, account role, correction/audit.</li>
+<li><strong>Links:</strong> N-13/N-131/N-132/N-14; CI-010/012–013/015–017; FR9–10.</li>
+<li><strong>Evidence/confidence:</strong> BRD §7.6/8.4/FR9; LOW.</li>
+</ul>
+<h3>Flow F-05 — Export/share monthly summary</h3>
+<ul>
+<li><strong>User:</strong> Authorized account user — assumption.</li>
+<li><strong>Trigger:</strong> Chooses monthly record/export.</li>
+<li><strong>Start:</strong> Period/summary context.</li>
+<li><strong>Success end:</strong> Accurate authorized file generated and handled according to approved privacy/accessibility rules.</li>
+<li><strong>Alternate ends:</strong> Cancel; format unavailable; permission/re-auth fails; generation/share fails.</li>
+<li><strong>Main route:</strong> Choose export → select approved period/format/content if choices exist → privacy warning/data scope → re-auth if required → generate → verify status → save/share through approved mechanism → confirmation.</li>
+<li><strong>Decision points:</strong> Authorized? Re-auth required? Format approved? Sensitive fields included? Storage/share target available?</li>
+<li><strong>Errors/recovery:</strong> Stale/partial data, generation timeout, inaccessible output, storage permission, share cancellation; no silent partial file.</li>
+<li><strong>Data/permissions:</strong> Period, included accounts/transactions/categories, locale/currency, redaction, file metadata, retention, share target.</li>
+<li><strong>Links:</strong> N-14/N-141/N-151; CI-002/012–013/016–017; FR10.</li>
+<li><strong>Evidence/confidence:</strong> BRD §7.8/FR10; LOW.</li>
+</ul>
+<h3>Flow F-06 — Unusual-spending alert</h3>
+<ul>
+<li><strong>User:</strong> Authorized user who has not opted out — assumption.</li>
+<li><strong>Trigger:</strong> System detects an eligible pattern; criteria Unknown.</li>
+<li><strong>Start:</strong> In-app insight or notification if authorized.</li>
+<li><strong>Success end:</strong> Person can understand basis, inspect data, dismiss, and control future alerts without judgment.</li>
+<li><strong>Alternate ends:</strong> Suppressed/not sent; dismissed; notification permission denied; pattern no longer current; user reports error.</li>
+<li><strong>Main route:</strong> Eligibility/privacy/permission checks → neutral message with context → open relevant detail → explain basis → optional action/dismiss/preferences.</li>
+<li><strong>Decision points:</strong> Sufficient data/confidence? Harm-sensitive context? Notification allowed? Duplicate/recent alert? User wants detail/action?</li>
+<li><strong>Errors/recovery:</strong> False positive, outdated amount, deep-link failure, missing data; explain uncertainty, preserve control, avoid alarmist language.</li>
+<li><strong>Data/permissions:</strong> Baseline window/rules, transaction/category, confidence, notification consent, suppression history.</li>
+<li><strong>Links:</strong> N-114/N-1121/N-153; CI-008/011/013–014/016–017; BRD §7.7.</li>
+<li><strong>Evidence/confidence:</strong> Business proposal only; LOW and Decision needed.</li>
+</ul>
+<h2>3. Task flows</h2>
+<table>
+<thead>
+<tr>
+<th>Task ID</th>
+<th>Focused task</th>
+<th>Atomic sequence</th>
+<th>Completion</th>
+<th>Cancellation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TF-01</td>
+<td>Open a category from monthly overview</td>
+<td>Open tracker → wait/status → choose category → view category detail</td>
+<td>Detail identifies period/category and data status</td>
+<td>Back/exit returns without mutation</td>
+</tr>
+<tr>
+<td>TF-02</td>
+<td>Change a category</td>
+<td>Select transaction → change category → select → review future-use option → confirm/save</td>
+<td>Confirmation plus updated category or explicit pending state</td>
+<td>Cancel preserves original category</td>
+</tr>
+<tr>
+<td>TF-03</td>
+<td>Create a category budget</td>
+<td>Select category → enter amount → review rules/preferences → confirm/save</td>
+<td>Budget and alert state shown</td>
+<td>Cancel preserves prior budget state</td>
+</tr>
+<tr>
+<td>TF-04</td>
+<td>Inspect a recurring item</td>
+<td>Open recurring → select item → review recurrence basis/history</td>
+<td>Item status understood/tested</td>
+<td>Back returns to summary</td>
+</tr>
+<tr>
+<td>TF-05</td>
+<td>Export a summary</td>
+<td>Choose export → select approved options → privacy/re-auth → generate → save/share</td>
+<td>Complete accessible file/status</td>
+<td>Cancel leaves no unintended file/share</td>
+</tr>
+</tbody></table>
+<p>Every task sequence is a LOW-confidence hypothesis pending rule review and usability testing.</p>
+<h2>4. Decision points</h2>
+<table>
+<thead>
+<tr>
+<th>Decision ID</th>
+<th>Decision</th>
+<th>Options</th>
+<th>Rule/owner</th>
+<th>Failure risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DP-01</td>
+<td>Account/data authorization</td>
+<td>Allow/deny/re-auth</td>
+<td>Security/privacy owner missing</td>
+<td>Exposure</td>
+</tr>
+<tr>
+<td>DP-02</td>
+<td>Data readiness</td>
+<td>Complete/partial/stale/empty/error</td>
+<td>Data/product owner missing</td>
+<td>Misinterpretation</td>
+</tr>
+<tr>
+<td>DP-03</td>
+<td>Category change eligibility</td>
+<td>Editable/not editable/unknown</td>
+<td>Product/data owner missing</td>
+<td>Incorrect propagation</td>
+</tr>
+<tr>
+<td>DP-04</td>
+<td>Apply future category</td>
+<td>Yes/no/not offered</td>
+<td>Category-rule owner missing</td>
+<td>Unwanted changes</td>
+</tr>
+<tr>
+<td>DP-05</td>
+<td>Budget validation/alert permission</td>
+<td>Valid/invalid; allow/deny</td>
+<td>Product/platform/privacy</td>
+<td>Broken/annoying alerts</td>
+</tr>
+<tr>
+<td>DP-06</td>
+<td>Recurrence confidence/correction</td>
+<td>Show/qualify/suppress; correct/dismiss</td>
+<td>Data owner missing</td>
+<td>False commitment claim</td>
+</tr>
+<tr>
+<td>DP-07</td>
+<td>Export authorization/content</td>
+<td>Permit/deny/redact/re-auth</td>
+<td>Security/privacy/legal</td>
+<td>Data leakage</td>
+</tr>
+<tr>
+<td>DP-08</td>
+<td>Insight/alert eligibility</td>
+<td>Show/suppress/qualify</td>
+<td>Data/content/risk owner</td>
+<td>Judgment/false alarm</td>
+</tr>
+</tbody></table>
+<h2>5. Alternate and error paths</h2>
+<table>
+<thead>
+<tr>
+<th>State/path</th>
+<th>Applies to</th>
+<th>Required response candidate</th>
+<th>Validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unauthenticated/session expired</td>
+<td>All</td>
+<td>Preserve safe context, re-auth, avoid exposing financial data</td>
+<td>Security/usability review</td>
+</tr>
+<tr>
+<td>Permission denied/shared-role conflict</td>
+<td>Edit/budget/recurring/export</td>
+<td>Explain limitation without leaking data; safe exit/help</td>
+<td>Role-policy testing</td>
+</tr>
+<tr>
+<td>Empty/no history</td>
+<td>Summary/comparison/recurring</td>
+<td>Explain what is missing and when content may appear; no fake zero</td>
+<td>Data/content test</td>
+</tr>
+<tr>
+<td>Loading/timeout/offline</td>
+<td>All dynamic</td>
+<td>Status, retry/cancel, preserve safe input, no duplicate mutation</td>
+<td>Engineering/accessibility test</td>
+</tr>
+<tr>
+<td>Partial/stale data</td>
+<td>Summary/insights/export</td>
+<td>Prominent freshness/scope; block misleading actions where required</td>
+<td>Data-risk review</td>
+</tr>
+<tr>
+<td>Validation/save failure</td>
+<td>Edit/budget</td>
+<td>Atomic rollback, prior state visible, retry/cancel</td>
+<td>Engineering test</td>
+</tr>
+<tr>
+<td>False/uncertain categorization or recurrence</td>
+<td>Correction/recurring</td>
+<td>Explain uncertainty; recovery/help</td>
+<td>Data/user test</td>
+</tr>
+<tr>
+<td>Notification deep-link failure</td>
+<td>Budget/unusual alert</td>
+<td>Open safe fallback context; no duplicate alert</td>
+<td>Platform test</td>
+</tr>
+<tr>
+<td>Export failure/cancel</td>
+<td>Export</td>
+<td>No unintended file/share; clear recovery</td>
+<td>Security/accessibility test</td>
+</tr>
+</tbody></table>
+<h2>6. State and data requirements</h2>
+<table>
+<thead>
+<tr>
+<th>State/data ID</th>
+<th>Requirement candidate</th>
+<th>Flows</th>
+<th>Owner/dependency</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SD-01</td>
+<td>Authenticated account/role and re-auth policy</td>
+<td>All</td>
+<td>Security/auth architecture</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-02</td>
+<td>Transaction period, timezone, inclusion/exclusion, freshness, reconciliation</td>
+<td>F-01/02/04/05/06</td>
+<td>Data dictionary</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-03</td>
+<td>Category taxonomy, source/confidence, correction/memory/audit</td>
+<td>F-01/02/06</td>
+<td>Data/product rules</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-04</td>
+<td>Budget lifecycle, currency, thresholds, alert state</td>
+<td>F-03</td>
+<td>Product/notification rules</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-05</td>
+<td>Recurrence criteria, confidence, confirmation/correction</td>
+<td>F-04</td>
+<td>Data rules</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-06</td>
+<td>Insight/anomaly basis, explainability, tone, suppression</td>
+<td>F-01/06</td>
+<td>Data/content/risk</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-07</td>
+<td>Export schema, format, redaction, storage/share, deletion</td>
+<td>F-05</td>
+<td>Privacy/security/data</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>SD-08</td>
+<td>Accessibility status announcements, focus, reading order, alternatives</td>
+<td>All</td>
+<td>Design system/platform requirements</td>
+<td>LOW</td>
+</tr>
+</tbody></table>
+<h2>7. Dependencies</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dependency</th>
+<th>Affected flows</th>
+<th>Status/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DEP-01</td>
+<td>Approved IA labels/hierarchy and parent-app integration</td>
+<td>All</td>
+<td>G04 + research pending</td>
+</tr>
+<tr>
+<td>DEP-02</td>
+<td>Business/category/data rules and architecture</td>
+<td>All</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>DEP-03</td>
+<td>Auth, permissions, privacy/security/legal decisions</td>
+<td>All; especially F-02/05</td>
+<td>Missing; human review required</td>
+</tr>
+<tr>
+<td>DEP-04</td>
+<td>Notification and export platform constraints</td>
+<td>F-03/05/06</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>DEP-05</td>
+<td>Accessibility/content/localization requirements</td>
+<td>All</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>DEP-06</td>
+<td>Representative research/usability evidence</td>
+<td>All</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>DEP-07</td>
+<td>Screen IDs/designs and engineering review</td>
+<td>All</td>
+<td>Later phase; not yet approved</td>
+</tr>
+</tbody></table>
+<h2>8. Review checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Scenario inventory, user flows, task flows, decisions, alternate/error paths, state/data requirements, and dependencies are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Entry, success, alternate, cancellation, permission, empty, loading, error, timeout, offline, partial/stale, and recovery states are represented.</li>
+<li><input checked="" disabled="" type="checkbox"> Flow IDs link to BRD requirements, sitemap nodes, and content inventory.</li>
+<li><input checked="" disabled="" type="checkbox"> No implemented behavior, approved rule, participant behavior, task result, or screen design was invented.</li>
+<li><input disabled="" type="checkbox"> Product/data/engineering/security/privacy/accessibility owners validate rules and feasibility — blocked.</li>
+<li><input disabled="" type="checkbox"> Representative users validate comprehension, path choice, errors, and recovery — blocked.</li>
+</ul>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>BRD §§7–10</td>
+<td>Reported/business requirements</td>
+<td>HIGH for stated features</td>
+<td>Logic/edge rules incomplete</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 03 journeys/needs/prioritization</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Not user validated/committed</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Phase 04 sitemap/content inventory</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Provisional IA</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Document full proposed flows while marking all unapproved logic LOW</td>
+<td>Artifact decision</td>
+<td>HIGH</td>
+<td>Does not approve capability</td>
+</tr>
+</tbody></table>
+</article>
+    <footer>Generated from user-task-flows.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

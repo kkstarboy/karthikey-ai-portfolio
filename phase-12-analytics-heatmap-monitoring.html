@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 12 — Analytics and Heatmap Monitoring — Phase 12 · Post-Launch</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 12 · Post-Launch</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./analytics-heatmap-monitoring.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Phase 12 — Analytics and Heatmap Monitoring</h1>
+<p><strong>Status:</strong> Provisional readiness and limitation artifact — monitoring not started<br><strong>Prepared:</strong> 2026-07-24 (Asia/Calcutta)<br><strong>Decision supported:</strong> Determine whether post-launch behavioral monitoring can begin and what evidence is required before interpreting product outcomes.<br><strong>Scope:</strong> Smart Expense Tracker concepts described by the supplied BRD; no implemented or launched product is evidenced.<br><strong>Affected users:</strong> Candidate user groups described in the BRD; they are not validated research segments or observed product users.<br><strong>Decision owner/reviewer:</strong> Product, analytics/data, engineering, privacy/legal, accessibility, security, and business owners are not identified; G12 human review is required.<br><strong>Delivery deadline:</strong> Not supplied.</p>
+<h2>1. Monitoring plan</h2>
+<h3>Readiness decision</h3>
+<p>Monitoring cannot begin. G11 approval authorizes a limitation/readiness artifact only and does not establish a release or launch. No launch goal with an approved metric contract, baseline, release date, deployed environment, event taxonomy, analytics or heatmap tool, supported-device matrix, production traffic, consent rule, retention rule, reviewer, or accountable decision owner was supplied.</p>
+<table>
+<thead>
+<tr>
+<th>Plan ID</th>
+<th>Proposed monitoring question</th>
+<th>Evidence type / confidence</th>
+<th>Status</th>
+<th>Owner</th>
+<th>Dependency</th>
+<th>Validation or follow-up</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MP-01</td>
+<td>Can intended users discover and complete the approved critical tasks without avoidable error or abandonment?</td>
+<td>Assumed / LOW</td>
+<td>Proposed, not executable</td>
+<td>Product + UX research</td>
+<td>Approved launch scope, task definitions, event taxonomy, baseline, consent</td>
+<td>Owners approve the question and metric contract before instrumentation.</td>
+</tr>
+<tr>
+<td>MP-02</td>
+<td>Are errors, recovery, performance, accessibility, or device conditions associated with incomplete task progression?</td>
+<td>Assumed / LOW</td>
+<td>Proposed, not executable</td>
+<td>Analytics + engineering + accessibility</td>
+<td>Production build, error/performance telemetry, supported-device matrix</td>
+<td>Validate instrumentation and accessibility/privacy treatment before collection.</td>
+</tr>
+<tr>
+<td>MP-03</td>
+<td>Do directional aggregate heatmap patterns indicate interface areas requiring research, without inferring intent?</td>
+<td>Assumed / LOW</td>
+<td>Proposed, not executable</td>
+<td>UX research + privacy</td>
+<td>Approved heatmap tool, consent, redaction, minimum sample, page/state map</td>
+<td>Privacy/legal review and a non-sensitive-data test are mandatory before capture.</td>
+</tr>
+</tbody></table>
+<p><strong>Proposed cadence:</strong> Not decided. A cadence may be selected only after release timing, traffic expectations, decision urgency, baseline windows, owners, and escalation thresholds are approved.<br><strong>Segmentation:</strong> Not performed. Candidate dimensions such as device, channel, role, entry point, and task stage require approved definitions and adequate privacy-safe sample sizes.<br><strong>Escalation:</strong> No numeric threshold is asserted. An authorized owner must define critical regression, privacy incident, accessibility barrier, security event, and performance escalation rules before launch.</p>
+<h3>Source inventory</h3>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AM-E01</td>
+<td><code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code></td>
+<td>SHA-256 <code>34489BDDD9B556E0433A2CA113318AEB2AAFFB756EE1A856002A37C56FAE0036</code>; date not supplied</td>
+<td>Product concept, candidate users, goals, scenarios, planned measures</td>
+<td>Reported</td>
+<td>LOW</td>
+<td>BRD provenance, owner, approval state, measurement definitions, baseline, target method, and research support are incomplete.</td>
+</tr>
+<tr>
+<td>AM-E02</td>
+<td><code>Output/reviews/gate-11-review.md</code></td>
+<td>2026-07-24; SHA-256 <code>2F53FF49F9DE338859C188DBFD0B1BEDA2E6B24D2E533AEA7D2823E1C60504E7</code></td>
+<td>Explicit G11 approval and no-build/no-release/no-launch boundary</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Workflow authorization only; it is not launch or outcome evidence.</td>
+</tr>
+<tr>
+<td>AM-E03</td>
+<td><code>Output/phase-11/developer-query-log.md</code></td>
+<td>SHA-256 <code>1E07DD525D0A629F2E4DE89AD8B3E4607181166789195DECD84FBAE388ABEE67</code></td>
+<td>Zero developer queries/answers and no build context</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Evidence of absence in the supplied record, not proof about systems outside the workspace.</td>
+</tr>
+<tr>
+<td>AM-E04</td>
+<td><code>Output/phase-11/design-qa-uat.md</code></td>
+<td>SHA-256 <code>765E7A393BA37E8314814AF4C13308F024D3144A8F5C8DC199C9AB5A4F2CC535</code></td>
+<td>QA/UAT not conducted; no release recommendation</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>No build or environment was available for verification.</td>
+</tr>
+<tr>
+<td>AM-E05</td>
+<td><code>Output/phase-11/ux-bug-log.md</code></td>
+<td>SHA-256 <code>0C06A45B0814CD54701ABDCF424DBF798B065CA575396074A7086CFA05EE6AA2</code></td>
+<td>Empty implementation-bug backlog</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Cannot support a product-quality conclusion because no implementation was inspected.</td>
+</tr>
+<tr>
+<td>AM-E06</td>
+<td>Launch, instrumentation, telemetry, dashboard, heatmap, consent, traffic, and support sources</td>
+<td>Not supplied as of 2026-07-24</td>
+<td>Required post-launch evidence</td>
+<td>—</td>
+<td>—</td>
+<td>Missing; contents and results must not be inferred.</td>
+</tr>
+</tbody></table>
+<p>No unreadable, corrupt, password-protected, duplicate, or contradictory Phase 12 source was encountered. Required launch sources are absent rather than unreadable.</p>
+<h2>2. Metric definitions and baselines</h2>
+<p>No approved metric definition or baseline exists. BRD targets are planned business statements, not observed baselines or post-launch results, and are not reproduced as outcomes here.</p>
+<table>
+<thead>
+<tr>
+<th>Metric ID</th>
+<th>Candidate construct</th>
+<th>Required definition</th>
+<th>Baseline/comparison</th>
+<th>Evidence type / confidence</th>
+<th>Status</th>
+<th>Owner / validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MD-01</td>
+<td>Exposure and eligible population</td>
+<td>Eligibility, release exposure, exclusions, deduplication, timestamp, and denominator</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>Product + analytics approve and instrument.</td>
+</tr>
+<tr>
+<td>MD-02</td>
+<td>Task progression and completion</td>
+<td>Approved task start, ordered steps, success, cancellation, failure, recovery, timeout, and denominator</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>UX + product + analytics validate against the release.</td>
+</tr>
+<tr>
+<td>MD-03</td>
+<td>Error and recovery</td>
+<td>Error taxonomy, severity, affected state, recovery event, repeated error, and exclusion rules</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>Engineering + QA + analytics validate using a real build.</td>
+</tr>
+<tr>
+<td>MD-04</td>
+<td>Performance guardrail</td>
+<td>Device/network context, percentile, acceptable threshold, and collection method</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>Engineering defines and verifies.</td>
+</tr>
+<tr>
+<td>MD-05</td>
+<td>Retention or repeat value</td>
+<td>Meaningful return behavior, window, cohort, eligibility, and consent</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>Product + analytics + privacy approve.</td>
+</tr>
+<tr>
+<td>MD-06</td>
+<td>Support impact</td>
+<td>Contact taxonomy, linkage method, privacy controls, duplicates, and denominator</td>
+<td>Not available</td>
+<td>Assumed / LOW</td>
+<td>Definition required</td>
+<td>Support + privacy + analytics approve.</td>
+</tr>
+</tbody></table>
+<p>Metric names do not constitute requirements. Comparisons must not be made across changed definitions, event versions, consent populations, or tracking coverage without visible qualification.</p>
+<h2>3. Post-launch dashboard</h2>
+<p><strong>Dashboard status:</strong> Not created and not populated. There is no launch, telemetry source, validated event stream, baseline, date range, segment, or product traffic.</p>
+<table>
+<thead>
+<tr>
+<th>Dashboard element</th>
+<th>Current value</th>
+<th>Why unavailable</th>
+<th>Minimum evidence to populate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Release/version and date window</td>
+<td>Not available</td>
+<td>No approved release evidence</td>
+<td>Deployment record, release version, timezone, observation window</td>
+</tr>
+<tr>
+<td>Exposure/adoption</td>
+<td>Not available</td>
+<td>No eligible population or events</td>
+<td>Validated exposure event and denominator</td>
+</tr>
+<tr>
+<td>Task funnel</td>
+<td>Not available</td>
+<td>No approved task/event contract</td>
+<td>Validated start, step, success, failure, and recovery events</td>
+</tr>
+<tr>
+<td>Errors/performance</td>
+<td>Not available</td>
+<td>No build telemetry</td>
+<td>Error taxonomy and performance instrumentation</td>
+</tr>
+<tr>
+<td>Segment/device/channel views</td>
+<td>Not available</td>
+<td>No data or safe segmentation rules</td>
+<td>Approved dimensions, minimum sample rules, privacy controls</td>
+</tr>
+<tr>
+<td>Heatmap summary</td>
+<td>Not available</td>
+<td>No approved capture or sessions</td>
+<td>Consent-safe aggregate heatmap source with page/state/version context</td>
+</tr>
+<tr>
+<td>Support impact</td>
+<td>Not available</td>
+<td>No support source</td>
+<td>Dated, deduplicated, privacy-reviewed support dataset</td>
+</tr>
+</tbody></table>
+<p>Null cells represent missing evidence, not zero performance and not a negative outcome.</p>
+<h2>4. Behavior findings</h2>
+<p><strong>Finding count: 0.</strong> No product behavior, task attempt, completion, error, recovery, retention, support impact, or segment difference was observed or reported. The absence of supplied behavioral data cannot be interpreted as success, failure, satisfaction, comprehension, safety, accessibility, or lack of use.</p>
+<p>No <code>PM-##</code> post-launch finding is created because the structured template requires a real metric/source, date range, segment, baseline/comparison, and observation.</p>
+<h2>5. Anomalies</h2>
+<p><strong>Anomaly count: 0.</strong> No time series, release comparison, tracking data, traffic pattern, campaign, seasonality context, or metric definition is available. Therefore no spike, drop, regression, outlier, or causal explanation is asserted.</p>
+<p>When evidence exists, every anomaly review must check release, campaign, seasonality, tracking, traffic mix, consent population, definition changes, device coverage, and data-quality changes before proposing a product explanation.</p>
+<h2>6. Heatmap limitations</h2>
+<ul>
+<li>No heatmap, session replay, click map, scroll map, attention map, page/state map, tool export, sample, capture period, or consent record was supplied.</li>
+<li>Heatmaps may provide directional aggregate patterns only; they do not demonstrate user intent, attention, comprehension, satisfaction, causation, task success, or accessibility.</li>
+<li>Session-level personal, account, financial, free-text, authentication, or other sensitive data must not be exposed. Masking, redaction, consent, access, retention, deletion, and vendor rules require human approval and testing.</li>
+<li>Comparing maps across changed layouts, traffic sources, devices, consent populations, or instrumentation versions requires qualification.</li>
+<li>Small or self-selected samples and aggregation can hide keyboard, screen-reader, zoom, reflow, localization, assistive-technology, and low-frequency high-severity barriers.</li>
+<li>Until the above controls exist, heatmap capture and interpretation are <strong>blocked</strong>.</li>
+</ul>
+<h2>7. Hypotheses</h2>
+<p>No unexpected post-launch pattern exists from which to derive a behavioral hypothesis. The items below are readiness hypotheses, not findings, user needs, requirements, or roadmap commitments.</p>
+<table>
+<thead>
+<tr>
+<th>Hypothesis ID</th>
+<th>Assumed proposition</th>
+<th>Source/evidence</th>
+<th>Confidence</th>
+<th>Alternative explanations</th>
+<th>Owner</th>
+<th>Validation action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RH-01</td>
+<td>A versioned event taxonomy covering success, error, cancellation, timeout, and recovery may enable interpretable task monitoring.</td>
+<td>Skill contract and missing-input inventory; no product data</td>
+<td>LOW / Assumed</td>
+<td>Task definitions or technical architecture may require another model.</td>
+<td>Analytics + engineering + UX</td>
+<td>Review against the approved build and run instrumentation QA before launch interpretation.</td>
+</tr>
+<tr>
+<td>RH-02</td>
+<td>Aggregate heatmaps may help identify areas for follow-up research if privacy controls and contextual data are adequate.</td>
+<td>Skill contract only; no heatmap evidence</td>
+<td>LOW / Assumed</td>
+<td>Maps may be misleading, biased, or unnecessary for the decision.</td>
+<td>UX research + privacy</td>
+<td>Approve use case, run privacy review, test masking, and triangulate with task/feedback evidence.</td>
+</tr>
+</tbody></table>
+<h2>8. Research and instrumentation actions</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AM-A01</td>
+<td>Provide an approved deployment/release record or confirm that no launch is planned.</td>
+<td>AM-E02–AM-E05 show no build, QA, release, or launch evidence.</td>
+<td>Product/release owner, not assigned</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Human ownership</td>
+</tr>
+<tr>
+<td>AM-A02</td>
+<td>Approve launch questions, metric contracts, baselines, guardrails, comparison windows, and escalation rules.</td>
+<td>Metric definitions and baselines are absent.</td>
+<td>Product + analytics + business, not assigned</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>AM-A01</td>
+</tr>
+<tr>
+<td>AM-A03</td>
+<td>Create and test a versioned event taxonomy on the actual release.</td>
+<td>Interpretation is unsafe without verified instrumentation.</td>
+<td>Analytics + engineering + QA, not assigned</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Approved build and scope</td>
+</tr>
+<tr>
+<td>AM-A04</td>
+<td>Approve privacy, consent, redaction, access, retention, deletion, security, and vendor rules before behavioral capture.</td>
+<td>Financial-product context may involve sensitive data; rules are absent.</td>
+<td>Privacy/legal + security, not assigned</td>
+<td>Not set</td>
+<td>Proposed; human review required</td>
+<td>Policy and system architecture</td>
+</tr>
+<tr>
+<td>AM-A05</td>
+<td>Define accessibility-safe monitoring and supplement aggregate analytics with appropriate research.</td>
+<td>Analytics and heatmaps cannot establish accessibility or intent.</td>
+<td>Accessibility + UX research, not assigned</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Representative access needs and research plan</td>
+</tr>
+<tr>
+<td>AM-A06</td>
+<td>Validate event accuracy, completeness, duplication, ordering, timezones, devices, consent populations, and failure paths before interpreting a dashboard.</td>
+<td>Tracking changes can create false patterns.</td>
+<td>Analytics + engineering + QA, not assigned</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>AM-A02–AM-A04</td>
+</tr>
+<tr>
+<td>AM-A07</td>
+<td>After adequate data exists, review exposure, progression, completion, errors, recovery, retention, support impact, segments, and alternative explanations.</td>
+<td>Required by the monitoring skill; currently blocked.</td>
+<td>Product + analytics + UX research, not assigned</td>
+<td>Not set</td>
+<td>Deferred</td>
+<td>AM-A01–AM-A06 and sufficient privacy-safe data</td>
+</tr>
+</tbody></table>
+<h3>Validation result</h3>
+<ul>
+<li>Purpose, scope, decision context, sources, recency, ownership gaps, and limitations are explicit.</li>
+<li>Direct workflow evidence, reported BRD content, and assumed readiness hypotheses remain distinct.</li>
+<li>No launch, user, session, metric value, baseline, trend, behavior, anomaly, heatmap pattern, causal result, or production commitment is invented.</li>
+<li>Contradictions: none in the available Phase 12 evidence. Missing data remains missing rather than being interpreted as a null product result.</li>
+<li>Accessibility, privacy, ethics, inclusion, dependencies, constraints, owners, statuses, and human-review needs are recorded.</li>
+<li><strong>Skill outcome:</strong> Complete provisional/limitation output; monitoring remains blocked. It is usable as input to the feedback-collection readiness step, not as evidence of post-launch performance.</li>
+</ul>
+</article>
+    <footer>Generated from analytics-heatmap-monitoring.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

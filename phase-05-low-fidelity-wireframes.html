@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Low-Fidelity Wireframes — Provisional Structural Exploration — Phase 05 · Ideation &amp; Sketching</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 05 · Ideation &amp; Sketching</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./low-fidelity-wireframes.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Low-Fidelity Wireframes — Provisional Structural Exploration</h1>
+<h2>Evidence basis and fidelity boundary</h2>
+<p>These text wireframes compare structural approaches before visual styling. They are not high-fidelity screens, measured layouts, interactive prototypes, user-tested designs, or implementation specifications.</p>
+<ul>
+<li><strong>Primary problem:</strong> Spending-period comprehension plus category recovery.</li>
+<li><strong>Concepts explored:</strong> C-01 Overview First and C-02 Guided Review; C-03 is represented in a narrow contextual correction variant.</li>
+<li><strong>Sources:</strong> Phase 05 concepts/review; Phase 04 content, sitemap, flows; Phase 03 needs/problems; BRD.</li>
+<li><strong>Confidence:</strong> All layouts/transitions are Inferred/LOW. BRD sample amounts are labeled content-format examples, not actual user data.</li>
+<li><strong>Constraints/gaps:</strong> Small-screen mobile intent; exact viewport, parent app shell, platform, components, business/data rules, permissions, accessibility target, localization, and feasibility are Unknown.</li>
+</ul>
+<h2>1. Concept goals</h2>
+<table>
+<thead>
+<tr>
+<th>Goal ID</th>
+<th>Structural question</th>
+<th>Concepts</th>
+<th>Evidence</th>
+<th>Success to test</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CG-01</td>
+<td>Can a person understand period, total, categories, and data status?</td>
+<td>C-01/C-02</td>
+<td>N-01, F-01</td>
+<td>Accurate explanation without prompting</td>
+</tr>
+<tr>
+<td>CG-02</td>
+<td>Can a person find and recover from a wrong category?</td>
+<td>C-01/C-03</td>
+<td>N-02, F-02</td>
+<td>Locate, cancel/confirm, understand future effect</td>
+</tr>
+<tr>
+<td>CG-03</td>
+<td>Can guidance reduce complexity without removing control?</td>
+<td>C-02</td>
+<td>N-04/N-06</td>
+<td>Skip/back/full-view understood</td>
+</tr>
+<tr>
+<td>CG-04</td>
+<td>Are privacy, freshness, uncertainty, and errors visible?</td>
+<td>All</td>
+<td>N-05, alternate states</td>
+<td>Safe interpretation/recovery</td>
+</tr>
+<tr>
+<td>CG-05</td>
+<td>Does structure support text alternatives and flexible reading order?</td>
+<td>All</td>
+<td>CI-016/SD-08</td>
+<td>Accessibility review and task test</td>
+</tr>
+</tbody></table>
+<h2>2. Low-fidelity screens</h2>
+<h3>LF-01A — C-01 Overview First: monthly overview</h3>
+<pre><code class="language-text">┌──────────────────────────────────────┐
+│ ‹ App        Spending        Help    │
+│ July 2026 ▼       Updated [time]     │
+├──────────────────────────────────────┤
+│ This month                          │
+│ You spent ₹28,400                   │  ← BRD §7.1 format example
+│ ₹3,200 higher than last month       │  ← explanation/control required
+│ [How totals are calculated]         │
+├──────────────────────────────────────┤
+│ Spending by category                │
+│ Food &amp; Dining   ₹8,200    [view &gt;]   │
+│ Shopping       ₹6,500    [view &gt;]   │
+│ Travel         ₹3,800    [view &gt;]   │
+│ Subscriptions  ₹1,499    [view &gt;]   │
+│ [View all categories]               │
+├──────────────────────────────────────┤
+│ Pattern to review                   │
+│ Food &amp; Dining is highest this month │
+│ [Why am I seeing this?] [View]      │
+├──────────────────────────────────────┤
+│ [Budgets] [Recurring payments]      │
+│ [Export monthly record]             │
+└──────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Scenario/user goal:</strong> F-01, understand a period.</li>
+<li><strong>Problem addressed:</strong> N-01/PS-01.</li>
+<li><strong>Key layout idea:</strong> Status/period → total/comparison → category list → one explainable pattern → peer tasks.</li>
+<li><strong>Required content/actions:</strong> CI-002–006, CI-008, CI-010/012–013, CI-016–017.</li>
+<li><strong>States covered elsewhere:</strong> Loading, partial/stale, empty, error, privacy first-use.</li>
+<li><strong>Assumptions:</strong> List is more robust than chart-only; five items fit without hiding key actions; comparison rules exist.</li>
+<li><strong>Questions:</strong> Is hierarchy comprehensible? Is it too dense? Are data status, privacy, and correction discoverable?</li>
+<li><strong>Links:</strong> C-01; N-11; F-01; FR1/5/6.</li>
+</ul>
+<h3>LF-01B — C-01 Overview First: category and transaction recovery</h3>
+<pre><code class="language-text">┌──────────────────────────────────────┐
+│ ‹ Overview     Food &amp; Dining         │
+│ July 2026        ₹8,200              │
+├──────────────────────────────────────┤
+│ Transactions                         │
+│ Swiggy       18 Jul       ₹650   &gt;   │
+│ FreshMart    16 Jul     ₹1,240   &gt;   │
+│ [More]                               │
+├──────────────────────────────────────┤
+│ FreshMart • 16 Jul • ₹1,240          │
+│ Current category: Food &amp; Dining      │
+│ [Change category]                    │
+│ Category source: [explanation]       │
+└──────────────────────────────────────┘
+
+Change category (sheet/page — to test)
+┌──────────────────────────────────────┐
+│ Change category             [Close]  │
+│ ( ) Groceries                        │
+│ ( ) Food &amp; Dining                    │
+│ ( ) Shopping                         │
+│ [View all approved categories]       │
+│ [ ] Use for future FreshMart items   │
+│ [Cancel]                 [Review]     │
+└──────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Scenario/user goal:</strong> F-02, verify/correct without losing context.</li>
+<li><strong>Problem addressed:</strong> N-02/PS-04.</li>
+<li><strong>Assumptions:</strong> Transaction is editable; merchant memory option is permitted; sheet vs page is unresolved.</li>
+<li><strong>Errors/states:</strong> Same category, save error, offline, non-editable transfer/refund, conflicting rule, cancel, confirmation, undo if approved.</li>
+<li><strong>Questions:</strong> Is “category source” useful? Is future-use choice understood? Is the category list accessible and manageable?</li>
+<li><strong>Links:</strong> C-01/C-03; N-1121/1122; TF-02; FR2–4.</li>
+</ul>
+<h3>LF-02A — C-02 Guided Review: step sequence</h3>
+<pre><code class="language-text">┌──────────────────────────────────────┐
+│ Spending review        Step 1 of ?   │
+│ [Exit]                    [Full view]│
+├──────────────────────────────────────┤
+│ July 2026                            │
+│ You spent ₹28,400                    │  ← BRD format example
+│ Data status: [current/partial]        │
+│ [How this is calculated]             │
+│                                      │
+│ [Next: see what changed]             │
+│ [Skip]                               │
+└──────────────────────────────────────┘
+
+┌──────────────────────────────────────┐
+│ Spending review        Step 2 of ?   │
+│ [Back] [Exit]             [Full view]│
+├──────────────────────────────────────┤
+│ Food &amp; Dining changed most           │
+│ This is ₹[amount] [higher/lower]      │
+│ [Why am I seeing this?]              │
+│ [View transactions]                  │
+│ [Next]                    [Skip]      │
+└──────────────────────────────────────┘
+
+┌──────────────────────────────────────┐
+│ Optional next step                   │
+│ Review a category / Set a budget /   │
+│ Finish without action                │
+│ [Choose] [Finish]                    │
+└──────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Scenario/user goal:</strong> J-03/F-01, understand and freely choose a next step.</li>
+<li><strong>Problem addressed:</strong> N-01/N-04/N-06, PS-03.</li>
+<li><strong>Key idea:</strong> One question at a time with permanent skip/exit/full-view control.</li>
+<li><strong>Assumptions:</strong> System can safely choose sequence/relevance; progress need not use a fixed number; no action is a valid end.</li>
+<li><strong>States:</strong> No comparison history, no relevant change, partial data, stale insight, deep-link error, resumed session.</li>
+<li><strong>Questions:</strong> Does sequence clarify or patronize? Do users notice Full view/Exit? Does optional action feel neutral?</li>
+<li><strong>Links:</strong> C-02; F-01/F-06; BRD FR1/5–8.</li>
+</ul>
+<h3>LF-03A — C-03 Transaction Context: activity enhancement</h3>
+<pre><code class="language-text">┌──────────────────────────────────────┐
+│ Existing app: Activity               │
+├──────────────────────────────────────┤
+│ FreshMart             ₹1,240      &gt;  │
+│ Groceries • category source [?]      │
+│                                      │
+│ Swiggy                  ₹650      &gt;  │
+│ Food &amp; Dining                      │
+├──────────────────────────────────────┤
+│ [See July spending summary]          │
+└──────────────────────────────────────┘
+
+Transaction detail extension
+┌──────────────────────────────────────┐
+│ FreshMart • ₹1,240                   │
+│ Category: Groceries [Change]         │
+│ [See Groceries this month]           │
+│ [How categories work]                │
+└──────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Scenario/user goal:</strong> F-02, contextual verification/recovery.</li>
+<li><strong>Key idea:</strong> Attach category meaning/action to existing transaction surfaces; summary is a cross-link.</li>
+<li><strong>Assumptions:</strong> Existing app structure and ownership support these additions; not verified.</li>
+<li><strong>Risk:</strong> Duplicate transaction detail, clutter, disclosure, inconsistent navigation.</li>
+<li><strong>Questions:</strong> Is this a more natural entry than a tracker destination? Can a period-level mental model still form?</li>
+<li><strong>Links:</strong> C-03; sitemap OD-04; FR2–4.</li>
+</ul>
+<h3>LF-S1 — Loading, partial, empty, and error state matrix</h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Structural content/actions</th>
+<th>Do not do</th>
+<th>Flow link</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Loading</td>
+<td>Page title, period shell, progress/status announced, cancel/back where safe</td>
+<td>Show fake totals</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Empty/no eligible transactions</td>
+<td>Explain period/scope and when data may appear; link data-use/help</td>
+<td>Present ₹0 as confirmed without rule</td>
+<td>F-01</td>
+</tr>
+<tr>
+<td>Partial/stale</td>
+<td>Prominent scope/freshness; explain affected totals/actions; retry</td>
+<td>Hide warning below insights</td>
+<td>F-01/04/05/06</td>
+</tr>
+<tr>
+<td>Offline/timeout</td>
+<td>Preserve safe context/input; retry/cancel; no duplicate mutation</td>
+<td>Claim save/export completed</td>
+<td>F-02/03/05</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>No sensitive preview; explain safe next step/help</td>
+<td>Leak account/merchant/category details</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Save failure</td>
+<td>Prior value remains authoritative; retry/cancel; confirmation absent</td>
+<td>Optimistically imply success</td>
+<td>F-02/03</td>
+</tr>
+<tr>
+<td>Export failure/cancel</td>
+<td>Clear no-file/no-share status; retry safely</td>
+<td>Leave ambiguous partial file</td>
+<td>F-05</td>
+</tr>
+</tbody></table>
+<h2>3. Flow coverage</h2>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Wireframe coverage</th>
+<th>Missing/next</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F-01 Review spending</td>
+<td>LF-01A, LF-02A, LF-S1</td>
+<td>Period selection, full insight detail</td>
+</tr>
+<tr>
+<td>F-02 Correct category</td>
+<td>LF-01B, LF-03A, LF-S1</td>
+<td>Approved rules, confirmation/undo screen</td>
+</tr>
+<tr>
+<td>F-03 Budget</td>
+<td>Contextual action only; state guidance LF-S1</td>
+<td>Full setup/progress requires rule decisions</td>
+</tr>
+<tr>
+<td>F-04 Recurring</td>
+<td>Overview entry only; LF-S1</td>
+<td>Detection/item/confirmation structure pending rules</td>
+</tr>
+<tr>
+<td>F-05 Export</td>
+<td>Overview entry and LF-S1</td>
+<td>Privacy/re-auth/format flow pending decisions</td>
+</tr>
+<tr>
+<td>F-06 Unusual alert</td>
+<td>Guided pattern structure and LF-S1</td>
+<td>Eligibility/notification/deep link pending rules</td>
+</tr>
+</tbody></table>
+<p>The narrow low-fidelity decision prioritizes comprehension and correction. Missing screens remain explicit rather than fabricated.</p>
+<h2>4. Annotations</h2>
+<table>
+<thead>
+<tr>
+<th>Annotation ID</th>
+<th>Applies to</th>
+<th>Requirement/behavior candidate</th>
+<th>Evidence</th>
+<th>Confidence/dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AN-01</td>
+<td>All dynamic values</td>
+<td>Show period, currency, scope, freshness, and partial-data status</td>
+<td>CI-017/SD-02</td>
+<td>LOW; data rules</td>
+</tr>
+<tr>
+<td>AN-02</td>
+<td>Visual summaries</td>
+<td>Provide equivalent structured text/list and non-color cues</td>
+<td>CI-016/SD-08</td>
+<td>LOW; accessibility review</td>
+</tr>
+<tr>
+<td>AN-03</td>
+<td>Insights/guidance</td>
+<td>Explain basis; avoid judgment; allow dismiss/exit/no action</td>
+<td>BRD §§6, 9, 13</td>
+<td>LOW; content/harm test</td>
+</tr>
+<tr>
+<td>AN-04</td>
+<td>Category correction</td>
+<td>Confirm exact change/future effect; cancellation preserves original</td>
+<td>F-02</td>
+<td>LOW; rule/engineering review</td>
+</tr>
+<tr>
+<td>AN-05</td>
+<td>Mutations/export</td>
+<td>Prevent duplicate actions; explicit pending/success/failure</td>
+<td>Phase 04 flow states</td>
+<td>LOW; architecture</td>
+</tr>
+<tr>
+<td>AN-06</td>
+<td>Sensitive content</td>
+<td>No data before authorization; export/privacy may require re-auth</td>
+<td>N-05/permissions</td>
+<td>LOW; security/legal</td>
+</tr>
+<tr>
+<td>AN-07</td>
+<td>Focus/announcement</td>
+<td>Logical reading order, visible focus, status announcement, return focus after sheet</td>
+<td>Accessibility candidate</td>
+<td>LOW; platform/design system</td>
+</tr>
+<tr>
+<td>AN-08</td>
+<td>Content examples</td>
+<td>BRD examples test length/tone only; never represent actual data</td>
+<td>BRD §7</td>
+<td>HIGH artifact rule</td>
+</tr>
+</tbody></table>
+<h2>5. Assumptions</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Assumption</th>
+<th>Risk</th>
+<th>Owner</th>
+<th>Validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-01</td>
+<td>Overview list/category hierarchy is comprehensible</td>
+<td>Density/misinterpretation</td>
+<td>Research owner missing</td>
+<td>Compare C-01/C-02</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>Guided sequence can be relevant and optional</td>
+<td>Control/judgment</td>
+<td>Product/research owner missing</td>
+<td>Usability/content harm test</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>Category correction is available from transaction context</td>
+<td>Architecture/permission mismatch</td>
+<td>Product/engineering owner missing</td>
+<td>Feasibility/rule review</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>BRD example content represents realistic length</td>
+<td>Localization overflow</td>
+<td>Content/localization owner missing</td>
+<td>Locale/content stress test</td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>Text structures can map to accessible mobile components</td>
+<td>Platform mismatch</td>
+<td>Accessibility/engineering owner missing</td>
+<td>Component review</td>
+</tr>
+</tbody></table>
+<h2>6. Open questions</h2>
+<ul>
+<li>What existing app shell, activity, navigation, authentication, and account-role model must be preserved?</li>
+<li>Which period, transaction, refund/transfer, category, comparison, correction-memory, recurrence, and insight rules apply?</li>
+<li>What does “current,” “partial,” “stale,” and “accurate enough” mean?</li>
+<li>Which notification, export, privacy/consent, re-auth, sharing, retention, and support rules are authorized?</li>
+<li>What accessibility standard, platform coverage, localization, content governance, and device constraints apply?</li>
+<li>Which concept best supports comprehension, control, repeat use, and safe recovery for representative contexts?</li>
+</ul>
+<h2>7. Review findings</h2>
+<p><strong>No internal or user wireframe review was conducted.</strong> No reviewer, participant, task, observation, vote, preference, issue, or result is available. The preceding <code>ideation-review.md</code> is also a session plan/limitation report.</p>
+<table>
+<thead>
+<tr>
+<th>Finding ID</th>
+<th>Finding</th>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RF-00</td>
+<td>Review evidence absent</td>
+<td>Input/review artifact inventory</td>
+<td>HIGH for absence</td>
+</tr>
+</tbody></table>
+<h2>8. Next-step recommendation</h2>
+<ol>
+<li>At G05, review traceability and limitation handling—not desirability or usability.</li>
+<li>Obtain product/data/security/privacy/accessibility/engineering decisions for the highest-risk rules.</li>
+<li>Develop C-01 and C-02 into comparable mid-fidelity branches with the same realistic tasks/states; keep C-03 conditional on parent-app audit.</li>
+<li>Run an authorized accessibility and feasibility review before interactive testing.</li>
+<li>Test representative users on comprehension, correction, skip/exit, data status, errors, privacy explanation, and non-judgmental tone; preserve contradictory results.</li>
+</ol>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Phase 05 concepts</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>No user/feasibility test</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 04 IA/content/flows</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Provisional</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>BRD format examples and requirements</td>
+<td>Reported/business documented</td>
+<td>HIGH for source</td>
+<td>Not actual user data/validated design</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Sketch C-01/C-02 and narrow C-03; do not select a winner</td>
+<td>Artifact decision</td>
+<td>LOW</td>
+<td>G05 and later validation required</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Goals, multiple low-fidelity structures, flow coverage, annotations, assumptions, questions, review status, and next steps are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Realistic BRD examples are explicitly format examples; failure and recovery states are included.</li>
+<li><input checked="" disabled="" type="checkbox"> No polished visual style, interaction result, reviewer finding, user preference, feasibility conclusion, or validation claim was invented.</li>
+<li><input disabled="" type="checkbox"> Internal, feasibility, accessibility, and representative-user reviews completed — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from low-fidelity-wireframes.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

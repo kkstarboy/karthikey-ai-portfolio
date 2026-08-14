@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer Handoff — Meeting Plan and Not-Conducted Record — Phase 10 · Design Handoff</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 10 · Design Handoff</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./developer-handoff.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Developer Handoff — Meeting Plan and Not-Conducted Record</h1>
+<h2>Status and readiness</h2>
+<p><strong>No developer handoff meeting was conducted.</strong> No developer, engineering lead, QA representative, product owner, content designer, accessibility specialist, design-system owner, data owner, privacy/security/legal reviewer, attendee list, invitation, meeting date, communication channel, written feedback, feasibility answer, estimate, implementation decision, assignment, or due date was supplied.</p>
+<p>The required implementation baseline is also absent: no approved source design file, complete high-fidelity state set, authoritative component library/tokens, stories/acceptance criteria, release scope, platform architecture, or engineering-readiness approval exists. This artifact prepares a structured future meeting and records blockers; it does not constitute handoff by file sharing.</p>
+<h2>Pre-read and source-of-truth status</h2>
+<table>
+<thead>
+<tr>
+<th>Pre-read ID</th>
+<th>Artifact</th>
+<th>Purpose</th>
+<th>Status for meeting</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HM-E01</td>
+<td><code>Output/reviews/gate-09-review.md</code></td>
+<td>Authorization boundary and accepted limitations</td>
+<td>Required; direct record</td>
+</tr>
+<tr>
+<td>HM-E02</td>
+<td>Four Phase 09 artifacts</td>
+<td>Visual mapping, sample coverage, A11Y, DQA</td>
+<td>Required; provisional/not handoff-ready</td>
+</tr>
+<tr>
+<td>HM-E03</td>
+<td><code>Output/phase-10/design-specifications.md</code></td>
+<td>Asset freeze, state/token/responsive gaps</td>
+<td>Required; limitation specification</td>
+</tr>
+<tr>
+<td>HM-E04</td>
+<td><code>Output/phase-10/component-documentation.md</code></td>
+<td>Candidate components/states/redline limits</td>
+<td>Required; no approved components</td>
+</tr>
+<tr>
+<td>HM-E05</td>
+<td><code>Output/phase-10/interaction-motion-spec.md</code></td>
+<td>Interactions, state transitions, edge cases, questions</td>
+<td>Required; proposed/blocked behavior</td>
+</tr>
+<tr>
+<td>HM-E06</td>
+<td>Phase 06 wireframes/annotations/feasibility review</td>
+<td>Structural baseline and unresolved technical questions</td>
+<td>Required; Inferred/LOW, no feasibility review</td>
+</tr>
+<tr>
+<td>HM-E07</td>
+<td>Phase 07–08 readiness/research artifacts</td>
+<td>Prototype/test limitations</td>
+<td>Required; no representative-user evidence</td>
+</tr>
+</tbody></table>
+<p>Future meeting materials must be versioned and access-controlled. Any changed source requires revalidation before the meeting.</p>
+<h2>1. Meeting agenda</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Order</th>
+<th>Agenda item</th>
+<th>Pre-read</th>
+<th>Decision/output sought</th>
+<th>Time/owner status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">1</td>
+<td>Confirm attendees, roles, decision rights, source versions, access, and meeting goal</td>
+<td>HM-E01–07</td>
+<td>Named owners and valid baseline</td>
+<td>Not scheduled/owners missing</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td>Evidence boundary and user/business problem</td>
+<td>BRD, Phase 01–03, G09 boundary</td>
+<td>Shared understanding without inventing user validation</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td>Release scope and acceptance criteria</td>
+<td>Missing stories/scope</td>
+<td>In/out/deferred flows/states and acceptance criteria</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td>Walk F-01–F-06 end-to-end</td>
+<td>Phase 04/06/07</td>
+<td>Screen/state/data/permission/error coverage</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td>Components/tokens/responsive/assets</td>
+<td>Phase 09/10 docs</td>
+<td>Existing-library mapping, new-component decisions, platform matrix</td>
+<td>Blocked by architecture/library</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td>Accessibility/content/data/privacy/security</td>
+<td>A11Y/DQA/open questions</td>
+<td>Targets, owners, blockers, review/retest plan</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td>Async behavior/motion/edge cases</td>
+<td>Interaction-motion spec</td>
+<td>API/idempotency/cancellation/performance decisions</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td>Feasibility spikes, estimates, sequencing</td>
+<td>Phase 06/10 risk logs</td>
+<td>Spike owners and evidence plan; no premature commitment</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td>Decisions, design changes, blockers, actions</td>
+<td>Decision template</td>
+<td>Recorded owner/status/dependency/due date</td>
+<td>Not conducted</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td>Source-of-truth, communication channel, checkpoints, QA/UAT</td>
+<td>Missing project operations</td>
+<td>Change control and follow-up schedule</td>
+<td>Not set</td>
+</tr>
+</tbody></table>
+<h2>2. Scope walkthrough</h2>
+<table>
+<thead>
+<tr>
+<th>HM ID</th>
+<th>Flow/screen/component</th>
+<th>Walkthrough focus</th>
+<th>Current coverage</th>
+<th>Question or risk</th>
+<th>Decision status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HM-01</td>
+<td>F-01 review spending; WF-00–02/16/17/20–22</td>
+<td>Entry/auth, scope/freshness, total/comparison, category, states, concept branch</td>
+<td>Two static sample screens; partial</td>
+<td>Data/app-shell/comprehension/state rules</td>
+<td>Open/Blocked</td>
+</tr>
+<tr>
+<td>HM-02</td>
+<td>F-02 category correction; WF-03–05</td>
+<td>Permission, taxonomy, review, future effect, pending/result/conflict/undo</td>
+<td>Missing in prototype/high-fi</td>
+<td>Core trust/recovery flow unimplementable</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HM-03</td>
+<td>F-03 budgets; WF-06–08/14</td>
+<td>Lifecycle, amount, alerts/permissions, pending/result/recovery</td>
+<td>Simulated narrow sheet only</td>
+<td>False persistence/notification model</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HM-04</td>
+<td>F-04 recurring; WF-09/10</td>
+<td>Detection status, uncertainty, shared/sensitive items, correction</td>
+<td>Missing</td>
+<td>Data/privacy/recovery rules absent</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HM-05</td>
+<td>F-05 export; WF-11/12/17</td>
+<td>Scope, re-auth, format, generation, storage/share, cancel/failure/accessibility</td>
+<td>Missing</td>
+<td>Sensitive disclosure and file behavior</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HM-06</td>
+<td>F-06 unusual pattern; WF-13/14</td>
+<td>Baseline/explanation, neutral tone, stale/deep-link, dismiss/preferences</td>
+<td>Static text only</td>
+<td>Eligibility/harm/notification rules absent</td>
+<td>High/Blocked</td>
+</tr>
+<tr>
+<td>HM-07</td>
+<td>CMP-01–08</td>
+<td>Existing component architecture, variants/states, token linkage, accessibility</td>
+<td>Candidates/sample-local only</td>
+<td>Duplication and detached components</td>
+<td>High/Blocked</td>
+</tr>
+<tr>
+<td>HM-08</td>
+<td>ST-01–13/EDGE-01–14</td>
+<td>Loading, partial, stale, permission, async, errors, cancellation, conflict, extremes</td>
+<td>Mostly missing</td>
+<td>Developers must not infer behavior</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HM-09</td>
+<td>Responsive/accessibility</td>
+<td>Platform matrix, zoom/reflow, focus, semantics, contrast, reduced motion, AT</td>
+<td>Diagnostic only</td>
+<td>No target or corrected implementation</td>
+<td>Critical/Blocked</td>
+</tr>
+</tbody></table>
+<p>Success criteria for the walkthrough cannot be finalized until stories, acceptance criteria, data contracts, and release scope are approved. G09 approval is not success evidence.</p>
+<h2>3. Questions and decisions</h2>
+<table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Question</th>
+<th>Required decision owner</th>
+<th>Current answer</th>
+<th>Design update needed</th>
+<th>Engineering action</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QD-01</td>
+<td>What source design/component library/version is authoritative?</td>
+<td>Product design/design-system</td>
+<td>Not supplied</td>
+<td>Link approved frames/variables/components</td>
+<td>Audit current architecture/library</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>QD-02</td>
+<td>What is release scope and acceptance criteria per F-01–F-06/state?</td>
+<td>Product</td>
+<td>Not supplied</td>
+<td>Mark in/out/deferred and state boards</td>
+<td>Validate technical scope only after definition</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>QD-03</td>
+<td>What data, permission, security/privacy and content rules apply?</td>
+<td>Product/data/security/privacy/legal</td>
+<td>Not supplied</td>
+<td>Update flows/content/states</td>
+<td>Produce API/auth/data-flow contracts/spikes</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>QD-04</td>
+<td>What API idempotency/status/cancellation/concurrency guarantees exist?</td>
+<td>Engineering/data</td>
+<td>Not supplied</td>
+<td>Align pending/result/recovery</td>
+<td>Technical spikes and written contract</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>QD-05</td>
+<td>Which existing components cover CMP-01–08?</td>
+<td>Design-system/engineering</td>
+<td>Unknown</td>
+<td>Replace local candidates with approved components</td>
+<td>Component architecture audit</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>QD-06</td>
+<td>How will A11Y-01–09 and DQA-01–08 be remediated?</td>
+<td>Accessibility/design/product/engineering</td>
+<td>Not decided</td>
+<td>Correct tokens/screens/states</td>
+<td>Implement and manual/AT regression</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>QD-07</td>
+<td>What devices/browsers/platforms/breakpoints/locales/AT are supported?</td>
+<td>Product/platform/accessibility/localization</td>
+<td>Not supplied</td>
+<td>Create responsive/state variants</td>
+<td>Feasibility/test matrix</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>QD-08</td>
+<td>What are performance, monitoring, telemetry, failure, and privacy budgets?</td>
+<td>Engineering/product/data/privacy</td>
+<td>Not supplied</td>
+<td>Reflect waiting/error/privacy behavior</td>
+<td>Define measurable contracts</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>QD-09</td>
+<td>What motion is functional and feasible?</td>
+<td>Design/accessibility/engineering</td>
+<td>Not decided</td>
+<td>Remove unjustified motion; create reduced alternatives</td>
+<td>Platform/performance review</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>QD-10</td>
+<td>Who can authorize implementation and production commitments?</td>
+<td>Sponsor/product/risk owners</td>
+<td>Not supplied</td>
+<td>None until named</td>
+<td>Stop implementation commitment</td>
+<td>Blocked</td>
+</tr>
+</tbody></table>
+<p><strong>No developer or cross-functional decision is recorded.</strong> All entries are questions/actions proposed from artifacts, not meeting outcomes.</p>
+<h2>4. Risk and dependency log</h2>
+<table>
+<thead>
+<tr>
+<th>Risk ID</th>
+<th>Risk/dependency</th>
+<th>Impact</th>
+<th>Evidence/confidence</th>
+<th>Required owner/action</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HR-01</td>
+<td>No approved implementation baseline/source file</td>
+<td>Conflicting/stale implementation</td>
+<td>Direct absence/HIGH</td>
+<td>Product design: provide/freeze/review</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HR-02</td>
+<td>Incomplete flows/states and no release scope</td>
+<td>Developers infer unsafe behavior</td>
+<td>Phase 06–10/HIGH for absence</td>
+<td>Product/design/engineering: define complete scope</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HR-03</td>
+<td>No component architecture/token package</td>
+<td>Duplicate/detached/inconsistent UI</td>
+<td>DQA-03/HIGH</td>
+<td>Design-system/engineering audit</td>
+<td>High/Blocked</td>
+</tr>
+<tr>
+<td>HR-04</td>
+<td>Financial data/API/idempotency rules missing</td>
+<td>Incorrect totals/duplicate/ambiguous mutations</td>
+<td>Phase 06/HIGH for absence</td>
+<td>Data/engineering/product contracts</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HR-05</td>
+<td>Privacy/security/auth/shared-device/export rules missing</td>
+<td>Sensitive-data exposure</td>
+<td>Phase 06/10/HIGH</td>
+<td>Security/privacy/legal/platform review</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HR-06</td>
+<td>Accessibility target/corrections/AT test absent</td>
+<td>Exclusion/rework/nonconformance risk</td>
+<td>A11Y review/HIGH</td>
+<td>Accessibility/product/engineering</td>
+<td>Critical/Blocked</td>
+</tr>
+<tr>
+<td>HR-07</td>
+<td>Primary contrast and modal/status blockers</td>
+<td>Readability/operability/false result</td>
+<td>Direct audit/HIGH</td>
+<td>Design-system/accessibility/engineering</td>
+<td>High/Blocked</td>
+</tr>
+<tr>
+<td>HR-08</td>
+<td>No usability findings or flow-complete pilot</td>
+<td>Interaction/content may be wrong</td>
+<td>Phase 07/08/HIGH for absence</td>
+<td>Research/product after safe prototype</td>
+<td>High/Open</td>
+</tr>
+<tr>
+<td>HR-09</td>
+<td>No platform/responsive/localization matrix</td>
+<td>Layout/access failures and rework</td>
+<td>Direct absence/HIGH</td>
+<td>Product/platform/localization</td>
+<td>High/Blocked</td>
+</tr>
+<tr>
+<td>HR-10</td>
+<td>No attendees, channel, owner, due dates, or checkpoints</td>
+<td>Handoff cannot occur/accountability absent</td>
+<td>Direct absence/HIGH</td>
+<td>Sponsor/product/project lead</td>
+<td>Critical/Blocked</td>
+</tr>
+</tbody></table>
+<h2>5. Implementation actions</h2>
+<p>These are proposed prerequisites, not assigned developer work or authorized implementation scope.</p>
+<table>
+<thead>
+<tr>
+<th>Action ID</th>
+<th>Proposed action</th>
+<th>Rationale/evidence</th>
+<th>Required owner</th>
+<th>Due date</th>
+<th>Status/completion signal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ACT-01</td>
+<td>Name product/design/engineering/QA/accessibility/content/data/privacy/security/platform owners and decision rights</td>
+<td>HR-10</td>
+<td>Sponsor/product</td>
+<td>Not set</td>
+<td>Open; named accountable owners</td>
+</tr>
+<tr>
+<td>ACT-02</td>
+<td>Provide approved source design, component library/tokens, stories, acceptance criteria, release scope</td>
+<td>HR-01–03</td>
+<td>Product/design-system</td>
+<td>Not set</td>
+<td>Blocked; versioned accessible sources</td>
+</tr>
+<tr>
+<td>ACT-03</td>
+<td>Resolve data/API/auth/privacy/security/export/notification contracts and spikes</td>
+<td>HR-04/05</td>
+<td>Engineering/data/risk owners</td>
+<td>Not set</td>
+<td>Blocked; traceable approved contracts</td>
+</tr>
+<tr>
+<td>ACT-04</td>
+<td>Complete all required screens/states/responsive/content variants</td>
+<td>HR-02/09</td>
+<td>Product design/content</td>
+<td>Not set</td>
+<td>Blocked; versioned reviewed state set</td>
+</tr>
+<tr>
+<td>ACT-05</td>
+<td>Correct A11Y/DQA blockers and run rendered manual/AT checks</td>
+<td>HR-06/07</td>
+<td>Accessibility/design/engineering</td>
+<td>Not set</td>
+<td>Blocked; retest evidence and owner review</td>
+</tr>
+<tr>
+<td>ACT-06</td>
+<td>Build and pilot a safe flow-complete prototype; conduct authorized research</td>
+<td>HR-08</td>
+<td>Research/product/accessibility/privacy</td>
+<td>Not set</td>
+<td>Open after prerequisites; traceable evidence</td>
+</tr>
+<tr>
+<td>ACT-07</td>
+<td>Schedule structured handoff meeting with versioned pre-read</td>
+<td>Meeting not conducted</td>
+<td>Project/product lead</td>
+<td>Not set</td>
+<td>Open; invitation/attendees/access/agenda confirmed</td>
+</tr>
+<tr>
+<td>ACT-08</td>
+<td>Record meeting decisions, blockers, changes, owners, and due dates; update source artifacts</td>
+<td>Skill contract</td>
+<td>Facilitator/owners</td>
+<td>Not set</td>
+<td>Open; versioned minutes/decision log</td>
+</tr>
+<tr>
+<td>ACT-09</td>
+<td>Define development-support, design-QA/UAT checkpoints and defect triage channel</td>
+<td>Phase 11 dependency</td>
+<td>Engineering/QA/design/product</td>
+<td>Not set</td>
+<td>Open; approved cadence/channel/entry criteria</td>
+</tr>
+</tbody></table>
+<p>No estimate, priority commitment, sprint, architecture, implementation assignment, or release date is inferred.</p>
+<h2>6. Owners and follow-up plan</h2>
+<table>
+<thead>
+<tr>
+<th>Follow-up ID</th>
+<th>Needed role</th>
+<th>Responsibility</th>
+<th>Named person</th>
+<th>Due date</th>
+<th>Follow-up/checkpoint status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FP-01</td>
+<td>Product/decision owner</td>
+<td>Scope, acceptance, priority, production authorization</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-02</td>
+<td>Design/handoff owner</td>
+<td>Source baseline, updates, traceability</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-03</td>
+<td>Engineering/architecture owner</td>
+<td>Platform, feasibility, APIs, estimates, implementation plan</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-04</td>
+<td>QA owner</td>
+<td>Test strategy, environments, UAT/defect evidence</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-05</td>
+<td>Accessibility owner</td>
+<td>Target, component/screen review, AT matrix/retest</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-06</td>
+<td>Content/localization owner</td>
+<td>Financial wording, errors, locale/extremes</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-07</td>
+<td>Data/ML owner</td>
+<td>Totals/categories/insights/recurrence rules and quality</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-08</td>
+<td>Privacy/security/legal owner</td>
+<td>Auth, consent, exposure, export/share/retention risk</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+<tr>
+<td>FP-09</td>
+<td>Research owner</td>
+<td>Safe prototype validation and evidence synthesis</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Open after readiness</td>
+</tr>
+<tr>
+<td>FP-10</td>
+<td>Project facilitator</td>
+<td>Meeting/channel/minutes/change control/checkpoints</td>
+<td>Missing</td>
+<td>Not set</td>
+<td>Blocked</td>
+</tr>
+</tbody></table>
+<p>Future follow-up sequence:</p>
+<ol>
+<li>Resolve ACT-01–06 and refresh affected artifacts/hashes.</li>
+<li>Circulate HM-E01–07 via an authorized channel with adequate review time.</li>
+<li>Conduct the agenda with named decision owners; record exact questions, decisions, dissent, blockers, owners, and dates.</li>
+<li>Update source designs/specifications from recorded decisions; mark dependent artifacts stale and revalidate.</li>
+<li>Obtain the required human gate/production authorization separately.</li>
+<li>Schedule implementation support and design QA/UAT only after build scope/environment/evidence exist.</li>
+</ol>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HM-E01</td>
+<td>G09 record</td>
+<td>2026-07-24</td>
+<td>Authorization boundary</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>No implementation authorization</td>
+</tr>
+<tr>
+<td>HM-E02–05</td>
+<td>Phase 09/10 artifacts</td>
+<td>reviewed/current</td>
+<td>Readiness, specs, components, interactions</td>
+<td>Direct/synthesis</td>
+<td>HIGH/MEDIUM by item</td>
+<td>Provisional/blocked</td>
+</tr>
+<tr>
+<td>HM-E06</td>
+<td>Phase 06 feasibility review</td>
+<td>G06-approved</td>
+<td>No engineering review/technical proof</td>
+<td>Direct evidence limitation</td>
+<td>HIGH</td>
+<td>Questions only</td>
+</tr>
+<tr>
+<td>HM-E07</td>
+<td>Phase 07/08 artifacts</td>
+<td>G07/G08-approved</td>
+<td>Prototype/research absence</td>
+<td>Direct project record</td>
+<td>HIGH</td>
+<td>No user evidence</td>
+</tr>
+<tr>
+<td>HM-E08</td>
+<td>Meeting inputs/attendance</td>
+<td>2026-07-24 inventory</td>
+<td>No meeting/attendees/decisions/actions</td>
+<td>Direct absence</td>
+<td>HIGH</td>
+<td>Future meeting required</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HM-D01</td>
+<td>Record the developer handoff meeting as not conducted</td>
+<td>HM-E08</td>
+<td>Phase 10 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>HM-D02</td>
+<td>Do not treat file sharing or G09 approval as implementation handoff</td>
+<td>Guardrail/G09 boundary</td>
+<td>Human G10/product/engineering</td>
+<td>Not set</td>
+<td>Confirmed for artifact</td>
+<td>None</td>
+</tr>
+<tr>
+<td>HM-D03</td>
+<td>Require ACT-01–06 before scheduling implementation commitment</td>
+<td>Critical blockers</td>
+<td>Sponsor/product/design/engineering/risk</td>
+<td>Not set</td>
+<td>Proposed/blocking</td>
+<td>Owners/evidence</td>
+</tr>
+<tr>
+<td>HM-D04</td>
+<td>Preserve all future meeting decisions in source files and change log</td>
+<td>Traceability/regression</td>
+<td>Future facilitator</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Meeting conducted</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Purpose, status, readiness, pre-read, sources, evidence boundary, and limitations are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Meeting agenda, scope walkthrough, questions/decisions, risks/dependencies, actions, and owners/follow-up are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Critical flows—not isolated screens—organize the walkthrough; components, states, data, responsive behavior, accessibility, and edge cases are covered.</li>
+<li><input checked="" disabled="" type="checkbox"> Blockers have required owner roles, actions, dependencies, statuses, and completion signals; missing people/dates remain “Missing/Not set.”</li>
+<li><input checked="" disabled="" type="checkbox"> No attendee, meeting, feedback, feasibility answer, developer decision, estimate, action assignment, implementation status, source-of-truth channel, checkpoint, or release commitment was invented.</li>
+<li><input disabled="" type="checkbox"> Handoff-ready baseline and required preconditions exist — blocked.</li>
+<li><input disabled="" type="checkbox"> Structured developer handoff meeting conducted and decisions reflected in source artifacts — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from developer-handoff.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

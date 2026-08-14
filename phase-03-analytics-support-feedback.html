@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics, Support Tickets, and User Feedback Analysis — Phase 03 · Define</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 03 · Define</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./analytics-support-feedback.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Analytics, Support Tickets, and User Feedback Analysis</h1>
+<h2>Analysis Basis, Data Quality, and Limitations</h2>
+<ul>
+<li><strong>Files reviewed:</strong> <code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code>; approved Phase 01 and Phase 02 artifacts; G01 and G02 review records.</li>
+<li><strong>Period and product scope:</strong> No empirical period supplied; Smart Expense Tracker discovery scope only.</li>
+<li><strong>User/market/platform coverage:</strong> Mobile intent is documented; market, geography, platform versions, cohorts, and actual users are Unknown.</li>
+<li><strong>Metric and taxonomy definitions:</strong> No event dictionary, funnel, cohort, ticket taxonomy, survey instrument, review corpus, or metric implementation supplied.</li>
+<li><strong>Missing or excluded data:</strong> Analytics exports, support tickets, customer feedback, survey data, performance monitoring, accessibility findings, product-version metadata, and source ownership are absent. No readable source was excluded or duplicated.</li>
+<li><strong>Bias and data-quality limitations:</strong> Coverage, missingness, instrumentation, duplication, response/channel bias, survivorship bias, recency, and representativeness cannot be assessed.</li>
+<li><strong>Unresolved contradictions:</strong> None can be assessed from empirical evidence because no empirical sources exist.</li>
+<li><strong>Reuse decision:</strong> The approved Phase 02 insufficiency result remains current; this phase reruns the contract against unchanged sources and reaches the same limitation conclusion.</li>
+</ul>
+<h3>Confidence Legend</h3>
+<ul>
+<li><strong>HIGH:</strong> Directly demonstrated by reliable, traceable evidence.</li>
+<li><strong>MEDIUM:</strong> Consistent but incomplete or indirect evidence.</li>
+<li><strong>LOW:</strong> Hypothesis or weakly supported interpretation.</li>
+<li><strong>CONTRADICTORY:</strong> Credible sources conflict.</li>
+</ul>
+<h2>Executive Summary</h2>
+<ul>
+<li>[HIGH] No analytics, support-ticket, or customer-feedback dataset was supplied; empirical synthesis is not possible. (Evidence: E1)</li>
+<li>[LOW] Categorization correction, insight engagement, privacy concern, tone, recurring costs, and notification burden are candidate measurement areas derived from business requirements, not observed trends. (Evidence: E2, E3)</li>
+<li>[HIGH] BRD success figures are proposed targets and must not be reported as actual results. (Evidence: E4)</li>
+</ul>
+<h2>Product Usage Analysis</h2>
+<table>
+<thead>
+<tr>
+<th>Metric/journey</th>
+<th>Definition</th>
+<th>Segment/platform</th>
+<th>Period</th>
+<th>Result/trend</th>
+<th>Interpretation</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tracker visits, budget setup, insight interaction, correction, retention</td>
+<td>Not operationally defined</td>
+<td>Candidate segments/mobile</td>
+<td>Not supplied</td>
+<td><strong>Insufficient evidence</strong></td>
+<td>No use, rate, cohort, funnel, or retention claim can be made</td>
+<td>E1, E4</td>
+</tr>
+</tbody></table>
+<h2>Support Ticket Trends</h2>
+<table>
+<thead>
+<tr>
+<th>Theme/contact reason</th>
+<th>Volume</th>
+<th>Rate/denominator</th>
+<th>Trend</th>
+<th>Severity</th>
+<th>Resolution/escalation</th>
+<th>Segment/context</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>All themes</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>E1</td>
+</tr>
+</tbody></table>
+<h2>User Feedback Themes</h2>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>User need/outcome</th>
+<th>Sentiment</th>
+<th>Channel</th>
+<th>Segment/context</th>
+<th>Evidence strength</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No verified feedback theme</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>No source</td>
+<td>Unknown</td>
+<td>Insufficient evidence</td>
+<td>E1</td>
+</tr>
+</tbody></table>
+<p>The statements in BRD §2 have no participant, method, sample, date, or channel provenance and are not counted as customer feedback.</p>
+<h2>Usability Issues Identified</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Task/journey</th>
+<th>Evidence</th>
+<th>User consequence</th>
+<th>Severity</th>
+<th>Affected segment</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No observed issue established</td>
+<td>Unknown</td>
+<td>E1</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>HIGH confidence in the evidence gap only</td>
+</tr>
+</tbody></table>
+<h2>Pain Points Prioritised</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Pain point</th>
+<th>Frequency/rate</th>
+<th>Severity/harm</th>
+<th>Business impact</th>
+<th>Accessibility impact</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Not empirically prioritized</td>
+<td>Candidate visibility, manual effort, category error, complexity, judgment, and privacy concerns</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>Potential only</td>
+<td>Unknown</td>
+<td>E2, E3 / LOW</td>
+</tr>
+</tbody></table>
+<h2>Feature Gaps Documented</h2>
+<table>
+<thead>
+<tr>
+<th>Unmet need</th>
+<th>Claimed gap</th>
+<th>Existing capability/workaround</th>
+<th>Gap type</th>
+<th>Evidence</th>
+<th>Validation needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No proven unmet need</td>
+<td>BRD §14 lists open scope questions</td>
+<td>Unknown</td>
+<td>Decision gap, not verified feature gap</td>
+<td>E3 / LOW</td>
+<td>Research, policy, feasibility, and owner decision</td>
+</tr>
+</tbody></table>
+<h2>Satisfaction Metrics Reviewed</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition/scale</th>
+<th>Collection point</th>
+<th>Sample/segment</th>
+<th>Period</th>
+<th>Result/trend</th>
+<th>Limitation</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Trust and satisfaction</td>
+<td>Not defined</td>
+<td>Not supplied</td>
+<td>Not supplied</td>
+<td>Not supplied</td>
+<td>Insufficient evidence</td>
+<td>No instrument, baseline, sample, or owner</td>
+<td>E1, E4</td>
+</tr>
+</tbody></table>
+<h2>Accessibility Issues Captured</h2>
+<table>
+<thead>
+<tr>
+<th>Issue/barrier</th>
+<th>Affected context</th>
+<th>User impact</th>
+<th>Platform/journey</th>
+<th>Evidence</th>
+<th>Severity</th>
+<th>Action needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No observed accessibility issue established</td>
+<td>Sensory, motor, cognitive, linguistic, literacy, device/connectivity, assisted use are unstudied</td>
+<td>Potential exclusion; extent Unknown</td>
+<td>Mobile tracker</td>
+<td>E1, E5</td>
+<td>Unknown</td>
+<td>Inclusive research and measurable accessibility requirements</td>
+</tr>
+</tbody></table>
+<h2>Performance Problems Identified</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Metric/threshold</th>
+<th>Platform/context</th>
+<th>Period</th>
+<th>User impact</th>
+<th>Business impact</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No measured problem established</td>
+<td>BRD says dashboard within 2 seconds “for most users”; percentile/context absent</td>
+<td>Mobile/Unknown</td>
+<td>Not supplied</td>
+<td>Unknown</td>
+<td>Unknown</td>
+<td>E6 / LOW business target</td>
+</tr>
+</tbody></table>
+<h2>UX Opportunities Prioritised</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Opportunity</th>
+<th>User evidence</th>
+<th>Business value</th>
+<th>Confidence</th>
+<th>Risk/trade-off</th>
+<th>Validation method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Research first</td>
+<td>Measure categorization exposure, confidence, correction, reversal, and downstream trust</td>
+<td>None</td>
+<td>Tests core-value risk</td>
+<td>LOW</td>
+<td>Sensitive financial data and misleading denominators</td>
+<td>Governed instrumentation + direct research</td>
+</tr>
+<tr>
+<td>Research first</td>
+<td>Understand comprehension and action after summaries/insights</td>
+<td>None</td>
+<td>Tests engagement hypothesis</td>
+<td>LOW</td>
+<td>Interaction does not prove value</td>
+<td>Task outcome research + defined exposure funnel</td>
+</tr>
+<tr>
+<td>Research first</td>
+<td>Review privacy, accessibility, tone, and notification harm</td>
+<td>None</td>
+<td>Trust/risk protection</td>
+<td>LOW</td>
+<td>Low-volume harm may be hidden</td>
+<td>Inclusive research + guardrail metrics</td>
+</tr>
+</tbody></table>
+<h2>Actionable Recommendations Created</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Recommendation</th>
+<th>Finding/evidence</th>
+<th>Expected outcome</th>
+<th>Owner</th>
+<th>Effort/dependency</th>
+<th>Success measure</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Critical</td>
+<td>Establish analytics and evidence governance</td>
+<td>E1</td>
+<td>Interpretable, lawful evidence</td>
+<td>Data/privacy owner — missing</td>
+<td>Event dictionary, consent, versioning</td>
+<td>Approved measurement plan</td>
+<td>Assign owners</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Obtain deduplicated support/feedback sources</td>
+<td>E1</td>
+<td>Traceable themes</td>
+<td>Support/research owner — missing</td>
+<td>Taxonomy and privacy review</td>
+<td>Readable governed corpus</td>
+<td>Define scope and export</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Define user and harm guardrails</td>
+<td>E4, E5</td>
+<td>Balanced product evaluation</td>
+<td>Product/accessibility owner — missing</td>
+<td>Baselines and instruments</td>
+<td>Approved definitions</td>
+<td>Cross-functional review</td>
+</tr>
+</tbody></table>
+<h2>Evidence Ledger</h2>
+<ul>
+<li><strong>E1:</strong> No analytics, support, feedback, survey, performance, or accessibility dataset exists in the supplied input inventory. — <code>projects/starter/input/</code> and <code>Output/phase-02/analytics-support-feedback.md</code></li>
+<li><strong>E2:</strong> Candidate visibility/manual-effort and categorization concerns are stated as business context. — <code>fintech-smart-expense-tracker-brd-input.md</code> §§2, 5, 13</li>
+<li><strong>E3:</strong> Proposed features, risks, and open questions. — BRD §§7, 10, 13, 14</li>
+<li><strong>E4:</strong> Candidate success measures without baselines, owners, observed results, or complete definitions. — BRD §12</li>
+<li><strong>E5:</strong> Readability for different financial-literacy levels; no measurable accessibility scope. — BRD §11</li>
+<li><strong>E6:</strong> Incomplete performance intent. — BRD §11 Performance</li>
+</ul>
+<h2>Open Questions and Measurement Gaps</h2>
+<ul>
+<li>[LOW] Which platform, date range, cohorts, versions, and event definitions are authoritative? (Evidence: E1)</li>
+<li>[LOW] What is the lawful and consented basis for transaction/behavior analysis? (Evidence: E1, E3)</li>
+<li>[LOW] What denominators distinguish events, sessions, accounts, and unique users? (Evidence: E1, E4)</li>
+<li>[LOW] Which guardrails measure correction burden, unwanted notifications, privacy concern, accessibility exclusion, and financial harm? (Evidence: E4, E5)</li>
+</ul>
+</article>
+    <footer>Generated from analytics-support-feedback.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

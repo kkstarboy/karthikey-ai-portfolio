@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual and UX Bug Log — No Build Defects Available — Phase 11 · Development Support</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 11 · Development Support</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./ux-bug-log.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Visual and UX Bug Log — No Build Defects Available</h1>
+<h2>Status, scope, and evidence boundary</h2>
+<p><strong>No visual or UX implementation bug was reported, observed, reproduced, fixed, retested, or closed.</strong> No build, bug report, QA finding, support ticket, issue tracker, repository, environment, reproduction step, expected/actual comparison, screenshot/log, affected user evidence, owner, fix, accepted deviation, release criterion, or closure evidence was supplied.</p>
+<ul>
+<li><code>developer-query-log.md</code> records zero developer queries.</li>
+<li><code>design-qa-uat.md</code> records no build, no QA/UAT execution, zero implementation issues, and no release recommendation.</li>
+<li>Upstream Phase 06–10 gaps and A11Y/DQA findings describe design/readiness evidence, not verified implementation bugs.</li>
+<li>The purpose of this artifact is to preserve a truthful empty backlog and define evidence required for future defect management.</li>
+</ul>
+<h2>Input and tracker readiness</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Required input</th>
+<th>Status</th>
+<th>Evidence/confidence</th>
+<th>Recovery/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UXB-E01</td>
+<td>Bug reports/QA findings</td>
+<td>None</td>
+<td>Direct absence/HIGH</td>
+<td>Provide privacy-safe traceable reports</td>
+</tr>
+<tr>
+<td>UXB-E02</td>
+<td>Approved design/spec/reference</td>
+<td>Provisional/blocked only</td>
+<td>Phase 10/HIGH for status</td>
+<td>Provide approved versioned baseline</td>
+</tr>
+<tr>
+<td>UXB-E03</td>
+<td>Build/version/environment</td>
+<td>None</td>
+<td>Direct absence/HIGH</td>
+<td>Provide immutable target build/environment</td>
+</tr>
+<tr>
+<td>UXB-E04</td>
+<td>Release criteria/scope</td>
+<td>None</td>
+<td>Direct absence/HIGH</td>
+<td>Product/release owner defines</td>
+</tr>
+<tr>
+<td>UXB-E05</td>
+<td>Issue-tracking system/project/fields</td>
+<td>None</td>
+<td>Direct absence/HIGH</td>
+<td>Establish authorized tracker/workflow</td>
+</tr>
+<tr>
+<td>UXB-E06</td>
+<td>Owners/triage/retest roles</td>
+<td>None</td>
+<td>Direct absence/HIGH</td>
+<td>Name product/design/engineering/QA/accessibility/risk owners</td>
+</tr>
+<tr>
+<td>UXB-E07</td>
+<td><code>design-qa-uat.md</code></td>
+<td>Current Phase 11</td>
+<td>Direct limitation record/HIGH</td>
+<td>No issue input available</td>
+</tr>
+</tbody></table>
+<h2>1. UX bug backlog</h2>
+<h3>UXB-000: No implementation bug available</h3>
+<ul>
+<li><strong>Build/environment:</strong> None.</li>
+<li><strong>Location:</strong> None.</li>
+<li><strong>Steps:</strong> Not available.</li>
+<li><strong>Expected/actual:</strong> No approved build comparison exists.</li>
+<li><strong>Category:</strong> Not a bug; defect-management prerequisite gap.</li>
+<li><strong>Severity/priority:</strong> Not assigned / Not assigned.</li>
+<li><strong>User impact:</strong> Not established; no build or user evidence.</li>
+<li><strong>Root cause/duplicates:</strong> Not applicable; no report or tracker.</li>
+<li><strong>Owner/status:</strong> Owner missing / No bug.</li>
+<li><strong>Retest evidence:</strong> None; not started.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Backlog class</th>
+<th align="right">Open</th>
+<th align="right">Fixed</th>
+<th align="right">Closed</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visual</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>No build findings</td>
+</tr>
+<tr>
+<td>Interaction/functional UX</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>No build findings</td>
+</tr>
+<tr>
+<td>Content/data/state</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>No build findings</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>Upstream A11Y risks are not implementation bugs</td>
+</tr>
+<tr>
+<td>Responsive/localization</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>No build/matrix findings</td>
+</tr>
+<tr>
+<td>Workflow/privacy/security</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td>No implementation evidence</td>
+</tr>
+</tbody></table>
+<p>Future normalized bug fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stable ID/title</td>
+<td>One neutral behavior/problem; link duplicates to systemic parent</td>
+</tr>
+<tr>
+<td>Source/version</td>
+<td>Reporter/date/ticket plus build/commit/environment/reference version</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Flow/screen/component/state/story/requirement</td>
+</tr>
+<tr>
+<td>Reproduction</td>
+<td>Privacy-safe preconditions, data, steps, device/browser/OS/AT/locale</td>
+</tr>
+<tr>
+<td>Expected/actual</td>
+<td>Traceable expected source and directly observed actual behavior</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Visual, interaction, content, accessibility, responsive, state, workflow, functional, requirement gap, design defect, or approved deviation</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>Consequence, recovery, workaround, sensitive-data/access risk</td>
+</tr>
+<tr>
+<td>Severity/priority</td>
+<td>Separate rationales; owner decision visible</td>
+</tr>
+<tr>
+<td>Ownership/status</td>
+<td>Assignee, dependencies, fix decision/build, due date/status</td>
+</tr>
+<tr>
+<td>Retest/closure</td>
+<td>Independent target-build evidence and regression scope</td>
+</tr>
+</tbody></table>
+<h2>2. Severity and priority</h2>
+<p>No severity or priority is assigned because there is no verified bug.</p>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Candidate meaning</th>
+<th>Required evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S0 / Not a bug</td>
+<td>Question, feature request, upstream requirement/design gap, duplicate, or no evidence</td>
+<td>Classification/source review</td>
+</tr>
+<tr>
+<td>S1 Low</td>
+<td>Local cosmetic/content mismatch with negligible task/access impact</td>
+<td>Reproduction and objective reference</td>
+</tr>
+<tr>
+<td>S2 Medium</td>
+<td>Recoverable friction, inconsistency, delay, or bounded access issue</td>
+<td>Consequence/recovery and target-build evidence</td>
+</tr>
+<tr>
+<td>S3 High</td>
+<td>Major task barrier, repeated systemic issue, wrong data/state, substantial trust/accessibility impact</td>
+<td>Reproduction, scope, approved expectation, affected consumers</td>
+</tr>
+<tr>
+<td>S4 Critical</td>
+<td>Core/sensitive block or serious financial/privacy/security/accessibility harm</td>
+<td>Immediate reproducible evidence and authorized escalation</td>
+</tr>
+</tbody></table>
+<p>Priority is separate from severity and must document release scope, reach, recurrence, risk, workaround, dependencies, fix effort, timing, and owner decision. Cosmetic urgency must not outrank critical usability/accessibility risk without explicit rationale.</p>
+<h2>3. Reproduction evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence item</th>
+<th>Current status</th>
+<th>Required future content</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Build/commit/environment</td>
+<td>Missing</td>
+<td>Immutable identifier and access</td>
+</tr>
+<tr>
+<td>Device/browser/OS/AT/locale</td>
+<td>Missing</td>
+<td>Exact supported configuration</td>
+</tr>
+<tr>
+<td>Test account/data</td>
+<td>Missing</td>
+<td>Synthetic/approved data; no real personal financial information</td>
+</tr>
+<tr>
+<td>Preconditions/steps</td>
+<td>Missing</td>
+<td>Minimal deterministic reproduction</td>
+</tr>
+<tr>
+<td>Expected source</td>
+<td>Missing final baseline</td>
+<td>Approved design/spec/story/criterion version and locator</td>
+</tr>
+<tr>
+<td>Actual behavior</td>
+<td>Missing</td>
+<td>Direct observation, screenshot/video/log/code locator as appropriate</td>
+</tr>
+<tr>
+<td>Impact/recovery</td>
+<td>Missing</td>
+<td>Task/access/privacy/security consequence and workaround</td>
+</tr>
+<tr>
+<td>Duplicate/systemic evidence</td>
+<td>Missing</td>
+<td>Parent issue/component consumers and affected matrix</td>
+</tr>
+<tr>
+<td>Fix build</td>
+<td>Missing</td>
+<td>Commit/build/environment plus change scope</td>
+</tr>
+<tr>
+<td>Retest evidence</td>
+<td>Missing</td>
+<td>Independent result and regression coverage</td>
+</tr>
+</tbody></table>
+<p>Reproduction must be attempted before bug confirmation. If the issue cannot be reproduced, keep it unverified with the original report and environment gaps; do not close it merely for that reason.</p>
+<h2>4. Ownership</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+<th>Named owner</th>
+<th>Status/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Triage owner</td>
+<td>Normalize/classify/deduplicate and protect evidence</td>
+<td>Missing</td>
+<td>Establish tracker workflow</td>
+</tr>
+<tr>
+<td>Product owner</td>
+<td>Scope/priority/release/accepted-deviation decisions</td>
+<td>Missing</td>
+<td>Define authority</td>
+</tr>
+<tr>
+<td>Design owner</td>
+<td>Expected behavior/source updates/design-defect decisions</td>
+<td>Missing</td>
+<td>Maintain versioned baseline</td>
+</tr>
+<tr>
+<td>Engineering owner</td>
+<td>Reproduction/root cause/fix/build evidence</td>
+<td>Missing</td>
+<td>Provide build/repository context</td>
+</tr>
+<tr>
+<td>QA owner</td>
+<td>Independent reproduction/retest/regression</td>
+<td>Missing</td>
+<td>Define target environments</td>
+</tr>
+<tr>
+<td>Accessibility owner</td>
+<td>Accessibility severity/target/AT retest</td>
+<td>Missing</td>
+<td>Review high-risk access issues</td>
+</tr>
+<tr>
+<td>Data/privacy/security/legal owner</td>
+<td>Sensitive financial/data/risk issues</td>
+<td>Missing</td>
+<td>Review/escalate within authority</td>
+</tr>
+<tr>
+<td>Release owner</td>
+<td>Blocker acceptance/release decision</td>
+<td>Missing</td>
+<td>Separate from agent/gate approval</td>
+</tr>
+</tbody></table>
+<p>No issue can be assigned until a report and authorized tracker exist. “Team” or “developer” is not sufficient ownership for high-risk closure.</p>
+<h2>5. Fix decision</h2>
+<p><strong>No fix option, code/design change, accepted deviation, deferral, duplicate decision, or release exception exists.</strong></p>
+<p>Future decision options:</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Minimum requirement</th>
+<th>Closure implication</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fix</td>
+<td>Owner, root-cause hypothesis, affected consumers, change source/build, regression plan</td>
+<td>Remains open until retested</td>
+</tr>
+<tr>
+<td>Design/source correction</td>
+<td>Evidence shows approved source is defective/ambiguous</td>
+<td>Update source/version; implementation follows; retest</td>
+</tr>
+<tr>
+<td>Requirement/content decision</td>
+<td>Authorized owner resolves gap</td>
+<td>Record decision/source/impact; not automatically fixed</td>
+</tr>
+<tr>
+<td>Duplicate/systemic parent</td>
+<td>Reproduction proves same cause/scope</td>
+<td>Link; preserve unique evidence; close duplicate only by process</td>
+</tr>
+<tr>
+<td>Accepted deviation</td>
+<td>Authorized owner, rationale, scope, risk, expiry/revisit condition</td>
+<td>Not “fixed”; release decision remains explicit</td>
+</tr>
+<tr>
+<td>Defer</td>
+<td>Owner/rationale/risk/re-entry condition</td>
+<td>Remains open/deferred; not closed</td>
+</tr>
+<tr>
+<td>Not a bug</td>
+<td>Evidence proves expected behavior/feature request/test issue</td>
+<td>Preserve classification rationale and route correctly</td>
+</tr>
+</tbody></table>
+<p>Developer confirmation alone cannot choose or close a fix.</p>
+<h2>6. Retest and closure status</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Fix build/environment</th>
+<th>Retest steps/matrix</th>
+<th>Result</th>
+<th>Closure evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UXB-000</td>
+<td>None</td>
+<td>None</td>
+<td>No retest</td>
+<td>None</td>
+<td>No bug/not started</td>
+</tr>
+</tbody></table>
+<p>Future closure requires:</p>
+<ol>
+<li>verify the fix in the named target build/environment using original reproduction steps;</li>
+<li>compare against the current approved source and acceptance criteria;</li>
+<li>test affected flows/states/components, responsive/localized/extreme data, accessibility/AT, privacy/security, and regression consumers as applicable;</li>
+<li>record Pass/Fail/Partial/Not testable with privacy-safe evidence;</li>
+<li>keep failures/partial results open with next action;</li>
+<li>close only through authorized tracker workflow with reviewer/date/evidence; never on developer statement alone.</li>
+</ol>
+<p>No bug, upstream gap, or accessibility finding is closed by G10 or future G11 approval.</p>
+<h2>7. Recurring-pattern analysis</h2>
+<p><strong>No recurring implementation-defect pattern can be analyzed because the bug set is empty.</strong></p>
+<p>Future analysis dimensions:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern dimension</th>
+<th>Questions</th>
+<th>Preventive output</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Component/systemic</td>
+<td>Do multiple screens share the same component/token/root cause?</td>
+<td>Parent systemic bug and consumer regression list</td>
+</tr>
+<tr>
+<td>State coverage</td>
+<td>Are loading/error/permission/async/recovery states repeatedly omitted?</td>
+<td>Component/state acceptance template</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Are semantics/focus/contrast/reflow issues recurring?</td>
+<td>Library fix, lint/test guidance, AT regression</td>
+</tr>
+<tr>
+<td>Responsive/localization</td>
+<td>Are breakpoints, long labels, RTL/extreme values repeatedly failing?</td>
+<td>Supported matrix and visual/regression tests</td>
+</tr>
+<tr>
+<td>Content/data</td>
+<td>Are status, financial notation, stale/partial, or error messages inconsistent?</td>
+<td>Content/data contract and fixtures</td>
+</tr>
+<tr>
+<td>Handoff/change control</td>
+<td>Are stale sources, local overrides, or verbal decisions causing drift?</td>
+<td>Version/change/decision process improvement</td>
+</tr>
+<tr>
+<td>Test process</td>
+<td>Are bugs escaping because environments/data/criteria are missing?</td>
+<td>Entry/exit criteria and automation/manual coverage</td>
+</tr>
+</tbody></table>
+<p>Do not infer frequency, trend, root cause, escape rate, or quality from zero reports; an empty backlog may reflect absent testing rather than defect-free software.</p>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UXB-E01–06</td>
+<td>Bug/tracker/build/owner inventory</td>
+<td>2026-07-24</td>
+<td>No bug-management inputs</td>
+<td>Direct absence</td>
+<td>HIGH</td>
+<td>Cannot verify or manage defects</td>
+</tr>
+<tr>
+<td>UXB-E07</td>
+<td><code>design-qa-uat.md</code></td>
+<td>current Phase 11</td>
+<td>No QA issues/build/retests</td>
+<td>Direct limitation record</td>
+<td>HIGH</td>
+<td>Empty evidence set</td>
+</tr>
+<tr>
+<td>UXB-E08</td>
+<td>Phase 09/10 A11Y/DQA/blockers</td>
+<td>G09/G10-reviewed</td>
+<td>Upstream design/readiness gaps</td>
+<td>Direct audit/synthesis</td>
+<td>HIGH/MEDIUM</td>
+<td>Not implementation bugs</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UXB-D01</td>
+<td>Record an empty UX bug backlog</td>
+<td>UXB-E01/E07</td>
+<td>Phase 11 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>UXB-D02</td>
+<td>Do not convert upstream gaps into build bugs</td>
+<td>Evidence/classification rule</td>
+<td>Phase 11 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>UXB-D03</td>
+<td>Require build/reference/reproduction/tracker evidence before confirmation</td>
+<td>Skill contract</td>
+<td>Engineering/QA/product/design</td>
+<td>Not set</td>
+<td>Proposed/blocking</td>
+<td>Inputs above</td>
+</tr>
+<tr>
+<td>UXB-D04</td>
+<td>Require independent retest evidence before closure</td>
+<td>Guardrail</td>
+<td>QA/release owners</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Actual fix build/issue</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Status, scope, sources, evidence boundary, tracker readiness, and missing inputs are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Backlog, severity/priority, reproduction, ownership, fix decisions, retest/closure, and recurring analysis are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Bugs, feature requests, upstream design/requirement gaps, approved deviations, duplicates, and process gaps remain distinguishable.</li>
+<li><input checked="" disabled="" type="checkbox"> Future evidence protects personal/financial data and includes build/environment/reference/steps/impact/owner/retest.</li>
+<li><input checked="" disabled="" type="checkbox"> No bug, report, build behavior, severity, priority, owner, fix, accepted deviation, retest, closure, duplicate, trend, root cause, release impact, or defect-free conclusion was invented.</li>
+<li><input disabled="" type="checkbox"> Build/QA findings/tracker/owners/release criteria exist — blocked.</li>
+<li><input disabled="" type="checkbox"> Bugs reproduced, fixed, independently retested, and closed with evidence — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from ux-bug-log.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

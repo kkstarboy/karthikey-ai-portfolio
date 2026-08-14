@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usability Test Plan — Proposed and Blocked Pending Readiness — Phase 08 · Usability Testing</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 08 · Usability Testing</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./test-plan.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Usability Test Plan — Proposed and Blocked Pending Readiness</h1>
+<h2>Evidence basis and readiness</h2>
+<ul>
+<li><strong>Prototype:</strong> <code>Output/visual-design/smart-expense-tracker.html</code> with Phase 07 coverage/limitations.</li>
+<li><strong>Critical readiness result:</strong> NOT READY for representative-user testing.</li>
+<li><strong>Participants, recruitment, consent, privacy/retention rules, tooling, timeline, budget, owner, pilot, and deadline:</strong> Not supplied.</li>
+<li><strong>Research context:</strong> Financial data, trust, judgment, accessibility, and potentially irreversible export require strong safeguards.</li>
+<li><strong>Status:</strong> Method selected provisionally; no study execution authorized or conducted.</li>
+</ul>
+<h2>1. Method decision</h2>
+<ul>
+<li><strong>Selected mode:</strong> <strong>Moderated formative usability testing, proposed after readiness blockers are resolved.</strong></li>
+<li><strong>Questions supported:</strong> Comprehension of period/total/data status; category correction and recovery; control and tone; permission/privacy understanding; selected concept comparison; accessibility barriers.</li>
+<li><strong>Why this mode fits:</strong> Prototype immaturity, missing/error states, sensitive financial context, need to distinguish prototype failure from usability friction, and need for careful probing/access accommodations.</li>
+<li><strong>Why unmoderated is not selected now:</strong> Non-functional controls, missing critical flows, ambiguous simulated success, and financial/privacy risks make unsupervised interpretation unsafe and data quality weak.</li>
+<li><strong>Risks:</strong> Facilitator influence, disclosure burden, participant distress, prototype failures, collection of unnecessary personal financial information, inaccessible tooling.</li>
+<li><strong>Mitigations:</strong> Neutral script, observe before probing, fictional scenarios, no account/financial details, explicit simulation disclosure, stop/skip rights, accessibility accommodations, pilot, predefined exclusions.</li>
+<li><strong>Quality controls:</strong> Version/hash check, facilitator training, note schema, task-order plan, prototype defect log, standardized completion/recovery definitions, member safety protocol.</li>
+<li><strong>Accessibility/privacy:</strong> Accessible consent/materials/tool; accommodation choice; minimize recording; pseudonymous IDs; no sensitive transaction/account data; approved retention/deletion.</li>
+<li><strong>Known limitations:</strong> Candidate segments are provisional; qualitative sessions cannot estimate prevalence; C-01/C-02 comparison requires equivalent prototype coverage.</li>
+<li><strong>Evidence/confidence:</strong> Method rationale Inferred/MEDIUM; execution readiness HIGH confidence as blocked by Phase 07 evidence.</li>
+</ul>
+<h2>2. Study protocol</h2>
+<table>
+<thead>
+<tr>
+<th>Protocol item</th>
+<th>Proposed approach</th>
+<th>Owner/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Decision</td>
+<td>Determine whether structures support comprehension, safe correction, and control before visual commitment</td>
+<td>Product/research owner missing</td>
+</tr>
+<tr>
+<td>Session mode</td>
+<td>Remote or in-person moderated; choose based on participant access and safe tooling</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Not set; pilot must determine burden</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>Introduction</td>
+<td>Purpose, voluntary participation, simulation limits, no real financial information</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Consent</td>
+<td>Recording/note-taking/data use/retention/withdrawal separately explained</td>
+<td>Authorization missing</td>
+</tr>
+<tr>
+<td>Think-aloud</td>
+<td>Invite, do not force; observe behavior before probing</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>Assistance</td>
+<td>Record intervention timing/reason; do not teach during task</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>Skip/stop, distress check, no judgment or financial advice</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Close</td>
+<td>Debrief simulation, withdrawal/contact, no unapproved compensation claim</td>
+<td>Proposed</td>
+</tr>
+</tbody></table>
+<h3>Preconditions before recruitment</h3>
+<ol>
+<li>Implement/pilot category correction and realistic data/error/permission states.</li>
+<li>Resolve or explicitly exclude export/recurring/unusual-pattern tasks.</li>
+<li>Obtain product/dev/accessibility/privacy/security review.</li>
+<li>Approve participant criteria, consent, incentive, tool, recording, retention, and incident procedures.</li>
+<li>Pilot tasks/prototype with people similar to participants; fix prototype defects.</li>
+</ol>
+<h2>3. Task and question set</h2>
+<p>Tasks are neutral candidates and must be piloted. Do not reveal target labels or expected action.</p>
+<table>
+<thead>
+<tr>
+<th>Task ID</th>
+<th>Scenario/task</th>
+<th>Research question</th>
+<th>Required prototype path</th>
+<th>Success/observation indicator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T-01</td>
+<td>You want to understand where spending went in a recent month. Show what you would review.</td>
+<td>Period/summary/category comprehension and navigation</td>
+<td>CF-01 plus data states</td>
+<td>Participant explains scope/period/key pattern accurately; path and uncertainty recorded</td>
+</tr>
+<tr>
+<td>T-02</td>
+<td>One purchase appears in a group that does not fit. Show what you would do.</td>
+<td>Correction findability, future-effect comprehension, cancel/recovery</td>
+<td>CF-02 complete</td>
+<td>Finds path, understands before/after/future effect, can cancel/recover</td>
+</tr>
+<tr>
+<td>T-03</td>
+<td>You decide whether a category budget would help. Set one only if you choose to.</td>
+<td>Voluntary control, amount/alert understanding</td>
+<td>CF-03 realistic states</td>
+<td>Completes or declines intentionally; explains effective alert state</td>
+</tr>
+<tr>
+<td>T-04</td>
+<td>You want to understand regular household commitments. Show where you would look.</td>
+<td>Recurring findability/status uncertainty</td>
+<td>CF-04 or exclude</td>
+<td>Finds and interprets detected/confirmed status without false certainty</td>
+</tr>
+<tr>
+<td>T-05</td>
+<td>You need a monthly record. Show how you would create one and stop before sharing if you choose.</td>
+<td>Export scope, permission, cancellation, privacy</td>
+<td>CF-05 safe path</td>
+<td>Understands included data/file status; can cancel without unintended share</td>
+</tr>
+<tr>
+<td>T-06</td>
+<td>You receive a spending-pattern message. Show how you decide what it means and control future messages.</td>
+<td>Explainability, tone, dismiss/preferences</td>
+<td>CF-06</td>
+<td>Interprets basis/limits, can inspect/dismiss/control</td>
+</tr>
+</tbody></table>
+<h3>Post-task questions</h3>
+<ul>
+<li>What did you expect to happen? What indicates the current state?</li>
+<li>What information, if any, feels unclear or too certain?</li>
+<li>What would you do if this information looked wrong?</li>
+<li>What personal/data-use control would you expect here?</li>
+</ul>
+<p>Do not ask leading preference questions such as “Was this easy?” before behavior/context probing.</p>
+<h2>4. Tool configuration</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Requirement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prototype</td>
+<td>Versioned local/test URL, no live accounts, simulation disclosure, defect logging</td>
+<td>Blocked by incomplete paths</td>
+</tr>
+<tr>
+<td>Session</td>
+<td>Accessible screen sharing/remote control or in-person device</td>
+<td>Tool not selected</td>
+</tr>
+<tr>
+<td>Recording</td>
+<td>Minimal audio/screen only if consented; no unnecessary face/PII</td>
+<td>Policy missing</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Participant ID × task × timestamp × behavior/statement/intervention/prototype defect</td>
+<td>Template proposed</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Keyboard, screen reader, zoom/reflow, captions/transcript/accommodation support as needed</td>
+<td>Tool verification pending</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Access control, expiration, storage, deletion, incident response</td>
+<td>Owner/policy missing</td>
+</tr>
+</tbody></table>
+<h2>5. Quality controls</h2>
+<ul>
+<li>Pilot the prototype, task wording, timing, facilitator behavior, recording, accessibility, and support path.</li>
+<li>Hash/version the prototype and record any mid-study change; do not silently mix versions.</li>
+<li>Define Success/Partial/Failure, error, hesitation, recovery, assistance, abandonment, and prototype failure before analysis.</li>
+<li>Use a neutral facilitator guide; record every intervention.</li>
+<li>Keep moderated and any later unmoderated results separate unless methods/metrics justify comparison.</li>
+<li>Predefine session exclusion: consent failure, unusable recording where necessary, participant mismatch, severe prototype/tool failure, duplicate/fraud evidence; never exclude negative results because they are inconvenient.</li>
+<li>Preserve severe accessibility/safety cases even when unique.</li>
+</ul>
+<h2>6. Analysis plan</h2>
+<ol>
+<li>Standardize observations by participant ID, task, screen/flow, time, evidence type, and prototype version.</li>
+<li>Separate observed behavior, participant statement, facilitator intervention, prototype defect, researcher interpretation, and recommendation.</li>
+<li>Code navigation, comprehension, content, interaction, trust/privacy, error/recovery, accessibility, performance, and workflow friction.</li>
+<li>Record outcome, errors, hesitation, recovery, assistance, consequence, and context per task.</li>
+<li>Apply severity only after consequence/recovery and evidence review; preserve outliers/contradictions.</li>
+<li>Report sample counts, not prevalence percentages for small qualitative samples.</li>
+<li>Link each finding to participant/task evidence and prototype limitation; route high-risk findings to authorized owners.</li>
+</ol>
+<h2>7. Limitations</h2>
+<ul>
+<li>Prototype is not ready and critical paths are missing; no sessions may start from this plan yet.</li>
+<li>No research owner, participant profile approval, sample rationale, tool, budget, timeline, consent, compensation, privacy, retention, or accessibility logistics are authorized.</li>
+<li>Candidate user contexts are not validated recruitment segments.</li>
+<li>A moderated study can identify barriers and mental models in context but cannot estimate market prevalence or causal business impact.</li>
+<li>This plan does not establish that any task, metric, severity, or method has been approved.</li>
+</ul>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Phase 07 coverage/readiness</td>
+<td>Direct artifact comparison</td>
+<td>HIGH</td>
+<td>Prototype not externally test-ready</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 03–06 needs/flows/risks</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>No direct research/feasibility</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Propose moderated formative method after blockers; do not conduct now</td>
+<td>Method decision</td>
+<td>MEDIUM</td>
+<td>Human/research/risk approval pending</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Method, protocol, tasks/questions, tooling, controls, analysis, and limitations are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Sensitive-domain, accessibility, privacy, prototype, and facilitator risks are addressed.</li>
+<li><input checked="" disabled="" type="checkbox"> No participant, pilot, tool, timing, result, or authorization was invented.</li>
+<li><input disabled="" type="checkbox"> Readiness blockers, consent/recruitment/tooling, and pilot completed — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from test-plan.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

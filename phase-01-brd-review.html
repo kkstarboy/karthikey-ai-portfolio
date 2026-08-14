@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BRD Document Review — Smart Expense Tracker — Phase 01 · Requirement Analysis</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 01 · Requirement Analysis</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./brd-review.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>BRD Document Review — Smart Expense Tracker</h1>
+<h2>4.1 Document Information</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Title</td>
+<td>BRD: Smart Expense Tracker for a Fintech Mobile App</td>
+<td>Complete</td>
+</tr>
+<tr>
+<td>Version, date, owner, authors, reviewers, approvers</td>
+<td>Not provided</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>Status and intended audience</td>
+<td>Draft status and audience are not stated</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>Confidentiality and change control</td>
+<td>Not provided</td>
+<td>Missing</td>
+</tr>
+<tr>
+<td>Review scope/date</td>
+<td>Full supplied BRD; reviewed 2026-07-24</td>
+<td>Complete</td>
+</tr>
+</tbody></table>
+<p>Evidence: <code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code> (document title and §§1–15). Missing ownership and approval metadata weakens change control. <strong>Priority: High.</strong></p>
+<h2>4.2 Executive Summary</h2>
+<p>The BRD defines a coherent mobile expense-tracking concept with ten functional requirements, five risks, candidate metrics, and four scenarios. It does not establish the provenance of quoted user statements, validate the named target users, define data and integration rules, or provide measurable security, privacy, accessibility, and acceptance requirements.</p>
+<p><strong>Overall readiness: Needs major revisions.</strong> The concept is suitable for discovery, but not yet sufficiently testable or traceable for implementation approval.</p>
+<h2>4.3 Business Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Status</th>
+<th>Evidence</th>
+<th>Impact</th>
+<th>Recommendation</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Help users understand spending without manual effort</td>
+<td>Complete</td>
+<td>§3 Product Goal</td>
+<td>Clear user/business intent</td>
+<td>Add baseline and accountable owner</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Increase engagement, retention, and trust</td>
+<td>Partial</td>
+<td>§§4.4, 12</td>
+<td>Targets exist, but causal model and owners are absent</td>
+<td>Define metric owners, baselines, cohorts, guardrails, and review dates</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Build a foundation for future recommendations</td>
+<td>Partial</td>
+<td>§5 Internal Product Team Needs</td>
+<td>Future direction is broad and unscoped</td>
+<td>Separate current release from future roadmap</td>
+<td>Medium</td>
+</tr>
+</tbody></table>
+<h2>4.4 Project Scope</h2>
+<p><strong>Status: Partial.</strong> In-scope capabilities are described in §§7 and 10. Out-of-scope items, release phases, supported account/card types, geography, cash handling, family/shared use, web support, and AI/rules boundaries are undecided (§14). Define explicit first-release boundaries and an out-of-scope list. <strong>Priority: Critical.</strong></p>
+<h2>4.5 Stakeholders</h2>
+<p><strong>Status: Partial.</strong> Product, design, and analytics are named (§4.4), but sponsor, decision-maker, engineering, data, security, privacy, legal/compliance, customer support, operations, and model-risk owners are not. Add decision rights, approval responsibilities, and named owners. <strong>Priority: High.</strong></p>
+<h2>4.6 Personas</h2>
+<p><strong>Status: Partial.</strong> Three consumer labels and one internal group are listed (§4). The age range “22–35” and related needs are BRD claims without research provenance. Treat these as provisional segments, not validated personas; remove decorative demographics unless evidence shows decision relevance. Conduct direct research before persona use. <strong>Priority: Critical.</strong></p>
+<h2>4.7 User Needs</h2>
+<p><strong>Status: Partial.</strong> Needs are clearly grouped (§5), but the five quotations in §2 have no participant, method, date, sample, or locator beyond the BRD. Product/stakeholder statements must not be treated as proof of user behaviour. Add a research basis, evidence IDs, confidence, and priority. <strong>Priority: Critical.</strong></p>
+<h2>4.8 User Journeys</h2>
+<p><strong>Status: Partial.</strong> Four scenarios cover discovery, budgeting, correction, and recurring bills (§8). Entry conditions, alternate paths, error recovery, permissions, privacy consent, empty/loading/offline states, notification handling, and post-action outcomes are incomplete. Map full current and desired journeys with evidence. <strong>Priority: High.</strong></p>
+<h2>4.9 Process Flows</h2>
+<p><strong>Status: Missing.</strong> No current-state or future-state operational flow identifies actors, systems, categorization decisions, data movement, exception handling, manual review, model/rule ownership, or escalation. Create flows for ingestion, categorization, correction memory, budget alerts, recurring detection, export, and unusual-spend alerts. <strong>Priority: Critical.</strong></p>
+<h2>4.10 Functional Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Status</th>
+<th>Review finding</th>
+<th>Required correction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR1 Expense Dashboard</td>
+<td>Partial</td>
+<td>Contents stated; actor, refresh, loading/error, and data-period rules absent</td>
+<td>Add actor, trigger, data scope, states, and acceptance IDs</td>
+</tr>
+<tr>
+<td>FR2 Auto-Categorization</td>
+<td>Partial</td>
+<td>Inputs named; decision logic, confidence, fallback, and auditability absent</td>
+<td>Define rules/model boundary, confidence, unknown handling, and test set</td>
+</tr>
+<tr>
+<td>FR3 Category Editing</td>
+<td>Partial</td>
+<td>Action stated; permissions, undo, error, and audit behavior absent</td>
+<td>Specify edit flow and recovery</td>
+</tr>
+<tr>
+<td>FR4 Category Memory</td>
+<td>Partial</td>
+<td>Future merchant behavior stated; scope and override hierarchy absent</td>
+<td>Define merchant identity, precedence, undo, and propagation</td>
+</tr>
+<tr>
+<td>FR5 Monthly Comparison</td>
+<td>Partial</td>
+<td>Comparison stated; partial-month and missing-history rules absent</td>
+<td>Define periods and edge cases</td>
+</tr>
+<tr>
+<td>FR6 Spending Insights</td>
+<td>Partial</td>
+<td>Tone examples exist; eligibility, frequency, explainability, and suppression absent</td>
+<td>Define generation and content rules</td>
+</tr>
+<tr>
+<td>FR7 Budget Setup</td>
+<td>Partial</td>
+<td>Category budgets stated; currency, edit/delete, rollover, and conflicts absent</td>
+<td>Add lifecycle and validation rules</td>
+</tr>
+<tr>
+<td>FR8 Budget Alerts</td>
+<td>Partial</td>
+<td>80%/100% thresholds stated; channel, timing, duplicates, and opt-out absent</td>
+<td>Define notification behavior</td>
+</tr>
+<tr>
+<td>FR9 Recurring Detection</td>
+<td>Partial</td>
+<td>Examples stated; detection, confirmation, false-positive correction absent</td>
+<td>Define criteria and review controls</td>
+</tr>
+<tr>
+<td>FR10 Export Summary</td>
+<td>Partial</td>
+<td>Export stated; format, content, privacy, access, and failure handling absent</td>
+<td>Decide first format and security rules</td>
+</tr>
+</tbody></table>
+<p>All ten requirements need stable acceptance-criteria links and traceability. <strong>Priority: Critical.</strong></p>
+<h2>4.11 Business Rules</h2>
+<p><strong>Status: Missing.</strong> Category taxonomy, merchant matching, user-correction precedence, budget periods, alert suppression, recurring-payment thresholds, unusual-spend baselines, inclusion/exclusion of transfers/refunds, and insight eligibility are not defined. Create independently testable rules with owners and effective dates. <strong>Priority: Critical.</strong></p>
+<h2>4.12 Data Requirements</h2>
+<p><strong>Status: Missing.</strong> The BRD references transaction data and historical behaviour (§10 FR2) but lacks a data dictionary, authoritative sources, consent basis, classifications, retention/deletion, lineage, residency, quality thresholds, reconciliation, export fields, and audit history. Complete privacy and data-governance review before implementation. <strong>Priority: Critical.</strong></p>
+<h2>4.13 Integration Requirements</h2>
+<p><strong>Status: Missing.</strong> No upstream transaction feed, notification service, analytics pipeline, categorization service, export service, authentication boundary, latency, retry, reconciliation, outage, or ownership requirement is specified. Create an integration inventory and failure contract. <strong>Priority: Critical.</strong></p>
+<h2>4.14 Security Requirements</h2>
+<p><strong>Status: Partial.</strong> §11 says expense data should follow financial-data security standards, but no standard, control, owner, authentication, authorization, encryption, audit, fraud, incident, or consent requirement is named. Do not claim compliance. Obtain security, privacy, legal, and compliance decisions. <strong>Priority: Critical.</strong></p>
+<h2>4.15 Accessibility Requirements</h2>
+<p><strong>Status: Partial.</strong> §11 mentions different levels of financial literacy and §9 requires clear language. No WCAG target, platform scope, keyboard/screen-reader behavior, contrast, text scaling, touch targets, motion, error identification, or assistive-technology testing is defined. Specify a measurable accessibility target and validation plan. <strong>Priority: High.</strong></p>
+<h2>4.16 Reporting Requirements</h2>
+<p><strong>Status: Partial.</strong> PDF/CSV export is proposed (§7.8), but audience, required fields, filters, period, generation time, access, secure sharing, retention, audit, and source-of-truth rules are missing. Define the first supported format and privacy constraints. <strong>Priority: High.</strong></p>
+<h2>4.17 Non-Functional Requirements</h2>
+<p><strong>Status: Partial.</strong> A two-second dashboard goal exists but “for most users” lacks percentile, network/device conditions, and measurement source (§11). Accuracy, privacy, security, accessibility, and mobile usability are qualitative. Add measurable performance, availability, reliability, categorization quality, observability, compatibility, localization, recovery, privacy, security, and accessibility requirements. <strong>Priority: Critical.</strong></p>
+<h2>4.18 Risks &amp; Dependencies</h2>
+<p><strong>Status: Partial.</strong> Five risks and mitigations are listed (§13), but likelihood, impact, owner, trigger, status, contingency, and dependent decisions are absent. Add model/data quality, notification fatigue, financial harm, accessibility exclusion, regulatory approval, integration availability, and analytics-instrumentation risks. <strong>Priority: High.</strong></p>
+<h2>4.19 Acceptance Criteria</h2>
+<p><strong>Status: Partial.</strong> §15 supplies a launch checklist, but criteria are not linked to FR IDs and omit alternate, boundary, validation, permission, privacy, accessibility, security, error, offline, performance, and data-quality scenarios. Rewrite them as observable test cases per requirement. <strong>Priority: Critical.</strong></p>
+<h2>4.20 Success Metrics &amp; Traceability Matrix</h2>
+<p>The metric targets in §12 have no baseline, owner, denominator definitions, segment, data source, guardrails, or review cadence. “70% categorized correctly” is also materially inconsistent with the NFR phrase “accurate enough to reduce manual correction” until a shared definition is approved.</p>
+<table>
+<thead>
+<tr>
+<th>Business objective</th>
+<th>User need</th>
+<th>Journey/process</th>
+<th>Requirement ID</th>
+<th>Business rule</th>
+<th>Acceptance criteria</th>
+<th>Success metric</th>
+<th>Owner</th>
+<th>Status/gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Understand monthly spending</td>
+<td>Quick summary</td>
+<td>Review dashboard</td>
+<td>FR1</td>
+<td>Monthly period not defined</td>
+<td>§15 summary criterion</td>
+<td>Tracker visits; insight interaction</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Reduce manual tracking</td>
+<td>Automatic categories</td>
+<td>Transaction ingestion</td>
+<td>FR2</td>
+<td>Confidence/fallback missing</td>
+<td>§15 auto-category criterion</td>
+<td>70% accuracy target</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Maintain trust/control</td>
+<td>Correct wrong category</td>
+<td>Correction flow</td>
+<td>FR3</td>
+<td>Edit/undo missing</td>
+<td>§15 edit criterion</td>
+<td>Trust metric undefined</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Improve future accuracy</td>
+<td>Remember correction</td>
+<td>Merchant learning</td>
+<td>FR4</td>
+<td>Precedence missing</td>
+<td>§15 memory criterion</td>
+<td>Reduction in uncategorized transactions</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Understand change</td>
+<td>Month comparison</td>
+<td>Trend review</td>
+<td>FR5</td>
+<td>Partial-month rule missing</td>
+<td>§15 comparison criterion</td>
+<td>Insight interaction</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Receive useful guidance</td>
+<td>Clear insights</td>
+<td>Insight review</td>
+<td>FR6</td>
+<td>Eligibility/tone governance incomplete</td>
+<td>Clear-language criterion</td>
+<td>20% interact target</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Build simple habits</td>
+<td>Set category budget</td>
+<td>Budget setup</td>
+<td>FR7</td>
+<td>Budget lifecycle missing</td>
+<td>§15 budget criterion</td>
+<td>25% set budget</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Avoid surprises</td>
+<td>Timely budget warning</td>
+<td>Notification</td>
+<td>FR8</td>
+<td>Channel/suppression missing</td>
+<td>§15 alerts criterion</td>
+<td>Alert usefulness not defined</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>See commitments</td>
+<td>Review recurring spend</td>
+<td>Recurring detection</td>
+<td>FR9</td>
+<td>Detection criteria missing</td>
+<td>§15 recurring criterion</td>
+<td>No direct metric</td>
+<td>Not provided</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Keep/share records</td>
+<td>Export summary</td>
+<td>Export</td>
+<td>FR10</td>
+<td>Format/access rules missing</td>
+<td>No explicit export criterion in §15</td>
+<td>No direct metric</td>
+<td>Not provided</td>
+<td>Missing</td>
+</tr>
+</tbody></table>
+<h2>5. Findings Register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Section</th>
+<th>Status</th>
+<th>Evidence</th>
+<th>Gap/issue</th>
+<th>Impact</th>
+<th>Recommendation</th>
+<th>Priority</th>
+<th>Owner</th>
+<th>Decision needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F01</td>
+<td>Research basis</td>
+<td>Missing</td>
+<td>§§2, 4–5</td>
+<td>Quotes and segments lack provenance</td>
+<td>Personas/needs may be fictionalized</td>
+<td>Conduct traceable user research</td>
+<td>Critical</td>
+<td>Research owner not provided</td>
+<td>Research plan and sample</td>
+</tr>
+<tr>
+<td>F02</td>
+<td>Scope</td>
+<td>Partial</td>
+<td>§§7, 14</td>
+<td>Release boundaries unresolved</td>
+<td>Scope and estimate risk</td>
+<td>Approve MVP and out-of-scope list</td>
+<td>Critical</td>
+<td>Product owner not provided</td>
+<td>Ten open questions</td>
+</tr>
+<tr>
+<td>F03</td>
+<td>Data/privacy</td>
+<td>Missing</td>
+<td>§§10–11</td>
+<td>Data lifecycle and consent absent</td>
+<td>Financial/privacy risk</td>
+<td>Complete data/privacy assessment</td>
+<td>Critical</td>
+<td>Data/privacy owners not provided</td>
+<td>Legal basis and controls</td>
+</tr>
+<tr>
+<td>F04</td>
+<td>Functional rules</td>
+<td>Missing</td>
+<td>FR2, FR4, FR8–9</td>
+<td>Core decision logic absent</td>
+<td>Incorrect or harmful behavior</td>
+<td>Define testable rules and exceptions</td>
+<td>Critical</td>
+<td>Product/data owner</td>
+<td>Rule/model policy</td>
+</tr>
+<tr>
+<td>F05</td>
+<td>Integrations</td>
+<td>Missing</td>
+<td>None</td>
+<td>No service contract or failure handling</td>
+<td>Delivery/reliability risk</td>
+<td>Create integration inventory</td>
+<td>Critical</td>
+<td>Engineering owner</td>
+<td>Architecture</td>
+</tr>
+<tr>
+<td>F06</td>
+<td>NFRs</td>
+<td>Partial</td>
+<td>§11</td>
+<td>Mostly qualitative</td>
+<td>Cannot test readiness</td>
+<td>Add measurable NFRs</td>
+<td>Critical</td>
+<td>Engineering/QA</td>
+<td>Targets</td>
+</tr>
+<tr>
+<td>F07</td>
+<td>Accessibility</td>
+<td>Partial</td>
+<td>§§9, 11</td>
+<td>No measurable standard</td>
+<td>Exclusion/compliance risk</td>
+<td>Set WCAG target and test plan</td>
+<td>High</td>
+<td>Accessibility owner</td>
+<td>Standard/scope</td>
+</tr>
+<tr>
+<td>F08</td>
+<td>Acceptance</td>
+<td>Partial</td>
+<td>§15</td>
+<td>Not linked to FRs/edge cases</td>
+<td>Release ambiguity</td>
+<td>Create requirement-level criteria</td>
+<td>Critical</td>
+<td>Product/QA</td>
+<td>Acceptance owner</td>
+</tr>
+<tr>
+<td>F09</td>
+<td>Metrics</td>
+<td>Partial</td>
+<td>§12</td>
+<td>No baselines/owners/definitions</td>
+<td>Success cannot be interpreted</td>
+<td>Define metric contracts and guardrails</td>
+<td>High</td>
+<td>Analytics owner</td>
+<td>Baselines and cadence</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Governance</td>
+<td>Missing</td>
+<td>None</td>
+<td>Owners/approvers/change control absent</td>
+<td>Uncontrolled decisions</td>
+<td>Add RACI and revision history</td>
+<td>High</td>
+<td>Sponsor</td>
+<td>Decision rights</td>
+</tr>
+</tbody></table>
+<h2>6. Final Review Summary</h2>
+<ul>
+<li><strong>Readiness:</strong> Needs major revisions because core data, rule, security, accessibility, integration, research-provenance, and acceptance details are missing.</li>
+<li><strong>Strongest areas:</strong> Clear product concept, supportive tone, representative scenarios, numbered functional requirements, candidate risks, and candidate success targets.</li>
+<li><strong>Critical blockers:</strong> No validated user-research basis; missing data/privacy/security/integration contracts; missing business rules; incomplete measurable NFRs and acceptance criteria.</li>
+<li><strong>Top five actions:</strong> validate user evidence; approve MVP scope; define data/privacy/security controls; specify categorization/budget/recurring rules; link requirements to acceptance criteria and metric definitions.</li>
+<li><strong>Open decisions:</strong> all questions in §14 plus owners, compliance basis, accessibility target, categorization accuracy definition, and error/recovery behavior.</li>
+<li><strong>Suggested sequence:</strong> product/research review → data/privacy/security review → product/engineering rules workshop → accessibility/content review → QA/analytics traceability review → stakeholder approval.</li>
+</ul>
+<h2>7. Quality Checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Every required heading is present.</li>
+<li><input checked="" disabled="" type="checkbox"> Conclusions cite BRD sections or are identified as gaps.</li>
+<li><input checked="" disabled="" type="checkbox"> Missing information was not fabricated.</li>
+<li><input checked="" disabled="" type="checkbox"> Contradictions, duplicate concepts, and traceability gaps are visible.</li>
+<li><input disabled="" type="checkbox"> Requirements are measurable, feasible, testable, and fully traceable — blocked by BRD gaps.</li>
+<li><input disabled="" type="checkbox"> Security, privacy, accessibility, data, integration, reporting, and operational requirements are complete — blocked by missing decisions.</li>
+<li><input checked="" disabled="" type="checkbox"> Findings include impact, priority, recommendation, owner gap, and decision need.</li>
+</ul>
+</article>
+    <footer>Generated from brd-review.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

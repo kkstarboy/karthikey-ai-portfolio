@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Critical Flow Coverage — Prototype Readiness — Phase 07 · Prototyping</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 07 · Prototyping</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./critical-flow-coverage.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Critical Flow Coverage — Prototype Readiness</h1>
+<h2>Scope, evidence, and criticality method</h2>
+<p>This artifact evaluates whether the available clickable prototype covers critical tasks from realistic entry through alternate, failure, recovery, cancellation, and confirmation outcomes.</p>
+<ul>
+<li><strong>Prototype asset assessed:</strong> <code>Output/visual-design/smart-expense-tracker.html</code>, created as a provisional two-screen visual sample before Phase 07.</li>
+<li><strong>Authoritative flow inputs:</strong> Phase 04 F-01–F-06; Phase 06 wireframes/annotations; G06 record.</li>
+<li><strong>Asset status:</strong> Readable and locally interactive, but not updated to the full Phase 06 screen/state contract.</li>
+<li><strong>No evidence of:</strong> Representative users, pilot participants, task outcomes, current backend behavior, technical feasibility, privacy/security approval, or accessibility conformance.</li>
+</ul>
+<p>Criticality is provisional because frequency/reach are unknown:</p>
+<ul>
+<li><strong>Critical:</strong> High user/business harm, core-value dependence, sensitive/irreversible action, or essential recovery.</li>
+<li><strong>High:</strong> Material value/risk but can be excluded from the immediate narrow test with disclosure.</li>
+<li><strong>Deferred:</strong> Outside the current prototype decision.</li>
+</ul>
+<p>All classifications are Inferred/LOW pending product, research, risk, and engineering owners.</p>
+<h2>1. Critical-flow coverage matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Criticality/rationale</th>
+<th>Prototype screens/interaction</th>
+<th>Main path</th>
+<th>Alternate/error/recovery</th>
+<th>Confirmation/downstream status</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CF-01 / F-01 Review spending</td>
+<td>Critical: central stated value and risk of misinterpretation</td>
+<td>Overview → Food &amp; Dining detail → back</td>
+<td>Simulated</td>
+<td>Missing loading, empty, partial, stale, permission, error, guided branch</td>
+<td>Navigation state only; no comprehension confirmation</td>
+<td><strong>Partial</strong></td>
+</tr>
+<tr>
+<td>CF-02 / F-02 Correct category</td>
+<td>Critical: trust/data consequence and mutation</td>
+<td>Detail “Edit category” control shows limitation toast</td>
+<td>Not simulated</td>
+<td>Missing cancel, validation, offline, conflict, permission, recovery</td>
+<td>Missing pending/success/failure/updated totals</td>
+<td><strong>Missing</strong></td>
+</tr>
+<tr>
+<td>CF-03 / F-03 Set budget</td>
+<td>High/critical candidate: financial guidance plus alert control</td>
+<td>Overview → budget dialog → select amount → save toast</td>
+<td>Simulated narrow happy path</td>
+<td>Missing custom/invalid values, existing budget, notification permission, save failure, offline/cancel result</td>
+<td>Toast only; no persistent budget/effective alert status</td>
+<td><strong>Partial</strong></td>
+</tr>
+<tr>
+<td>CF-04 / F-04 Review recurring</td>
+<td>High: household commitment/trust risk</td>
+<td>Static “Bills” category only</td>
+<td>Missing</td>
+<td>Missing empty/uncertain/false result/shared permissions/recovery</td>
+<td>Missing</td>
+<td><strong>Missing</strong></td>
+</tr>
+<tr>
+<td>CF-05 / F-05 Export/share</td>
+<td>Critical: sensitive, potentially irreversible disclosure</td>
+<td>Share Summary control shows preview toast</td>
+<td>Not simulated</td>
+<td>Missing re-auth, scope, format, partial/stale, cancel, failure, storage/share</td>
+<td>Missing file/no-file status</td>
+<td><strong>Missing</strong></td>
+</tr>
+<tr>
+<td>CF-06 / F-06 Unusual pattern</td>
+<td>High: possible judgment/false alarm</td>
+<td>Static overview/detail insight content</td>
+<td>Partially displayed, not a flow</td>
+<td>Missing eligibility, dismiss, preferences, stale/deep-link/error</td>
+<td>Missing</td>
+<td><strong>Missing</strong></td>
+</tr>
+</tbody></table>
+<p>Screen presence is not counted as task coverage. Only CF-01 and CF-03 have any interactive path, and neither is end-to-end against the Phase 06 contract.</p>
+<h2>2. Prototype path definitions</h2>
+<h3>CF-01 — Review spending</h3>
+<ul>
+<li><strong>User and trigger:</strong> Provisional candidate opens the sample; real parent-app entry/auth context is absent.</li>
+<li><strong>Criticality rationale:</strong> Core BRD goal and potential financial misunderstanding.</li>
+<li><strong>Entry state:</strong> Static sample overview with pre-populated BRD-format example data.</li>
+<li><strong>Main path:</strong> Overview → Food &amp; Dining row → detail → Back → overview.</li>
+<li><strong>Alternate/error paths:</strong> None simulated.</li>
+<li><strong>Recovery:</strong> Back navigation only.</li>
+<li><strong>Success confirmation:</strong> None; reaching detail does not prove comprehension.</li>
+<li><strong>Prototype coverage:</strong> <strong>Partial</strong>.</li>
+<li><strong>Known gap/risk:</strong> Cannot test data status, explanation, empty/partial/stale/error, guided alternative, privacy, or task outcome.</li>
+</ul>
+<h3>CF-02 — Correct category</h3>
+<ul>
+<li><strong>User and trigger:</strong> User notices a possibly wrong category.</li>
+<li><strong>Entry state:</strong> Detail contains an Edit category control.</li>
+<li><strong>Main path:</strong> Missing; activation only reports that rule approval is required.</li>
+<li><strong>Alternate/error/recovery:</strong> Missing.</li>
+<li><strong>Success confirmation:</strong> Missing.</li>
+<li><strong>Prototype coverage:</strong> <strong>Missing</strong>.</li>
+<li><strong>Known gap/risk:</strong> A critical recovery task cannot be tested.</li>
+</ul>
+<h3>CF-03 — Set budget</h3>
+<ul>
+<li><strong>User and trigger:</strong> User activates Set a budget from overview.</li>
+<li><strong>Entry state:</strong> Static overview.</li>
+<li><strong>Main path:</strong> Open dialog → choose one of three simulated amounts → Save → toast.</li>
+<li><strong>Alternate/error paths:</strong> Dialog close/Escape is supported; validation, permission, existing budget, offline, timeout, and failure are missing.</li>
+<li><strong>Recovery:</strong> Close without saving.</li>
+<li><strong>Success confirmation:</strong> Toast only; no persistent or effective notification state.</li>
+<li><strong>Prototype coverage:</strong> <strong>Partial</strong>.</li>
+<li><strong>Known gap/risk:</strong> Unrealistically constrained values and fake successful persistence may change task difficulty.</li>
+</ul>
+<h3>CF-04 — Review recurring</h3>
+<ul>
+<li><strong>Entry/main/alternate/recovery/confirmation:</strong> Missing.</li>
+<li><strong>Prototype coverage:</strong> <strong>Missing</strong>.</li>
+</ul>
+<h3>CF-05 — Export/share</h3>
+<ul>
+<li><strong>Entry state:</strong> Overview Share Summary control.</li>
+<li><strong>Main path:</strong> Missing; activation reports preview only.</li>
+<li><strong>Alternate/error/recovery/confirmation:</strong> Missing.</li>
+<li><strong>Prototype coverage:</strong> <strong>Missing</strong>.</li>
+<li><strong>Known gap/risk:</strong> Cannot test a sensitive action without authorization, file, cancel, and no-share outcomes.</li>
+</ul>
+<h3>CF-06 — Unusual pattern</h3>
+<ul>
+<li><strong>Entry state:</strong> Static insight content.</li>
+<li><strong>Main/alternate/recovery/confirmation:</strong> Missing.</li>
+<li><strong>Prototype coverage:</strong> <strong>Missing</strong>.</li>
+</ul>
+<h2>3. Entry and end states</h2>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Realistic entry required</th>
+<th>Current entry</th>
+<th>Required success end</th>
+<th>Current end</th>
+<th>Gap impact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CF-01</td>
+<td>Parent app/auth/data status</td>
+<td>Sample opens directly</td>
+<td>Accurate understanding or safe exit</td>
+<td>Detail/overview only</td>
+<td>Task outcome untestable</td>
+</tr>
+<tr>
+<td>CF-02</td>
+<td>Authorized editable transaction</td>
+<td>Static detail</td>
+<td>Confirmed correction plus effective state</td>
+<td>Limitation toast</td>
+<td>Critical task untestable</td>
+</tr>
+<tr>
+<td>CF-03</td>
+<td>Eligible category/account/permission context</td>
+<td>Overview</td>
+<td>Persisted budget plus alert status or safe cancel</td>
+<td>Toast/close</td>
+<td>False persistence risk</td>
+</tr>
+<tr>
+<td>CF-04</td>
+<td>Authorized recurring summary</td>
+<td>None</td>
+<td>Understood/qualified item or safe exit</td>
+<td>None</td>
+<td>Entire flow untestable</td>
+</tr>
+<tr>
+<td>CF-05</td>
+<td>Authorized current summary</td>
+<td>Overview button</td>
+<td>File/shared status or confirmed cancel/failure</td>
+<td>Preview toast</td>
+<td>Sensitive task untestable</td>
+</tr>
+<tr>
+<td>CF-06</td>
+<td>Eligible current pattern or notification</td>
+<td>Static content</td>
+<td>Understand/inspect/dismiss/control</td>
+<td>None</td>
+<td>Harm/control untestable</td>
+</tr>
+</tbody></table>
+<h2>4. Exception coverage</h2>
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Required by Phase 06</th>
+<th>Simulated?</th>
+<th>Priority/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Authentication/permission/re-auth</td>
+<td>All/especially edit/export</td>
+<td>No</td>
+<td>Critical before external testing</td>
+</tr>
+<tr>
+<td>Loading/empty/partial/stale</td>
+<td>Dynamic data views</td>
+<td>No</td>
+<td>Critical for comprehension test</td>
+</tr>
+<tr>
+<td>Offline/timeout</td>
+<td>Read/mutation/export</td>
+<td>No</td>
+<td>High; include recoverable branch</td>
+</tr>
+<tr>
+<td>Validation/same/conflicting value</td>
+<td>Category/budget/preferences</td>
+<td>No</td>
+<td>Critical for correction; high for budget</td>
+</tr>
+<tr>
+<td>Pending/success/failure/unknown mutation</td>
+<td>Edit/budget/export</td>
+<td>Budget toast only; no authoritative state</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>Cancellation</td>
+<td>All actions</td>
+<td>Budget dialog close only</td>
+<td>Extend to correction/export</td>
+</tr>
+<tr>
+<td>Extreme/localized/accessibility variants</td>
+<td>All</td>
+<td>No</td>
+<td>High; test before claiming readiness</td>
+</tr>
+<tr>
+<td>Notification stale/deep-link/suppression</td>
+<td>Unusual/budget alerts</td>
+<td>No</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Recurrence false/uncertain/shared item</td>
+<td>Recurring</td>
+<td>No</td>
+<td>Critical if flow included</td>
+</tr>
+</tbody></table>
+<h2>5. Risk gaps</h2>
+<table>
+<thead>
+<tr>
+<th>Risk ID</th>
+<th>Gap</th>
+<th>Severity</th>
+<th>Testing impact</th>
+<th>Owner/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RG-01</td>
+<td>Category correction missing</td>
+<td>Critical</td>
+<td>Core trust/recovery question cannot be tested</td>
+<td>Prototype WF-03–05</td>
+</tr>
+<tr>
+<td>RG-02</td>
+<td>Export authorization/outcomes missing</td>
+<td>Critical</td>
+<td>Sensitive/irreversible path cannot be tested</td>
+<td>Prototype WF-11/12/17 after risk review</td>
+</tr>
+<tr>
+<td>RG-03</td>
+<td>Data readiness/partial/stale states missing</td>
+<td>Critical</td>
+<td>Participants may assume unrealistic certainty</td>
+<td>Prototype WF-16 states</td>
+</tr>
+<tr>
+<td>RG-04</td>
+<td>Budget simulation implies success without persistence/permission</td>
+<td>High</td>
+<td>Could create false mental model</td>
+<td>Disclose wizard-of-oz; add effective-state branch</td>
+</tr>
+<tr>
+<td>RG-05</td>
+<td>No recurring or unusual-pattern control paths</td>
+<td>High</td>
+<td>F-04/F-06 questions untestable</td>
+<td>Add or explicitly exclude from test scope</td>
+</tr>
+<tr>
+<td>RG-06</td>
+<td>Parent-app entry/auth and permissions absent</td>
+<td>Critical</td>
+<td>Entry/findability/privacy questions untestable</td>
+<td>Obtain app shell/role model</td>
+</tr>
+<tr>
+<td>RG-07</td>
+<td>No feasibility/accessibility pilot</td>
+<td>Critical</td>
+<td>Impossible transitions/barriers may reach participants</td>
+<td>Product/dev/accessibility review and pilot</td>
+</tr>
+</tbody></table>
+<h2>6. Readiness decision</h2>
+<p><strong>Decision: NOT READY for representative-user usability testing of the declared critical flows.</strong></p>
+<p>The clickable asset is suitable only for an internal interaction pilot of:</p>
+<ul>
+<li>overview-to-category navigation and back behavior;</li>
+<li>budget-dialog open/select/close/toast mechanics;</li>
+<li>keyboard focus and reduced-motion checks already described in the sample notes.</li>
+</ul>
+<p>Before external testing, at minimum implement/disclose CF-01 data states, complete CF-02, resolve CF-05 scope or exclude it explicitly, add safe error/cancel paths, label all wizard-of-oz behavior, and pilot accessibility/links. A participant must never be evaluated on a prototype limitation without disclosure.</p>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Phase 06 wireframes/annotations</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>No feasibility/user review</td>
+</tr>
+<tr>
+<td>E2</td>
+<td><code>Output/visual-design/smart-expense-tracker.html</code> source inspection</td>
+<td>Direct asset inspection</td>
+<td>HIGH for available interactions</td>
+<td>Not full Phase 06 coverage</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Classify prototype as limited internal pilot; not externally test-ready</td>
+<td>Coverage decision</td>
+<td>HIGH based on asset/contract comparison</td>
+<td>Human G07 review pending</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Criticality, coverage matrix, paths, entries/ends, exceptions, risk gaps, and readiness are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Confirmation/downstream state is required before calling a mutation end-to-end.</li>
+<li><input checked="" disabled="" type="checkbox"> Screen presence is not treated as task coverage.</li>
+<li><input checked="" disabled="" type="checkbox"> Missing and partial paths are visible; no impossible transition is claimed.</li>
+<li><input disabled="" type="checkbox"> Critical paths and failures are implemented and piloted — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from critical-flow-coverage.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

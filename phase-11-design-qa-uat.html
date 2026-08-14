@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design QA/UAT — Not Conducted; No Build Available — Phase 11 · Development Support</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 11 · Development Support</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./design-qa-uat.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Design QA/UAT — Not Conducted; No Build Available</h1>
+<h2>Status, decision boundary, and readiness</h2>
+<p><strong>No design QA or UAT was conducted.</strong> No test build, repository, branch, commit, environment, URL, app package, implemented screen, supported device/browser/OS matrix, test account, approved test data, story, acceptance criterion, release candidate, QA owner, tester, screenshot, recording, console/network log, test run, observation, issue, deviation, retest, or release decision was supplied.</p>
+<ul>
+<li><strong>G10/G11 boundary:</strong> Phase 11 may record readiness limitations only; no build or implementation status is established.</li>
+<li><strong>Reference baseline:</strong> Phase 10 is a provisional/blocked handoff package, not an implementation-ready approved design baseline.</li>
+<li><strong>Evidence rule:</strong> upstream design/accessibility gaps are not implementation defects, and the provisional HTML sample is not a product test build.</li>
+<li><strong>Decision supported:</strong> whether QA/UAT prerequisites, comparison schema, and release-decision boundaries are explicit without fabricated testing evidence.</li>
+</ul>
+<h2>Input readiness inventory</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Required input</th>
+<th>Available evidence</th>
+<th>Status</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QA-E01</td>
+<td>G10 approval and Phase 10 artifacts</td>
+<td>G10-reviewed files</td>
+<td>Available with limitations</td>
+<td>Authorizes limitation handling only</td>
+</tr>
+<tr>
+<td>QA-E02</td>
+<td>Test build/version/environment</td>
+<td>None</td>
+<td>Missing/Critical</td>
+<td>Cannot execute or reproduce QA/UAT</td>
+</tr>
+<tr>
+<td>QA-E03</td>
+<td>Approved design/prototype baseline</td>
+<td>Phase 09/10 provisional assets only</td>
+<td>Not handoff-ready</td>
+<td>Cannot determine implementation deviations</td>
+</tr>
+<tr>
+<td>QA-E04</td>
+<td>Stories/acceptance criteria/release scope</td>
+<td>None</td>
+<td>Missing/Critical</td>
+<td>Cannot define pass/fail or release coverage</td>
+</tr>
+<tr>
+<td>QA-E05</td>
+<td>Supported devices/browsers/OS/AT/locales</td>
+<td>None</td>
+<td>Missing/Critical</td>
+<td>Cannot define test matrix</td>
+</tr>
+<tr>
+<td>QA-E06</td>
+<td>QA accounts/test data/privacy handling</td>
+<td>None</td>
+<td>Missing/Critical</td>
+<td>Cannot safely test financial data states</td>
+</tr>
+<tr>
+<td>QA-E07</td>
+<td>Testers/owners/environment access</td>
+<td>None</td>
+<td>Missing</td>
+<td>No review, triage, or decision authority</td>
+</tr>
+<tr>
+<td>QA-E08</td>
+<td>Implemented evidence</td>
+<td>None</td>
+<td>Missing</td>
+<td>No actual behavior to compare</td>
+</tr>
+</tbody></table>
+<h2>1. QA scope</h2>
+<h3>Actual Phase 11 execution scope</h3>
+<table>
+<thead>
+<tr>
+<th>Scope item</th>
+<th>Included?</th>
+<th>Evidence/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Build/version verification</td>
+<td>No</td>
+<td>No build supplied</td>
+</tr>
+<tr>
+<td>Complete flow execution</td>
+<td>No</td>
+<td>No implementation/environment</td>
+</tr>
+<tr>
+<td>Visual/component/content comparison</td>
+<td>No</td>
+<td>No implemented screens or approved final baseline</td>
+</tr>
+<tr>
+<td>Functional/data/state comparison</td>
+<td>No</td>
+<td>No behavior, APIs, stories, or test data</td>
+</tr>
+<tr>
+<td>Responsive/device/browser review</td>
+<td>No</td>
+<td>No matrix/build</td>
+</tr>
+<tr>
+<td>Accessibility/manual/AT review</td>
+<td>No</td>
+<td>No target/build/matrix</td>
+</tr>
+<tr>
+<td>Issue capture/triage</td>
+<td>No</td>
+<td>No observed implementation issue</td>
+</tr>
+<tr>
+<td>Fix retest</td>
+<td>No</td>
+<td>No issue/fix/build</td>
+</tr>
+<tr>
+<td>Release recommendation</td>
+<td>No</td>
+<td>Release readiness not assessable</td>
+</tr>
+</tbody></table>
+<h3>Future authorized scope</h3>
+<ol>
+<li>Verify immutable build/environment/reference versions and release scope.</li>
+<li>Test F-01–F-06 end to end, including ST-01–13 and EDGE-01–14.</li>
+<li>Compare hierarchy, layout, content, components, interactions, data, responsive behavior, accessibility, permissions, privacy/security, errors, recovery, and performance against approved sources.</li>
+<li>Distinguish implementation defect, design defect, requirement gap, content issue, prototype/test defect, and approved deviation.</li>
+<li>Capture reproducible evidence without real personal or financial data.</li>
+<li>Review with authorized owners, retest fixes, and record release blockers/accepted deviations separately.</li>
+</ol>
+<h2>2. Screen and flow comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Comparison ID</th>
+<th>Flow/screens</th>
+<th>Approved reference required</th>
+<th>Implemented evidence</th>
+<th>Comparison result</th>
+<th>Status/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CMP-QA-01</td>
+<td>F-01/WF-00–02/16/17/20–22</td>
+<td>Final approved entry/overview/detail/state designs and criteria</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Provide build and baseline</td>
+</tr>
+<tr>
+<td>CMP-QA-02</td>
+<td>F-02/WF-03–05</td>
+<td>Approved category-correction rules/frames/criteria</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Resolve critical upstream gaps/build</td>
+</tr>
+<tr>
+<td>CMP-QA-03</td>
+<td>F-03/WF-06–08/14</td>
+<td>Approved budget/alerts/permission/result designs</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>CMP-QA-04</td>
+<td>F-04/WF-09/10</td>
+<td>Approved recurring rules/states</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>CMP-QA-05</td>
+<td>F-05/WF-11/12/17</td>
+<td>Approved export/auth/privacy/accessibility design</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>CMP-QA-06</td>
+<td>F-06/WF-13/14</td>
+<td>Approved insight/notification controls/content</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Same</td>
+</tr>
+<tr>
+<td>CMP-QA-07</td>
+<td>CMP-01–08/components/tokens</td>
+<td>Approved component library/variables</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Library/architecture/build required</td>
+</tr>
+<tr>
+<td>CMP-QA-08</td>
+<td>Responsive/localized/extreme states</td>
+<td>Approved platform/device/locale matrix</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Matrix/build/test data required</td>
+</tr>
+<tr>
+<td>CMP-QA-09</td>
+<td>Accessibility</td>
+<td>Approved standard/AT matrix and corrected design</td>
+<td>None</td>
+<td>Not testable</td>
+<td>Owner target/build/manual+AT tests</td>
+</tr>
+</tbody></table>
+<p>No hierarchy, pixel, content, interaction, function, accessibility, or data comparison was performed.</p>
+<h2>3. Issue log</h2>
+<h3>QA-000: No implementation issue can be logged</h3>
+<ul>
+<li><strong>Build/device/browser:</strong> None.</li>
+<li><strong>Flow/screen:</strong> None implemented or supplied.</li>
+<li><strong>Steps to reproduce:</strong> Not available.</li>
+<li><strong>Expected:</strong> Cannot select a final approved implementation expectation from provisional sources alone.</li>
+<li><strong>Actual:</strong> No build behavior available.</li>
+<li><strong>Issue type:</strong> Not an implementation issue; QA/UAT prerequisite gap.</li>
+<li><strong>Severity:</strong> Not assigned.</li>
+<li><strong>Evidence:</strong> QA-E02–08 document missing build/baseline/scope/matrix/data/owners/evidence.</li>
+<li><strong>Owner/status:</strong> Project/product/engineering/QA owners missing / QA blocked.</li>
+<li><strong>Retest result:</strong> Not started.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Log type</th>
+<th align="right">Count</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visual implementation issues</td>
+<td align="right">0</td>
+<td>No implemented screen reviewed</td>
+</tr>
+<tr>
+<td>Interaction/functional issues</td>
+<td align="right">0</td>
+<td>No build behavior reviewed</td>
+</tr>
+<tr>
+<td>Content/data issues</td>
+<td align="right">0</td>
+<td>No implemented content/data reviewed</td>
+</tr>
+<tr>
+<td>Accessibility/responsive issues</td>
+<td align="right">0</td>
+<td>No rendered build/matrix reviewed</td>
+</tr>
+<tr>
+<td>Requirement gaps discovered during QA</td>
+<td align="right">0</td>
+<td>No QA execution</td>
+</tr>
+<tr>
+<td>Approved deviations</td>
+<td align="right">0</td>
+<td>No owner decision/implementation comparison</td>
+</tr>
+</tbody></table>
+<p>The known A11Y-01–09, DQA-01–08, Phase 07 gaps, and Phase 10 blockers remain upstream design/readiness items. They must not be copied into this log as implementation defects without build comparison evidence.</p>
+<h2>4. Severity and evidence</h2>
+<p>No issue severity, release priority, frequency, confidence in a build finding, or defect classification is assigned.</p>
+<p>Future severity framework:</p>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Meaning</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Blocker/Critical</td>
+<td>Prevents core/sensitive task or creates serious financial/privacy/security/accessibility/release harm</td>
+<td>Reproducible build evidence, approved expected behavior, consequence/recovery, environment</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Major barrier, wrong state/data, repeated component failure, or substantial access/recovery impact</td>
+<td>Same plus affected scope/component analysis</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Recoverable mismatch with material delay/confusion or bounded accessibility/content impact</td>
+<td>Reproduction and impact evidence</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Minor localized visual/content issue with negligible task impact</td>
+<td>Objective reference/reproduction; not subjective preference</td>
+</tr>
+</tbody></table>
+<p>Priority must remain separate and consider release scope, reach, risk, effort, dependencies, workaround, and owner decision. A severity must not be downgraded to avoid release impact.</p>
+<p>Evidence package required for every future issue:</p>
+<ul>
+<li>build/commit/environment, device/browser/OS/AT/locale;</li>
+<li>flow/screen/component/state and story/requirement/reference version;</li>
+<li>privacy-safe steps, expected and actual behavior;</li>
+<li>screenshot/video/log/code locator without real user data;</li>
+<li>issue type, consequence/recovery, severity rationale, owner/status;</li>
+<li>fix build and independent retest evidence.</li>
+</ul>
+<h2>5. Accessibility and responsive findings</h2>
+<p><strong>No implementation accessibility or responsive finding exists.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Build finding</th>
+<th>Upstream risk/reference</th>
+<th>Required future validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Text/non-text contrast</td>
+<td>None</td>
+<td>A11Y-01 and incomplete composite/state checks</td>
+<td>Rendered measurements across states/themes</td>
+</tr>
+<tr>
+<td>Keyboard/focus/dialog</td>
+<td>None</td>
+<td>A11Y-02–04/08</td>
+<td>Keyboard/switch/voice/screen-reader tests</td>
+</tr>
+<tr>
+<td>Semantics/status</td>
+<td>None</td>
+<td>A11Y-05/07/08</td>
+<td>Accessibility-tree and AT behavior; durable async results</td>
+</tr>
+<tr>
+<td>Zoom/reflow/text scaling</td>
+<td>None</td>
+<td>A11Y-06/DQA-07</td>
+<td>200%/400%, short/narrow/orientation/keyboard overlap</td>
+</tr>
+<tr>
+<td>Motion/reduced motion</td>
+<td>None</td>
+<td>Interaction MOT-01–07</td>
+<td>Platform preference and functional-equivalence tests</td>
+</tr>
+<tr>
+<td>Responsive breakpoints</td>
+<td>None</td>
+<td>No approved product matrix</td>
+<td>Supported device/browser viewport suite</td>
+</tr>
+<tr>
+<td>Localization/extreme data</td>
+<td>None</td>
+<td>EC/EDGE gaps</td>
+<td>Long scripts, RTL if applicable, currencies, negative/large/partial data</td>
+</tr>
+<tr>
+<td>Privacy/security display</td>
+<td>None</td>
+<td>Shared device/re-auth/export gaps</td>
+<td>Authorized protected-state testing without real data</td>
+</tr>
+</tbody></table>
+<p>No WCAG conformance, assistive-technology compatibility, responsive pass, or accessibility defect is claimed from upstream source inspection alone.</p>
+<h2>6. Retest status</h2>
+<table>
+<thead>
+<tr>
+<th>Retest item</th>
+<th>Original issue/fix</th>
+<th>Build/environment</th>
+<th>Result</th>
+<th>Evidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RT-00</td>
+<td>None</td>
+<td>None</td>
+<td>No retest performed</td>
+<td>None</td>
+<td>Not started</td>
+</tr>
+</tbody></table>
+<p>Closure rules for future use:</p>
+<ol>
+<li>A developer statement, code change, screenshot, or design match alone does not close an issue.</li>
+<li>Retest the exact reproduction on the target fix build/environment and affected matrix.</li>
+<li>Verify expected behavior, adjacent states, component consumers, accessibility, responsive/localized/extreme cases, and regression scope.</li>
+<li>Record Pass/Fail/Partial/Not testable with evidence; preserve remaining risk and owner decision.</li>
+<li>Approved deviations require named authorized owner, rationale, version, scope, and acceptance evidence; they are not “fixed.”</li>
+</ol>
+<h2>7. Release recommendation</h2>
+<p><strong>No release recommendation can be made. Release readiness is not assessable.</strong></p>
+<p>This is not a rejection of a specific release because no build or release candidate exists. It is a documented prerequisite failure. G11 approval, if granted, may accept this limitation record for workflow advancement but cannot be interpreted as QA/UAT pass, release approval, risk acceptance, or implementation evidence.</p>
+<p>Minimum evidence before a release recommendation:</p>
+<ul>
+<li>approved source design/specifications/stories/acceptance criteria/release scope;</li>
+<li>immutable build/environment and supported platform/device/browser/AT/locale matrix;</li>
+<li>safe test accounts/data and privacy/security procedures;</li>
+<li>complete flow/state/edge/accessibility/responsive test execution;</li>
+<li>reproducible issues with owners and blocker decisions;</li>
+<li>verified fixes/retests and accepted deviations;</li>
+<li>named QA, product, engineering, design, accessibility, privacy/security, and release decision owners.</li>
+</ul>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QA-E01</td>
+<td>G10 record/Phase 10 artifacts</td>
+<td>2026-07-24/G10-reviewed</td>
+<td>No build-ready handoff</td>
+<td>Direct</td>
+<td>HIGH</td>
+<td>Limitation handling only</td>
+</tr>
+<tr>
+<td>QA-E02–08</td>
+<td>QA readiness inventory</td>
+<td>2026-07-24</td>
+<td>Missing build/baseline/scope/matrix/data/owners/evidence</td>
+<td>Direct absence</td>
+<td>HIGH</td>
+<td>No QA/UAT execution possible</td>
+</tr>
+<tr>
+<td>QA-E09</td>
+<td>Phase 09 A11Y/DQA</td>
+<td>G09-reviewed</td>
+<td>Upstream design risks</td>
+<td>Direct audit/synthesis</td>
+<td>HIGH/MEDIUM</td>
+<td>Not implementation findings</td>
+</tr>
+<tr>
+<td>QA-E10</td>
+<td><code>developer-query-log.md</code></td>
+<td>current Phase 11</td>
+<td>No queries/build context</td>
+<td>Direct limitation record</td>
+<td>HIGH</td>
+<td>No clarification impact</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QA-D01</td>
+<td>Record QA/UAT as not conducted</td>
+<td>QA-E02–08</td>
+<td>Phase 11 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>QA-D02</td>
+<td>Log zero implementation issues and zero accepted deviations</td>
+<td>No build comparison evidence</td>
+<td>Phase 11 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>QA-D03</td>
+<td>Make no release recommendation</td>
+<td>No build/release/test evidence</td>
+<td>Human G11/release owners</td>
+<td>Not set</td>
+<td>Confirmed for artifact</td>
+<td>Release prerequisites</td>
+</tr>
+<tr>
+<td>QA-D04</td>
+<td>Require approved baseline/build/matrix/data/owners before execution</td>
+<td>Skill contract/risk</td>
+<td>Product/engineering/QA/accessibility/risk</td>
+<td>Not set</td>
+<td>Proposed/blocking</td>
+<td>Inputs above</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Status, decision boundary, readiness, inputs, evidence types, and limitations are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> QA scope, comparisons, issue log, severity/evidence, accessibility/responsive status, retest, and release recommendation are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Upstream risks are separated from implementation defects and no subjective pixel difference is logged.</li>
+<li><input checked="" disabled="" type="checkbox"> Future evidence includes build, environment, devices, browsers, steps, expected/actual, privacy-safe evidence, owner, severity rationale, and retest.</li>
+<li><input checked="" disabled="" type="checkbox"> No build, screen, test, result, issue, severity, deviation, fix, retest, accessibility/responsive pass, conformance, release candidate, or release recommendation was invented.</li>
+<li><input disabled="" type="checkbox"> Approved baseline/build/environment/test matrix/data/owners exist — blocked.</li>
+<li><input disabled="" type="checkbox"> QA/UAT executed, issues reviewed, fixes retested, and release decision recorded — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from design-qa-uat.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

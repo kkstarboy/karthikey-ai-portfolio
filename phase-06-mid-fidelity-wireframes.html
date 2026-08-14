@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mid-Fidelity Wireframes — Provisional Flow-Complete Specification — Phase 06 · Wireframing (Mid-Fidelity)</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 06 · Wireframing (Mid-Fidelity)</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./mid-fidelity-wireframes.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Mid-Fidelity Wireframes — Provisional Flow-Complete Specification</h1>
+<h2>Scope, baseline, and limitations</h2>
+<p>These Markdown wireframes define content hierarchy, screen/state inventory, and transitions for review. They are not pixel layouts, high-fidelity UI, interactive prototypes, implemented behavior, validated usability, or production specifications.</p>
+<ul>
+<li><strong>Exploration baseline:</strong> C-01 Overview First covers all six provisional flows because it provides a common navigation frame. This is an artifact choice, not a product selection.</li>
+<li><strong>Comparison branch:</strong> C-02 Guided Review remains as WF-20–WF-22 for later comparative testing.</li>
+<li><strong>Conditional context:</strong> C-03 Transaction Context is represented through contextual entry/cross-link behavior, pending parent-app access.</li>
+<li><strong>Sources:</strong> Approved Phase 04 IA/flows; approved Phase 05 concepts/low-fidelity structures; BRD.</li>
+<li><strong>Missing:</strong> Current app shell/design system foundations, platform/viewport matrix, approved stories/rules, APIs, permissions, data definitions, accessibility target, localization, feasibility review, and user testing.</li>
+<li><strong>Confidence:</strong> Screen/interaction proposals are Inferred/LOW; BRD feature presence is business-documented.</li>
+</ul>
+<h2>1. Screen inventory</h2>
+<table>
+<thead>
+<tr>
+<th>Screen ID</th>
+<th>Screen/state</th>
+<th>Concept/flow</th>
+<th>Purpose</th>
+<th>Primary entry</th>
+<th>Status/confidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WF-00</td>
+<td>Tracker entry/privacy orientation</td>
+<td>All / F-01</td>
+<td>Explain purpose, data use, and access state</td>
+<td>Existing app entry Unknown</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-01</td>
+<td>Spending overview</td>
+<td>C-01 / F-01</td>
+<td>Period total, comparison, categories, one explainable pattern</td>
+<td>WF-00 or contextual entry</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-02</td>
+<td>Category detail</td>
+<td>C-01 / F-01/F-02</td>
+<td>Category total and transaction list</td>
+<td>WF-01 category</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-03</td>
+<td>Transaction detail</td>
+<td>C-01/C-03 / F-02</td>
+<td>Show source record and category state</td>
+<td>WF-02 or existing activity</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-04</td>
+<td>Change category</td>
+<td>C-01/C-03 / F-02</td>
+<td>Select/review category change</td>
+<td>WF-03</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-05</td>
+<td>Category change result</td>
+<td>C-01/C-03 / F-02</td>
+<td>Pending/success/failure and future-effect status</td>
+<td>WF-04 submit</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-06</td>
+<td>Budget list/progress</td>
+<td>C-01 / F-03</td>
+<td>Show budgets and state</td>
+<td>WF-01/Budgets</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-07</td>
+<td>Set/change budget</td>
+<td>C-01 / F-03</td>
+<td>Enter amount, threshold/preferences</td>
+<td>WF-06 or category context</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-08</td>
+<td>Budget result</td>
+<td>C-01 / F-03</td>
+<td>Confirm/pending/failure/cancel outcome</td>
+<td>WF-07 submit</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-09</td>
+<td>Recurring summary</td>
+<td>C-01 / F-04</td>
+<td>List candidate recurring items and uncertainty</td>
+<td>WF-01/Recurring</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-10</td>
+<td>Recurring item detail</td>
+<td>C-01 / F-04</td>
+<td>Explain history/status and available recovery</td>
+<td>WF-09</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-11</td>
+<td>Monthly record/export setup</td>
+<td>C-01 / F-05</td>
+<td>Select authorized period/format/scope</td>
+<td>WF-01/WF-09</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-12</td>
+<td>Export progress/result</td>
+<td>C-01 / F-05</td>
+<td>Re-auth/progress/success/failure/cancel status</td>
+<td>WF-11</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-13</td>
+<td>Unusual-spending explanation</td>
+<td>C-01 / F-06</td>
+<td>Explain basis and offer inspect/dismiss/preferences</td>
+<td>Notification or WF-01 insight</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-14</td>
+<td>Notification preferences</td>
+<td>All / F-03/F-06</td>
+<td>Control channels/alerts if approved</td>
+<td>WF-07/WF-13/utility</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-15</td>
+<td>Help/data use/category method</td>
+<td>All</td>
+<td>Contextual explanation/support</td>
+<td>Any relevant screen</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-16</td>
+<td>Generic loading/empty/partial/stale/error shell</td>
+<td>All</td>
+<td>Safe status and recovery</td>
+<td>Dynamic request result</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-17</td>
+<td>Permission/re-auth shell</td>
+<td>All</td>
+<td>Prevent exposure and restore authorized path</td>
+<td>Entry/mutation/export</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-20</td>
+<td>Guided review: total</td>
+<td>C-02 / F-01</td>
+<td>One-step period comprehension</td>
+<td>WF-00</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-21</td>
+<td>Guided review: change/pattern</td>
+<td>C-02 / F-01/F-06</td>
+<td>Explain one relevant change</td>
+<td>WF-20</td>
+<td>Provisional/LOW</td>
+</tr>
+<tr>
+<td>WF-22</td>
+<td>Guided review: optional next step/finish</td>
+<td>C-02 / F-03</td>
+<td>Choose or decline action</td>
+<td>WF-21</td>
+<td>Provisional/LOW</td>
+</tr>
+</tbody></table>
+<h2>2. Mid-fidelity wireframes</h2>
+<h3>WF-00 — Entry and privacy orientation</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Home           Spending              │
+├────────────────────────────────────────┤
+│ Understand your spending               │
+│ Automatic categories, summaries, and   │
+│ optional guidance.                     │
+│                                        │
+│ How transaction data is used       &gt;   │
+│ What you can control                &gt;   │
+│ Accessibility/help                  &gt;   │
+│                                        │
+│ [Continue to spending]                 │
+│ [Not now]                              │
+└────────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Entry conditions:</strong> Authentication/feature enablement/consent model Unknown.</li>
+<li><strong>Content:</strong> CI-001/002/015/016; approved legal wording absent.</li>
+<li><strong>States:</strong> First use, returning, unavailable, permission/re-auth.</li>
+<li><strong>Accessibility:</strong> Heading/focus order; concise link names; no consent by silence.</li>
+<li><strong>Responsive:</strong> Single column; long localization wraps; no fixed-height container.</li>
+</ul>
+<h3>WF-01 — Spending overview</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Home     Spending      Help   •••     │
+│ [July 2026 ▼]     Updated [date/time]   │
+├────────────────────────────────────────┤
+│ This month                             │
+│ You spent ₹28,400                      │  BRD format example
+│ ₹3,200 higher than last month          │  calculation rules pending
+│ [How totals are calculated]            │
+├────────────────────────────────────────┤
+│ Spending by category                   │
+│ Food &amp; Dining  ₹8,200  [open]          │
+│ Shopping      ₹6,500  [open]           │
+│ Travel        ₹3,800  [open]           │
+│ Subscriptions ₹1,499  [open]           │
+│ [View all categories]                  │
+├────────────────────────────────────────┤
+│ Pattern to review                      │
+│ Food &amp; Dining is highest this month    │
+│ [Why?] [View transactions] [Dismiss]   │
+├────────────────────────────────────────┤
+│ [Budgets] [Recurring] [Monthly record] │
+└────────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Content extremes:</strong> zero/no data, many categories, long merchant/category/localized labels, negative/refund values, very large values, partial period.</li>
+<li><strong>Data status:</strong> Period, scope, currency, timezone, freshness, partial/stale state must remain visible.</li>
+<li><strong>Navigation:</strong> Proposed shallow feature navigation; parent-app integration Unknown.</li>
+<li><strong>Responsive:</strong> Mobile single-column baseline. Wider layouts may use two regions only after reading order and zoom/reflow validation.</li>
+</ul>
+<h3>WF-02/WF-03 — Category and transaction detail</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Overview       Food &amp; Dining         │
+│ July 2026              ₹8,200          │
+│ [Category definition]                  │
+├────────────────────────────────────────┤
+│ Transactions                           │
+│ Swiggy      18 Jul       ₹650      &gt;   │
+│ FreshMart   16 Jul     ₹1,240      &gt;   │
+│ [Load more / end status]               │
+└────────────────────────────────────────┘
+
+┌────────────────────────────────────────┐
+│ ‹ Food &amp; Dining    Transaction          │
+│ FreshMart • 16 July 2026                │
+│ ₹1,240                                 │
+│ Category: Food &amp; Dining                 │
+│ Category source/confidence: [explain]   │
+│ [Change category]                       │
+│ [How categories work]                   │
+└────────────────────────────────────────┘
+</code></pre>
+<ul>
+<li><strong>Permission variant:</strong> Change action absent or disabled with explanation when not authorized; rule pending.</li>
+<li><strong>Transaction variants:</strong> Transfer/refund/reversal/duplicate/pending/merchant unknown must not be forced into an editable purchase model.</li>
+<li><strong>C-03 entry:</strong> Existing activity may deep-link directly to WF-03; ownership/navigation must be verified.</li>
+</ul>
+<h3>WF-04/WF-05 — Change category and outcome</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ Change category               [Close]  │
+│ Search approved categories [_______]   │
+│ ( ) Groceries                         │
+│ (•) Food &amp; Dining                     │
+│ ( ) Shopping                          │
+│ [All categories]                      │
+│                                       │
+│ [ ] Use this for future FreshMart     │
+│     transactions                      │
+│ [Cancel]                 [Review change]│
+└────────────────────────────────────────┘
+
+Review change
+┌────────────────────────────────────────┐
+│ FreshMart • ₹1,240                     │
+│ Food &amp; Dining → Groceries              │
+│ Future effect: [explicit rule text]    │
+│ [Back]                    [Confirm]     │
+└────────────────────────────────────────┘
+
+Result: [Saving… | Changed | Couldn’t save]
+[View updated transaction] [Retry] [Cancel]
+</code></pre>
+<ul>
+<li><strong>Validation:</strong> Same category, unavailable category, future rule conflict, stale transaction, concurrent update, offline/timeout.</li>
+<li><strong>Atomicity:</strong> Prior category remains authoritative until confirmed success; backend behavior requires review.</li>
+<li><strong>Accessibility:</strong> Dialog/sheet semantics to be selected; focus moves to heading and returns to trigger; status announced.</li>
+</ul>
+<h3>WF-06–WF-08 — Budgets</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Spending          Budgets            │
+│ [July 2026 ▼]                         │
+│ Food &amp; Dining   ₹4,800 of ₹6,000       │
+│ [Progress as text, not color only] &gt;   │
+│ [Set a category budget]                │
+└────────────────────────────────────────┘
+
+┌────────────────────────────────────────┐
+│ Set budget                             │
+│ Category [Food &amp; Dining ▼]             │
+│ Monthly amount [₹ 6,000________]       │
+│ Alert at 80%  [on/off]                 │
+│ Alert at 100% [on/off]                 │
+│ Notification permission/status         │
+│ [Cancel]                  [Review]      │
+└────────────────────────────────────────┘
+
+Result: [Saving… | Budget saved | Failed]
+[View budget] [Notification preferences]
+</code></pre>
+<ul>
+<li><strong>Rules unresolved:</strong> Currency/limits, decimal/zero/negative, edit/delete, rollover, existing spend, threshold already crossed, duplicate alerts, channel/quiet time.</li>
+<li><strong>No coercion:</strong> Saving a budget and enabling notifications are separable if policy permits.</li>
+</ul>
+<h3>WF-09/WF-10 — Recurring payments</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Spending      Recurring payments     │
+│ July 2026                              │
+│ Detected items require review           │
+│ Rent            ₹[amount]   [status] &gt; │
+│ Internet        ₹[amount]   [status] &gt; │
+│ Subscription    ₹[amount]   [status] &gt; │
+│ [How detection works]                  │
+└────────────────────────────────────────┘
+
+┌────────────────────────────────────────┐
+│ ‹ Recurring      [Merchant/item]        │
+│ Detected/confirmed status              │
+│ Recent dates and amounts [list]        │
+│ Why this may be recurring              │
+│ [Confirm] [Not recurring] [Get help]   │
+└────────────────────────────────────────┘
+</code></pre>
+<ul>
+<li>Confirm/dismiss controls are <strong>requirement candidates</strong>, not approved FR9 behavior.</li>
+<li>Shared-account and sensitive-merchant handling must be resolved before display.</li>
+<li>List alternative is primary; no calendar-only dependency.</li>
+</ul>
+<h3>WF-11/WF-12 — Export monthly record</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Spending       Monthly record        │
+│ Period       [July 2026 ▼]             │
+│ Format       [PDF / CSV — decision]    │
+│ Includes     [scope summary]           │
+│ Sensitive data/privacy warning         │
+│ [Cancel]                [Create file]  │
+└────────────────────────────────────────┘
+
+Status: [Re-auth required | Creating…]
+Outcome: [Ready | Failed | Cancelled]
+Ready: [Save] [Share] [Delete/close — policy]
+</code></pre>
+<ul>
+<li>No file/share begins before explicit authorization; re-auth, format, storage, share-sheet, retention, redaction, and accessible-PDF rules are Unknown.</li>
+<li>Partial/stale data must be disclosed or block export under an approved rule.</li>
+</ul>
+<h3>WF-13/WF-14 — Unusual pattern and preferences</h3>
+<pre><code class="language-text">┌────────────────────────────────────────┐
+│ ‹ Spending       Pattern detail        │
+│ You spent more than usual on [category]│
+│ Period/baseline/explanation            │
+│ Confidence/limitations if approved     │
+│ [View transactions] [Dismiss]          │
+│ [Change notification preferences]      │
+└────────────────────────────────────────┘
+
+┌────────────────────────────────────────┐
+│ Notification preferences               │
+│ Budget alerts       [on/off]           │
+│ Spending patterns   [on/off]           │
+│ Channel/status/quiet controls [TBD]     │
+│ [Cancel]                 [Save]         │
+└────────────────────────────────────────┘
+</code></pre>
+<ul>
+<li>Eligibility, baseline, false-positive handling, duplicate suppression, deep links, and notification policy are unresolved.</li>
+<li>Neutral language, explanation, dismiss, and control are required candidates; no guilt/fear language.</li>
+</ul>
+<h3>WF-16/WF-17 — State and access shells</h3>
+<pre><code class="language-text">[LOADING] Title/period + announced status + safe cancel/back
+[EMPTY]   What is missing + scope + when/why + safe next step
+[PARTIAL] Prominent data scope/freshness + affected actions + retry
+[STALE]   Last updated + limitation + refresh; no unsupported insight
+[OFFLINE] Offline status + preserved safe input + retry/cancel
+[ERROR]   Atomic failure + prior authoritative state + recovery/help
+[DENIED]  No sensitive preview + reason category + re-auth/safe exit
+</code></pre>
+<h3>WF-20–WF-22 — Guided Review comparison branch</h3>
+<pre><code class="language-text">WF-20: July total + data status + calculation help
+       [Next] [Skip] [Full overview] [Exit]
+
+WF-21: One explainable category/change
+       [Why?] [View transactions] [Back] [Next] [Skip] [Exit]
+
+WF-22: Optional action choices or Finish without action
+       [Review category] [Set budget] [Finish]
+</code></pre>
+<ul>
+<li>Fixed step count is avoided until eligibility rules exist.</li>
+<li>Full overview/skip/exit remain persistent to preserve control.</li>
+<li>Comparative testing must use equivalent content/states, not stylistic preference.</li>
+</ul>
+<h2>3. Flow coverage matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Primary screens</th>
+<th>Alternate/error states</th>
+<th>Coverage</th>
+<th>Validation gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F-01 Review spending</td>
+<td>WF-00/01/02/15; WF-20–22 branch</td>
+<td>WF-16/17</td>
+<td>Complete as proposed structure</td>
+<td>Comprehension, IA, data rules</td>
+</tr>
+<tr>
+<td>F-02 Correct category</td>
+<td>WF-02–05/15</td>
+<td>WF-16/17; cancel/same/conflict/offline</td>
+<td>Complete as proposed structure</td>
+<td>Permission, precedence, audit, undo</td>
+</tr>
+<tr>
+<td>F-03 Budget</td>
+<td>WF-06–08/14</td>
+<td>WF-16/17; invalid/duplicate/permission</td>
+<td>Complete as proposed structure</td>
+<td>Lifecycle/notification rules</td>
+</tr>
+<tr>
+<td>F-04 Recurring</td>
+<td>WF-09/10/15</td>
+<td>WF-16/17; empty/uncertain/false result</td>
+<td>Complete as proposed structure</td>
+<td>Detection/correction/shared role</td>
+</tr>
+<tr>
+<td>F-05 Export</td>
+<td>WF-11/12/17</td>
+<td>Partial/stale/re-auth/failure/cancel</td>
+<td>Complete as proposed structure</td>
+<td>Format/privacy/storage/accessibility</td>
+</tr>
+<tr>
+<td>F-06 Unusual pattern</td>
+<td>WF-13/14/02</td>
+<td>Suppress/dismiss/stale/deep-link/error</td>
+<td>Complete as proposed structure</td>
+<td>Baseline/eligibility/harm policy</td>
+</tr>
+</tbody></table>
+<h2>4. State coverage</h2>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Screens/components</th>
+<th>Proposed behavior</th>
+<th>Confidence/dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Default/data ready</td>
+<td>WF-01–14</td>
+<td>Show scoped, current data and available actions</td>
+<td>LOW; APIs/rules</td>
+</tr>
+<tr>
+<td>Loading</td>
+<td>WF-16 overlay/shell</td>
+<td>Announced status; no fake values; safe cancellation where possible</td>
+<td>LOW; platform</td>
+</tr>
+<tr>
+<td>Empty</td>
+<td>WF-01/02/06/09</td>
+<td>Explain scope/cause; no ambiguous zero; safe next step</td>
+<td>LOW; content/data</td>
+</tr>
+<tr>
+<td>Partial/stale</td>
+<td>All data views/export</td>
+<td>Prominent status; qualify/block affected insight/action</td>
+<td>LOW; data-risk decision</td>
+</tr>
+<tr>
+<td>Offline/timeout</td>
+<td>Read and mutation screens</td>
+<td>Preserve safe context/input; retry/cancel; no duplicate mutation</td>
+<td>LOW; architecture</td>
+</tr>
+<tr>
+<td>Unauthorized/re-auth</td>
+<td>WF-17</td>
+<td>No sensitive preview; restore intended route safely</td>
+<td>LOW; security</td>
+</tr>
+<tr>
+<td>Validation error</td>
+<td>WF-04/07/11/14</td>
+<td>Field/summary error, retain input, focus/announce</td>
+<td>LOW; rules/accessibility</td>
+</tr>
+<tr>
+<td>Pending mutation</td>
+<td>WF-05/08/12/14</td>
+<td>Disable duplicate submit; progress/status; cancellation rule explicit</td>
+<td>LOW; API behavior</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>WF-05/08/12/14</td>
+<td>Confirmation, resulting state, next action, announced status</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>Failed mutation</td>
+<td>WF-05/08/12/14</td>
+<td>Prior authoritative state, error, retry/cancel/help</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>Extreme/localized content</td>
+<td>All</td>
+<td>Wrap/reflow; preserve value/label association; horizontal truncation not assumed</td>
+<td>LOW; localization/device test</td>
+</tr>
+</tbody></table>
+<h2>5. Annotations summary</h2>
+<ul>
+<li>Stable interaction/state rules are detailed in <code>Output/phase-06/interaction-annotations.md</code>.</li>
+<li>Focus order follows visual/semantic reading order; dynamic status is announced; color is never the only state cue.</li>
+<li>Values require period, currency, locale, source/scope, freshness, and calculation rules.</li>
+<li>Any proposed confirmation, undo, dismiss, or correction not explicit in BRD is labeled as a requirement candidate for owner review.</li>
+<li>Responsive behavior is single-column first; wider arrangements cannot reorder reading/focus or hide essential state.</li>
+</ul>
+<h2>6. Requirement traceability</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Flow</th>
+<th>Screens</th>
+<th>Coverage status</th>
+<th>Open issue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FR1 Expense dashboard</td>
+<td>F-01</td>
+<td>WF-01/02/16</td>
+<td>Structurally covered</td>
+<td>Scope/refresh/states/data rules</td>
+</tr>
+<tr>
+<td>FR2 Auto-categorization</td>
+<td>F-01/02</td>
+<td>WF-02–05/15</td>
+<td>Explain/recovery covered</td>
+<td>Model/rule confidence/fallback</td>
+</tr>
+<tr>
+<td>FR3 Category editing</td>
+<td>F-02</td>
+<td>WF-03–05</td>
+<td>Covered</td>
+<td>Permission/undo/errors</td>
+</tr>
+<tr>
+<td>FR4 Category memory</td>
+<td>F-02</td>
+<td>WF-04/05</td>
+<td>Candidate control covered</td>
+<td>Scope/precedence/audit</td>
+</tr>
+<tr>
+<td>FR5 Monthly comparison</td>
+<td>F-01</td>
+<td>WF-01/20</td>
+<td>Covered</td>
+<td>Period/partial history rules</td>
+</tr>
+<tr>
+<td>FR6 Spending insights</td>
+<td>F-01/06</td>
+<td>WF-01/13/21</td>
+<td>Covered</td>
+<td>Eligibility/explainability/suppression</td>
+</tr>
+<tr>
+<td>FR7 Budget setup</td>
+<td>F-03</td>
+<td>WF-06–08</td>
+<td>Covered</td>
+<td>Lifecycle/validation</td>
+</tr>
+<tr>
+<td>FR8 Budget alerts</td>
+<td>F-03</td>
+<td>WF-07/08/14</td>
+<td>Covered</td>
+<td>Channel/timing/consent/duplicate</td>
+</tr>
+<tr>
+<td>FR9 Recurring detection</td>
+<td>F-04</td>
+<td>WF-09/10</td>
+<td>Covered</td>
+<td>Criteria/confidence/recovery</td>
+</tr>
+<tr>
+<td>FR10 Export</td>
+<td>F-05</td>
+<td>WF-11/12/17</td>
+<td>Covered</td>
+<td>Format/security/accessibility/failure</td>
+</tr>
+<tr>
+<td>NFR performance/privacy/security/accessibility/mobile</td>
+<td>All</td>
+<td>WF-00–22</td>
+<td>Represented as constraints/states</td>
+<td>Measurable criteria/owners missing</td>
+</tr>
+</tbody></table>
+<h2>7. Open issues</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Issue</th>
+<th>Severity</th>
+<th>Owner</th>
+<th>Dependency/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OI-01</td>
+<td>No approved concept selection or comparable user test</td>
+<td>High</td>
+<td>Product/research missing</td>
+<td>Test C-01 vs C-02</td>
+</tr>
+<tr>
+<td>OI-02</td>
+<td>Parent app shell, transaction detail ownership, navigation, and design foundations absent</td>
+<td>High</td>
+<td>Product/design-system missing</td>
+<td>Existing-app audit</td>
+</tr>
+<tr>
+<td>OI-03</td>
+<td>Data/category/insight/recurrence rules absent</td>
+<td>Critical</td>
+<td>Data/product missing</td>
+<td>Rule and API contracts</td>
+</tr>
+<tr>
+<td>OI-04</td>
+<td>Authentication, permissions, shared accounts, privacy/security/legal absent</td>
+<td>Critical</td>
+<td>Authorized owners missing</td>
+<td>Human risk review</td>
+</tr>
+<tr>
+<td>OI-05</td>
+<td>Notification/export platform and policy absent</td>
+<td>Critical</td>
+<td>Platform/privacy missing</td>
+<td>Technical/policy decision</td>
+</tr>
+<tr>
+<td>OI-06</td>
+<td>Accessibility, localization, supported device/viewport requirements absent</td>
+<td>High</td>
+<td>Accessibility/product missing</td>
+<td>Define/test</td>
+</tr>
+<tr>
+<td>OI-07</td>
+<td>Feasibility, estimates, release horizon, and owners absent</td>
+<td>High</td>
+<td>Product/engineering missing</td>
+<td>Conduct Phase 06 review</td>
+</tr>
+</tbody></table>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Phase 04 F-01–F-06, sitemap, content inventory</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Provisional IA/flows</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 05 C-01–C-03/low-fi</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>No winning concept or test</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>BRD FR1–FR10/NFRs</td>
+<td>Reported/business documented</td>
+<td>HIGH for contents</td>
+<td>Logic and user validation incomplete</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Use C-01 as coverage baseline, keep C-02 comparison branch</td>
+<td>Artifact decision</td>
+<td>LOW</td>
+<td>Not product selection</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Screen inventory, mid-fidelity structures, flow/state coverage, annotations, requirement traceability, and open issues are present.</li>
+<li><input checked="" disabled="" type="checkbox"> All six flows include primary, alternate, error, empty/loading, permission, offline/timeout, cancellation, recovery, and outcome handling where applicable.</li>
+<li><input checked="" disabled="" type="checkbox"> Realistic BRD examples are identified as format examples; data extremes and responsive/accessibility behavior are considered.</li>
+<li><input checked="" disabled="" type="checkbox"> No visual polish, implemented behavior, approved rule, feasibility finding, user result, or winning concept was invented.</li>
+<li><input disabled="" type="checkbox"> Product/engineering/accessibility/privacy review and representative-user validation completed — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from mid-fidelity-wireframes.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

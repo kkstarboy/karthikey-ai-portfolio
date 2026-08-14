@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility Review — Diagnostic, Partial, and Not a Conformance Claim — Phase 09 · Visual Design (UI)</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 09 · Visual Design (UI)</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./accessibility-review.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Accessibility Review — Diagnostic, Partial, and Not a Conformance Claim</h1>
+<h2>Evidence boundary and severity method</h2>
+<p>This review evaluates the existing two-screen HTML sample and Phase 09 specifications by source inspection, visual inspection of two captures, and contrast calculation. It does not establish accessibility or WCAG conformance.</p>
+<ul>
+<li><strong>Required standard, level, jurisdiction, and platform:</strong> Not supplied.</li>
+<li><strong>Diagnostic reference:</strong> W3C WCAG 2.2, including SC 1.4.3, accessed 2026-07-24: <a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a>.</li>
+<li><strong>Target devices, browsers, assistive technologies, operating systems, accessibility settings, and disabled-participant research:</strong> Not supplied/not conducted.</li>
+<li><strong>Rendered/automated/manual/AT testing in Phase 09:</strong> Not conducted. Source and static captures only.</li>
+<li><strong>Severity labels:</strong> Critical = blocks or risks sensitive/core access; High = likely material barrier or misleading financial state; Medium = partial access/recovery burden; Low = limited localized effect. Severity is a design-risk assessment, not a participant finding.</li>
+<li><strong>Evidence boundary:</strong> HIGH confidence describes inspected code/asset facts or documented absence; it does not describe user impact prevalence or compliance.</li>
+</ul>
+<h2>1. Accessibility scope</h2>
+<table>
+<thead>
+<tr>
+<th>Scope ID</th>
+<th>Included</th>
+<th>Evidence/check</th>
+<th>Status/limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AS-01</td>
+<td><code>smart-expense-tracker.html</code> overview/detail/budget modal/toast</td>
+<td>HTML/CSS/JS source inspection</td>
+<td>Partial asset only</td>
+</tr>
+<tr>
+<td>AS-02</td>
+<td>Two 780×1688 JPEG captures</td>
+<td>Visual inspection</td>
+<td>Default states only; no interaction/AT evidence</td>
+</tr>
+<tr>
+<td>AS-03</td>
+<td>Phase 06 intended accessibility behavior</td>
+<td>WF/INT/ST/EC traceability review</td>
+<td>Requirement candidates, not approved behavior</td>
+</tr>
+<tr>
+<td>AS-04</td>
+<td>Design-system application and high-fidelity inventory</td>
+<td>Phase 09 artifacts</td>
+<td>Provisional specifications</td>
+</tr>
+<tr>
+<td>AS-05</td>
+<td>WCAG 2.2 AA-style diagnostic checks</td>
+<td>W3C reference</td>
+<td>Project target unassigned; no conformance conclusion</td>
+</tr>
+<tr>
+<td>AS-06</td>
+<td>Production implementation, backend, exported file, notifications, parent app</td>
+<td>Not available</td>
+<td>Excluded; cannot evaluate</td>
+</tr>
+</tbody></table>
+<p>Affected contexts considered include low vision, color-vision differences, blindness/screen-reader use, keyboard/switch use, motor access, motion sensitivity, cognitive/attention needs, language/localization, and constrained devices. No claim is made that these contexts were represented in research.</p>
+<h2>2. Checklist and findings</h2>
+<h3>A11Y-01: Primary button text contrast</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> WCAG 2.2 SC 1.4.3 diagnostic reference.</li>
+<li><strong>Screen/component:</strong> Overview “Set a budget” and budget-sheet Save; <code>.primary</code>/<code>.save-budget</code>.</li>
+<li><strong>Issue:</strong> White normal-size text on <code>#ff385c</code> calculates to <strong>3.52:1</strong>. If WCAG 2.2 Level AA normal-text contrast is adopted, this is below its 4.5:1 threshold.</li>
+<li><strong>Affected users:</strong> People with low vision or reduced contrast sensitivity.</li>
+<li><strong>Severity:</strong> High/blocking for handoff.</li>
+<li><strong>Evidence/check method:</strong> Direct CSS values plus relative-luminance calculation; HIGH confidence for values.</li>
+<li><strong>Recommended design behavior:</strong> Use a verified accessible text-bearing primary treatment. White on supplied darker <code>#e00b41</code> calculates to 4.89:1; recheck all rendered default/hover/active/disabled/focus states before adoption.</li>
+<li><strong>Owner/status:</strong> Design-system and accessibility owners / Open.</li>
+<li><strong>Retest needed:</strong> Yes—rendered contrast and state regression.</li>
+</ul>
+<h3>A11Y-02: Budget choice state is not programmatically exposed</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Name, role, value/state; color/non-text cue independence.</li>
+<li><strong>Screen/component:</strong> Budget preset buttons.</li>
+<li><strong>Issue:</strong> Selection is represented by a <code>.selected</code> class and visual styling; source does not expose <code>aria-pressed</code>, radio semantics, or a checked state.</li>
+<li><strong>Affected users:</strong> Screen-reader, speech-input, and some cognitive-access users.</li>
+<li><strong>Severity:</strong> High.</li>
+<li><strong>Evidence/check method:</strong> Direct source inspection/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Use an approved radio/segmented-choice component with group label, one current value, keyboard behavior, and selected state exposed programmatically.</li>
+<li><strong>Owner/status:</strong> Design-system/accessibility/engineering / Open.</li>
+<li><strong>Retest needed:</strong> Yes—keyboard plus screen reader.</li>
+</ul>
+<h3>A11Y-03: Dialog focus and dismissal are incomplete</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Keyboard access, focus order/containment, accessible modal operation.</li>
+<li><strong>Screen/component:</strong> Budget modal/sheet.</li>
+<li><strong>Issue:</strong> Initial focus, Escape, and focus return exist, but focus is not trapped, background content is not made inert, and there is no explicit visible Close/Cancel control. Scrim click and Escape do not cover touch, voice, or switch needs.</li>
+<li><strong>Affected users:</strong> Keyboard, switch, screen-reader, voice-control, and motor-access users.</li>
+<li><strong>Severity:</strong> High.</li>
+<li><strong>Evidence/check method:</strong> Direct markup/script inspection/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Use a tested native/library dialog pattern with visible cancel/close, focus containment, inert background, predictable reading order, and return focus.</li>
+<li><strong>Owner/status:</strong> Design-system/accessibility/engineering / Open.</li>
+<li><strong>Retest needed:</strong> Yes—keyboard, switch, multiple screen readers, touch/voice where in scope.</li>
+</ul>
+<h3>A11Y-04: Focus destination differs from the interaction specification</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Focus order and understandable context after navigation.</li>
+<li><strong>Screen/component:</strong> Overview/detail screen switch.</li>
+<li><strong>Issue:</strong> <code>showScreen()</code> focuses the first button, while Phase 06 INT-03 calls for focus on the destination heading. The destination may be announced without its page context.</li>
+<li><strong>Affected users:</strong> Screen-reader, keyboard, switch, and magnification users.</li>
+<li><strong>Severity:</strong> Medium.</li>
+<li><strong>Evidence/check method:</strong> Source-to-specification comparison/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Choose and test a stable route-change pattern: focus a programmatically focusable page heading or announce the route with equivalent context, without creating an extra tab stop.</li>
+<li><strong>Owner/status:</strong> Accessibility/product engineering / Open.</li>
+<li><strong>Retest needed:</strong> Yes.</li>
+</ul>
+<h3>A11Y-05: Financial lists lack explicit list semantics</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Structure, relationships, and navigation.</li>
+<li><strong>Screen/component:</strong> Category rows and recent transactions.</li>
+<li><strong>Issue:</strong> Groups are generic <code>div</code> containers; relationship/order may be less efficient to navigate or announce than semantic lists. Only one category row is a button, so visual similarity masks differing interactivity.</li>
+<li><strong>Affected users:</strong> Screen-reader and cognitive-access users.</li>
+<li><strong>Severity:</strong> Medium.</li>
+<li><strong>Evidence/check method:</strong> Direct source/visual comparison/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Use list/list-item structure, make interaction availability explicit, and avoid visually identical interactive and static rows unless states are clear.</li>
+<li><strong>Owner/status:</strong> Product design/engineering/accessibility / Open.</li>
+<li><strong>Retest needed:</strong> Yes.</li>
+</ul>
+<h3>A11Y-06: Responsive zoom, reflow, and text scaling are unverified</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Resize text, reflow, orientation, readable content.</li>
+<li><strong>Screen/component:</strong> All sample screens.</li>
+<li><strong>Issue:</strong> The sample has a fixed staged 390px phone and one 760px breakpoint. No 200%/400% zoom, text-only scaling, short viewport, orientation, long-label, localized-script, or extreme-value evidence exists.</li>
+<li><strong>Affected users:</strong> Low-vision, magnification, language/localization, and constrained-device users.</li>
+<li><strong>Severity:</strong> High until tested.</li>
+<li><strong>Evidence/check method:</strong> CSS inspection and missing-test inventory/HIGH for absence.</li>
+<li><strong>Recommended design behavior:</strong> Approve platform/viewport/localization targets; test without clipped values/actions, two-dimensional scrolling for ordinary content, or lost focus/status.</li>
+<li><strong>Owner/status:</strong> Accessibility/product design/engineering/localization / Open.</li>
+<li><strong>Retest needed:</strong> Yes.</li>
+</ul>
+<h3>A11Y-07: Status feedback is transient and incomplete for financial actions</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Status messages, error identification, consistent recovery, sufficient time.</li>
+<li><strong>Screen/component:</strong> Toast and simulated budget save.</li>
+<li><strong>Issue:</strong> A polite live region exists, but messages disappear after 2.2 seconds and do not provide a durable authoritative state, history, retry, or error path. “Saved” is simulated without persistence.</li>
+<li><strong>Affected users:</strong> Screen-reader, cognitive/attention, low-vision, and users who need more time.</li>
+<li><strong>Severity:</strong> High for a real financial mutation; prototype limitation today.</li>
+<li><strong>Evidence/check method:</strong> Direct JS inspection plus Phase 07 coverage/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Keep transient announcement only as supplementary feedback; provide persistent result state with exact effect, retry/cancel/help, and authoritative status.</li>
+<li><strong>Owner/status:</strong> Product/data/engineering/accessibility / Open.</li>
+<li><strong>Retest needed:</strong> Yes across pending/success/failure/unknown/offline paths.</li>
+</ul>
+<h3>A11Y-08: Icon system and current navigation state need semantic review</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Non-text content, name/role/state, consistent identification.</li>
+<li><strong>Screen/component:</strong> Unicode glyph icons, tab navigation, status-bar symbols.</li>
+<li><strong>Issue:</strong> Interactive labels exist, but decorative glyphs within buttons are not consistently hidden, current-page state is visual only, and symbol rendering varies by font/platform.</li>
+<li><strong>Affected users:</strong> Screen-reader, speech-input, cognitive-access, and low-vision users.</li>
+<li><strong>Severity:</strong> Medium.</li>
+<li><strong>Evidence/check method:</strong> Direct source inspection/HIGH.</li>
+<li><strong>Recommended design behavior:</strong> Use approved icons, hide decorative glyphs, expose current state programmatically, and preserve explicit text labels.</li>
+<li><strong>Owner/status:</strong> Design-system/accessibility/engineering / Open.</li>
+<li><strong>Retest needed:</strong> Yes.</li>
+</ul>
+<h3>A11Y-09: Missing states prevent a complete accessibility evaluation</h3>
+<ul>
+<li><strong>Criterion/guideline:</strong> Errors, instructions, status, authentication, consistent help, accessible authentication, and safe recovery as applicable.</li>
+<li><strong>Screen/component:</strong> WF-00–17 and WF-20–22.</li>
+<li><strong>Issue:</strong> Loading, empty, partial, stale, permission, validation, failure, conflict, offline, re-auth, export, recurring, and unusual-pattern flows have no high-fidelity implementation.</li>
+<li><strong>Affected users:</strong> All users; disproportionate impact is possible for disabled users.</li>
+<li><strong>Severity:</strong> Critical readiness blocker.</li>
+<li><strong>Evidence/check method:</strong> Phase 06–08 coverage comparison/HIGH for absence.</li>
+<li><strong>Recommended design behavior:</strong> Create and evaluate every required state after rules and risk controls are approved.</li>
+<li><strong>Owner/status:</strong> Product/design/engineering/accessibility/privacy/security / Blocked.</li>
+<li><strong>Retest needed:</strong> Yes.</li>
+</ul>
+<h2>3. Contrast and text review</h2>
+<table>
+<thead>
+<tr>
+<th>Pair/use</th>
+<th align="right">Calculated ratio</th>
+<th>Diagnostic result</th>
+<th>Evidence/limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>White / Rausch <code>#ff385c</code></td>
+<td align="right">3.52:1</td>
+<td>Below WCAG 2.2 SC 1.4.3 AA normal-text threshold</td>
+<td>Applies to 13px/600 primary text in inspected CSS</td>
+</tr>
+<tr>
+<td>White / Rausch active <code>#e00b41</code></td>
+<td align="right">4.89:1</td>
+<td>Meets 4.5:1 diagnostic threshold</td>
+<td>Candidate remediation; rendered states still require test</td>
+</tr>
+<tr>
+<td>Muted <code>#6a6a6a</code> / white</td>
+<td align="right">5.41:1</td>
+<td>Meets 4.5:1 diagnostic threshold</td>
+<td>Solid pair only</td>
+</tr>
+<tr>
+<td>Ink <code>#222222</code> / white</td>
+<td align="right">15.91:1</td>
+<td>Strong contrast</td>
+<td>Solid pair only</td>
+</tr>
+<tr>
+<td>Body <code>#3f3f3f</code> / white</td>
+<td align="right">10.53:1</td>
+<td>Strong contrast</td>
+<td>Solid pair only</td>
+</tr>
+<tr>
+<td>Warning <code>#a15c00</code> / <code>#fff4df</code></td>
+<td align="right">4.76:1</td>
+<td>Meets 4.5:1 diagnostic threshold</td>
+<td>“Concept” badge only</td>
+</tr>
+<tr>
+<td>Text over dark gradient/translucent fills</td>
+<td align="right">Not established</td>
+<td>Requires rendered sampling in every position/state</td>
+<td>CSS values alone do not establish minimum composite contrast</td>
+</tr>
+<tr>
+<td>Hairlines, focus, controls, charts</td>
+<td align="right">Not fully established</td>
+<td>Non-text contrast/visibility test pending</td>
+<td>Target and rendered backgrounds required</td>
+</tr>
+</tbody></table>
+<p>Text review findings:</p>
+<ul>
+<li>The sample uses readable, non-judgmental prose, but comprehension has not been tested.</li>
+<li>Several labels use 11–13px text; text size alone is not declared nonconforming, but scaling, line height, fallback metrics, and localization require rendered review.</li>
+<li>Amount, period, source, freshness, comparison rules, negative/refund notation, and error wording remain unapproved.</li>
+<li>Do not use color, arrows, position, or animation alone for increase/decrease, selection, current navigation, or risk state.</li>
+</ul>
+<h2>4. Keyboard and focus design</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Present</th>
+<th>Gap</th>
+<th>Required behavior/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visible focus</td>
+<td>3px focus-visible outline</td>
+<td>Contrast against every surface/high-contrast setting untested</td>
+<td>Retest rendered themes/states</td>
+</tr>
+<tr>
+<td>Screen navigation</td>
+<td>Programmatic focus moves</td>
+<td>Goes to first button rather than destination heading</td>
+<td>Resolve A11Y-04</td>
+</tr>
+<tr>
+<td>Dialog open/close</td>
+<td>Initial focus, Escape, return focus</td>
+<td>No trap/inert/visible cancel</td>
+<td>Resolve A11Y-03</td>
+</tr>
+<tr>
+<td>Budget choices</td>
+<td>Native buttons</td>
+<td>No selected-state semantics/arrow-key model</td>
+<td>Use approved single-select control</td>
+</tr>
+<tr>
+<td>Tab bar</td>
+<td>Buttons keyboard-focusable</td>
+<td>Most destinations are toast-only; current state not semantic</td>
+<td>Use real navigation/current state or disclose disabled preview</td>
+</tr>
+<tr>
+<td>Dynamic status</td>
+<td>Polite live region</td>
+<td>Transient and lacks result/recovery</td>
+<td>Persistent result plus announcement</td>
+</tr>
+<tr>
+<td>Skip/landmarks</td>
+<td>Main/sections exist</td>
+<td>No skip mechanism; app scope/platform rule unknown</td>
+<td>Decide for target shell and repeated content</td>
+</tr>
+<tr>
+<td>Focus under zoom/scroll</td>
+<td>Not tested</td>
+<td>Sticky tab bar/toast may cover focused content</td>
+<td>Test short/narrow/zoomed viewports</td>
+</tr>
+</tbody></table>
+<h2>5. Screen-reader semantics</h2>
+<table>
+<thead>
+<tr>
+<th>Semantic area</th>
+<th>Current evidence</th>
+<th>Status/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Page/screen names</td>
+<td><code>aria-labelledby</code> on active screen</td>
+<td>Validate announcement after dynamic screen switch</td>
+</tr>
+<tr>
+<td>Buttons</td>
+<td>Most have visible or accessible names</td>
+<td>Hide decorative glyphs; confirm speech-input name matching</td>
+</tr>
+<tr>
+<td>Chart</td>
+<td><code>role=&quot;img&quot;</code> with weekly-value label</td>
+<td>Add structured text/table alternative if users need comparison/detail</td>
+</tr>
+<tr>
+<td>Dialog</td>
+<td>Role/name/modal attribute present</td>
+<td>Complete focus/inert/cancel behavior; modal attribute alone is insufficient</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><code>role=&quot;status&quot; aria-live=&quot;polite&quot;</code></td>
+<td>Preserve but add durable financial result state</td>
+</tr>
+<tr>
+<td>Lists</td>
+<td>Generic containers</td>
+<td>Use semantic lists and stable label/value relationships</td>
+</tr>
+<tr>
+<td>Selection/current state</td>
+<td>Visual classes</td>
+<td>Expose checked/pressed/current state programmatically</td>
+</tr>
+<tr>
+<td>Hidden screens</td>
+<td><code>display:none</code> for inactive screens</td>
+<td>Source suggests removal from accessibility tree; verify with target AT/browser</td>
+</tr>
+<tr>
+<td>Errors/permissions</td>
+<td>No implemented states</td>
+<td>Cannot evaluate until complete</td>
+</tr>
+</tbody></table>
+<p>No ARIA addition is recommended as a substitute for native controls or an approved component pattern.</p>
+<h2>6. Motion and media needs</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Evidence</th>
+<th>Assessment</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Screen/pulse/chart/sheet/toast animation</td>
+<td>CSS animations/transitions present</td>
+<td>Decorative or feedback motion; purpose and interruption unvalidated</td>
+<td>Keep restrained; ensure no information depends on motion</td>
+</tr>
+<tr>
+<td>Reduced motion</td>
+<td><code>prefers-reduced-motion</code> shortens animation</td>
+<td>Positive source-level provision</td>
+<td>Test on target browsers/devices</td>
+</tr>
+<tr>
+<td>Flashing</td>
+<td>No flashing pattern identified in inspected asset</td>
+<td>Source inspection only</td>
+<td>Regression test future media/alerts</td>
+</tr>
+<tr>
+<td>Audio/video</td>
+<td>None</td>
+<td>Not applicable now</td>
+<td>Define captions/transcripts/player controls if introduced</td>
+</tr>
+<tr>
+<td>Time limits</td>
+<td>Toast hides after 2.2 seconds</td>
+<td>May be missed and is not durable</td>
+<td>Resolve A11Y-07</td>
+</tr>
+<tr>
+<td>Chart/media alternative</td>
+<td>Chart accessible name</td>
+<td>May be insufficient for analysis/review</td>
+<td>Provide structured equivalent and state explanation</td>
+</tr>
+</tbody></table>
+<h2>7. Remediation plan</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Finding(s)</th>
+<th>Remediation</th>
+<th>Owner</th>
+<th>Dependency/status</th>
+<th>Retest</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Critical</td>
+<td>A11Y-09</td>
+<td>Implement all core, alternate, error, permission, recovery, and sensitive-action states after rules review</td>
+<td>Product/design/engineering/risk</td>
+<td>PRE-01–07 / Blocked</td>
+<td>Full manual + AT + participant plan</td>
+</tr>
+<tr>
+<td>High</td>
+<td>A11Y-01</td>
+<td>Adopt verified accessible primary treatment across all states</td>
+<td>Design-system/accessibility</td>
+<td>Token/brand decision / Open</td>
+<td>Contrast + visual regression</td>
+</tr>
+<tr>
+<td>High</td>
+<td>A11Y-02/03</td>
+<td>Replace custom choices/dialog with tested accessible components</td>
+<td>Design-system/engineering</td>
+<td>Library/platform decision / Open</td>
+<td>Keyboard/screen reader/switch/touch</td>
+</tr>
+<tr>
+<td>High</td>
+<td>A11Y-06</td>
+<td>Define and test viewport, zoom/reflow, text scaling, localization, extremes</td>
+<td>Product/accessibility/localization</td>
+<td>Target matrix missing / Open</td>
+<td>Manual rendered matrix</td>
+</tr>
+<tr>
+<td>High</td>
+<td>A11Y-07</td>
+<td>Add persistent authoritative financial result and recovery states</td>
+<td>Product/data/engineering</td>
+<td>API/rule contract missing / Blocked</td>
+<td>State and AT testing</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>A11Y-04/05/08</td>
+<td>Correct focus destination, list semantics, icons, and current state</td>
+<td>Design/engineering/accessibility</td>
+<td>App shell/icon set / Open</td>
+<td>Keyboard/AT/voice</td>
+</tr>
+</tbody></table>
+<p>No finding is closed in this phase because no corrected rendered version or retest exists.</p>
+<h2>8. Validation needs</h2>
+<ol>
+<li>Assign the required accessibility standard/version/level, jurisdiction, platforms, browsers, devices, and assistive-technology matrix.</li>
+<li>Name accessibility, product, engineering, content, privacy/security, localization, and design-system decision owners.</li>
+<li>Remediate A11Y-01–09 in a versioned, flow-complete implementation.</li>
+<li>Run contrast and non-text visibility checks on rendered composite states, not token pairs alone.</li>
+<li>Test keyboard-only, switch, speech input, screen readers, magnification, 200%/400% zoom/reflow, text spacing/scaling, reduced motion, high-contrast/forced-colors settings, orientation, touch, and long/localized/extreme data as applicable.</li>
+<li>Include disabled participants and accommodation choices in an authorized research plan after prototype readiness, consent, privacy, and safety prerequisites are met.</li>
+<li>Recheck every remediation and preserve defects separately from participant usability evidence.</li>
+</ol>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-E01</td>
+<td>HTML/CSS/JS source</td>
+<td>SHA-256 <code>D757FF49591F6EF55E76E461E0C96D151E493961B0688F7859ECABCE550F1C78</code></td>
+<td>Semantics, focus, motion, contrast values</td>
+<td>Direct</td>
+<td>HIGH for source</td>
+<td>No rendered/AT conformance test</td>
+</tr>
+<tr>
+<td>A-E02</td>
+<td>Two JPEG captures</td>
+<td>hashes in <code>high-fidelity-mockups.md</code></td>
+<td>Default visual states</td>
+<td>Direct</td>
+<td>HIGH for captures</td>
+<td>No interaction/responsive states</td>
+</tr>
+<tr>
+<td>A-E03</td>
+<td>Phase 06 annotations</td>
+<td>G06-approved</td>
+<td>Intended behavior</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Not implemented/approved by owners</td>
+</tr>
+<tr>
+<td>A-E04</td>
+<td>Phase 07/08 records</td>
+<td>G07/G08-approved</td>
+<td>Missing prototype and research evidence</td>
+<td>Direct project record</td>
+<td>HIGH</td>
+<td>No user accessibility evidence</td>
+</tr>
+<tr>
+<td>A-E05</td>
+<td>W3C WCAG 2.2</td>
+<td>accessed 2026-07-24</td>
+<td>Diagnostic criteria</td>
+<td>Direct standard</td>
+<td>HIGH</td>
+<td>Project target not assigned</td>
+</tr>
+</tbody></table>
+<h2>Decision and action register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A-D01</td>
+<td>Make no WCAG conformance claim</td>
+<td>Target and complete tests absent</td>
+<td>Phase 09 artifact decision</td>
+<td>2026-07-24</td>
+<td>Confirmed</td>
+<td>None</td>
+</tr>
+<tr>
+<td>A-D02</td>
+<td>Treat A11Y-01 and A11Y-09 as handoff blockers</td>
+<td>Contrast and missing critical states</td>
+<td>Human G09/accessibility/product</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>Remediation and retest</td>
+</tr>
+<tr>
+<td>A-D03</td>
+<td>Require authorized disabled-participant research after readiness</td>
+<td>Skill contract and evidence gap</td>
+<td>Research/accessibility/privacy</td>
+<td>Not set</td>
+<td>Open</td>
+<td>Safe complete prototype/study operations</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Scope, standard gap, contexts, sources, methods, and limitations are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Checklist/findings, contrast/text, keyboard/focus, screen-reader semantics, motion/media, remediation, and validation needs are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Findings include stable IDs, affected users, severity, evidence, confidence, owner, status, and retest need.</li>
+<li><input checked="" disabled="" type="checkbox"> Source facts, diagnostic interpretation, assumptions, recommendations, and missing evidence remain separate.</li>
+<li><input checked="" disabled="" type="checkbox"> Privacy, finance, localization, inclusion, and sensitive-state risks remain visible.</li>
+<li><input checked="" disabled="" type="checkbox"> No automated-only, visual-only, WCAG-conformance, assistive-technology, disabled-user, or usability result was invented.</li>
+<li><input disabled="" type="checkbox"> Required target and owner approvals assigned — blocked.</li>
+<li><input disabled="" type="checkbox"> Remediated flow-complete implementation manually and assistive-technology tested — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from accessibility-review.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

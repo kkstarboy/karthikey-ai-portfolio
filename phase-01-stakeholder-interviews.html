@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stakeholder Interviews — Preparation and Limitation Report — Phase 01 · Requirement Analysis</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 01 · Requirement Analysis</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./stakeholder-interviews.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Stakeholder Interviews — Preparation and Limitation Report</h1>
+<h2>Status</h2>
+<p><strong>Not conducted.</strong> No participant list, interview recordings, transcripts, notes, consent records, schedule, or authorization was supplied. This document prepares the required discovery and records BRD-derived questions; it contains no interview findings.</p>
+<h2>Preparation</h2>
+<ul>
+<li><strong>Files reviewed:</strong> <code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code>.</li>
+<li><strong>Decision purpose:</strong> resolve BRD readiness gaps in scope, evidence, categorization rules, data/privacy/security, accessibility, success metrics, integrations, and release acceptance.</li>
+<li><strong>Confidentiality/consent:</strong> Gap. Confirm consent, recording, note-taking, retention, and use before any interview.</li>
+<li><strong>Power dynamics:</strong> interview sponsors/decision-makers separately from delivery staff or user-facing roles where hierarchy could suppress candour.</li>
+</ul>
+<h2>Proposed Participant Map</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Knowledge sought</th>
+<th>Influence/decision right</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sponsor/product owner</td>
+<td>Goals, MVP scope, decision rights, trade-offs</td>
+<td>Final product/scope decision</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>UX research lead</td>
+<td>User-evidence provenance and research plan</td>
+<td>Research-quality decision</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Data/ML owner</td>
+<td>Categorization, correction memory, recurring/anomaly logic</td>
+<td>Model/rule/data decision</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Security/privacy/legal/compliance</td>
+<td>Financial-data controls and consent</td>
+<td>Compliance approval</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Engineering/architecture</td>
+<td>Transaction feeds, notifications, export, failure behavior</td>
+<td>Feasibility/architecture</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Analytics owner</td>
+<td>Metrics, baselines, instrumentation, guardrails</td>
+<td>Measurement</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Accessibility/content owner</td>
+<td>WCAG target, literacy, tone, error/help content</td>
+<td>Accessibility/content approval</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Operations/support representatives</td>
+<td>Current complaints, workarounds, escalations</td>
+<td>Operational evidence</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Representative user-facing roles</td>
+<td>Recent examples of user context</td>
+<td>Indirect context only unless direct users participate</td>
+<td>Not supplied</td>
+</tr>
+</tbody></table>
+<h2>Core Interview Guide</h2>
+<h3>Business Context</h3>
+<ul>
+<li>Which outcomes are mandatory for the first release, and who owns each decision?</li>
+<li>What is explicitly out of scope, and what happens if the feature is not launched?</li>
+</ul>
+<h3>User Understanding</h3>
+<ul>
+<li>What direct research supports the three consumer groups, needs, and quotations in BRD §§2, 4, and 5?</li>
+<li>Which groups, contexts, literacy/access needs, and edge cases have not been studied?</li>
+</ul>
+<h3>Current and Future State</h3>
+<ul>
+<li>How do users currently understand and correct transaction categories? Provide recent specific examples.</li>
+<li>What should remain manual, become automated, or require confirmation?</li>
+</ul>
+<h3>Functional Rules and Failure Paths</h3>
+<ul>
+<li>How are merchants/categories identified, and what happens when confidence is low, data is missing, or a user correction conflicts with a rule?</li>
+<li>How do refunds, reversals, transfers, duplicates, offline states, partial months, and shared accounts behave?</li>
+</ul>
+<h3>Data, Privacy, Security, and Integrations</h3>
+<ul>
+<li>What data is used, why, under what lawful/consent basis, for how long, and with which user controls?</li>
+<li>Which services provide transactions, categorization, notifications, analytics, and exports, and who owns outages/reconciliation?</li>
+</ul>
+<h3>Accessibility and Content</h3>
+<ul>
+<li>What WCAG target and assistive-technology coverage apply?</li>
+<li>How will insight language be reviewed for clarity, guilt, alarm, and financial harm?</li>
+</ul>
+<h3>Success and Acceptance</h3>
+<ul>
+<li>Define each metric&#39;s denominator, baseline, cohort, source, owner, target period, and guardrail.</li>
+<li>Which observable success, error, permission, privacy, accessibility, and recovery cases must pass before launch?</li>
+</ul>
+<h2>Required Interview Notes Template</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Interview ID/date</td>
+<td>Not conducted</td>
+</tr>
+<tr>
+<td>Participant role</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Interviewer/note-taker</td>
+<td>Not supplied</td>
+</tr>
+<tr>
+<td>Purpose/decisions</td>
+<td>BRD gap resolution</td>
+</tr>
+<tr>
+<td>Consent/recording status</td>
+<td>Must be confirmed</td>
+</tr>
+<tr>
+<td>Key evidence/examples</td>
+<td>Do not populate without an interview</td>
+</tr>
+<tr>
+<td>Goals/outcomes</td>
+<td>Do not infer</td>
+</tr>
+<tr>
+<td>User groups/needs</td>
+<td>Separate direct evidence from opinion</td>
+</tr>
+<tr>
+<td>Current/future state</td>
+<td>Capture recent examples and exceptions</td>
+</tr>
+<tr>
+<td>Requirements/rules/data/integrations/NFRs</td>
+<td>Separate candidates from confirmed decisions</td>
+</tr>
+<tr>
+<td>Assumptions/conflicts/open questions</td>
+<td>Preserve and assign owners</td>
+</tr>
+</tbody></table>
+<p>Every future note must be labelled <strong>Fact</strong>, <strong>Example</strong>, <strong>Opinion</strong>, <strong>Assumption</strong>, <strong>Decision</strong>, <strong>Requirement candidate</strong>, or <strong>Open question</strong>.</p>
+<h2>Findings Register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Theme</th>
+<th>Finding</th>
+<th>Evidence/interview IDs</th>
+<th>Confidence</th>
+<th>User impact</th>
+<th>Business impact</th>
+<th>Decision affected</th>
+<th>Recommendation</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SI-01</td>
+<td>Research provenance</td>
+<td>No interview evidence was supplied; BRD user claims remain unvalidated</td>
+<td>BRD §§2, 4–5; no interview ID</td>
+<td>Assumption/Gap</td>
+<td>Unknown</td>
+<td>High decision risk</td>
+<td>Personas and needs</td>
+<td>Conduct representative user research</td>
+<td>Research owner missing</td>
+</tr>
+<tr>
+<td>SI-02</td>
+<td>Governance</td>
+<td>Decision owners and approvers are absent</td>
+<td>BRD document metadata gap</td>
+<td>Fact from document absence</td>
+<td>Indirect</td>
+<td>High</td>
+<td>Scope and acceptance</td>
+<td>Identify sponsor/RACI</td>
+<td>Sponsor missing</td>
+</tr>
+<tr>
+<td>SI-03</td>
+<td>Compliance/data</td>
+<td>Privacy/security requirements are qualitative</td>
+<td>BRD §11</td>
+<td>Fact from BRD</td>
+<td>Potentially critical</td>
+<td>Critical</td>
+<td>Data use and launch</td>
+<td>Interview authorized owners</td>
+<td>Owners missing</td>
+</tr>
+</tbody></table>
+<p>Repetition in future interviews must not be treated as proof. Findings must trace to interview IDs and artifacts, preserve disagreements, and separate confirmed from candidate requirements.</p>
+<h2>Required Reporting After Interviews</h2>
+<p>When authorized interviews occur, update this file with: executive summary; current/future-state themes; validated and unvalidated user needs; requirement gaps; data/integration/NFR needs; constraints/risks/dependencies; success measures; UX opportunities; conflicts requiring decisions; and actions with owners.</p>
+<h2>Completion Checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Business, user, process, data, integration, NFR, risk, metric, research, technology, and UX question areas are prepared.</li>
+<li><input checked="" disabled="" type="checkbox"> Consent, confidentiality, privacy, and evidence classifications are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> The file does not claim interviews occurred.</li>
+<li><input disabled="" type="checkbox"> Participant map confirmed — blocked.</li>
+<li><input disabled="" type="checkbox"> Interviews conducted and member-checked — blocked.</li>
+<li><input disabled="" type="checkbox"> Findings synthesized and traced to interview IDs — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from stakeholder-interviews.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

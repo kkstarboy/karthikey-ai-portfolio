@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feature and Opportunity Prioritization — Provisional — Phase 03 · Define</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 03 · Define</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./feature-prioritization.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Feature and Opportunity Prioritization — Provisional</h1>
+<h2>Purpose, scope, and decision context</h2>
+<p>This artifact supports a future human decision about discovery and candidate MVP sequencing for the Smart Expense Tracker. It does <strong>not</strong> make a production commitment.</p>
+<ul>
+<li><strong>Decision horizon:</strong> Not supplied.</li>
+<li><strong>Capacity constraint:</strong> Not supplied.</li>
+<li><strong>Decision owner/reviewers/deadline:</strong> Not supplied.</li>
+<li><strong>Target users:</strong> Three provisional candidate contexts; no validated personas.</li>
+<li><strong>Evidence:</strong> One BRD plus evidence-limited approved synthesis artifacts.</li>
+<li><strong>Missing critical inputs:</strong> Direct user evidence, analytics/support/feedback data, approved scope, technical estimates, legal/privacy/security decisions, architecture, release horizon, and owner scoring.</li>
+</ul>
+<h2>1. Prioritization criteria</h2>
+<p>An evidence-constrained MoSCoW-style framework is used because RICE cannot be calculated without reach, impact evidence, confidence data, and effort estimates. Classifications are <strong>Proposed</strong> only:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Meaning in this artifact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Foundation before commitment</td>
+<td>Evidence, governance, safety, or feasibility work needed before a production priority</td>
+</tr>
+<tr>
+<td>Candidate Must</td>
+<td>BRD capability central to the proposed value; still requires validation and owner approval</td>
+</tr>
+<tr>
+<td>Candidate Should</td>
+<td>Supports value but sequencing depends on evidence, effort, risk, and dependencies</td>
+</tr>
+<tr>
+<td>Candidate Could</td>
+<td>Plausible later option with unresolved need/scope</td>
+</tr>
+<tr>
+<td>Decision needed</td>
+<td>Cannot be responsibly classified from current evidence</td>
+</tr>
+</tbody></table>
+<p>Criteria assessed separately: user outcome, business alignment, evidence confidence, financial/privacy/accessibility risk, dependency, effort knowledge, urgency, and validation need. No numeric score is used because false precision would imply unavailable data.</p>
+<h2>2. Scored or classified backlog</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Item/type</th>
+<th>User/problem basis</th>
+<th>Business basis</th>
+<th>Evidence type/confidence</th>
+<th>Effort</th>
+<th>Risk/dependencies</th>
+<th>Proposed class</th>
+<th>Decision status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>F-00</td>
+<td>Direct research, measurement, and governance / foundation</td>
+<td>Validity of N-01–N-06</td>
+<td>Prevent misinvestment/harm</td>
+<td>Inferred/LOW</td>
+<td>Unknown</td>
+<td>Consent, owners, data access</td>
+<td>Foundation before commitment</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-01</td>
+<td>Monthly spending summary / capability</td>
+<td>N-01, PS-01</td>
+<td>BO-01/02</td>
+<td>Business documented; user evidence LOW</td>
+<td>Unknown</td>
+<td>Transaction scope, periods, performance, accessibility</td>
+<td>Candidate Must</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>Auto-categorization with unknown/fallback handling / capability</td>
+<td>N-01/N-02, PS-04</td>
+<td>BO-01/02</td>
+<td>BRD requirement; user evidence LOW</td>
+<td>Unknown</td>
+<td>Model/rules, accuracy, explainability, audit</td>
+<td>Candidate Must</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>Category editing and correction memory / recovery capability</td>
+<td>N-02, PS-04</td>
+<td>Trust/accuracy</td>
+<td>BRD FR3–4; user evidence LOW</td>
+<td>Unknown</td>
+<td>Merchant identity, precedence, undo, privacy</td>
+<td>Candidate Must</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>Category breakdown / capability</td>
+<td>N-01</td>
+<td>BO-01</td>
+<td>BRD §7.2/FR1; LOW</td>
+<td>Unknown</td>
+<td>Taxonomy/accessibility</td>
+<td>Candidate Must</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>Monthly comparison / capability</td>
+<td>N-01</td>
+<td>BO-01/02</td>
+<td>BRD FR5; LOW</td>
+<td>Unknown</td>
+<td>Partial periods/history/refunds</td>
+<td>Candidate Should</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>Spending insights / capability</td>
+<td>N-01/N-04</td>
+<td>BO-01/02</td>
+<td>BRD FR6; LOW</td>
+<td>Unknown</td>
+<td>Explainability, tone, eligibility, harm</td>
+<td>Candidate Should</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-07</td>
+<td>Budget setup and alerts / capability</td>
+<td>N-04 hypothesis</td>
+<td>BO-02</td>
+<td>BRD FR7–8; LOW</td>
+<td>Unknown</td>
+<td>Consent, fatigue, lifecycle, threshold rules</td>
+<td>Candidate Should</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-08</td>
+<td>Recurring-expense detection/review / capability</td>
+<td>N-03, PS-02</td>
+<td>BO-01/02</td>
+<td>BRD FR9; LOW</td>
+<td>Unknown</td>
+<td>Detection, shared accounts, false positives</td>
+<td>Candidate Should</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-09</td>
+<td>Export/share summary / capability</td>
+<td>Household record hypothesis</td>
+<td>Not clearly linked</td>
+<td>BRD FR10; LOW</td>
+<td>Unknown</td>
+<td>Format, privacy, access, secure sharing</td>
+<td>Candidate Could</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-10</td>
+<td>Unusual-spending alert / capability</td>
+<td>Awareness hypothesis</td>
+<td>BO-02</td>
+<td>BRD §7.7; LOW</td>
+<td>Unknown</td>
+<td>Baseline, false alarm, harm, notification control</td>
+<td>Decision needed</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>F-11</td>
+<td>Custom categories / option</td>
+<td>Need Unknown</td>
+<td>Scope question</td>
+<td>Assumed/LOW</td>
+<td>Unknown</td>
+<td>Taxonomy/migration</td>
+<td>Decision needed</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>F-12</td>
+<td>Family/shared tracking / option</td>
+<td>Household hypothesis</td>
+<td>Scope question</td>
+<td>Assumed/LOW</td>
+<td>Unknown</td>
+<td>Permissions, consent, privacy, ownership</td>
+<td>Decision needed</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>F-13</td>
+<td>Cash and credit-card inclusion / scope/data</td>
+<td>Coverage Unknown</td>
+<td>Product completeness</td>
+<td>BRD open questions/LOW</td>
+<td>Unknown</td>
+<td>Data availability/reconciliation</td>
+<td>Decision needed</td>
+<td>Open</td>
+</tr>
+</tbody></table>
+<p>“Candidate Must” means central to testing the stated value, not approved for build.</p>
+<h2>3. Evidence and confidence</h2>
+<table>
+<thead>
+<tr>
+<th>Evidence ID</th>
+<th>Source</th>
+<th>Date/version</th>
+<th>Relevant item</th>
+<th>Evidence type</th>
+<th>Confidence</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Starter BRD §§3, 7, 10</td>
+<td>Version/date Unknown</td>
+<td>BO-01 and F-01–F-10</td>
+<td>Reported/business documented</td>
+<td>HIGH for document contents; LOW for user value</td>
+<td>No owner/approval/user validation</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 03 needs/problem statements</td>
+<td>2026-07-24</td>
+<td>N-01–N-06, PS-01–04</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Derived from business context</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>Phase 03 journey maps</td>
+<td>2026-07-24</td>
+<td>Journey implications</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Current state not known; desired state hypothetical</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>Phase 03 analytics analysis</td>
+<td>2026-07-24</td>
+<td>Measurement/evidence gaps</td>
+<td>Direct evidence-gap inventory</td>
+<td>HIGH for absence</td>
+<td>No empirical findings</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>BRD §§11–14</td>
+<td>Version/date Unknown</td>
+<td>Constraints, risks, open scope</td>
+<td>Reported/business documented</td>
+<td>HIGH for document contents</td>
+<td>Controls/decisions incomplete</td>
+</tr>
+</tbody></table>
+<p>No Direct user evidence or verified system behavior supports the backlog ranking.</p>
+<h2>4. Dependencies</h2>
+<table>
+<thead>
+<tr>
+<th>Dependency ID</th>
+<th>Dependency</th>
+<th>Affected items</th>
+<th>Owner</th>
+<th>Status/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DEP-01</td>
+<td>Transaction scope, data dictionary, lineage, consent, retention</td>
+<td>F-01–F-10, F-13</td>
+<td>Missing</td>
+<td>Required before commitment</td>
+</tr>
+<tr>
+<td>DEP-02</td>
+<td>Category taxonomy, model/rule confidence, correction precedence, audit</td>
+<td>F-02–F-06, F-08</td>
+<td>Missing</td>
+<td>Define/test</td>
+</tr>
+<tr>
+<td>DEP-03</td>
+<td>Privacy, security, legal/compliance decisions</td>
+<td>All financial-data capabilities</td>
+<td>Missing</td>
+<td>Mandatory human review</td>
+</tr>
+<tr>
+<td>DEP-04</td>
+<td>Accessibility requirements and inclusive research</td>
+<td>All user-facing items</td>
+<td>Missing</td>
+<td>Define/test</td>
+</tr>
+<tr>
+<td>DEP-05</td>
+<td>Notification consent, channel, timing, suppression</td>
+<td>F-07, F-10</td>
+<td>Missing</td>
+<td>Define/test</td>
+</tr>
+<tr>
+<td>DEP-06</td>
+<td>Technical estimates, architecture, supported platforms</td>
+<td>All</td>
+<td>Missing</td>
+<td>Engineering assessment</td>
+</tr>
+<tr>
+<td>DEP-07</td>
+<td>Approved release horizon/capacity and product owner</td>
+<td>All</td>
+<td>Missing</td>
+<td>Human decision required</td>
+</tr>
+</tbody></table>
+<h2>5. Trade-offs and sensitivity</h2>
+<table>
+<thead>
+<tr>
+<th>Trade-off</th>
+<th>Items</th>
+<th>Sensitivity result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Automation vs control/trust</td>
+<td>F-02/F-03</td>
+<td>If accuracy/explainability is weak, correction/recovery and unknown handling become prerequisites, not secondary polish</td>
+</tr>
+<tr>
+<td>Simplicity vs capability breadth</td>
+<td>F-01–F-10</td>
+<td>If research shows overload, budgets/recurring/export/alerts should be sequenced after comprehension/correction</td>
+</tr>
+<tr>
+<td>Engagement vs judgment/notification burden</td>
+<td>F-06/F-07/F-10</td>
+<td>If harm/control evidence is weak, delay proactive messaging and validate opt-in/suppression</td>
+</tr>
+<tr>
+<td>Individual vs household/shared privacy</td>
+<td>F-08/F-09/F-12</td>
+<td>If shared permissions are unresolved, do not commit shared/export behavior</td>
+</tr>
+<tr>
+<td>Speed vs inclusive access</td>
+<td>All</td>
+<td>Performance and scope decisions must not remove accessibility coverage</td>
+</tr>
+</tbody></table>
+<p>Sensitivity remains qualitative because reach, impact, confidence, effort, capacity, and urgency scales cannot be populated. Manipulated numeric estimates are therefore prevented.</p>
+<h2>6. Decision log</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision or action</th>
+<th>Rationale/evidence</th>
+<th>Owner</th>
+<th>Due date</th>
+<th>Status</th>
+<th>Dependency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D-01</td>
+<td>Use evidence-constrained qualitative classification; do not calculate RICE</td>
+<td>Missing reach/effort/impact inputs</td>
+<td>Define agent</td>
+<td>2026-07-24</td>
+<td>Confirmed for this artifact only</td>
+<td>E4</td>
+</tr>
+<tr>
+<td>D-02</td>
+<td>Treat all backlog classes as proposed</td>
+<td>No product owner/horizon/capacity</td>
+<td>Product owner missing</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>DEP-07</td>
+</tr>
+<tr>
+<td>D-03</td>
+<td>Require foundation research/governance before production commitment</td>
+<td>Finance/privacy/evidence risk</td>
+<td>Authorized owners missing</td>
+<td>Not set</td>
+<td>Proposed</td>
+<td>DEP-01–07</td>
+</tr>
+<tr>
+<td>D-04</td>
+<td>Preserve BRD FR1–FR10 without claiming priority approval</td>
+<td>Source traceability</td>
+<td>Human G03 reviewer</td>
+<td>Gate G03</td>
+<td>Proposed</td>
+<td>G03</td>
+</tr>
+</tbody></table>
+<h2>7. Deferred items</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Reason deferred</th>
+<th>Evidence needed</th>
+<th>Re-entry condition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Final MoSCoW/RICE ranking</td>
+<td>Missing owner, horizon, reach, impact, effort</td>
+<td>Approved estimates and scoring session</td>
+<td>Cross-functional scoring with defined scales</td>
+</tr>
+<tr>
+<td>F-10 unusual alerts</td>
+<td>Harm/baseline/control uncertainty</td>
+<td>Direct research, anomaly logic, notification policy</td>
+<td>Guardrails and usefulness validated</td>
+</tr>
+<tr>
+<td>F-11 custom categories</td>
+<td>Need and taxonomy impact Unknown</td>
+<td>Research/support data and architecture</td>
+<td>Demonstrated unmet outcome</td>
+</tr>
+<tr>
+<td>F-12 shared tracking</td>
+<td>High permission/privacy risk</td>
+<td>Household research and policy model</td>
+<td>Authorized scope and controls</td>
+</tr>
+<tr>
+<td>F-13 cash/card scope</td>
+<td>Data/business boundary Unknown</td>
+<td>Product/data decisions</td>
+<td>Approved account/data scope</td>
+</tr>
+</tbody></table>
+<h2>8. Validation plan</h2>
+<ol>
+<li>Assign product, research, data, engineering, privacy/security/legal, accessibility, and content decision owners.</li>
+<li>Validate candidate problems and journeys with consented, inclusive direct research and governed behavioral/support evidence.</li>
+<li>Define the release horizon, capacity, scoring scales, effort ranges, risk thresholds, and mandatory work.</li>
+<li>Have owners independently rate user impact, business impact, reach, effort, risk, dependency, urgency, and confidence before facilitation.</li>
+<li>Reclassify the backlog through a recorded cross-functional session; preserve dissent and sensitivity ranges.</li>
+<li>Require human review for finance, privacy, accessibility, policy, high-risk, and production commitments.</li>
+</ol>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Purpose, scope, users, evidence, framework, limitations, dependencies, trade-offs, decision log, deferred items, and validation are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Evidence, interpretation, assumption, and proposed recommendation are separated.</li>
+<li><input checked="" disabled="" type="checkbox"> No metric, reach, effort, user finding, owner decision, or production priority was invented.</li>
+<li><input checked="" disabled="" type="checkbox"> Accessibility, privacy, ethics, financial-data risk, and inclusion are considered.</li>
+<li><input disabled="" type="checkbox"> Final priority decision — blocked pending owners, evidence, horizon, capacity, estimates, and G03 review.</li>
+</ul>
+</article>
+    <footer>Generated from feature-prioritization.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

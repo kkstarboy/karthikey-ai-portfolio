@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Prototype — Limited Pilot Record — Phase 07 · Prototyping</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 07 · Prototyping</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./interactive-prototype.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Interactive Prototype — Limited Pilot Record</h1>
+<h2>1. Prototype scope</h2>
+<h3>Decision and research questions</h3>
+<p>The current prototype can support only an internal pilot of basic navigation and dialog mechanics. It cannot answer whether users understand spending, recover from category errors, safely export, trust data, or complete all critical flows.</p>
+<h3>Interactive asset</h3>
+<ul>
+<li><strong>Clickable HTML:</strong> <code>Output/visual-design/smart-expense-tracker.html</code></li>
+<li><strong>Supporting images:</strong> <code>Output/visual-design/screen-01-overview.jpg</code>, <code>screen-02-food-detail.jpg</code></li>
+<li><strong>Original notes:</strong> <code>Output/visual-design/sample-design-notes.md</code></li>
+<li><strong>Asset provenance:</strong> Provisional visual sample created before Phase 07; adopted for inspection without claiming alignment to all Phase 06 behavior.</li>
+<li><strong>Fidelity:</strong> Styled two-screen simulation with a budget dialog and status toast. It exceeds mid-fidelity visually in places but remains behaviorally shallow.</li>
+<li><strong>Access:</strong> Local project file only; no external distribution or access-control claim.</li>
+</ul>
+<p>All data is static demonstration content based on BRD examples. It is not personal, live, measured, or backend-connected.</p>
+<h2>2. Interactive prototype</h2>
+<h3>PR-01 — Overview to category detail</h3>
+<ul>
+<li><strong>Research/decision goal:</strong> Pilot whether the navigation mechanics and focus transition operate as intended—not whether the IA or content is understood.</li>
+<li><strong>Entry point:</strong> HTML opens on overview; no parent-app/auth/consent context.</li>
+<li><strong>Covered screens/states:</strong> Overview and Food &amp; Dining detail.</li>
+<li><strong>Interactions simulated:</strong> Open category, back to overview, URL query state, focus movement.</li>
+<li><strong>Data/content:</strong> Static BRD-format totals/categories.</li>
+<li><strong>Known limitations:</strong> No data states, period selection, full categories, insight explanation, task confirmation, or real navigation shell.</li>
+<li><strong>Device/viewport:</strong> Responsive browser sample styled as a mobile surface; supported device matrix not defined.</li>
+<li><strong>Test status:</strong> Source inspected; earlier internal browser QA recorded in sample notes. No Phase 07 participant/pilot run.</li>
+</ul>
+<h3>PR-02 — Budget dialog mechanics</h3>
+<ul>
+<li><strong>Research/decision goal:</strong> Pilot open/select/close/status mechanics.</li>
+<li><strong>Entry point:</strong> Set a budget from overview.</li>
+<li><strong>Covered screens/states:</strong> Dialog open, one of three static values selected, close/Escape, success toast.</li>
+<li><strong>Interactions simulated:</strong> Selection, save, toast, focus return.</li>
+<li><strong>Data/content:</strong> ₹5,000/₹6,000/₹8,000 static choices; no input validation or current-spend logic.</li>
+<li><strong>Known limitations:</strong> Save always appears successful; no persistence, existing budget, notification permission, threshold behavior, error, offline, timeout, or effective-state confirmation.</li>
+<li><strong>Device/viewport:</strong> Same local browser sample.</li>
+<li><strong>Test status:</strong> Limited internal mechanics only; not suitable for task-result measurement.</li>
+</ul>
+<h3>PR-03 — Non-functional preview controls</h3>
+<ul>
+<li><strong>Controls:</strong> Share Summary, See all, Insights, Budgets, Edit category, and more options.</li>
+<li><strong>Behavior:</strong> Toasts disclose preview/limitation instead of presenting fake interactions.</li>
+<li><strong>Testing restriction:</strong> These controls must be explained as non-functional before any session and cannot be used to evaluate discoverability, success, or error recovery.</li>
+</ul>
+<h2>3. State and data coverage</h2>
+<table>
+<thead>
+<tr>
+<th>State/data area</th>
+<th>Prototype behavior</th>
+<th>Coverage</th>
+<th>Production difference/risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Static default overview/detail</td>
+<td>Preloaded BRD-format examples</td>
+<td>Present</td>
+<td>No backend, scope, freshness, timezone, account, or reconciliation</td>
+</tr>
+<tr>
+<td>Navigation/focus</td>
+<td>Two-screen switch and focus to first control</td>
+<td>Present, limited</td>
+<td>Not parent-app routing/history semantics</td>
+</tr>
+<tr>
+<td>Budget modal/selection</td>
+<td>Local DOM state</td>
+<td>Present, limited</td>
+<td>No rule, API, permission, persistence, or concurrency</td>
+</tr>
+<tr>
+<td>Success feedback</td>
+<td>Toast</td>
+<td>Simulated</td>
+<td>Does not prove success or downstream state</td>
+</tr>
+<tr>
+<td>Loading/empty/partial/stale</td>
+<td>None</td>
+<td>Missing</td>
+<td>Cannot test realistic interpretation</td>
+</tr>
+<tr>
+<td>Permission/re-auth/privacy</td>
+<td>None</td>
+<td>Missing</td>
+<td>Financial-data context unsafe for external task claims</td>
+</tr>
+<tr>
+<td>Validation/failure/offline/timeout/conflict</td>
+<td>None</td>
+<td>Missing</td>
+<td>Mutation recovery untestable</td>
+</tr>
+<tr>
+<td>Category correction</td>
+<td>Limitation toast</td>
+<td>Missing</td>
+<td>Critical task untestable</td>
+</tr>
+<tr>
+<td>Recurring/export/unusual alert/preferences</td>
+<td>Static or toast only</td>
+<td>Missing</td>
+<td>Flows untestable</td>
+</tr>
+<tr>
+<td>Responsive/accessibility</td>
+<td>CSS focus, reduced motion, semantic controls in sample</td>
+<td>Partial</td>
+<td>No target-standard, AT, zoom/reflow, touch-target, contrast audit</td>
+</tr>
+</tbody></table>
+<h2>4. Prototype instructions</h2>
+<ol>
+<li>Open <code>Output/visual-design/smart-expense-tracker.html</code> in a local browser.</li>
+<li>Confirm the overview is visible and disclose that all values are static BRD examples.</li>
+<li>Activate Food &amp; Dining to open detail; use Back to return.</li>
+<li>Activate Set a budget; select a preset value; Save to display the simulated toast. Close/Escape should return focus.</li>
+<li>Treat all toast-only controls as non-functional and do not assign tasks that depend on them.</li>
+<li>Do not enter or display real financial or personal data.</li>
+<li>Stop if a path differs from the documented simulation; record it as a prototype defect, not participant failure.</li>
+</ol>
+<h3>Pilot script before any sharing</h3>
+<ul>
+<li>Check every interactive control by keyboard and pointer.</li>
+<li>Check focus entry/return, visible focus, Escape, live-status announcement, and reduced-motion preference.</li>
+<li>Check mobile/narrow, text zoom/reflow, and long-label behavior.</li>
+<li>Check that non-functional controls are disclosed and cannot be mistaken for complete flows.</li>
+<li>Record asset hash/version and any defect before a session.</li>
+</ul>
+<p>No Phase 07 pilot result is claimed in this artifact.</p>
+<h2>5. Known limitations</h2>
+<ul>
+<li>The asset predates the official Phase 06 wireframes and is not flow-complete.</li>
+<li>No authentic parent app, authentication, authorization, consent, data status, backend, API, analytics, security, performance, or persistence exists.</li>
+<li>Only CF-01 and CF-03 have partial simulations; CF-02/04/05/06 are missing.</li>
+<li>Static content may reduce task difficulty and cannot test data variability, uncertainty, localization, or real account contexts.</li>
+<li>Visual styling may bias preference despite unresolved structural questions.</li>
+<li>No representative user, product/dev, accessibility, privacy/security, or legal review occurred.</li>
+<li>The sample’s earlier browser QA is an internal mechanics check, not usability evidence or Phase 07 pilot evidence.</li>
+</ul>
+<h2>6. Test-readiness checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Prototype asset and scope are named.</li>
+<li><input checked="" disabled="" type="checkbox"> Static data, simulated success, non-functional controls, and production differences are disclosed.</li>
+<li><input checked="" disabled="" type="checkbox"> Available navigation/dialog interactions can be internally inspected.</li>
+<li><input checked="" disabled="" type="checkbox"> Device/accessibility considerations and safe pilot steps are documented.</li>
+<li><input disabled="" type="checkbox"> Critical category-correction flow implemented end-to-end.</li>
+<li><input disabled="" type="checkbox"> Loading, empty, partial, stale, permission, validation, error, timeout, offline, cancellation, and recovery states implemented.</li>
+<li><input disabled="" type="checkbox"> Export scope either implemented safely or explicitly excluded from the approved test plan.</li>
+<li><input disabled="" type="checkbox"> Product/dev/accessibility/privacy review completed.</li>
+<li><input disabled="" type="checkbox"> Prototype pilot completed and defects resolved.</li>
+</ul>
+<p><strong>Readiness: NOT READY for representative-user usability testing.</strong> Ready only for the narrow internal mechanics pilot described above.</p>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td>Existing HTML source and sample notes</td>
+<td>Direct asset inspection/documentation</td>
+<td>HIGH for asset behavior</td>
+<td>Pre-Phase-07, limited coverage</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 07 critical-flow coverage</td>
+<td>Synthesis</td>
+<td>HIGH for coverage comparison</td>
+<td>Does not test usability</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Reuse the existing asset only as a limited pilot; do not overbuild or claim readiness</td>
+<td>Prototype-scope decision</td>
+<td>HIGH</td>
+<td>G07 human review pending</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Scope, asset, scenarios, state/data coverage, instructions, limitations, and readiness are present.</li>
+<li><input checked="" disabled="" type="checkbox"> Non-functional controls and simulated behavior are distinguishable from product behavior.</li>
+<li><input checked="" disabled="" type="checkbox"> No backend, security, performance, accessibility, pilot, or usability behavior is implied.</li>
+<li><input disabled="" type="checkbox"> Full critical-flow prototype and pilot evidence available — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from interactive-prototype.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

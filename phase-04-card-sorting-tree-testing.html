@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Sorting and Tree Testing — Study Plan and Limitation Report — Phase 04 · Information Architecture</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 04 · Information Architecture</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./card-sorting-tree-testing.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Card Sorting and Tree Testing — Study Plan and Limitation Report</h1>
+<h2>Status</h2>
+<p><strong>Not conducted.</strong> No approved participants, recruitment, consent, study tool, pilot, session data, sort data, task paths, completion metrics, or qualitative rationale was supplied. This artifact defines a study; it contains no mental-model, grouping, label-comprehension, or findability findings.</p>
+<h2>1. Method rationale</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Proposed method</th>
+<th>Decision supported</th>
+<th>Rationale</th>
+<th>Evidence/confidence</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Discovery</td>
+<td>Hybrid card sort</td>
+<td>Candidate groupings and participant-generated labels</td>
+<td>Content items exist, but no mental-model evidence exists; seeded groups can be challenged</td>
+<td>Content inventory E1–E3 / LOW</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>Validation</td>
+<td>Tree test</td>
+<td>Findability/directness of a revised hierarchy</td>
+<td>Test paths separately after hierarchy revision; do not combine with sort agreement</td>
+<td>Sitemap not yet validated / LOW</td>
+<td>Proposed</td>
+</tr>
+</tbody></table>
+<p>Open sort alone may create uncontrolled category variance in a financial domain; closed sort alone would falsely assume the proposed IA is valid. Final method requires research-owner approval and pilot results.</p>
+<h2>2. Card set or tree</h2>
+<h3>Candidate cards for pilot</h3>
+<table>
+<thead>
+<tr>
+<th>Card ID</th>
+<th>Neutral card label</th>
+<th>Content basis</th>
+<th>Potential ambiguity/risk</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C-01</td>
+<td>This month’s total spending</td>
+<td>CI-003</td>
+<td>“Spending” period/scope</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-02</td>
+<td>Spending by category</td>
+<td>CI-005</td>
+<td>Category taxonomy</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-03</td>
+<td>Transactions in a category</td>
+<td>CI-006</td>
+<td>Detail vs activity naming</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-04</td>
+<td>Change a transaction category</td>
+<td>CI-007</td>
+<td>“Edit,” “correct,” or “categorize”</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-05</td>
+<td>Compare with last month</td>
+<td>CI-004</td>
+<td>Partial periods</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-06</td>
+<td>Spending insights</td>
+<td>CI-008</td>
+<td>Vague internal term</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-07</td>
+<td>Set a category budget</td>
+<td>CI-009</td>
+<td>Budget vs limit</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-08</td>
+<td>Budget notifications</td>
+<td>CI-009/014</td>
+<td>Alerts vs preferences</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-09</td>
+<td>Recurring payments</td>
+<td>CI-010</td>
+<td>Bills/subscriptions/commitments</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-10</td>
+<td>Unusual spending</td>
+<td>CI-011</td>
+<td>Alarm/judgment risk</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-11</td>
+<td>Export a monthly summary</td>
+<td>CI-012</td>
+<td>Share/download/records</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-12</td>
+<td>How transaction data is used</td>
+<td>CI-002</td>
+<td>Privacy vs help/settings</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-13</td>
+<td>Category definitions</td>
+<td>CI-015</td>
+<td>Help vs local explanation</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-14</td>
+<td>Notification preferences</td>
+<td>CI-014</td>
+<td>Settings vs feature area</td>
+<td>Pilot</td>
+</tr>
+<tr>
+<td>C-15</td>
+<td>Help with a wrong total or category</td>
+<td>CI-013/015</td>
+<td>Error/help overlap</td>
+<td>Pilot</td>
+</tr>
+</tbody></table>
+<p>Cards use descriptions during the pilot to avoid testing opaque labels without context. Dynamic values, merchant names, sensitive account details, and visual design cues are excluded.</p>
+<h3>Candidate tree for later testing</h3>
+<p>The tree-test version must be generated only after card-sort analysis and stakeholder review. A provisional seed tree is documented in <code>Output/phase-04/sitemap.md</code>; it is not a tested result.</p>
+<h2>3. Participant criteria</h2>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Requirement</th>
+<th>Rationale</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Behavioral context</td>
+<td>People who recently reviewed digital-payment spending, household commitments, or began financial planning</td>
+<td>Match provisional contexts without assuming personas</td>
+<td>Recruitment evidence missing</td>
+</tr>
+<tr>
+<td>Product familiarity</td>
+<td>Include current app users and, if in scope, lower-familiarity users</td>
+<td>Detect expert/novice differences</td>
+<td>Scope missing</td>
+</tr>
+<tr>
+<td>Inclusion</td>
+<td>Financial-literacy, language, assistive-technology, device/connectivity, cognitive/sensory/motor contexts</td>
+<td>Avoid one-hierarchy assumption and inaccessible method</td>
+<td>Recruitment plan missing</td>
+</tr>
+<tr>
+<td>Privacy/consent</td>
+<td>No real financial details required; consent, recording, retention, compensation defined</td>
+<td>Financial-domain safety</td>
+<td>Authorization missing</td>
+</tr>
+<tr>
+<td>Exclusions</td>
+<td>Product-team staff should not substitute for user participants</td>
+<td>Avoid internal-language bias</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<p>Sample size is not invented. The research owner must choose a justified sample based on segment comparison, method, saturation/precision needs, and resources.</p>
+<h2>4. Study plan</h2>
+<ol>
+<li>Confirm IA decision, scope, target contexts, locale/language, owner, consent, tool accessibility, and analysis plan.</li>
+<li>Pilot instructions and each card for clarity, neutrality, duplication, reading level, and keyboard/screen-reader access.</li>
+<li>Run the hybrid sort consistently; allow participant-created categories and capture rationale without leading.</li>
+<li>Analyze groupings and names by context; retain outliers and cross-listing needs.</li>
+<li>Produce a revised hierarchy with traceable changes and stakeholder risk review.</li>
+<li>Run a separate tree test with realistic findability tasks; do not reveal target labels in task wording.</li>
+<li>Record first click, path, success, directness, time/effort only with defined metrics, plus participant rationale.</li>
+<li>Revise and retest ambiguous or failed paths.</li>
+</ol>
+<h3>Provisional tree-test tasks</h3>
+<table>
+<thead>
+<tr>
+<th>Task ID</th>
+<th>Scenario prompt intent</th>
+<th>Target content</th>
+<th>Bias/accessibility check</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T-01</td>
+<td>Find where to understand spending for the current month</td>
+<td>CI-003–006</td>
+<td>Avoid saying “overview” or target label</td>
+</tr>
+<tr>
+<td>T-02</td>
+<td>Find where to correct a purchase in the wrong group</td>
+<td>CI-007</td>
+<td>Avoid “category edit” jargon</td>
+</tr>
+<tr>
+<td>T-03</td>
+<td>Find ongoing household commitments</td>
+<td>CI-010</td>
+<td>Test bills/subscriptions wording</td>
+</tr>
+<tr>
+<td>T-04</td>
+<td>Find and change reminders about spending</td>
+<td>CI-014</td>
+<td>Distinguish feature content from settings</td>
+</tr>
+<tr>
+<td>T-05</td>
+<td>Find how transaction information is used</td>
+<td>CI-002</td>
+<td>Ensure privacy is not hidden</td>
+</tr>
+<tr>
+<td>T-06</td>
+<td>Find a monthly record to save or share</td>
+<td>CI-012</td>
+<td>Test export/download language</td>
+</tr>
+</tbody></table>
+<h2>5. Analysis method</h2>
+<ul>
+<li><strong>Card sort:</strong> item-by-item similarity, common groupings, category names, cross-listing, singleton/outlier cards, participant rationale, and segment/context differences. No agreement threshold is predeclared without method/sample review.</li>
+<li><strong>Tree test:</strong> task success, directness, first click, paths, backtracking, abandonment, time/effort if reliable, and qualitative rationale. Define partial/indirect success before analysis.</li>
+<li>Preserve failed tasks, alternate groupings, minority/accessibility patterns, and conflicting expert/novice models.</li>
+<li>Do not treat similarity as findability or tree success as comprehension.</li>
+<li>Do not calculate percentages without a real denominator and study data.</li>
+</ul>
+<h2>6. Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding ID</th>
+<th>Method</th>
+<th>Finding</th>
+<th>Evidence</th>
+<th>Confidence</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IA-F00</td>
+<td>None conducted</td>
+<td>No participant finding is available</td>
+<td>Input/study-data absence</td>
+<td>HIGH for absence</td>
+<td>Run authorized study before claiming mental-model fit</td>
+</tr>
+</tbody></table>
+<p>No grouping, label preference, task-success rate, directness result, segment difference, or participant quotation exists.</p>
+<h2>7. Label and grouping recommendations</h2>
+<p>These are test candidates, not findings:</p>
+<table>
+<thead>
+<tr>
+<th>Candidate</th>
+<th>Rationale</th>
+<th>Evidence type/confidence</th>
+<th>Retest need</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prefer concrete task labels over “smart” or internal analytics terminology</td>
+<td>Plain-language/tone requirement</td>
+<td>Inferred/LOW</td>
+<td>Pilot + comprehension/tree test</td>
+</tr>
+<tr>
+<td>Test whether budgets and recurring payments belong within spending or as peer destinations</td>
+<td>Different provisional tasks</td>
+<td>Inferred/LOW</td>
+<td>Hybrid sort by context</td>
+</tr>
+<tr>
+<td>Make privacy/data-use content reachable from first use and utility navigation</td>
+<td>Financial-data risk</td>
+<td>Inferred/LOW</td>
+<td>Tree task T-05 + legal/access review</td>
+</tr>
+<tr>
+<td>Cross-link category correction from transaction/category context rather than rely on navigation alone</td>
+<td>Recovery context in BRD scenario</td>
+<td>Inferred/LOW</td>
+<td>Flow/usability test</td>
+</tr>
+</tbody></table>
+<h2>8. Limitations</h2>
+<ul>
+<li>No participant evidence, existing navigation, baseline findability, locale, platform version, production content, approved sitemap, or research owner.</li>
+<li>Candidate segments, cards, categories, tasks, and tree are business-derived and may encode solution bias.</li>
+<li>Sensitive financial context requires consent, privacy, safe examples, and accessible study tooling.</li>
+<li>G03 approval does not validate the proposed IA.</li>
+</ul>
+<h2>9. Validation needs</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Need/action</th>
+<th>Owner</th>
+<th>Dependency</th>
+<th>Completion signal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V-01</td>
+<td>Approve research question, method, participants, language, and sample rationale</td>
+<td>Research/product owner missing</td>
+<td>Decision scope</td>
+<td>Signed study plan</td>
+</tr>
+<tr>
+<td>V-02</td>
+<td>Pilot cards, instructions, tool, tasks, and accessibility</td>
+<td>Research/accessibility owner missing</td>
+<td>Prototype/tool</td>
+<td>Pilot log and revisions</td>
+</tr>
+<tr>
+<td>V-03</td>
+<td>Conduct hybrid sort</td>
+<td>Research owner missing</td>
+<td>Consent/recruitment</td>
+<td>Analyzable sort/rationale data</td>
+</tr>
+<tr>
+<td>V-04</td>
+<td>Revise proposed hierarchy with traceable evidence</td>
+<td>IA/product</td>
+<td>V-03</td>
+<td>Change/decision register</td>
+</tr>
+<tr>
+<td>V-05</td>
+<td>Conduct tree test and retest failures</td>
+<td>Research/IA</td>
+<td>V-04</td>
+<td>Defined task metrics and findings</td>
+</tr>
+</tbody></table>
+<h2>Evidence and decision register</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source/decision</th>
+<th>Type</th>
+<th>Confidence</th>
+<th>Limitation/status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E1</td>
+<td><code>Output/phase-04/content-inventory.md</code></td>
+<td>Inferred inventory</td>
+<td>LOW</td>
+<td>No production content/user validation</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>Phase 03 candidate segments/needs/journeys</td>
+<td>Inferred</td>
+<td>LOW</td>
+<td>Business-derived</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>Use hybrid sort then separate tree test</td>
+<td>Method recommendation</td>
+<td>LOW</td>
+<td>Requires human research approval</td>
+</tr>
+</tbody></table>
+<h2>Final quality checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Method, cards/tree, participant criteria, plan, analysis, findings status, recommendations, limitations, and validation are explicit.</li>
+<li><input checked="" disabled="" type="checkbox"> Sort similarity and tree-test success remain distinct.</li>
+<li><input checked="" disabled="" type="checkbox"> No participant, percentage, grouping, label preference, path, or finding was invented.</li>
+<li><input disabled="" type="checkbox"> Study conducted and revised structure validated — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from card-sorting-tree-testing.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Needs and Problem Statements — Phase 03 · Define</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 03 · Define</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./user-needs-problem-statements.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>User Needs and Problem Statements</h1>
+<h2>Research Basis, Confidence, and Limitations</h2>
+<ul>
+<li><strong>Files reviewed:</strong> starter BRD, approved Phase 01 and Phase 02 artifacts, Phase 03 analytics limitation analysis, and G01/G02 records.</li>
+<li><strong>Files not reviewed:</strong> None excluded; direct research, analytics, support, feedback, competitive, and accessibility evidence were not supplied.</li>
+<li><strong>Business/product scope:</strong> Smart Expense Tracker discovery; release boundary remains undecided.</li>
+<li><strong>User-research coverage:</strong> None. Candidate segments and needs originate in business documentation.</li>
+<li><strong>Source-quality limitations:</strong> Single unversioned BRD with unknown author/owner/approval; user quotations have no provenance.</li>
+<li><strong>Evidence gaps:</strong> Current behavior, frequency, pain severity, motivations, accessibility contexts, market, data rules, feasibility, estimates, owners, baselines, and metric contracts.</li>
+<li><strong>Unresolved contradictions:</strong> None supported by multiple sources; business/user trade-offs remain hypotheses.</li>
+</ul>
+<h3>Confidence Legend</h3>
+<ul>
+<li><strong>HIGH:</strong> Explicitly supported by cited evidence.</li>
+<li><strong>MEDIUM:</strong> Reasonable synthesis from consistent cited signals.</li>
+<li><strong>LOW:</strong> Assumption or weakly supported inference requiring validation.</li>
+<li><strong>CONTRADICTORY:</strong> Credible sources conflict.</li>
+</ul>
+<h2>Executive Summary</h2>
+<ul>
+<li>[HIGH] The BRD explicitly seeks spending understanding without manual effort and proposes engagement/trust outcomes. (Evidence: E1, E2)</li>
+<li>[LOW] Three provisional consumer contexts may have distinct needs, but no direct evidence validates their boundaries or priorities. (Evidence: E3, E4)</li>
+<li>[LOW] The needs and problem statements below translate business intent into research hypotheses; they are not validated user findings. (Evidence: E5)</li>
+</ul>
+<h2>Business Objectives</h2>
+<table>
+<thead>
+<tr>
+<th>Objective ID</th>
+<th>Business objective</th>
+<th>Value/outcome</th>
+<th>Priority/timeframe</th>
+<th>Owner</th>
+<th>Evidence</th>
+<th>Gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BO-01</td>
+<td>Help users understand spending without manual effort</td>
+<td>Clarity/control</td>
+<td>Priority implied; timeframe Unknown</td>
+<td>Missing</td>
+<td>E1</td>
+<td>Baseline, owner, user validation</td>
+</tr>
+<tr>
+<td>BO-02</td>
+<td>Improve engagement, retention, and trust</td>
+<td>Product relationship</td>
+<td>Priority/timeframe Unknown</td>
+<td>Missing</td>
+<td>E2</td>
+<td>Causal model, guardrails, definitions</td>
+</tr>
+<tr>
+<td>BO-03</td>
+<td>Create a foundation for future savings/investment recommendations</td>
+<td>Future expansion</td>
+<td>Later implied</td>
+<td>Missing</td>
+<td>E2</td>
+<td>User value, scope, privacy, approval</td>
+</tr>
+</tbody></table>
+<h2>User Segments</h2>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Evidence-based definition</th>
+<th>Primary context</th>
+<th>Evidence</th>
+<th>Confidence</th>
+<th>Research gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Frequent digital-payment spend reviewers</td>
+<td>BRD-defined candidate who makes frequent digital payments</td>
+<td>Personal/monthly spending review</td>
+<td>E3</td>
+<td>LOW</td>
+<td>Actual behavior, frequency, overlap, age relevance</td>
+</tr>
+<tr>
+<td>Household commitment managers</td>
+<td>BRD-defined candidate responsible for household expenses</td>
+<td>Bills/recurring commitments</td>
+<td>E3</td>
+<td>LOW</td>
+<td>Shared roles, permissions, workflows, tools</td>
+</tr>
+<tr>
+<td>New financial-planning starters</td>
+<td>BRD-defined candidate new to budgeting</td>
+<td>First-time/simple planning</td>
+<td>E3</td>
+<td>LOW</td>
+<td>Experience definition, literacy, motivations, behavior</td>
+</tr>
+</tbody></table>
+<h2>User Goals</h2>
+<ul>
+<li>[LOW] Understand spending patterns with limited manual effort. (Evidence: E1, E4)</li>
+<li>[LOW] See household and recurring commitments clearly. (Evidence: E4)</li>
+<li>[LOW] Begin financial planning with clear, non-judgmental guidance. (Evidence: E4, E6)</li>
+</ul>
+<h2>User Needs</h2>
+<table>
+<thead>
+<tr>
+<th>Need ID</th>
+<th>User segment</th>
+<th>Need statement</th>
+<th>Context/evidence</th>
+<th>Priority</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N-01</td>
+<td>Frequent spend reviewers</td>
+<td>Need a way to understand where spending went because the BRD describes low visibility and manual tracking burden</td>
+<td>E1, E4</td>
+<td>Validation first</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>N-02</td>
+<td>All candidates</td>
+<td>Need a way to recognize and correct inaccurate categorization because incorrect classification can undermine comprehension and trust</td>
+<td>E7</td>
+<td>Validation first</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>N-03</td>
+<td>Household managers</td>
+<td>Need a way to understand recurring commitments because the BRD assigns them responsibility for bills and household expenses</td>
+<td>E4</td>
+<td>Validation first</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>N-04</td>
+<td>New planning starters</td>
+<td>Need understandable, non-judgmental guidance because complexity and guilt are identified as product risks</td>
+<td>E4, E6</td>
+<td>Validation first</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>N-05</td>
+<td>All candidates</td>
+<td>Need understandable control over transaction-data use because financial-data analysis may create privacy concern</td>
+<td>E6, E8</td>
+<td>Mandatory risk discovery</td>
+<td>LOW</td>
+</tr>
+<tr>
+<td>N-06</td>
+<td>Users across access contexts</td>
+<td>Need an operable and comprehensible mobile experience because the product is mobile-first and financial understanding is central</td>
+<td>E8</td>
+<td>Mandatory inclusion discovery</td>
+<td>LOW</td>
+</tr>
+</tbody></table>
+<h2>Pain Points</h2>
+<ul>
+<li>[LOW] Candidate lack of spending visibility; user consequence and frequency are Unknown. (Evidence: E4)</li>
+<li>[LOW] Candidate manual tracking burden; actual workaround is Unknown. (Evidence: E4)</li>
+<li>[LOW] Candidate category errors may impair trust/control; incidence is Unknown. (Evidence: E7)</li>
+<li>[LOW] Candidate complexity, judgment, and privacy concerns may cause avoidance or harm; no direct outcome evidence exists. (Evidence: E6)</li>
+</ul>
+<h2>Motivations</h2>
+<p>No motivation is supportable as a user fact. The BRD&#39;s desire for “control” and “better money habits” is business context and remains [LOW] until users describe the outcome and context. (Evidence: E1, E4)</p>
+<h2>Jobs-to-be-Done (JTBD)</h2>
+<ul>
+<li>[LOW] When reviewing a recent period of spending, I want to understand where money went, so I can decide whether any action is needed. All components are inferred from BRD scenarios. (Evidence: E1, E9)</li>
+<li>[LOW] When reviewing household commitments, I want to distinguish recurring and variable costs, so I can understand obligations. All components are provisional. (Evidence: E4, E9)</li>
+<li>[LOW] When beginning financial planning, I want information explained simply and without judgment, so I can take a manageable next step. All components are provisional. (Evidence: E4, E6)</li>
+</ul>
+<h2>Assumptions</h2>
+<table>
+<thead>
+<tr>
+<th>Assumption</th>
+<th>Prompting evidence</th>
+<th>Risk if wrong</th>
+<th>Owner</th>
+<th>Validation method</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Candidate segments are distinct/actionable</td>
+<td>E3</td>
+<td>Misaligned design/recruitment</td>
+<td>Research owner missing</td>
+<td>Contextual research + behavioral data</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>Visibility/manual effort is important and frequent</td>
+<td>E4</td>
+<td>Weak product value</td>
+<td>Research/product owner missing</td>
+<td>Recent-event interviews/diary</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>Automation with correction improves trust</td>
+<td>E7</td>
+<td>Error amplification</td>
+<td>Data/research owner missing</td>
+<td>Accuracy study + correction usability</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>Nudges help rather than shame/annoy</td>
+<td>E6</td>
+<td>Financial/psychological harm</td>
+<td>Content/research owner missing</td>
+<td>Inclusive content/harm study</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>Data use can be explained and controlled lawfully</td>
+<td>E8</td>
+<td>Privacy/compliance harm</td>
+<td>Privacy/legal owner missing</td>
+<td>Policy/legal review + comprehension test</td>
+<td>Open</td>
+</tr>
+</tbody></table>
+<h2>Constraints</h2>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Type</th>
+<th>Fixed/negotiable/unknown</th>
+<th>User impact</th>
+<th>Business impact</th>
+<th>Evidence</th>
+<th>Owner/action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mobile-first/small screens</td>
+<td>Platform</td>
+<td>Documented; supported matrix Unknown</td>
+<td>Legibility/operability</td>
+<td>Reach/adoption</td>
+<td>E8</td>
+<td>Product/engineering owner missing</td>
+</tr>
+<tr>
+<td>Financial-data privacy/security</td>
+<td>Legal/risk</td>
+<td>Mandatory intent; controls Unknown</td>
+<td>Trust/control/harm</td>
+<td>Launch/compliance</td>
+<td>E8</td>
+<td>Human privacy/security review required</td>
+</tr>
+<tr>
+<td>Two-second load for “most users”</td>
+<td>Performance</td>
+<td>Incomplete</td>
+<td>Waiting/abandonment Unknown</td>
+<td>Engagement risk</td>
+<td>E8</td>
+<td>Define percentile/context</td>
+</tr>
+<tr>
+<td>Calm, clear, non-judgmental tone</td>
+<td>Content/ethics</td>
+<td>Documented preference/risk control</td>
+<td>Comprehension/safety</td>
+<td>Trust</td>
+<td>E6</td>
+<td>Content governance/testing</td>
+</tr>
+<tr>
+<td>Categorization accuracy</td>
+<td>Data/system</td>
+<td>Threshold Unknown</td>
+<td>Correction burden/trust</td>
+<td>Core value</td>
+<td>E7</td>
+<td>Define test set/fallback</td>
+</tr>
+<tr>
+<td>Accessibility across literacy levels</td>
+<td>Inclusion</td>
+<td>Incomplete</td>
+<td>Potential exclusion</td>
+<td>Adoption/risk</td>
+<td>E8</td>
+<td>Define measurable coverage</td>
+</tr>
+</tbody></table>
+<h2>Problem Statements</h2>
+<h3>PS-01</h3>
+<ul>
+<li><strong>User:</strong> Frequent digital-payment spend reviewers (provisional)</li>
+<li><strong>Context:</strong> When trying to understand a recent spending period</li>
+<li><strong>Problem:</strong> [LOW] The person may lack a clear, low-effort account of where money went</li>
+<li><strong>User consequence:</strong> [LOW] Understanding and decision-making may be delayed or abandoned</li>
+<li><strong>Business consequence:</strong> BO-01 and BO-02 may not be achieved</li>
+<li><strong>Evidence and confidence:</strong> [LOW] (Evidence: E1, E4)</li>
+</ul>
+<h3>PS-02</h3>
+<ul>
+<li><strong>User:</strong> Household commitment managers (provisional)</li>
+<li><strong>Context:</strong> When reviewing household and recurring costs</li>
+<li><strong>Problem:</strong> [LOW] Commitments may be difficult to distinguish and verify</li>
+<li><strong>User consequence:</strong> [LOW] Fixed obligations may remain unclear</li>
+<li><strong>Business consequence:</strong> Core tracker value and trust may be reduced</li>
+<li><strong>Evidence and confidence:</strong> [LOW] (Evidence: E4, E9)</li>
+</ul>
+<h3>PS-03</h3>
+<ul>
+<li><strong>User:</strong> New financial-planning starters (provisional)</li>
+<li><strong>Context:</strong> When beginning to interpret spending or plan a next step</li>
+<li><strong>Problem:</strong> [LOW] Complexity or judgmental framing may make the experience difficult or unsafe to use</li>
+<li><strong>User consequence:</strong> [LOW] The person may not understand or continue</li>
+<li><strong>Business consequence:</strong> BO-01 and BO-02 may be harmed</li>
+<li><strong>Evidence and confidence:</strong> [LOW] (Evidence: E4, E6)</li>
+</ul>
+<h3>PS-04</h3>
+<ul>
+<li><strong>User:</strong> All candidate users</li>
+<li><strong>Context:</strong> When automated categorization or financial-data analysis is used</li>
+<li><strong>Problem:</strong> [LOW] Inaccurate or opaque system behavior may reduce control and trust</li>
+<li><strong>User consequence:</strong> [LOW] Incorrect understanding, correction burden, or privacy concern</li>
+<li><strong>Business consequence:</strong> BO-01/BO-02 and financial-data risk</li>
+<li><strong>Evidence and confidence:</strong> [LOW] (Evidence: E7, E8)</li>
+</ul>
+<h2>Opportunity Areas</h2>
+<table>
+<thead>
+<tr>
+<th>Opportunity</th>
+<th>Need/problem supported</th>
+<th>User value</th>
+<th>Business value</th>
+<th>Constraint/risk</th>
+<th>Confidence</th>
+<th>Validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>How might we help people comprehend a spending period with low effort?</td>
+<td>N-01 / PS-01</td>
+<td>Clarity</td>
+<td>BO-01/02</td>
+<td>Accuracy, overload</td>
+<td>LOW</td>
+<td>Current-behavior study + concept test</td>
+</tr>
+<tr>
+<td>How might we make categorization understandable and recoverable?</td>
+<td>N-02 / PS-04</td>
+<td>Control/trust</td>
+<td>BO-01/02</td>
+<td>Data/model rules</td>
+<td>LOW</td>
+<td>Error-case research/usability</td>
+</tr>
+<tr>
+<td>How might we support commitment review without exposing shared financial data?</td>
+<td>N-03 / PS-02</td>
+<td>Obligation clarity</td>
+<td>BO-01</td>
+<td>Privacy/permissions</td>
+<td>LOW</td>
+<td>Household research + policy review</td>
+</tr>
+<tr>
+<td>How might we support an understandable, non-judgmental next step?</td>
+<td>N-04 / PS-03</td>
+<td>Comprehension/safety</td>
+<td>BO-02</td>
+<td>Tone/accessibility</td>
+<td>LOW</td>
+<td>Inclusive content testing</td>
+</tr>
+</tbody></table>
+<h2>Success Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>User/business outcome</th>
+<th>Definition</th>
+<th>Baseline</th>
+<th>Target</th>
+<th>Segment</th>
+<th>Timeframe</th>
+<th>Source</th>
+<th>Owner</th>
+<th>Guardrail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spending-summary comprehension</td>
+<td>User understanding</td>
+<td>Not defined</td>
+<td>Unknown</td>
+<td>Not approved</td>
+<td>All</td>
+<td>Unknown</td>
+<td>Proposed from BO-01</td>
+<td>Missing</td>
+<td>Misinterpretation/error</td>
+</tr>
+<tr>
+<td>Category correction task success/burden</td>
+<td>Control/trust</td>
+<td>Not defined</td>
+<td>Unknown</td>
+<td>Not approved</td>
+<td>All</td>
+<td>Unknown</td>
+<td>N-02</td>
+<td>Missing</td>
+<td>Repeat errors/privacy</td>
+</tr>
+<tr>
+<td>Tracker engagement/retention</td>
+<td>Business use</td>
+<td>Candidate only</td>
+<td>Unknown</td>
+<td>BRD candidates; not approved actuals</td>
+<td>All</td>
+<td>BRD first-month/weekly references incomplete</td>
+<td>E2</td>
+<td>Missing</td>
+<td>Trust, harm, accessibility</td>
+</tr>
+<tr>
+<td>Accessibility task success</td>
+<td>Inclusion</td>
+<td>Not defined</td>
+<td>Unknown</td>
+<td>Not approved</td>
+<td>Access contexts</td>
+<td>Unknown</td>
+<td>N-06</td>
+<td>Missing</td>
+<td>No subgroup masked by aggregate</td>
+</tr>
+</tbody></table>
+<h2>Traceability Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Business objective</th>
+<th>User segment</th>
+<th>Goal/JTBD</th>
+<th>User need</th>
+<th>Pain point</th>
+<th>Problem statement</th>
+<th>Opportunity</th>
+<th>Requirement</th>
+<th>Success metric</th>
+<th>Evidence/gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>BO-01</td>
+<td>Frequent reviewers</td>
+<td>Review period</td>
+<td>N-01</td>
+<td>Visibility/effort</td>
+<td>PS-01</td>
+<td>Comprehension</td>
+<td>FR1, FR5–6</td>
+<td>Comprehension</td>
+<td>E1/E4; direct evidence gap</td>
+</tr>
+<tr>
+<td>BO-01/02</td>
+<td>All</td>
+<td>Understand accurately</td>
+<td>N-02</td>
+<td>Category error</td>
+<td>PS-04</td>
+<td>Explainable recovery</td>
+<td>FR2–4</td>
+<td>Correction success/burden</td>
+<td>E7; incidence gap</td>
+</tr>
+<tr>
+<td>BO-01</td>
+<td>Household managers</td>
+<td>Review commitments</td>
+<td>N-03</td>
+<td>Fragmentation</td>
+<td>PS-02</td>
+<td>Commitment clarity</td>
+<td>FR9–10</td>
+<td>Not defined</td>
+<td>E4/E9; workflow/privacy gap</td>
+</tr>
+<tr>
+<td>BO-01/02</td>
+<td>New starters</td>
+<td>Take next step</td>
+<td>N-04/N-06</td>
+<td>Complexity/judgment</td>
+<td>PS-03</td>
+<td>Inclusive guidance</td>
+<td>FR1, FR6–8</td>
+<td>Comprehension/access success</td>
+<td>E6/E8; direct evidence gap</td>
+</tr>
+</tbody></table>
+<h2>Evidence Ledger</h2>
+<ul>
+<li><strong>E1:</strong> Product goal to understand spending without manual effort. — BRD §§1, 3</li>
+<li><strong>E2:</strong> Engagement, retention, trust, and future recommendation intent. — BRD §§4.4, 5.4, 12</li>
+<li><strong>E3:</strong> Three provisional consumer labels. — BRD §4</li>
+<li><strong>E4:</strong> Business-assigned user needs and unproven user quotations. — BRD §§2, 5</li>
+<li><strong>E5:</strong> No direct research, analytics, support, or feedback evidence supplied. — approved Phase 02 outputs and Phase 03 analytics analysis</li>
+<li><strong>E6:</strong> Tone, judgment, complexity, and privacy risks. — BRD §§6, 9, 13</li>
+<li><strong>E7:</strong> Categorization, correction, and memory requirements/risks. — BRD §§7.3, 10 FR2–FR4, 13.1</li>
+<li><strong>E8:</strong> Mobile, performance, accuracy, privacy, security, and accessibility intents. — BRD §11</li>
+<li><strong>E9:</strong> Proposed scenarios, not observed current behavior. — BRD §8</li>
+</ul>
+<h2>Recommendations and Validation Plan</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Action</th>
+<th>Decision supported</th>
+<th>Evidence</th>
+<th>Owner</th>
+<th>Timing</th>
+<th>Completion signal</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Critical</td>
+<td>Validate current behavior, candidate groups, goals, and pains</td>
+<td>Problem/segment validity</td>
+<td>E3–E5</td>
+<td>Research owner missing</td>
+<td>Before solution commitment</td>
+<td>Traceable direct evidence with contradictions</td>
+</tr>
+<tr>
+<td>Critical</td>
+<td>Resolve data/privacy/security/category rules</td>
+<td>Safe core scope</td>
+<td>E7–E8</td>
+<td>Authorized owners missing</td>
+<td>Before implementation decision</td>
+<td>Recorded decisions and measurable controls</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Test comprehension, correction, tone, and inclusion</td>
+<td>Core opportunity selection</td>
+<td>N-01–N-06</td>
+<td>Research/accessibility/content</td>
+<td>Before design approval</td>
+<td>Task/harm findings with evidence IDs</td>
+</tr>
+<tr>
+<td>High</td>
+<td>Define metric contracts and guardrails</td>
+<td>Outcome evaluation</td>
+<td>E2, E5</td>
+<td>Product/data owner</td>
+<td>Before build instrumentation</td>
+<td>Baselines, definitions, owners, periods</td>
+</tr>
+</tbody></table>
+</article>
+    <footer>Generated from user-needs-problem-statements.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business Goals, Target Users, and Constraints — Phase 01 · Requirement Analysis</title>
+  <style>
+    :root { --primary:#ff385c; --primary-dark:#b20d42; --ink:#222; --muted:#6a6a6a; --line:#ddd; --soft:#f7f7f7; --good:#087b52; --font:"Airbnb Cereal VF",Circular,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; color:var(--ink); background:var(--soft); font-family:var(--font); line-height:1.6; }
+    a { color:var(--primary-dark); } :focus-visible { outline:3px solid rgba(255,56,92,.3); outline-offset:3px; }
+    .topbar { position:sticky; z-index:5; top:0; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px clamp(18px,4vw,54px); border-bottom:1px solid var(--line); background:rgba(255,255,255,.94); backdrop-filter:blur(12px); }
+    .crumb { min-width:0; color:var(--muted); font-size:13px; font-weight:700; } .crumb strong { color:var(--ink); } .actions { display:flex; flex:0 0 auto; flex-wrap:wrap; gap:8px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ink); text-decoration:none; font-size:12px; font-weight:700; } .actions a:first-child { border-color:var(--primary); background:var(--primary); color:#fff; }
+    main { width:min(1040px,calc(100% - 32px)); margin:30px auto 64px; padding:clamp(24px,5vw,58px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .source-note { margin:0 0 32px; padding:13px 15px; border-left:4px solid var(--good); border-radius:8px; background:#eef9f3; color:#245b46; font-size:13px; }
+    .markdown-body h1 { margin:0 0 22px; font-size:clamp(32px,5vw,50px); line-height:1.08; letter-spacing:-1px; } .markdown-body h2 { margin:42px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); font-size:27px; line-height:1.2; } .markdown-body h3 { margin:30px 0 10px; font-size:20px; } .markdown-body h4 { margin:24px 0 8px; font-size:16px; }
+    .markdown-body p, .markdown-body li { color:#3f3f3f; } .markdown-body strong { color:var(--ink); } .markdown-body ul, .markdown-body ol { padding-left:24px; } .markdown-body li { margin:5px 0; }
+    .markdown-body blockquote { margin:20px 0; padding:12px 18px; border-left:4px solid var(--primary); background:#fff3f6; color:#5c3441; } .markdown-body blockquote p { margin:0; }
+    .markdown-body table { width:100%; border-collapse:collapse; margin:18px 0 28px; font-size:13px; } .markdown-body th, .markdown-body td { padding:11px 12px; border:1px solid var(--line); text-align:left; vertical-align:top; } .markdown-body th { background:var(--soft); color:var(--ink); } .markdown-body tr:nth-child(even) td { background:#fcfcfc; }
+    .markdown-body code { padding:2px 5px; border-radius:5px; background:#f0f0f0; font-family:Consolas,"SFMono-Regular",monospace; font-size:.9em; } .markdown-body pre { overflow:auto; padding:18px; border-radius:12px; background:#201b1f; color:#f7f7f7; } .markdown-body pre code { padding:0; background:transparent; color:inherit; }
+    .markdown-body hr { height:1px; margin:32px 0; border:0; background:var(--line); } .markdown-body input[type="checkbox"] { margin-right:7px; accent-color:var(--primary); }
+    footer { margin-top:42px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    @media(max-width:720px) { .topbar { align-items:flex-start; flex-direction:column; } .actions { width:100%; } main { width:min(100% - 20px,1040px); margin-top:10px; padding:22px 18px; border-radius:14px; } .markdown-body table { display:block; overflow-x:auto; white-space:nowrap; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="crumb">Smart Expense UX / <strong>Phase 01 · Requirement Analysis</strong></div>
+    <nav class="actions" aria-label="Document navigation"><a href="../consolidated-phases.html#output-catalog">All phase outputs</a><a href="./brd-goals-users-constraints.md">Markdown source</a></nav>
+  </header>
+  <main>
+    <p class="source-note"><strong>HTML presentation view.</strong> The adjacent Markdown file remains the evidence-bearing source. Approval and evidence limitations are unchanged.</p>
+    <article class="markdown-body"><h1>Business Goals, Target Users, and Constraints</h1>
+<h2>Evidence Framework</h2>
+<ul>
+<li><strong>Explicit:</strong> stated directly in the BRD.</li>
+<li><strong>Inferred:</strong> synthesis from consistent BRD statements; validation required.</li>
+<li><strong>Assumption:</strong> plausible but unverified.</li>
+<li><strong>Gap:</strong> material information is missing.</li>
+<li><strong>Conflict:</strong> credible statements differ.</li>
+</ul>
+<p>Primary source: <code>projects/starter/input/fintech-smart-expense-tracker-brd-input.md</code>. The BRD is business context, not direct user research; its quotations have no participant or study provenance.</p>
+<h2>4.1 Business Goals Are Clearly Identified</h2>
+<table>
+<thead>
+<tr>
+<th>Goal ID</th>
+<th>Business goal</th>
+<th>Problem/opportunity</th>
+<th>Expected value</th>
+<th>Priority</th>
+<th>Time horizon</th>
+<th>Evidence/source</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1</td>
+<td>Help users understand spending without manual entry</td>
+<td>Users lack spending visibility and avoid manual budgeting</td>
+<td>Greater control and comprehension</td>
+<td>High</td>
+<td>Not stated</td>
+<td>§§2–3</td>
+<td>Explicit; outcome-focused, owner/timeframe missing</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Increase engagement, retention, and trust</td>
+<td>Current usage centers on payments/transfers/balance</td>
+<td>More weekly feature engagement and trust</td>
+<td>High</td>
+<td>First month target appears in §12</td>
+<td>§§4.4, 12</td>
+<td>Explicit; causal assumptions unvalidated</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Establish a basis for future saving/investment recommendations</td>
+<td>Expense insight could support later planning</td>
+<td>Future product expansion</td>
+<td>Medium</td>
+<td>Not stated</td>
+<td>§5 Internal Product Team Needs</td>
+<td>Explicit but outside current feature scope</td>
+</tr>
+</tbody></table>
+<h2>4.2 Success Metrics Are Documented</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Goal</th>
+<th>Definition</th>
+<th>Baseline</th>
+<th>Target</th>
+<th>Timeframe</th>
+<th>Segment</th>
+<th>Data source</th>
+<th>Owner</th>
+<th>Gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tracker visit rate</td>
+<td>G2</td>
+<td>Active-user denominator not defined</td>
+<td>Gap</td>
+<td>40%</td>
+<td>First month</td>
+<td>Active users</td>
+<td>Gap</td>
+<td>Gap</td>
+<td>Exposure and eligibility missing</td>
+</tr>
+<tr>
+<td>Budget setup rate</td>
+<td>G1/G2</td>
+<td>Tracker-user denominator implied</td>
+<td>Gap</td>
+<td>25%</td>
+<td>Not stated</td>
+<td>Tracker users</td>
+<td>Gap</td>
+<td>Gap</td>
+<td>Event/period missing</td>
+</tr>
+<tr>
+<td>Categorization accuracy</td>
+<td>G1</td>
+<td>Accuracy method not defined</td>
+<td>Gap</td>
+<td>70%</td>
+<td>Not stated</td>
+<td>Transactions</td>
+<td>Gap</td>
+<td>Gap</td>
+<td>Ground truth/sample missing</td>
+</tr>
+<tr>
+<td>Weekly engagement lift</td>
+<td>G2</td>
+<td>Cohort and counterfactual not defined</td>
+<td>Gap</td>
+<td>15%</td>
+<td>Not stated</td>
+<td>Enabled users</td>
+<td>Gap</td>
+<td>Gap</td>
+<td>Causality/guardrails missing</td>
+</tr>
+<tr>
+<td>Insight interaction rate</td>
+<td>G1/G2</td>
+<td>Interaction event not defined</td>
+<td>Gap</td>
+<td>20%</td>
+<td>Not stated</td>
+<td>Users</td>
+<td>Gap</td>
+<td>Gap</td>
+<td>Usefulness not measured</td>
+</tr>
+</tbody></table>
+<p>All metrics are <strong>Explicit</strong> targets but operationally incomplete.</p>
+<h2>4.3 All Target User Groups Are Captured</h2>
+<table>
+<thead>
+<tr>
+<th>User group</th>
+<th>Role/context</th>
+<th>Classification</th>
+<th>Goals</th>
+<th>Behaviours</th>
+<th>Access needs</th>
+<th>Evidence</th>
+<th>Missing research</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Young Working Professional</td>
+<td>Salaried, frequent digital payments</td>
+<td>Provisional primary</td>
+<td>Understand monthly spending</td>
+<td>Frequent payments is Documented, not observed</td>
+<td>Mobile, plain language; other needs Gap</td>
+<td>§§4.1, 5</td>
+<td>Validate age relevance, workflow, trust, devices</td>
+</tr>
+<tr>
+<td>Budget-Conscious Household Manager</td>
+<td>Manages recurring household costs</td>
+<td>Provisional primary</td>
+<td>See bills/categories and correct errors</td>
+<td>Management behavior is Documented</td>
+<td>Potential shared context; accessibility Gap</td>
+<td>§§4.2, 5, 8.4</td>
+<td>Validate household roles and shared use</td>
+</tr>
+<tr>
+<td>First-Time Financial Planner</td>
+<td>New to budgeting</td>
+<td>Provisional primary/secondary</td>
+<td>Simple guidance without jargon</td>
+<td>Experience level is Documented</td>
+<td>Financial literacy/plain language</td>
+<td>§§4.3, 5, 9</td>
+<td>Validate knowledge, confidence, barriers</td>
+</tr>
+<tr>
+<td>Internal Product Team</td>
+<td>Product/design/analytics operator</td>
+<td>Supporting actor, not target consumer</td>
+<td>Engagement, retention, insight</td>
+<td>Not a consumer usage segment</td>
+<td>Operational access Gap</td>
+<td>§§4.4–5</td>
+<td>Add owners and decision rights</td>
+</tr>
+</tbody></table>
+<p>Low-connectivity, multilingual, assistive-technology, older, credit-card, cash-heavy, shared-account, and high-risk financial contexts are <strong>Gaps</strong>, not inferred segments.</p>
+<h2>4.4 User Needs and Pain Points Are Defined</h2>
+<table>
+<thead>
+<tr>
+<th>User group</th>
+<th>Need/JTBD</th>
+<th>Pain point</th>
+<th>Workaround</th>
+<th>Desired outcome</th>
+<th>Evidence</th>
+<th>Priority</th>
+<th>Related requirement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Working professional</td>
+<td>Understand spending quickly</td>
+<td>Salary seems to disappear; late awareness</td>
+<td>Gap</td>
+<td>Automatic monthly clarity</td>
+<td>§§2, 5.1</td>
+<td>High / Documented</td>
+<td>FR1, FR2, FR5, FR6</td>
+</tr>
+<tr>
+<td>Household manager</td>
+<td>See recurring/category commitments</td>
+<td>Fragmented household cost visibility</td>
+<td>Gap</td>
+<td>Review bills and correct categories</td>
+<td>§§5.2, 8.4</td>
+<td>High / Documented</td>
+<td>FR3, FR9, FR10</td>
+</tr>
+<tr>
+<td>First-time planner</td>
+<td>Start budgeting simply</td>
+<td>Budgeting tools feel complex/manual</td>
+<td>Avoids manual tracking per BRD</td>
+<td>Plain-language visual guidance</td>
+<td>§§2, 5.3, 9</td>
+<td>High / Documented</td>
+<td>FR1, FR6, FR7</td>
+</tr>
+</tbody></table>
+<p>These are BRD claims. Direct user-research validation is a <strong>Gap</strong>.</p>
+<h2>4.5 Technical and Business Constraints Are Identified</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Type</th>
+<th>Constraint</th>
+<th>Source</th>
+<th>Fixed/negotiable</th>
+<th>Impact</th>
+<th>Owner</th>
+<th>Validation needed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C1</td>
+<td>Platform</td>
+<td>Mobile-first, works on small screens</td>
+<td>§§6, 11</td>
+<td>Documented; fixed status unknown</td>
+<td>Responsive hierarchy</td>
+<td>Gap</td>
+<td>Supported OS/device matrix</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Performance</td>
+<td>Dashboard within 2 seconds for most users</td>
+<td>§11</td>
+<td>Documented; measurement incomplete</td>
+<td>Perceived speed</td>
+<td>Gap</td>
+<td>Percentile/network/device</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Privacy</td>
+<td>Explain transaction-data use</td>
+<td>§§11, 13.3</td>
+<td>Mandatory intent; rules missing</td>
+<td>Trust/compliance</td>
+<td>Gap</td>
+<td>Legal basis, consent, retention</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Security</td>
+<td>Financial-data security standards</td>
+<td>§11</td>
+<td>Mandatory but unspecified</td>
+<td>High-risk financial data</td>
+<td>Gap</td>
+<td>Applicable standards and controls</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>Tone</td>
+<td>Calm, helpful, non-judgmental, clear</td>
+<td>§§6, 9</td>
+<td>Documented</td>
+<td>Insight content and harm prevention</td>
+<td>Content owner Gap</td>
+<td>Content governance/testing</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>Accuracy</td>
+<td>Reduce manual correction</td>
+<td>§11</td>
+<td>Target negotiability unknown</td>
+<td>Trust and workload</td>
+<td>Data owner Gap</td>
+<td>Accuracy definition/test set</td>
+</tr>
+</tbody></table>
+<p>Dependencies on transaction feeds, notification systems, categorization logic, analytics, export generation, and compliance approval are <strong>Gaps</strong>.</p>
+<h2>4.6 Risks and Dependencies Are Documented</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risk/dependency</th>
+<th>Category</th>
+<th>Trigger</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Affected goal/user</th>
+<th>Owner</th>
+<th>Mitigation/action</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>R1</td>
+<td>Incorrect categorization</td>
+<td>Data/trust</td>
+<td>Misclassification</td>
+<td>Gap</td>
+<td>High</td>
+<td>G1/all consumers</td>
+<td>Gap</td>
+<td>Easy correction and memory (§13)</td>
+<td>Explicit risk; controls incomplete</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Judgmental insights</td>
+<td>Content/harm</td>
+<td>Blaming or alarming wording</td>
+<td>Gap</td>
+<td>High</td>
+<td>G1/new planners</td>
+<td>Gap</td>
+<td>Neutral supportive tone</td>
+<td>Explicit risk</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Privacy concern</td>
+<td>Privacy/trust</td>
+<td>Unclear data use</td>
+<td>Gap</td>
+<td>Critical</td>
+<td>G1/G2/all consumers</td>
+<td>Gap</td>
+<td>Clear messaging and control</td>
+<td>Explicit risk</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Excess complexity</td>
+<td>Usability</td>
+<td>Too many planning tools</td>
+<td>Gap</td>
+<td>High</td>
+<td>First-time planners</td>
+<td>Gap</td>
+<td>Start with simple summaries</td>
+<td>Explicit risk</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Low adoption</td>
+<td>Product/discovery</td>
+<td>Poor discoverability/understanding</td>
+<td>Gap</td>
+<td>High</td>
+<td>G2</td>
+<td>Gap</td>
+<td>Onboarding and empty states</td>
+<td>Explicit risk</td>
+</tr>
+</tbody></table>
+<h2>4.7 UX Opportunities Are Highlighted</h2>
+<table>
+<thead>
+<tr>
+<th>Opportunity</th>
+<th>User evidence</th>
+<th>User value</th>
+<th>Business value</th>
+<th>Constraint/risk</th>
+<th>Hypothesis</th>
+<th>Validation</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spending-at-a-glance</td>
+<td>BRD §§2, 5, 8; Documented only</td>
+<td>Faster comprehension</td>
+<td>Engagement</td>
+<td>Data accuracy</td>
+<td>A calm monthly summary may improve comprehension</td>
+<td>Prototype test + task comprehension</td>
+<td>Now</td>
+</tr>
+<tr>
+<td>Explainable correction</td>
+<td>§§7.3, 8.3, FR3–4</td>
+<td>Control and trust</td>
+<td>Better categorization</td>
+<td>Merchant identity/rules</td>
+<td>Transparent correction and memory may reduce repeat edits</td>
+<td>Workflow usability + accuracy study</td>
+<td>Now</td>
+</tr>
+<tr>
+<td>Non-judgmental insight language</td>
+<td>§§6, 9, 13.2</td>
+<td>Psychological safety</td>
+<td>Trust/retention</td>
+<td>Content governance</td>
+<td>Neutral comparisons may support action without guilt</td>
+<td>Content comprehension and harm review</td>
+<td>Now</td>
+</tr>
+<tr>
+<td>Recurring-cost visibility</td>
+<td>§§5.2, 7.6, 8.4</td>
+<td>See commitments</td>
+<td>Tracker value</td>
+<td>Detection quality</td>
+<td>Reviewable recurring items may aid household planning</td>
+<td>Concept test</td>
+<td>Next</td>
+</tr>
+<tr>
+<td>Budget nudges</td>
+<td>§§7.5, 8.2</td>
+<td>Timely awareness</td>
+<td>Engagement</td>
+<td>Notification fatigue</td>
+<td>User-controlled nudges may support habits</td>
+<td>Opt-in and notification test</td>
+<td>Next</td>
+</tr>
+</tbody></table>
+<p>All opportunities are hypotheses, not requirements beyond the cited BRD scope.</p>
+<h2>4.8 Recommendations Align with Business and User Needs</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Recommendation</th>
+<th>Goal</th>
+<th>User need</th>
+<th>Evidence</th>
+<th>Expected impact</th>
+<th>Effort/complexity</th>
+<th>Owner</th>
+<th>Next step</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Now</td>
+<td>Validate provisional user segments and needs</td>
+<td>G1/G2</td>
+<td>All</td>
+<td>BRD-only basis</td>
+<td>Prevent solution built on assumptions</td>
+<td>Medium</td>
+<td>Research owner Gap</td>
+<td>Interviews/contextual research</td>
+</tr>
+<tr>
+<td>Now</td>
+<td>Define data, privacy, security, and categorization rules</td>
+<td>G1</td>
+<td>Trust/control</td>
+<td>FR2–4, §§11–13</td>
+<td>Safer, testable system</td>
+<td>High</td>
+<td>Product/data/security Gap</td>
+<td>Cross-functional decision workshop</td>
+</tr>
+<tr>
+<td>Now</td>
+<td>Convert FRs to traceable acceptance cases</td>
+<td>G1/G2</td>
+<td>Reliable experience</td>
+<td>§§10, 15</td>
+<td>Delivery clarity</td>
+<td>Medium</td>
+<td>Product/QA Gap</td>
+<td>Requirements workshop</td>
+</tr>
+<tr>
+<td>Next</td>
+<td>Prototype summary and correction flows</td>
+<td>G1</td>
+<td>Comprehension/control</td>
+<td>§§7–8</td>
+<td>Validate core value</td>
+<td>Medium</td>
+<td>UX</td>
+<td>Test with representative users</td>
+</tr>
+<tr>
+<td>Later</td>
+<td>Assess budgets, recurring, and export sequencing</td>
+<td>G1/G2/G3</td>
+<td>Planning/records</td>
+<td>§§7, 14</td>
+<td>Avoid scope overload</td>
+<td>Unknown</td>
+<td>Product</td>
+<td>Research + prioritization</td>
+</tr>
+</tbody></table>
+<h2>5. Alignment and Traceability Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Metric</th>
+<th>Target user</th>
+<th>Need</th>
+<th>Constraint</th>
+<th>Risk/dependency</th>
+<th>UX opportunity</th>
+<th>Recommendation</th>
+<th>Evidence/gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G1 understanding</td>
+<td>Categorization accuracy; insight use</td>
+<td>Three provisional consumer groups</td>
+<td>Automatic clarity/control</td>
+<td>Mobile, accuracy, tone</td>
+<td>R1–R4; data dependencies Gap</td>
+<td>Summary + correction</td>
+<td>Validate users; define rules; prototype</td>
+<td>BRD §§2–11; direct research Gap</td>
+</tr>
+<tr>
+<td>G2 engagement/trust</td>
+<td>Visit, budget, engagement targets</td>
+<td>All consumers</td>
+<td>Useful trustworthy guidance</td>
+<td>Privacy/security</td>
+<td>R2–R5; analytics Gap</td>
+<td>Explainable insights</td>
+<td>Define metrics and privacy controls</td>
+<td>BRD §§4.4, 12–13</td>
+</tr>
+<tr>
+<td>G3 future recommendations</td>
+<td>Not stated</td>
+<td>Not validated</td>
+<td>Future planning</td>
+<td>Scope/privacy</td>
+<td>Premature expansion</td>
+<td>Not yet supported</td>
+<td>Defer pending evidence</td>
+<td>§5 only</td>
+</tr>
+</tbody></table>
+<h2>6. Executive Summary</h2>
+<ul>
+<li>Three business goals are identifiable, but owners, baselines, and time horizons are incomplete.</li>
+<li>The three consumer groups are provisional BRD segments; the internal product team is a supporting actor.</li>
+<li>The strongest documented constraints are mobile-first usability, supportive tone, privacy explanation, security intent, performance, and categorization accuracy; most are not measurable.</li>
+<li>The highest risks are incorrect categorization, privacy/trust harm, judgmental messaging, complexity, and low adoption.</li>
+<li>The most promising provisional opportunities are a clear monthly summary, explainable category correction, and non-judgmental insights.</li>
+<li><strong>Overall evidence confidence: Low.</strong> The source is a single BRD with no traceable direct research, analytics dataset, stakeholder interviews, competitive evidence, or approved decision owners.</li>
+</ul>
+<h2>7. Completion Checklist</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Goals, candidate metrics, groups, needs, constraints, risks, opportunities, and recommendations are captured.</li>
+<li><input checked="" disabled="" type="checkbox"> Every material finding is labelled or described as Explicit, Inferred, Assumption, Gap, or Conflict.</li>
+<li><input checked="" disabled="" type="checkbox"> Traceability exposes unlinked evidence, ownership, measurement, and research gaps.</li>
+<li><input disabled="" type="checkbox"> Direct user evidence validates the segments and needs — blocked.</li>
+<li><input disabled="" type="checkbox"> Technical/business constraints have owners and validation — blocked.</li>
+</ul>
+</article>
+    <footer>Generated from brd-goals-users-constraints.md for the consolidated workflow report.</footer>
+  </main>
+</body>
+</html>
