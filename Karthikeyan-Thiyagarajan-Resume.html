@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Karthikeyan Thiyagarajan - Lead UX Designer resume">
+  <title>Karthikeyan Thiyagarajan - Lead UX Designer</title>
+  <style>
+    :root {
+      --bg: #07070b;
+      --panel: rgba(255,255,255,.065);
+      --panel-strong: rgba(255,255,255,.1);
+      --line: rgba(255,255,255,.14);
+      --text: #f7f6fb;
+      --muted: rgba(247,246,251,.58);
+      --violet: #8f71ff;
+      --blue: #64d8ff;
+      --lime: #d9ff72;
+      --coral: #ff6f88;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 76% 9%, rgba(80,78,255,.19), transparent 27rem),
+        radial-gradient(circle at 22% 31%, rgba(126,47,177,.14), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 64%);
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    .topbar {
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      width: min(calc(100% - 28px), 1240px);
+      min-height: 72px;
+      margin: 14px auto 0;
+      padding: 12px 14px 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(7,7,11,.78);
+      box-shadow: 0 20px 55px rgba(0,0,0,.34);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: linear-gradient(135deg,var(--violet),var(--blue)); color: #09090d; font-weight: 950; }
+    .topbar nav { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+    .topbar nav a { color: var(--muted); font-size: 12px; font-weight: 700; text-decoration: none; }
+    .topbar nav a:hover, .topbar nav a:focus-visible { color: var(--text); }
+    .download {
+      padding: 12px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 12px;
+      background: white;
+      color: #09090d;
+      font-size: 12px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .hero { min-height: 760px; padding: 120px 0 90px; position: relative; display: grid; align-items: center; }
+    .hero::after { content: "KARTHIKEYAN"; position: absolute; right: -1.5vw; bottom: 12px; color: rgba(255,255,255,.025); font-size: clamp(88px,16vw,220px); line-height: .8; font-weight: 950; letter-spacing: -.09em; pointer-events: none; }
+    .aura { position: absolute; width: 580px; height: 580px; right: -80px; top: 80px; border-radius: 50%; background: radial-gradient(circle at 38% 36%, rgba(130,102,255,.78), rgba(55,91,210,.3) 28%, rgba(10,170,221,.12) 48%, transparent 70%); filter: blur(12px); opacity: .66; pointer-events: none; }
+    .aura::before, .aura::after { content: ""; position: absolute; inset: 12%; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; transform: rotate(-18deg) scaleY(.58); }
+    .aura::after { inset: 24%; transform: rotate(24deg) scaleY(.72); border-color: rgba(100,216,255,.28); }
+
+    .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 9vw; align-items: end; }
+    .eyebrow { margin: 0 0 24px; color: var(--blue); font-size: 10px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    h1 { max-width: 780px; margin: 0; font-size: clamp(66px,9vw,126px); line-height: .82; letter-spacing: -.075em; font-weight: 620; }
+    h1 span { display: block; color: transparent; background: linear-gradient(90deg,#d9cfff,var(--violet),var(--blue)); -webkit-background-clip: text; background-clip: text; }
+    .role { margin: 34px 0 0; font-size: clamp(20px,2.3vw,32px); letter-spacing: -.035em; }
+    .hero-summary { max-width: 540px; margin: 22px 0 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .button { padding: 13px 16px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); font-size: 12px; font-weight: 800; text-decoration: none; backdrop-filter: blur(12px); }
+    .button.primary { border-color: transparent; background: linear-gradient(110deg,var(--violet),#508be8); }
+
+    .metric-stack { display: grid; gap: 12px; }
+    .metric-card { min-height: 118px; padding: 22px; display: grid; grid-template-columns: 70px 1fr; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(125deg,rgba(255,255,255,.09),rgba(255,255,255,.035)); box-shadow: inset 0 1px rgba(255,255,255,.08), 0 28px 80px rgba(0,0,0,.24); backdrop-filter: blur(20px); }
+    .metric-card strong { font-size: 38px; letter-spacing: -.06em; }
+    .metric-card span { color: var(--muted); font-size: 11px; line-height: 1.5; text-transform: uppercase; letter-spacing: .1em; }
+
+    .contact-strip { position: relative; z-index: 3; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .contact-list { display: grid; grid-template-columns: 1.15fr .75fr .65fr 1fr; gap: 1px; background: var(--line); }
+    .contact-list a, .contact-list div { min-height: 78px; padding: 17px 20px; display: flex; flex-direction: column; justify-content: center; background: var(--bg); text-decoration: none; }
+    .contact-list small { color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .13em; }
+    .contact-list strong { margin-top: 5px; font-size: 13px; }
+
+    .section { padding: 120px 0; position: relative; }
+    .section-heading { margin-bottom: 54px; display: grid; grid-template-columns: .65fr 1.35fr; gap: 7vw; align-items: end; }
+    .section-heading h2 { margin: 0; font-size: clamp(46px,6vw,78px); line-height: .95; letter-spacing: -.06em; font-weight: 580; }
+    .section-heading p:last-child { max-width: 650px; margin: 0; color: var(--muted); line-height: 1.7; }
+    .section-index { color: var(--coral); font-size: 10px; font-weight: 900; letter-spacing: .18em; }
+
+    .glass { border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.025)); box-shadow: inset 0 1px rgba(255,255,255,.08), 0 26px 80px rgba(0,0,0,.2); backdrop-filter: blur(18px); }
+    .principle { padding: 44px; display: grid; grid-template-columns: 170px 1fr; gap: 50px; align-items: start; }
+    .principle span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .principle blockquote { margin: 0; font-size: clamp(32px,4.5vw,62px); line-height: 1.05; letter-spacing: -.05em; }
+    .domains { margin-top: 18px; color: var(--muted); font-size: 13px; }
+
+    .capability-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .capability-card { min-height: 210px; padding: 24px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 19px; background: var(--panel); }
+    .capability-card > span { color: var(--blue); font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+    .capability-card h3 { margin: auto 0 20px; font-size: 23px; line-height: 1.1; letter-spacing: -.04em; }
+    .capability-card ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 12px; line-height: 1.85; }
+
+    .tool-block { margin-top: 22px; padding: 28px; }
+    .tool-row { display: grid; grid-template-columns: 170px 1fr; gap: 20px; align-items: start; }
+    .tool-row + .tool-row { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .tool-row strong { font-size: 13px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 8px 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255,255,255,.75); font-size: 10px; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 5px; top: 14px; bottom: 18px; width: 1px; background: linear-gradient(var(--violet),var(--blue),transparent); }
+    .job { margin-bottom: 18px; padding: 30px; display: grid; grid-template-columns: .58fr 1.42fr; gap: 5vw; position: relative; }
+    .job::before { content: ""; position: absolute; left: -28px; top: 39px; width: 11px; height: 11px; border: 2px solid var(--bg); border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 6px rgba(100,216,255,.12); }
+    .job small { color: var(--blue); font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
+    .job h3 { margin: 10px 0 4px; font-size: 25px; letter-spacing: -.04em; }
+    .job .company { color: rgba(255,255,255,.76); font-weight: 750; }
+    .job p { margin: 0; color: var(--muted); line-height: 1.72; }
+
+    .education-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .education-card { min-height: 200px; padding: 25px; display: flex; flex-direction: column; }
+    .education-card span { color: var(--coral); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+    .education-card strong { margin-top: auto; font-size: 19px; line-height: 1.25; }
+    .education-card p { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+
+    .projects { display: grid; gap: 18px; }
+    .project { overflow: hidden; display: grid; grid-template-columns: 280px 1fr; }
+    .project-title { min-height: 280px; padding: 28px; display: flex; flex-direction: column; position: relative; background: radial-gradient(circle at 10% 10%,rgba(143,113,255,.32),transparent 60%),rgba(255,255,255,.035); border-right: 1px solid var(--line); }
+    .project-title span { color: var(--blue); font-size: 9px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .project-title h3 { margin: auto 0 6px; font-size: 31px; line-height: 1; letter-spacing: -.05em; }
+    .project-title p { margin: 0; color: var(--muted); font-size: 12px; }
+    .project-copy { padding: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 38px; }
+    .project-copy h4 { margin: 0 0 13px; color: var(--lime); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .project-copy p, .project-copy li { color: var(--muted); font-size: 12px; line-height: 1.72; }
+    .project-copy p { margin: 0; }
+    .project-copy ul { margin: 0; padding-left: 18px; }
+
+    .contact-card { padding: 70px; position: relative; overflow: hidden; text-align: center; }
+    .contact-card::before { content: ""; position: absolute; width: 520px; height: 520px; left: 50%; top: 50%; border-radius: 50%; background: radial-gradient(circle,rgba(119,96,255,.4),rgba(52,167,221,.13) 38%,transparent 68%); transform: translate(-50%,-50%); }
+    .contact-card > * { position: relative; z-index: 2; }
+    .contact-card h2 { margin: 0; font-size: clamp(52px,8vw,104px); line-height: .88; letter-spacing: -.075em; }
+    .contact-card p { max-width: 610px; margin: 28px auto; color: var(--muted); }
+    .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    footer { padding: 30px 0 44px; display: flex; justify-content: space-between; gap: 24px; color: var(--muted); font-size: 10px; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .topbar nav { display: none; }
+      .download { margin-left: auto; }
+      .hero { padding-top: 90px; }
+      .hero-grid, .section-heading { grid-template-columns: 1fr; }
+      .metric-stack { grid-template-columns: repeat(3,1fr); margin-top: 36px; }
+      .metric-card { min-height: 100px; grid-template-columns: 1fr; gap: 4px; }
+      .contact-list { grid-template-columns: 1fr 1fr; }
+      .capability-grid { grid-template-columns: 1fr 1fr; }
+      .project { grid-template-columns: 1fr; }
+      .project-title { min-height: 210px; border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .topbar { width: calc(100% - 20px); min-height: 62px; top: 8px; margin-top: 8px; padding: 10px; gap: 12px; border-radius: 15px; }
+      .brand span:last-child { display: none; }
+      .brand-mark { width: 38px; height: 38px; }
+      .download { margin-left: auto; padding: 10px 12px; white-space: nowrap; }
+      .hero { min-height: 790px; padding: 100px 0 70px; align-items: start; }
+      .hero-grid, .hero-grid > *, .section-heading > *, .project > *, .job > * { min-width: 0; }
+      h1 { max-width: 100%; font-size: clamp(46px,15vw,62px); letter-spacing: -.065em; }
+      .hero-summary { max-width: 100%; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; justify-content: space-between; }
+      .aura { width: 360px; height: 360px; top: 300px; right: -150px; }
+      .metric-stack { grid-template-columns: 1fr; }
+      .metric-card { min-height: 88px; grid-template-columns: 70px 1fr; }
+      .contact-list, .capability-grid, .education-grid, .project-copy { grid-template-columns: 1fr; }
+      .section { padding: 88px 0; }
+      .principle { padding: 28px; grid-template-columns: 1fr; gap: 24px; }
+      .tool-row, .job { grid-template-columns: 1fr; }
+      .job { gap: 22px; padding: 24px; }
+      .contact-card { padding: 70px 22px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      :root { --bg: #fff; --text: #101018; --muted: #55535d; --line: #dddde4; --panel: #f6f6f8; }
+      body { background: white; color: #101018; }
+      body::before, .aura, .hero::after, .topbar nav { display: none; }
+      .topbar { position: static; width: 100%; margin: 0; border: 0; box-shadow: none; background: white; }
+      .download { border: 1px solid #ddd; }
+      .hero { min-height: auto; padding: 60px 0; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .metric-stack { grid-template-columns: repeat(3,1fr); margin-top: 28px; }
+      .metric-card, .glass, .capability-card { box-shadow: none; backdrop-filter: none; }
+      .section { padding: 60px 0; break-inside: avoid; }
+      .project, .job { break-inside: avoid; }
+      .contact-card { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="Resume navigation">
+    <a class="brand" href="index.html#top"><span class="brand-mark">KT</span><span>Karthikeyan T</span></a>
+    <nav aria-label="Resume sections">
+      <a href="#summary">Summary</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="download" href="Karthikeyan-Thiyagarajan-Resume.pdf" download>Download PDF <span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="aura" aria-hidden="true"></div>
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Human-centred design · AI-ready systems</p>
+          <h1>Karthikeyan <span>Thiyagarajan.</span></h1>
+          <p class="role">Lead UX Designer</p>
+          <p class="hero-summary">I design clear, accessible web and mobile experiences, build maintainable design systems, and guide teams from evidence to delivery across complex enterprise domains.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:kkstarboy@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+            <a class="button" href="https://www.linkedin.com/in/karthi-keyan-uxdesigner/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="button" href="index.html#pipeline">Agentic UX portfolio</a>
+          </div>
+        </div>
+        <div class="metric-stack" aria-label="Resume highlights">
+          <article class="metric-card"><strong>12+</strong><span>Years of UX design experience</span></article>
+          <article class="metric-card"><strong>05</strong><span>Enterprise domain groups</span></article>
+          <article class="metric-card"><strong>15</strong><span>Core UX capabilities</span></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-strip">
+      <div class="shell contact-list">
+        <a href="mailto:kkstarboy@gmail.com"><small>Email</small><strong>kkstarboy@gmail.com</strong></a>
+        <a href="tel:+919962882420"><small>Phone</small><strong>+91 99628 82420</strong></a>
+        <div><small>Location</small><strong>Chennai, India</strong></div>
+        <a href="https://www.figma.com/proto/8thUotruISkHMQYSSRVL85/Karthik_Portfolio?node-id=8-2&amp;t=BIilHeOcLmF2qOJC-0&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=8%3A2&amp;hide-ui=1" target="_blank" rel="noreferrer"><small>Earlier portfolio</small><strong>View Figma work ↗</strong></a>
+      </div>
+    </div>
+
+    <section class="section" id="summary">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><span class="section-index">01 · PROFILE</span><h2>Think.<br>Make. Solve.</h2></div>
+          <p>UX designer with 12+ years of experience creating human-centred frameworks for web and mobile products. Experienced in design-system creation and maintenance, accessibility, and experiences for audiences ranging from technical novices to trained engineers.</p>
+        </div>
+        <div class="principle glass reveal">
+          <span>Design principle</span>
+          <div>
+            <blockquote>Complex systems become useful when the experience feels calm, clear, and intentional.</blockquote>
+            <p class="domains"><strong>Domain expertise:</strong> Banking and financial services, healthcare, insurance, manufacturing and logistics, and retail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capabilities">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><span class="section-index">02 · CAPABILITIES</span><h2>From insight<br>to interface.</h2></div>
+          <p>A balanced practice spanning research, structure, interaction, visual craft, evaluation, and scalable design systems.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="capability-card reveal"><span>01</span><h3>Research and definition</h3><ul><li>User research</li><li>User personas</li><li>Empathy mapping</li><li>Journey mapping</li></ul></article>
+          <article class="capability-card reveal"><span>02</span><h3>Structure and flows</h3><ul><li>Information architecture</li><li>User flows</li><li>Wireframing</li><li>Design strategy</li></ul></article>
+          <article class="capability-card reveal"><span>03</span><h3>Interaction and validation</h3><ul><li>Interaction design</li><li>Usability evaluation</li><li>Expert evaluation</li><li>User experience design</li></ul></article>
+          <article class="capability-card reveal"><span>04</span><h3>Systems and visual craft</h3><ul><li>Design systems</li><li>User interface design</li><li>Visual design</li><li>Accessible frameworks</li></ul></article>
+        </div>
+        <div class="tool-block glass reveal">
+          <div class="tool-row"><strong>Design tools</strong><div class="chips"><span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">Sketch</span><span class="chip">Miro</span><span class="chip">Adobe Photoshop</span><span class="chip">Adobe Illustrator</span><span class="chip">Mural</span></div></div>
+          <div class="tool-row"><strong>AI tools</strong><div class="chips"><span class="chip">ChatGPT</span><span class="chip">Copilot</span><span class="chip">Google AI</span><span class="chip">QoQo</span><span class="chip">Notion</span><span class="chip">WireGen</span><span class="chip">Galileo AI</span><span class="chip">Visily AI</span><span class="chip">Firefly</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><span class="section-index">03 · EXPERIENCE</span><h2>Leadership<br>through craft.</h2></div>
+          <p>Experience across UX leadership, stakeholder collaboration, design systems, interaction design, and visual delivery for enterprise products.</p>
+        </div>
+        <div class="timeline">
+          <article class="job glass reveal">
+            <div><small>Present · Chennai · 5.5 years</small><h3>Lead UX Designer</h3><div class="company">Cognizant</div></div>
+            <p>Shapes user-experience strategy, guides a team of designers, and ensures delivery of intuitive user-centred solutions. Works as a strategic thinker, mentor, and advocate for the user.</p>
+          </article>
+          <article class="job glass reveal">
+            <div><small>Dec 2017 - Jun 2019 · Chennai</small><h3>Senior UX/UI Designer</h3><div class="company">Triad Software Pvt. Ltd.</div></div>
+            <p>Worked closely with product managers, engineers, and stakeholders to maintain design alignment and communicate design solutions and rationale to varied audiences.</p>
+          </article>
+          <article class="job glass reveal">
+            <div><small>May 2007 - Nov 2017 · Chennai</small><h3>UI/UX and Visual Designer</h3><div class="company">RR Donnelley</div></div>
+            <p>Owned the look and feel of digital products and services, translating user flows and wireframes into engaging, accessible interfaces while collaborating with product owners and marketing teams.</p>
+          </article>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-card glass reveal"><span>2007 - 2010</span><strong>B.Sc. Visual Communication</strong><p>Annamalai University</p></article>
+          <article class="education-card glass reveal"><span>2017 - 2018</span><strong>UX Design Research</strong><p>UXMINT Academy</p></article>
+          <article class="education-card glass reveal"><span>2021</span><strong>CUA Course Completion</strong><p>Human Factors International</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div><span class="section-index">04 · PROJECT PROFILE</span><h2>Selected<br>enterprise work.</h2></div>
+          <p>Representative project responsibilities across banking, healthcare, investment management, engineering software, and financial services.</p>
+        </div>
+        <div class="projects">
+          <article class="project glass reveal">
+            <div class="project-title"><span>Banking · BFS</span><h3>US Bank</h3><p>Reusable portal consolidation</p></div>
+            <div class="project-copy"><div><h4>Project focus</h4><p>Redesign multiple reusable portals into one coherent platform for designers, developers, product managers, and agile teams across responsive web and mobile experiences.</p></div><div><h4>Role and contribution</h4><p>Led requirements gathering, secondary market research, personas, journey maps, information architecture, user flows, wireframes, and responsive visual design.</p></div></div>
+          </article>
+          <article class="project glass reveal">
+            <div class="project-title"><span>Healthcare</span><h3>BCBSMA</h3><p>Consumer products and design system</p></div>
+            <div class="project-copy"><div><h4>Project focus</h4><p>Create a better consumer experience, research user behaviour and journeys, support low-code development, and establish a maintained design system across web and mobile.</p></div><div><h4>Role and contribution</h4><p>Created and maintained the design system, aligned requirements with product managers, followed brand guidelines, and translated product problems into device-compatible visual solutions.</p></div></div>
+          </article>
+          <article class="project glass reveal">
+            <div class="project-title"><span>Investment management</span><h3>Victory Capital</h3><p>Service-enabled application design</p></div>
+            <div class="project-copy"><div><h4>Project focus</h4><p>Clarify how Cognizant services, including BPaaS and CaaS, can support application development with less coding while applying current design standards.</p></div><div><h4>Role and contribution</h4><p>Worked with product managers to understand requirements, communicate information through brand-aligned interfaces, reduce human effort, and support responsive desktop and mobile solutions.</p></div></div>
+          </article>
+          <article class="project glass reveal">
+            <div class="project-title"><span>Engineering software</span><h3>CADCAM-E</h3><p>Clariti application</p></div>
+            <div class="project-copy"><div><h4>Project focus</h4><p>Assess requirements with product managers and engineers, define personas and interaction models, and develop wireframes and prototypes around customer needs.</p></div><div><h4>Role and contribution</h4><p>Connected directly with the client, identified user needs and emotions, clarified complex features and functionality, and turned business needs into user-centred, brand-aligned interface concepts.</p></div></div>
+          </article>
+          <article class="project glass reveal">
+            <div class="project-title"><span>Financial services</span><h3>Morgan Stanley</h3><p>Workflow and application evaluation</p></div>
+            <div class="project-copy"><div><h4>Client context</h4><p>Product work involving requirements assessment, personas, interaction models, wireframes, prototypes, usability, findability, and developer communication.</p></div><div><h4>Key responsibilities</h4><ul><li>Mapped process flows and system-enabled user workflows.</li><li>Studied market trends and evaluated application shortcomings.</li><li>Supported critical use-case requirements.</li><li>Created branded visual mockup templates from wireframes.</li></ul></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="shell">
+        <div class="contact-card glass reveal">
+          <p class="eyebrow">Available for UX leadership and design-system opportunities</p>
+          <h2>Let us make<br>complexity clear.</h2>
+          <p>For product design, UX leadership, design systems, or AI-assisted workflow conversations, get in touch.</p>
+          <div class="contact-actions"><a class="button primary" href="mailto:kkstarboy@gmail.com">kkstarboy@gmail.com</a><a class="button" href="tel:+919962882420">+91 99628 82420</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell"><span>Karthikeyan Thiyagarajan · Lead UX Designer</span><span>Tamil · Native | English · Professional working</span></footer>
+
+  <script>
+    (() => {
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach((item) => item.classList.add('visible'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
+</body>
+</html>
